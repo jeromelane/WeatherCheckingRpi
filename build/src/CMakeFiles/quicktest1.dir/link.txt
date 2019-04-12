@@ -1,0 +1,1 @@
+/usr/bin/c++    -rdynamic CMakeFiles/quicktest1.dir/main.cpp.o CMakeFiles/quicktest1.dir/qrc_resources.cpp.o CMakeFiles/quicktest1.dir/quicktest1_autogen/mocs_compilation.cpp.o  -o quicktest1 /usr/lib/x86_64-linux-gnu/libQt5Qml.so.5.11.1 /usr/lib/x86_64-linux-gnu/libQt5Gui.so.5.11.1 /usr/lib/x86_64-linux-gnu/libQt5Network.so.5.11.1 /usr/lib/x86_64-linux-gnu/libQt5Core.so.5.11.1 

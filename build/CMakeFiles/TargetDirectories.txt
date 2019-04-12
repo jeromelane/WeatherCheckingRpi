@@ -1,0 +1,6 @@
+/home/jerome/projects/WeatherCheckingRpi/build/CMakeFiles/rebuild_cache.dir
+/home/jerome/projects/WeatherCheckingRpi/build/CMakeFiles/edit_cache.dir
+/home/jerome/projects/WeatherCheckingRpi/build/src/CMakeFiles/rebuild_cache.dir
+/home/jerome/projects/WeatherCheckingRpi/build/src/CMakeFiles/quicktest1.dir
+/home/jerome/projects/WeatherCheckingRpi/build/src/CMakeFiles/edit_cache.dir
+/home/jerome/projects/WeatherCheckingRpi/build/src/CMakeFiles/quicktest1_autogen.dir
