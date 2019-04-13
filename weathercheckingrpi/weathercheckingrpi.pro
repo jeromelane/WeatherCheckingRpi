@@ -1,4 +1,6 @@
-QT += quick
+QT += core network positioning qml quick
+requires(qtConfig(bearermanagement))
+
 CONFIG += c++11
 
 # The following define makes your compiler emit warnings if you use
@@ -12,10 +14,19 @@ DEFINES += QT_DEPRECATED_WARNINGS
 # You can also select to disable deprecated APIs only up to a certain version of Qt.
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
-SOURCES += \
-        main.cpp
 
-RESOURCES += qml.qrc
+
+SOURCES += main.cpp \
+    appmodel.cpp \
+    sensor/bme280.c \
+    sensor/main.c
+
+HEADERS += appmodel.h \
+    sensor/bme280.h \
+    sensor/bme280_defs.h
+
+RESOURCES += \
+    weathercheckingrpi.qrc
 
 # Additional import path used to resolve QML modules in Qt Creator's code model
 QML_IMPORT_PATH =
@@ -27,3 +38,6 @@ QML_DESIGNER_IMPORT_PATH =
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+DISTFILES += \
+    sensor/bme280
