@@ -1,0 +1,137 @@
+.TH "WeatherData" 3 "Mon Apr 15 2019" "WeatherCheckingRpi project" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+WeatherData \- [0]  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <appmodel\&.h>\fP
+.PP
+Inherits QObject\&.
+.SS "Signals"
+
+.in +1c
+.ti -1c
+.RI "void \fBdataChanged\fP ()"
+.br
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBWeatherData\fP (QObject *parent=0)"
+.br
+.ti -1c
+.RI "\fBWeatherData\fP (const \fBWeatherData\fP &other)"
+.br
+.ti -1c
+.RI "QString \fBdayOfWeek\fP () const"
+.br
+.ti -1c
+.RI "QString \fBweatherIcon\fP () const"
+.br
+.ti -1c
+.RI "QString \fBweatherDescription\fP () const"
+.br
+.ti -1c
+.RI "QString \fBtemperature\fP () const"
+.br
+.ti -1c
+.RI "QString \fBpressure\fP () const"
+.br
+.ti -1c
+.RI "QString \fBhumidity\fP () const"
+.br
+.ti -1c
+.RI "void \fBsetDayOfWeek\fP (const QString &value)"
+.br
+.ti -1c
+.RI "void \fBsetWeatherIcon\fP (const QString &value)"
+.br
+.ti -1c
+.RI "void \fBsetWeatherDescription\fP (const QString &value)"
+.br
+.ti -1c
+.RI "void \fBsetTemperature\fP (const QString &value)"
+.br
+.ti -1c
+.RI "void \fBsetPressure\fP (const QString &\fBpressure\fP)"
+.br
+.ti -1c
+.RI "void \fBsetHumidity\fP (const QString &\fBhumidity\fP)"
+.br
+.in -1c
+.SS "Properties"
+
+.in +1c
+.ti -1c
+.RI "QString \fBdayOfWeek\fP"
+.br
+.ti -1c
+.RI "QString \fBweatherIcon\fP"
+.br
+.ti -1c
+.RI "QString \fBweatherDescription\fP"
+.br
+.ti -1c
+.RI "QString \fBtemperature\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+[0] 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "WeatherData::WeatherData (QObject * parent = \fC0\fP)\fC [explicit]\fP"
+
+.SS "WeatherData::WeatherData (const \fBWeatherData\fP & other)"
+
+.SH "Member Function Documentation"
+.PP 
+.SS "void WeatherData::dataChanged ()\fC [signal]\fP"
+
+.SS "QString WeatherData::dayOfWeek () const"
+
+.SS "QString WeatherData::humidity () const"
+
+.SS "QString WeatherData::pressure () const"
+
+.SS "void WeatherData::setDayOfWeek (const QString & value)"
+
+.SS "void WeatherData::setHumidity (const QString & humidity)"
+
+.SS "void WeatherData::setPressure (const QString & pressure)"
+
+.SS "void WeatherData::setTemperature (const QString & value)"
+
+.SS "void WeatherData::setWeatherDescription (const QString & value)"
+
+.SS "void WeatherData::setWeatherIcon (const QString & value)"
+
+.SS "QString WeatherData::temperature () const"
+
+.SS "QString WeatherData::weatherDescription () const"
+
+.SS "QString WeatherData::weatherIcon () const"
+
+.SH "Property Documentation"
+.PP 
+.SS "QString WeatherData::dayOfWeek\fC [read]\fP, \fC [write]\fP"
+
+.SS "QString WeatherData::temperature\fC [read]\fP, \fC [write]\fP"
+
+.SS "QString WeatherData::weatherDescription\fC [read]\fP, \fC [write]\fP"
+
+.SS "QString WeatherData::weatherIcon\fC [read]\fP, \fC [write]\fP"
+The icon value is based on OpenWeatherMap\&.org icon set\&. For details see http://bugs.openweathermap.org/projects/api/wiki/Weather_Condition_Codes
+.PP
+e\&.g\&. 01d ->sunny day
+.PP
+The icon string will be translated to http://openweathermap.org/img/w/01d.png 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for WeatherCheckingRpi project from the source code\&.

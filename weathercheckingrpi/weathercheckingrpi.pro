@@ -1,3 +1,4 @@
+TEMPLATE= app
 QT += core network positioning qml quick
 requires(qtConfig(bearermanagement))
 
@@ -17,13 +18,13 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 
 SOURCES += main.cpp \
-    appmodel.cpp \
-    sensor/bme280.c \
-    sensor/main.c
+    appmodel.cpp
+    #sensor/bme280.c \
+    #sensor/main.c
 
-HEADERS += appmodel.h \
-    sensor/bme280.h \
-    sensor/bme280_defs.h
+HEADERS += appmodel.h
+    #sensor/bme280.h \
+    #sensor/bme280_defs.h
 
 RESOURCES += \
     weathercheckingrpi.qrc
@@ -40,4 +41,8 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 DISTFILES += \
-    sensor/bme280
+    sensor/bme280 \
+    components/WeatherIcon.qml \
+    components/ForecastIcon.qml \
+    components/BigForecastIcon.qml \
+    class_diag.qmodel

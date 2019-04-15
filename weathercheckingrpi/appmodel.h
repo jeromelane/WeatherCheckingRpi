@@ -82,20 +82,26 @@ public:
     QString weatherIcon() const;
     QString weatherDescription() const;
     QString temperature() const;
+    QString pressure() const;
+    QString humidity() const;
 
     void setDayOfWeek(const QString &value);
     void setWeatherIcon(const QString &value);
     void setWeatherDescription(const QString &value);
     void setTemperature(const QString &value);
+    void setPressure(const QString &pressure);
+    void setHumidity(const QString &humidity);
 
 signals:
     void dataChanged();
-//! [0]
+    //! [0]
 private:
     QString m_dayOfWeek;
     QString m_weather;
     QString m_weatherDescription;
     QString m_temperature;
+    QString m_pressure;
+    QString m_humidity;
 //! [1]
 };
 //! [1]

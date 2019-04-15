@@ -1,0 +1,6 @@
+<map id="WeatherData::WeatherData" name="WeatherData::WeatherData">
+<area shape="rect" id="node2" href="$class_weather_data.html#a413b0ccf3fad036782ee5f5cb66f9a62" title="WeatherData::dayOfWeek" alt="" coords="259,5,435,32"/>
+<area shape="rect" id="node3" href="$class_weather_data.html#a5baf2d9cc08741d7af4a07d61df95ee4" title="WeatherData::weatherIcon" alt="" coords="257,56,436,83"/>
+<area shape="rect" id="node4" href="$class_weather_data.html#a63a3528697c8681bd32d4d170ec91f76" title="WeatherData::weatherDescription" alt="" coords="237,107,456,133"/>
+<area shape="rect" id="node5" href="$class_weather_data.html#a5a193e8410e3a146de59bab224cd88f0" title="WeatherData::temperature" alt="" coords="259,157,435,184"/>
+</map>

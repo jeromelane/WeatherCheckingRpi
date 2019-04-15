@@ -117,6 +117,16 @@ QString WeatherData::temperature() const
     return m_temperature;
 }
 
+QString WeatherData::pressure() const
+{
+    return m_pressure;
+}
+
+QString WeatherData::humidity() const
+{
+    return m_humidity;
+}
+
 void WeatherData::setDayOfWeek(const QString &value)
 {
     m_dayOfWeek = value;
@@ -139,6 +149,16 @@ void WeatherData::setTemperature(const QString &value)
 {
     m_temperature = value;
     emit dataChanged();
+}
+
+void WeatherData::setPressure(const QString &pressure)
+{
+    m_pressure = pressure;
+}
+
+void WeatherData::setHumidity(const QString &humidity)
+{
+    m_humidity = humidity;
 }
 
 class AppModelPrivate
