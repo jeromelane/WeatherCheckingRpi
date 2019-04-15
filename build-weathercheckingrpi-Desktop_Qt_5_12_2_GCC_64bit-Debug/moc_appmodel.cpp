@@ -21,8 +21,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_WeatherData_t {
-    QByteArrayData data[7];
-    char stringdata0[78];
+    QByteArrayData data[9];
+    char stringdata0[96];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -37,12 +37,14 @@ QT_MOC_LITERAL(2, 24, 0), // ""
 QT_MOC_LITERAL(3, 25, 9), // "dayOfWeek"
 QT_MOC_LITERAL(4, 35, 11), // "weatherIcon"
 QT_MOC_LITERAL(5, 47, 18), // "weatherDescription"
-QT_MOC_LITERAL(6, 66, 11) // "temperature"
+QT_MOC_LITERAL(6, 66, 11), // "temperature"
+QT_MOC_LITERAL(7, 78, 8), // "pressure"
+QT_MOC_LITERAL(8, 87, 8) // "humidity"
 
     },
     "WeatherData\0dataChanged\0\0dayOfWeek\0"
     "weatherIcon\0weatherDescription\0"
-    "temperature"
+    "temperature\0pressure\0humidity"
 };
 #undef QT_MOC_LITERAL
 
@@ -53,7 +55,7 @@ static const uint qt_meta_data_WeatherData[] = {
        0,       // classname
        0,    0, // classinfo
        1,   14, // methods
-       4,   20, // properties
+       6,   20, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
@@ -70,8 +72,12 @@ static const uint qt_meta_data_WeatherData[] = {
        4, QMetaType::QString, 0x00495103,
        5, QMetaType::QString, 0x00495103,
        6, QMetaType::QString, 0x00495103,
+       7, QMetaType::QString, 0x00495103,
+       8, QMetaType::QString, 0x00495103,
 
  // properties: notify_signal_id
+       0,
+       0,
        0,
        0,
        0,
@@ -109,6 +115,8 @@ void WeatherData::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id,
         case 1: *reinterpret_cast< QString*>(_v) = _t->weatherIcon(); break;
         case 2: *reinterpret_cast< QString*>(_v) = _t->weatherDescription(); break;
         case 3: *reinterpret_cast< QString*>(_v) = _t->temperature(); break;
+        case 4: *reinterpret_cast< QString*>(_v) = _t->pressure(); break;
+        case 5: *reinterpret_cast< QString*>(_v) = _t->humidity(); break;
         default: break;
         }
     } else if (_c == QMetaObject::WriteProperty) {
@@ -120,6 +128,8 @@ void WeatherData::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id,
         case 1: _t->setWeatherIcon(*reinterpret_cast< QString*>(_v)); break;
         case 2: _t->setWeatherDescription(*reinterpret_cast< QString*>(_v)); break;
         case 3: _t->setTemperature(*reinterpret_cast< QString*>(_v)); break;
+        case 4: _t->setPressure(*reinterpret_cast< QString*>(_v)); break;
+        case 5: _t->setHumidity(*reinterpret_cast< QString*>(_v)); break;
         default: break;
         }
     } else if (_c == QMetaObject::ResetProperty) {
@@ -169,17 +179,17 @@ int WeatherData::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
    else if (_c == QMetaObject::ReadProperty || _c == QMetaObject::WriteProperty
             || _c == QMetaObject::ResetProperty || _c == QMetaObject::RegisterPropertyMetaType) {
         qt_static_metacall(this, _c, _id, _a);
-        _id -= 4;
+        _id -= 6;
     } else if (_c == QMetaObject::QueryPropertyDesignable) {
-        _id -= 4;
+        _id -= 6;
     } else if (_c == QMetaObject::QueryPropertyScriptable) {
-        _id -= 4;
+        _id -= 6;
     } else if (_c == QMetaObject::QueryPropertyStored) {
-        _id -= 4;
+        _id -= 6;
     } else if (_c == QMetaObject::QueryPropertyEditable) {
-        _id -= 4;
+        _id -= 6;
     } else if (_c == QMetaObject::QueryPropertyUser) {
-        _id -= 4;
+        _id -= 6;
     }
 #endif // QT_NO_PROPERTIES
     return _id;

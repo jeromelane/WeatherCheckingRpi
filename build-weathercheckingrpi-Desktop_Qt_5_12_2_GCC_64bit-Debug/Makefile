@@ -63,6 +63,7 @@ DIST          = ../weathercheckingrpi/sensor/bme280 \
 		../weathercheckingrpi/components/WeatherIcon.qml \
 		../weathercheckingrpi/components/ForecastIcon.qml \
 		../weathercheckingrpi/components/BigForecastIcon.qml \
+		../weathercheckingrpi/class_diag.qmodel \
 		../../../Qt/5.12.2/gcc_64/mkspecs/features/spec_pre.prf \
 		../../../Qt/5.12.2/gcc_64/mkspecs/common/unix.conf \
 		../../../Qt/5.12.2/gcc_64/mkspecs/common/linux.conf \

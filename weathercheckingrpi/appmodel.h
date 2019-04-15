@@ -73,6 +73,12 @@ class WeatherData : public QObject {
     Q_PROPERTY(QString temperature
                READ temperature WRITE setTemperature
                NOTIFY dataChanged)
+    Q_PROPERTY(QString pressure
+               READ pressure WRITE setPressure
+               NOTIFY dataChanged)
+    Q_PROPERTY(QString humidity
+               READ humidity WRITE setHumidity
+               NOTIFY dataChanged)
 
 public:
     explicit WeatherData(QObject *parent = 0);
