@@ -51,7 +51,7 @@
 import QtQuick 2.0
 import "components"
 //! [0]
-import WeatherInfo 1.0
+import WeatherChecking 1.0
 
 Item {
     id: window
@@ -113,7 +113,7 @@ Item {
                 color: "lightgrey"
 
                 Text {
-                    text: (model.hasValidCity ? model.city : "Unknown location") + (model.useGps ? " (GPS)" : "")
+                    text: (model.hasValidCity ? model.city : "Unknown location") + (model.useGps ? " (GPS)" : "" ) + (model.useSensor ? " (Sensor)" : "" )
                     anchors.fill: parent
                     horizontalAlignment: Text.AlignHCenter
                     verticalAlignment: Text.AlignVCenter
@@ -127,9 +127,6 @@ Item {
                             model.city = "Brisbane"
                         } else {
                             switch (model.city) {
-                            case "Raspberry":
-                                model.city = "Brisbane"
-                                break
                             case "Brisbane":
                                 model.city = "Oslo"
                                 break
@@ -141,6 +138,7 @@ Item {
                                 break
                             case "New York":
                                 model.useGps = true
+                                model.useSensor = true
                                 break
                             }
                         }
@@ -159,17 +157,8 @@ Item {
                           ? model.weather.weatherIcon
                           : "01d")
 
-                topText: (model.hasValidWeather
-                          ? model.weather.temperature
-                          : "??")
-
-               /* topText: (model.hasValidWeather
-                          ? model.weather.pressure
-                          : "??")
-
-                topText: (model.hasValidWeather
-                          ? model.weather.humidity
-                          : "??")*/
+                topText: (model.hasValidWeather ? model.weather.temperature : "??")
+                         + (model.useSensor ? model.weather.pressure : "Test Pa") + (model.useSensor ? model.weather.humidity : "Test %")
 
                 bottomText: (model.hasValidWeather
                              ? model.weather.weatherDescription

@@ -1,4 +1,4 @@
-.TH "AppModel" 3 "Mon Apr 15 2019" "WeatherCheckingRpi project" \" -*- nroff -*-
+.TH "AppModel" 3 "Tue Apr 16 2019" "WeatherCheckingRpi project" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -17,6 +17,7 @@ Inherits QObject\&.
 .ti -1c
 .RI "Q_INVOKABLE void \fBrefreshWeather\fP ()"
 .br
+.RI "\fBAppModel::refreshWeather\fP Access http://api.openweathermap.org/data/2.5/weather site to get a specific city data Deals with connection errors\&. "
 .in -1c
 .SS "Signals"
 
@@ -27,6 +28,9 @@ Inherits QObject\&.
 .RI "[3] "
 .ti -1c
 .RI "void \fBuseGpsChanged\fP ()"
+.br
+.ti -1c
+.RI "void \fBuseSensorChanged\fP ()"
 .br
 .ti -1c
 .RI "void \fBcityChanged\fP ()"
@@ -56,6 +60,9 @@ Inherits QObject\&.
 .RI "bool \fBuseGps\fP () const"
 .br
 .ti -1c
+.RI "bool \fBuseSensor\fP () const"
+.br
+.ti -1c
 .RI "bool \fBhasValidCity\fP () const"
 .br
 .ti -1c
@@ -66,6 +73,9 @@ Inherits QObject\&.
 .br
 .ti -1c
 .RI "void \fBhadError\fP (bool tryAgain)"
+.br
+.ti -1c
+.RI "void \fBsetUseSensor\fP (bool value)"
 .br
 .ti -1c
 .RI "QString \fBcity\fP () const"
@@ -97,6 +107,9 @@ Inherits QObject\&.
 .br
 .ti -1c
 .RI "bool \fBuseGps\fP"
+.br
+.ti -1c
+.RI "bool \fBuseSensor\fP"
 .br
 .ti -1c
 .RI "QString \fBcity\fP"
@@ -132,7 +145,7 @@ Inherits QObject\&.
 .SS "QQmlListProperty<\fBWeatherData\fP> AppModel::forecast () const"
 
 .SS "void AppModel::hadError (bool tryAgain)"
-
+Manage time to wait before sending new request to get weather information before 
 .SS "bool AppModel::hasSource () const"
 
 .SS "bool AppModel::hasValidCity () const"
@@ -147,13 +160,21 @@ Inherits QObject\&.
 [3] 
 .SS "void AppModel::refreshWeather ()\fC [slot]\fP"
 
+.PP
+\fBAppModel::refreshWeather\fP Access http://api.openweathermap.org/data/2.5/weather site to get a specific city data Deals with connection errors\&. 
 .SS "void AppModel::setCity (const QString & value)"
 
 .SS "void AppModel::setUseGps (bool value)"
 
+.SS "void AppModel::setUseSensor (bool value)"
+
 .SS "bool AppModel::useGps () const"
 
 .SS "void AppModel::useGpsChanged ()\fC [signal]\fP"
+
+.SS "bool AppModel::useSensor () const"
+
+.SS "void AppModel::useSensorChanged ()\fC [signal]\fP"
 
 .SS "\fBWeatherData\fP* AppModel::weather () const"
 
@@ -174,6 +195,8 @@ Inherits QObject\&.
 .SS "bool AppModel::ready\fC [read]\fP"
 
 .SS "bool AppModel::useGps\fC [read]\fP, \fC [write]\fP"
+
+.SS "bool AppModel::useSensor\fC [read]\fP, \fC [write]\fP"
 
 .SS "\fBWeatherData\fP * AppModel::weather\fC [read]\fP"
 

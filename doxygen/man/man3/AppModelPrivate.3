@@ -1,4 +1,4 @@
-.TH "AppModelPrivate" 3 "Mon Apr 15 2019" "WeatherCheckingRpi project" \" -*- nroff -*-
+.TH "AppModelPrivate" 3 "Tue Apr 16 2019" "WeatherCheckingRpi project" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -51,6 +51,9 @@ AppModelPrivate
 .br
 .ti -1c
 .RI "bool \fBuseGps\fP"
+.br
+.ti -1c
+.RI "bool \fBuseSensor\fP"
 .br
 .ti -1c
 .RI "QElapsedTimer \fBthrottle\fP"
@@ -121,6 +124,8 @@ AppModelPrivate
 .SS "QElapsedTimer AppModelPrivate::throttle"
 
 .SS "bool AppModelPrivate::useGps"
+
+.SS "bool AppModelPrivate::useSensor"
 
 
 .SH "Author"

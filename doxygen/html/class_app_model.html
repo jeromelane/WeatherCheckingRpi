@@ -82,6 +82,7 @@ Inheritance diagram for AppModel:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-slots"></a>
 Public Slots</h2></td></tr>
 <tr class="memitem:a37e1da9d028779f7f0fc908e4c04fa76"><td class="memItemLeft" align="right" valign="top">Q_INVOKABLE void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_app_model.html#a37e1da9d028779f7f0fc908e4c04fa76">refreshWeather</a> ()</td></tr>
+<tr class="memdesc:a37e1da9d028779f7f0fc908e4c04fa76"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_app_model.html#a37e1da9d028779f7f0fc908e4c04fa76" title="AppModel::refreshWeather Access http://api.openweathermap.org/data/2.5/weather site to get a specific...">AppModel::refreshWeather</a> Access <a href="http://api.openweathermap.org/data/2.5/weather">http://api.openweathermap.org/data/2.5/weather</a> site to get a specific city data Deals with connection errors.  <a href="#a37e1da9d028779f7f0fc908e4c04fa76">More...</a><br /></td></tr>
 <tr class="separator:a37e1da9d028779f7f0fc908e4c04fa76"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="signals"></a>
@@ -91,6 +92,8 @@ Signals</h2></td></tr>
 <tr class="separator:a574c2bd6f5c92ac9268107f8399989cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af0007ee4da862433868baa5fdb31a3fe"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_app_model.html#af0007ee4da862433868baa5fdb31a3fe">useGpsChanged</a> ()</td></tr>
 <tr class="separator:af0007ee4da862433868baa5fdb31a3fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a947db57e8c272bdb2420f3f273cd2e6a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_app_model.html#a947db57e8c272bdb2420f3f273cd2e6a">useSensorChanged</a> ()</td></tr>
+<tr class="separator:a947db57e8c272bdb2420f3f273cd2e6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aeb28c7a57316aaf6295a943a65f60569"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_app_model.html#aeb28c7a57316aaf6295a943a65f60569">cityChanged</a> ()</td></tr>
 <tr class="separator:aeb28c7a57316aaf6295a943a65f60569"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a83e61455ed5672333b0db45f3f86417c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_app_model.html#a83e61455ed5672333b0db45f3f86417c">weatherChanged</a> ()</td></tr>
@@ -110,6 +113,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a8ad68e982b0a307d9986ff538baedbd2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0e6e7506ba084133a6927d8c633ad699"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_app_model.html#a0e6e7506ba084133a6927d8c633ad699">useGps</a> () const</td></tr>
 <tr class="separator:a0e6e7506ba084133a6927d8c633ad699"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5b83f8c93976273d6e9f1664e62efe63"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_app_model.html#a5b83f8c93976273d6e9f1664e62efe63">useSensor</a> () const</td></tr>
+<tr class="separator:a5b83f8c93976273d6e9f1664e62efe63"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aedeadab67d9bc5f5dfead369f66c3912"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_app_model.html#aedeadab67d9bc5f5dfead369f66c3912">hasValidCity</a> () const</td></tr>
 <tr class="separator:aedeadab67d9bc5f5dfead369f66c3912"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6ec5b34a1839a7141979709418174ad1"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_app_model.html#a6ec5b34a1839a7141979709418174ad1">hasValidWeather</a> () const</td></tr>
@@ -118,6 +123,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a81c3ffb3370837086366c9f70bb3d5eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac5fe590924b727724d9c686bb2552ed8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_app_model.html#ac5fe590924b727724d9c686bb2552ed8">hadError</a> (bool tryAgain)</td></tr>
 <tr class="separator:ac5fe590924b727724d9c686bb2552ed8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad1369130f74b4aabd0ac0d6b1b030014"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_app_model.html#ad1369130f74b4aabd0ac0d6b1b030014">setUseSensor</a> (bool value)</td></tr>
+<tr class="separator:ad1369130f74b4aabd0ac0d6b1b030014"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a093066c81b5fe2c1361df8fd19a21f51"><td class="memItemLeft" align="right" valign="top">QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_app_model.html#a093066c81b5fe2c1361df8fd19a21f51">city</a> () const</td></tr>
 <tr class="separator:a093066c81b5fe2c1361df8fd19a21f51"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad0135d4a1551b6484ac28c434f861af5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_app_model.html#ad0135d4a1551b6484ac28c434f861af5">setCity</a> (const QString &amp;value)</td></tr>
@@ -139,6 +146,8 @@ Properties</h2></td></tr>
 <tr class="separator:a493654987603c091935810e34e6b5c05"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aac827e2dce65eb299d4eec5ff4ab2155"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_app_model.html#aac827e2dce65eb299d4eec5ff4ab2155">useGps</a></td></tr>
 <tr class="separator:aac827e2dce65eb299d4eec5ff4ab2155"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ada296063fe2916580f532b639a546851"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_app_model.html#ada296063fe2916580f532b639a546851">useSensor</a></td></tr>
+<tr class="separator:ada296063fe2916580f532b639a546851"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa6915cabdaaf04805e00b5a2f75311e8"><td class="memItemLeft" align="right" valign="top">QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_app_model.html#aa6915cabdaaf04805e00b5a2f75311e8">city</a></td></tr>
 <tr class="separator:aa6915cabdaaf04805e00b5a2f75311e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a72dfc16433c4ca50da689205e9db9298"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_weather_data.html">WeatherData</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_app_model.html#a72dfc16433c4ca50da689205e9db9298">weather</a></td></tr>
@@ -200,7 +209,7 @@ Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_app_model_a67ab3004ccbe2822a8a0abb9fa96ace3_cgraph.png" border="0" usemap="#class_app_model_a67ab3004ccbe2822a8a0abb9fa96ace3_cgraph" alt=""/></div>
 <map name="class_app_model_a67ab3004ccbe2822a8a0abb9fa96ace3_cgraph" id="class_app_model_a67ab3004ccbe2822a8a0abb9fa96ace3_cgraph">
-<area shape="rect" id="node2" href="class_app_model.html#a37e1da9d028779f7f0fc908e4c04fa76" title="AppModel::refreshWeather" alt="" coords="208,5,385,32"/>
+<area shape="rect" id="node2" href="class_app_model.html#a37e1da9d028779f7f0fc908e4c04fa76" title="AppModel::refreshWeather Access http://api.openweathermap.org/data/2.5/weather site to get a specific..." alt="" coords="208,5,385,32"/>
 </map>
 </div>
 
@@ -226,8 +235,8 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_app_model_a093066c81b5fe2c1361df8fd19a21f51_icgraph.png" border="0" usemap="#class_app_model_a093066c81b5fe2c1361df8fd19a21f51_icgraph" alt=""/></div>
 <map name="class_app_model_a093066c81b5fe2c1361df8fd19a21f51_icgraph" id="class_app_model_a093066c81b5fe2c1361df8fd19a21f51_icgraph">
-<area shape="rect" id="node2" href="class_app_model.html#ac5fe590924b727724d9c686bb2552ed8" title="AppModel::hadError" alt="" coords="171,5,309,32"/>
-<area shape="rect" id="node3" href="class_app_model.html#a81c3ffb3370837086366c9f70bb3d5eb" title="AppModel::setUseGps" alt="" coords="163,56,317,83"/>
+<area shape="rect" id="node2" href="class_app_model.html#ac5fe590924b727724d9c686bb2552ed8" title="AppModel::hadError" alt="" coords="179,5,317,32"/>
+<area shape="rect" id="node3" href="class_app_model.html#ad1369130f74b4aabd0ac0d6b1b030014" title="AppModel::setUseSensor" alt="" coords="163,56,333,83"/>
 </map>
 </div>
 
@@ -260,10 +269,11 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_app_model_aeb28c7a57316aaf6295a943a65f60569_icgraph.png" border="0" usemap="#class_app_model_aeb28c7a57316aaf6295a943a65f60569_icgraph" alt=""/></div>
 <map name="class_app_model_aeb28c7a57316aaf6295a943a65f60569_icgraph" id="class_app_model_aeb28c7a57316aaf6295a943a65f60569_icgraph">
-<area shape="rect" id="node2" href="class_app_model.html#a67ab3004ccbe2822a8a0abb9fa96ace3" title="[1] " alt="" coords="215,5,369,32"/>
-<area shape="rect" id="node3" href="class_app_model.html#ac5fe590924b727724d9c686bb2552ed8" title="AppModel::hadError" alt="" coords="223,56,361,83"/>
-<area shape="rect" id="node4" href="class_app_model.html#a81c3ffb3370837086366c9f70bb3d5eb" title="AppModel::setUseGps" alt="" coords="215,107,369,133"/>
-<area shape="rect" id="node5" href="class_app_model.html#ad0135d4a1551b6484ac28c434f861af5" title="AppModel::setCity" alt="" coords="227,157,357,184"/>
+<area shape="rect" id="node2" href="class_app_model.html#a67ab3004ccbe2822a8a0abb9fa96ace3" title="[1] " alt="" coords="223,5,377,32"/>
+<area shape="rect" id="node3" href="class_app_model.html#ac5fe590924b727724d9c686bb2552ed8" title="AppModel::hadError" alt="" coords="231,56,369,83"/>
+<area shape="rect" id="node4" href="class_app_model.html#a81c3ffb3370837086366c9f70bb3d5eb" title="AppModel::setUseGps" alt="" coords="223,107,377,133"/>
+<area shape="rect" id="node5" href="class_app_model.html#ad1369130f74b4aabd0ac0d6b1b030014" title="AppModel::setUseSensor" alt="" coords="215,157,385,184"/>
+<area shape="rect" id="node6" href="class_app_model.html#ad0135d4a1551b6484ac28c434f861af5" title="AppModel::setCity" alt="" coords="235,208,365,235"/>
 </map>
 </div>
 
@@ -301,13 +311,14 @@ Here is the caller graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Manage time to wait before sending new request to get weather information before </p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_app_model_ac5fe590924b727724d9c686bb2552ed8_cgraph.png" border="0" usemap="#class_app_model_ac5fe590924b727724d9c686bb2552ed8_cgraph" alt=""/></div>
 <map name="class_app_model_ac5fe590924b727724d9c686bb2552ed8_cgraph" id="class_app_model_ac5fe590924b727724d9c686bb2552ed8_cgraph">
 <area shape="rect" id="node2" href="class_app_model.html#a093066c81b5fe2c1361df8fd19a21f51" title="AppModel::city" alt="" coords="225,5,334,32"/>
-<area shape="rect" id="node3" href="class_app_model.html#a37e1da9d028779f7f0fc908e4c04fa76" title="AppModel::refreshWeather" alt="" coords="191,56,368,83"/>
+<area shape="rect" id="node3" href="class_app_model.html#a37e1da9d028779f7f0fc908e4c04fa76" title="AppModel::refreshWeather Access http://api.openweathermap.org/data/2.5/weather site to get a specific..." alt="" coords="191,56,368,83"/>
 </map>
 </div>
 
@@ -430,6 +441,8 @@ Here is the call graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p><a class="el" href="class_app_model.html#a37e1da9d028779f7f0fc908e4c04fa76" title="AppModel::refreshWeather Access http://api.openweathermap.org/data/2.5/weather site to get a specific...">AppModel::refreshWeather</a> Access <a href="http://api.openweathermap.org/data/2.5/weather">http://api.openweathermap.org/data/2.5/weather</a> site to get a specific city data Deals with connection errors. </p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -463,7 +476,7 @@ Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_app_model_ad0135d4a1551b6484ac28c434f861af5_cgraph.png" border="0" usemap="#class_app_model_ad0135d4a1551b6484ac28c434f861af5_cgraph" alt=""/></div>
 <map name="class_app_model_ad0135d4a1551b6484ac28c434f861af5_cgraph" id="class_app_model_ad0135d4a1551b6484ac28c434f861af5_cgraph">
-<area shape="rect" id="node2" href="class_app_model.html#a37e1da9d028779f7f0fc908e4c04fa76" title="AppModel::refreshWeather" alt="" coords="184,5,361,32"/>
+<area shape="rect" id="node2" href="class_app_model.html#a37e1da9d028779f7f0fc908e4c04fa76" title="AppModel::refreshWeather Access http://api.openweathermap.org/data/2.5/weather site to get a specific..." alt="" coords="184,5,361,32"/>
 </map>
 </div>
 
@@ -489,7 +502,33 @@ Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_app_model_a81c3ffb3370837086366c9f70bb3d5eb_cgraph.png" border="0" usemap="#class_app_model_a81c3ffb3370837086366c9f70bb3d5eb_cgraph" alt=""/></div>
 <map name="class_app_model_a81c3ffb3370837086366c9f70bb3d5eb_cgraph" id="class_app_model_a81c3ffb3370837086366c9f70bb3d5eb_cgraph">
-<area shape="rect" id="node2" href="class_app_model.html#a093066c81b5fe2c1361df8fd19a21f51" title="AppModel::city" alt="" coords="208,5,317,32"/>
+<area shape="rect" id="node2" href="class_app_model.html#a5b83f8c93976273d6e9f1664e62efe63" title="AppModel::useSensor" alt="" coords="208,5,359,32"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="ad1369130f74b4aabd0ac0d6b1b030014"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad1369130f74b4aabd0ac0d6b1b030014">&#9670;&nbsp;</a></span>setUseSensor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void AppModel::setUseSensor </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>value</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_app_model_ad1369130f74b4aabd0ac0d6b1b030014_cgraph.png" border="0" usemap="#class_app_model_ad1369130f74b4aabd0ac0d6b1b030014_cgraph" alt=""/></div>
+<map name="class_app_model_ad1369130f74b4aabd0ac0d6b1b030014_cgraph" id="class_app_model_ad1369130f74b4aabd0ac0d6b1b030014_cgraph">
+<area shape="rect" id="node2" href="class_app_model.html#a093066c81b5fe2c1361df8fd19a21f51" title="AppModel::city" alt="" coords="224,5,333,32"/>
 </map>
 </div>
 
@@ -545,6 +584,64 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
+<a id="a5b83f8c93976273d6e9f1664e62efe63"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5b83f8c93976273d6e9f1664e62efe63">&#9670;&nbsp;</a></span>useSensor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool AppModel::useSensor </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_app_model_a5b83f8c93976273d6e9f1664e62efe63_icgraph.png" border="0" usemap="#class_app_model_a5b83f8c93976273d6e9f1664e62efe63_icgraph" alt=""/></div>
+<map name="class_app_model_a5b83f8c93976273d6e9f1664e62efe63_icgraph" id="class_app_model_a5b83f8c93976273d6e9f1664e62efe63_icgraph">
+<area shape="rect" id="node2" href="class_app_model.html#a81c3ffb3370837086366c9f70bb3d5eb" title="AppModel::setUseGps" alt="" coords="204,5,359,32"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a947db57e8c272bdb2420f3f273cd2e6a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a947db57e8c272bdb2420f3f273cd2e6a">&#9670;&nbsp;</a></span>useSensorChanged</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void AppModel::useSensorChanged </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">signal</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="class_app_model_a947db57e8c272bdb2420f3f273cd2e6a_icgraph.png" border="0" usemap="#class_app_model_a947db57e8c272bdb2420f3f273cd2e6a_icgraph" alt=""/></div>
+<map name="class_app_model_a947db57e8c272bdb2420f3f273cd2e6a_icgraph" id="class_app_model_a947db57e8c272bdb2420f3f273cd2e6a_icgraph">
+<area shape="rect" id="node2" href="class_app_model.html#ad1369130f74b4aabd0ac0d6b1b030014" title="AppModel::setUseSensor" alt="" coords="256,5,427,32"/>
+</map>
+</div>
+
+</div>
+</div>
 <a id="a70a5bec8e359e4edbd16611efa96cf32"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a70a5bec8e359e4edbd16611efa96cf32">&#9670;&nbsp;</a></span>weather()</h2>
 
@@ -589,7 +686,8 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_app_model_a83e61455ed5672333b0db45f3f86417c_icgraph.png" border="0" usemap="#class_app_model_a83e61455ed5672333b0db45f3f86417c_icgraph" alt=""/></div>
 <map name="class_app_model_a83e61455ed5672333b0db45f3f86417c_icgraph" id="class_app_model_a83e61455ed5672333b0db45f3f86417c_icgraph">
-<area shape="rect" id="node2" href="class_app_model.html#a81c3ffb3370837086366c9f70bb3d5eb" title="AppModel::setUseGps" alt="" coords="240,5,395,32"/>
+<area shape="rect" id="node2" href="class_app_model.html#a81c3ffb3370837086366c9f70bb3d5eb" title="AppModel::setUseGps" alt="" coords="248,5,403,32"/>
+<area shape="rect" id="node3" href="class_app_model.html#ad1369130f74b4aabd0ac0d6b1b030014" title="AppModel::setUseSensor" alt="" coords="240,56,411,83"/>
 </map>
 </div>
 
@@ -739,6 +837,28 @@ Here is the caller graph for this function:</div>
       <table class="memname">
         <tr>
           <td class="memname">bool AppModel::useGps</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">read</span><span class="mlabel">write</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ada296063fe2916580f532b639a546851"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ada296063fe2916580f532b639a546851">&#9670;&nbsp;</a></span>useSensor</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool AppModel::useSensor</td>
         </tr>
       </table>
   </td>
