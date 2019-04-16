@@ -179,5 +179,6 @@
         <file>img/icons/weather-sunny-very-few-clouds.png</file>
         <file>img/icons/weather-sunny.png</file>
         <file>img/icons/weather-thundershower.png</file>
+        <file>appmodel.h</file>
     </qresource>
 </RCC>

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['usegps',['useGps',['../class_app_model.html#aac827e2dce65eb299d4eec5ff4ab2155',1,'AppModel']]]
+  ['temperature',['temperature',['../class_weather_data.html#a2ee510e51cb81a6a479cd0af5f291e2c',1,'WeatherData']]]
 ];

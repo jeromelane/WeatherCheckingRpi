@@ -22,13 +22,15 @@ Inheritance diagram for App\+Model\+:\nopagebreak
 \begin{DoxyCompactItemize}
 \item 
 Q\+\_\+\+I\+N\+V\+O\+K\+A\+B\+LE void \hyperlink{class_app_model_a37e1da9d028779f7f0fc908e4c04fa76}{refresh\+Weather} ()
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_app_model_a37e1da9d028779f7f0fc908e4c04fa76}{App\+Model\+::refresh\+Weather} Access \href{http://api.openweathermap.org/data/2.5/weather}{\tt http\+://api.\+openweathermap.\+org/data/2.\+5/weather} site to get a specific city data Deals with connection errors. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Signals}
 \begin{DoxyCompactItemize}
 \item 
 void \hyperlink{class_app_model_a574c2bd6f5c92ac9268107f8399989cb}{ready\+Changed} ()
 \begin{DoxyCompactList}\small\item\em \mbox{[}3\mbox{]} \end{DoxyCompactList}\item 
 void \hyperlink{class_app_model_af0007ee4da862433868baa5fdb31a3fe}{use\+Gps\+Changed} ()
+\item 
+void \hyperlink{class_app_model_a947db57e8c272bdb2420f3f273cd2e6a}{use\+Sensor\+Changed} ()
 \item 
 void \hyperlink{class_app_model_aeb28c7a57316aaf6295a943a65f60569}{city\+Changed} ()
 \item 
@@ -47,6 +49,8 @@ bool \hyperlink{class_app_model_a8ad68e982b0a307d9986ff538baedbd2}{has\+Source} 
 \item 
 bool \hyperlink{class_app_model_a0e6e7506ba084133a6927d8c633ad699}{use\+Gps} () const
 \item 
+bool \hyperlink{class_app_model_a5b83f8c93976273d6e9f1664e62efe63}{use\+Sensor} () const
+\item 
 bool \hyperlink{class_app_model_aedeadab67d9bc5f5dfead369f66c3912}{has\+Valid\+City} () const
 \item 
 bool \hyperlink{class_app_model_a6ec5b34a1839a7141979709418174ad1}{has\+Valid\+Weather} () const
@@ -54,6 +58,8 @@ bool \hyperlink{class_app_model_a6ec5b34a1839a7141979709418174ad1}{has\+Valid\+W
 void \hyperlink{class_app_model_a81c3ffb3370837086366c9f70bb3d5eb}{set\+Use\+Gps} (bool value)
 \item 
 void \hyperlink{class_app_model_ac5fe590924b727724d9c686bb2552ed8}{had\+Error} (bool try\+Again)
+\item 
+void \hyperlink{class_app_model_ad1369130f74b4aabd0ac0d6b1b030014}{set\+Use\+Sensor} (bool value)
 \item 
 Q\+String \hyperlink{class_app_model_a093066c81b5fe2c1361df8fd19a21f51}{city} () const
 \item 
@@ -75,6 +81,8 @@ bool \hyperlink{class_app_model_a98845ef5ffa3d9db0ee22aa3534b8608}{has\+Valid\+C
 bool \hyperlink{class_app_model_a493654987603c091935810e34e6b5c05}{has\+Valid\+Weather}
 \item 
 bool \hyperlink{class_app_model_aac827e2dce65eb299d4eec5ff4ab2155}{use\+Gps}
+\item 
+bool \hyperlink{class_app_model_ada296063fe2916580f532b639a546851}{use\+Sensor}
 \item 
 Q\+String \hyperlink{class_app_model_aa6915cabdaaf04805e00b5a2f75311e8}{city}
 \item 
@@ -110,7 +118,8 @@ Q\+Qml\+List\+Property$<$ \hyperlink{class_weather_data}{Weather\+Data} $>$ \hyp
 
 \mbox{[}1\mbox{]} 
 
-Here is the call graph for this function\+:\nopagebreak
+Here is the call graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -126,11 +135,12 @@ Here is the call graph for this function\+:\nopagebreak
 \subsubsection{\texorpdfstring{city()}{city()}}
 {\footnotesize\ttfamily Q\+String App\+Model\+::city (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
-Here is the caller graph for this function\+:\nopagebreak
+Here is the caller graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=314pt]{class_app_model_a093066c81b5fe2c1361df8fd19a21f51_icgraph}
+\includegraphics[width=326pt]{class_app_model_a093066c81b5fe2c1361df8fd19a21f51_icgraph}
 \end{center}
 \end{figure}
 \mbox{\Hypertarget{class_app_model_aeb28c7a57316aaf6295a943a65f60569}\label{class_app_model_aeb28c7a57316aaf6295a943a65f60569}} 
@@ -139,7 +149,8 @@ Here is the caller graph for this function\+:\nopagebreak
 \subsubsection{\texorpdfstring{city\+Changed}{cityChanged}}
 {\footnotesize\ttfamily void App\+Model\+::city\+Changed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
 
-Here is the caller graph for this function\+:\nopagebreak
+Here is the caller graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -158,7 +169,8 @@ Here is the caller graph for this function\+:\nopagebreak
 \subsubsection{\texorpdfstring{had\+Error()}{hadError()}}
 {\footnotesize\ttfamily void App\+Model\+::had\+Error (\begin{DoxyParamCaption}\item[{bool}]{try\+Again }\end{DoxyParamCaption})}
 
-Here is the call graph for this function\+:\nopagebreak
+Manage time to wait before sending new request to get weather information before Here is the call graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -205,7 +217,12 @@ Here is the call graph for this function\+:\nopagebreak
 \subsubsection{\texorpdfstring{refresh\+Weather}{refreshWeather}}
 {\footnotesize\ttfamily void App\+Model\+::refresh\+Weather (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
 
-Here is the caller graph for this function\+:\nopagebreak
+
+
+\hyperlink{class_app_model_a37e1da9d028779f7f0fc908e4c04fa76}{App\+Model\+::refresh\+Weather} Access \href{http://api.openweathermap.org/data/2.5/weather}{\tt http\+://api.\+openweathermap.\+org/data/2.\+5/weather} site to get a specific city data Deals with connection errors. 
+
+Here is the caller graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -218,7 +235,8 @@ Here is the caller graph for this function\+:\nopagebreak
 \subsubsection{\texorpdfstring{set\+City()}{setCity()}}
 {\footnotesize\ttfamily void App\+Model\+::set\+City (\begin{DoxyParamCaption}\item[{const Q\+String \&}]{value }\end{DoxyParamCaption})}
 
-Here is the call graph for this function\+:\nopagebreak
+Here is the call graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -231,11 +249,26 @@ Here is the call graph for this function\+:\nopagebreak
 \subsubsection{\texorpdfstring{set\+Use\+Gps()}{setUseGps()}}
 {\footnotesize\ttfamily void App\+Model\+::set\+Use\+Gps (\begin{DoxyParamCaption}\item[{bool}]{value }\end{DoxyParamCaption})}
 
-Here is the call graph for this function\+:\nopagebreak
+Here is the call graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=314pt]{class_app_model_a81c3ffb3370837086366c9f70bb3d5eb_cgraph}
+\includegraphics[width=345pt]{class_app_model_a81c3ffb3370837086366c9f70bb3d5eb_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_app_model_ad1369130f74b4aabd0ac0d6b1b030014}\label{class_app_model_ad1369130f74b4aabd0ac0d6b1b030014}} 
+\index{App\+Model@{App\+Model}!set\+Use\+Sensor@{set\+Use\+Sensor}}
+\index{set\+Use\+Sensor@{set\+Use\+Sensor}!App\+Model@{App\+Model}}
+\subsubsection{\texorpdfstring{set\+Use\+Sensor()}{setUseSensor()}}
+{\footnotesize\ttfamily void App\+Model\+::set\+Use\+Sensor (\begin{DoxyParamCaption}\item[{bool}]{value }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=326pt]{class_app_model_ad1369130f74b4aabd0ac0d6b1b030014_cgraph}
 \end{center}
 \end{figure}
 \mbox{\Hypertarget{class_app_model_a0e6e7506ba084133a6927d8c633ad699}\label{class_app_model_a0e6e7506ba084133a6927d8c633ad699}} 
@@ -250,11 +283,40 @@ Here is the call graph for this function\+:\nopagebreak
 \subsubsection{\texorpdfstring{use\+Gps\+Changed}{useGpsChanged}}
 {\footnotesize\ttfamily void App\+Model\+::use\+Gps\+Changed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
 
-Here is the caller graph for this function\+:\nopagebreak
+Here is the caller graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=350pt]{class_app_model_af0007ee4da862433868baa5fdb31a3fe_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_app_model_a5b83f8c93976273d6e9f1664e62efe63}\label{class_app_model_a5b83f8c93976273d6e9f1664e62efe63}} 
+\index{App\+Model@{App\+Model}!use\+Sensor@{use\+Sensor}}
+\index{use\+Sensor@{use\+Sensor}!App\+Model@{App\+Model}}
+\subsubsection{\texorpdfstring{use\+Sensor()}{useSensor()}}
+{\footnotesize\ttfamily bool App\+Model\+::use\+Sensor (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=345pt]{class_app_model_a5b83f8c93976273d6e9f1664e62efe63_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_app_model_a947db57e8c272bdb2420f3f273cd2e6a}\label{class_app_model_a947db57e8c272bdb2420f3f273cd2e6a}} 
+\index{App\+Model@{App\+Model}!use\+Sensor\+Changed@{use\+Sensor\+Changed}}
+\index{use\+Sensor\+Changed@{use\+Sensor\+Changed}!App\+Model@{App\+Model}}
+\subsubsection{\texorpdfstring{use\+Sensor\+Changed}{useSensorChanged}}
+{\footnotesize\ttfamily void App\+Model\+::use\+Sensor\+Changed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_app_model_a947db57e8c272bdb2420f3f273cd2e6a_icgraph}
 \end{center}
 \end{figure}
 \mbox{\Hypertarget{class_app_model_a70a5bec8e359e4edbd16611efa96cf32}\label{class_app_model_a70a5bec8e359e4edbd16611efa96cf32}} 
@@ -269,7 +331,8 @@ Here is the caller graph for this function\+:\nopagebreak
 \subsubsection{\texorpdfstring{weather\+Changed}{weatherChanged}}
 {\footnotesize\ttfamily void App\+Model\+::weather\+Changed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
 
-Here is the caller graph for this function\+:\nopagebreak
+Here is the caller graph for this function\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -320,6 +383,12 @@ Here is the caller graph for this function\+:\nopagebreak
 \index{use\+Gps@{use\+Gps}!App\+Model@{App\+Model}}
 \subsubsection{\texorpdfstring{use\+Gps}{useGps}}
 {\footnotesize\ttfamily bool App\+Model\+::use\+Gps\hspace{0.3cm}{\ttfamily [read]}, {\ttfamily [write]}}
+
+\mbox{\Hypertarget{class_app_model_ada296063fe2916580f532b639a546851}\label{class_app_model_ada296063fe2916580f532b639a546851}} 
+\index{App\+Model@{App\+Model}!use\+Sensor@{use\+Sensor}}
+\index{use\+Sensor@{use\+Sensor}!App\+Model@{App\+Model}}
+\subsubsection{\texorpdfstring{use\+Sensor}{useSensor}}
+{\footnotesize\ttfamily bool App\+Model\+::use\+Sensor\hspace{0.3cm}{\ttfamily [read]}, {\ttfamily [write]}}
 
 \mbox{\Hypertarget{class_app_model_a72dfc16433c4ca50da689205e9db9298}\label{class_app_model_a72dfc16433c4ca50da689205e9db9298}} 
 \index{App\+Model@{App\+Model}!weather@{weather}}

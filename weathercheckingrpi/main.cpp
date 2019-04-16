@@ -46,8 +46,8 @@ int main(int argc, char *argv[])
     QLoggingCategory::setFilterRules("wapp.*.debug=false");
     QGuiApplication application(argc, argv);
 
-    qmlRegisterType<WeatherData>("WeatherInfo", 1, 0, "WeatherData");
-    qmlRegisterType<AppModel>("WeatherInfo", 1, 0, "AppModel");
+    qmlRegisterType<WeatherData>("WeatherChecking", 1, 0, "WeatherData");
+    qmlRegisterType<AppModel>("WeatherChecking", 1, 0, "AppModel");
 
     qRegisterMetaType<WeatherData>();
 

@@ -1,4 +1,4 @@
-.TH "WeatherData" 3 "Mon Apr 15 2019" "WeatherCheckingRpi project" \" -*- nroff -*-
+.TH "WeatherData" 3 "Tue Apr 16 2019" "WeatherCheckingRpi project" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -79,6 +79,12 @@ Inherits QObject\&.
 .ti -1c
 .RI "QString \fBtemperature\fP"
 .br
+.ti -1c
+.RI "QString \fBpressure\fP"
+.br
+.ti -1c
+.RI "QString \fBhumidity\fP"
+.br
 .in -1c
 .SH "Detailed Description"
 .PP 
@@ -120,6 +126,10 @@ Inherits QObject\&.
 .SH "Property Documentation"
 .PP 
 .SS "QString WeatherData::dayOfWeek\fC [read]\fP, \fC [write]\fP"
+
+.SS "QString WeatherData::humidity\fC [read]\fP, \fC [write]\fP"
+
+.SS "QString WeatherData::pressure\fC [read]\fP, \fC [write]\fP"
 
 .SS "QString WeatherData::temperature\fC [read]\fP, \fC [write]\fP"
 

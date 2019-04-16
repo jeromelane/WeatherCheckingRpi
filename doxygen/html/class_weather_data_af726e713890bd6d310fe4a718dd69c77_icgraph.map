@@ -1,3 +1,4 @@
 <map id="WeatherData::pressure" name="WeatherData::pressure">
-<area shape="rect" id="node2" href="$class_weather_data.html#ad5b453016656864e2bc3a09fc75919a0" title="WeatherData::setPressure" alt="" coords="211,5,388,32"/>
+<area shape="rect" id="node2" href="$class_weather_data.html#a48baeaa6b2a77d2a5e008159188416e8" title="WeatherData::WeatherData" alt="" coords="211,5,395,32"/>
+<area shape="rect" id="node3" href="$class_weather_data.html#ad5b453016656864e2bc3a09fc75919a0" title="WeatherData::setPressure" alt="" coords="214,56,391,83"/>
 </map>

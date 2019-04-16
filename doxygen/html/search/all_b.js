@@ -6,6 +6,7 @@ var searchData=
   ['setpressure',['setPressure',['../class_weather_data.html#ad5b453016656864e2bc3a09fc75919a0',1,'WeatherData']]],
   ['settemperature',['setTemperature',['../class_weather_data.html#afee514cbb8713059cf8d0602b33cadf5',1,'WeatherData']]],
   ['setusegps',['setUseGps',['../class_app_model.html#a81c3ffb3370837086366c9f70bb3d5eb',1,'AppModel']]],
+  ['setusesensor',['setUseSensor',['../class_app_model.html#ad1369130f74b4aabd0ac0d6b1b030014',1,'AppModel']]],
   ['setweatherdescription',['setWeatherDescription',['../class_weather_data.html#a68686722f2e0bbf5cb28f0fdc96e280d',1,'WeatherData']]],
   ['setweathericon',['setWeatherIcon',['../class_weather_data.html#a2a8093aaf20e1fb3c63c429a4ae0a977',1,'WeatherData']]],
   ['src',['src',['../class_app_model_private.html#a6f5f4021a335ff82b19cc9c5ed4d19a7',1,'AppModelPrivate']]]

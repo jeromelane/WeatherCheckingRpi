@@ -176,6 +176,7 @@ public:
     QQmlListProperty<WeatherData> *fcProp;
     bool ready;
     bool useGps;
+    bool useSensor;
     QElapsedTimer throttle;
     int nErrors;
     int minMsBeforeNewRequest;
@@ -190,6 +191,7 @@ public:
             fcProp(NULL),
             ready(false),
             useGps(true),
+            useSensor(true),
             nErrors(0),
             minMsBeforeNewRequest(baseMsBeforeNewRequest)
     {
@@ -237,10 +239,8 @@ AppModel::AppModel(QObject *parent) :
                                                           forecastAt,
                                                           forecastClear);
 
-    connect(&d->delayedCityRequestTimer, SIGNAL(timeout()),
-            this, SLOT(queryCity()));
-    connect(&d->requestNewWeatherTimer, SIGNAL(timeout()),
-            this, SLOT(refreshWeather()));
+    connect(&d->delayedCityRequestTimer, SIGNAL(timeout()), this, SLOT(queryCity()));
+    connect(&d->requestNewWeatherTimer, SIGNAL(timeout()), this, SLOT(refreshWeather()));
     d->requestNewWeatherTimer.start();
 
 
@@ -268,19 +268,25 @@ AppModel::~AppModel()
 }
 
 //! [2]
+/*!
+ * \brief AppModel::networkSessionOpened
+ *
+ * Set city name using GPS with the use of positionUpdated and positionError
+ *
+ */
 void AppModel::networkSessionOpened()
 {
     d->src = QGeoPositionInfoSource::createDefaultSource(this);
 
     if (d->src) {
         d->useGps = true;
-        connect(d->src, SIGNAL(positionUpdated(QGeoPositionInfo)),
-                this, SLOT(positionUpdated(QGeoPositionInfo)));
-        connect(d->src, SIGNAL(error(QGeoPositionInfoSource::Error)),
-                this, SLOT(positionError(QGeoPositionInfoSource::Error)));
+        d->useSensor = true;
+        connect(d->src, SIGNAL(positionUpdated(QGeoPositionInfo)), this, SLOT(positionUpdated(QGeoPositionInfo)));
+        connect(d->src, SIGNAL(error(QGeoPositionInfoSource::Error)), this, SLOT(positionError(QGeoPositionInfoSource::Error)));
         d->src->startUpdates();
     } else {
         d->useGps = false;
+        d->useSensor = false;
         d->city = "Brisbane";
         emit cityChanged();
         this->refreshWeather();
@@ -289,6 +295,12 @@ void AppModel::networkSessionOpened()
 //! [2]
 
 //! [3]
+/*!
+ * \brief AppModel::positionUpdated
+ * \param gpsPos
+ *
+ * Get GPS coordinate and get data of the GPS defined city if GPS is allowed
+ */
 void AppModel::positionUpdated(QGeoPositionInfo gpsPos)
 {
     d->coord = gpsPos.coordinate();
@@ -299,7 +311,11 @@ void AppModel::positionUpdated(QGeoPositionInfo gpsPos)
     queryCity();
 }
 //! [3]
-
+/*!
+ * Get weather data from http://api.openweathermap.org/data/2.5/weather site
+ * for specified latitude and longitude
+ *
+ */
 void AppModel::queryCity()
 {
     //don't update more often then once a minute
@@ -329,10 +345,13 @@ void AppModel::queryCity()
 
     QNetworkReply *rep = d->nam->get(QNetworkRequest(url));
     // connect up the signal right away
-    connect(rep, &QNetworkReply::finished,
-            this, [this, rep]() { handleGeoNetworkData(rep); });
+    connect(rep, &QNetworkReply::finished, this, [this, rep]() { handleGeoNetworkData(rep); });
 }
 
+/*!
+ * fall back to no accessible GPS mode.
+ *
+ */
 void AppModel::positionError(QGeoPositionInfoSource::Error e)
 {
     Q_UNUSED(e);
@@ -349,6 +368,10 @@ void AppModel::positionError(QGeoPositionInfoSource::Error e)
     this->refreshWeather();
 }
 
+/*!
+ * Manage time to wait before sending new request to get weather information before
+ *
+ */
 void AppModel::hadError(bool tryAgain)
 {
     qCDebug(requestsLog) << "hadError, will " << (tryAgain ? "" : "not ") << "rety";
@@ -360,6 +383,15 @@ void AppModel::hadError(bool tryAgain)
         d->delayedCityRequestTimer.start();
 }
 
+/*!
+ * If no reply is provided by weather data site no further processing
+ * If no errors:
+ * start timer before refreshing
+ * Parse reply to get data from a specific city
+ * else:
+ * try again to get data
+ *
+ */
 void AppModel::handleGeoNetworkData(QNetworkReply *networkReply)
 {
     if (!networkReply) {
@@ -391,6 +423,12 @@ void AppModel::handleGeoNetworkData(QNetworkReply *networkReply)
     networkReply->deleteLater();
 }
 
+/*!
+ * \brief AppModel::refreshWeather
+ * Access http://api.openweathermap.org/data/2.5/weather site to get a specific city data
+ * Deals with connection errors
+ *
+ */
 void AppModel::refreshWeather()
 {
     if (d->city.isEmpty()) {
@@ -408,15 +446,24 @@ void AppModel::refreshWeather()
 
     QNetworkReply *rep = d->nam->get(QNetworkRequest(url));
     // connect up the signal right away
-    connect(rep, &QNetworkReply::finished,
-            this, [this, rep]() { handleWeatherNetworkData(rep); });
+    connect(rep, &QNetworkReply::finished, this, [this, rep]() { handleWeatherNetworkData(rep); });
 }
 
+/*!
+ * \brief niceTemperatureString
+ * \param t
+ * \return formatted Temperature QString
+ */
 static QString niceTemperatureString(double t)
 {
     return QString::number(qRound(t-ZERO_KELVIN)) + QChar(0xB0);
 }
 
+/*!
+ * \brief AppModel::handleWeatherNetworkData
+ * \param networkReply
+ * For a specific city set temperature and forecast for 5 days by requesting http://api.openweathermap.org/data/2.5/forecast/daily site
+ */
 void AppModel::handleWeatherNetworkData(QNetworkReply *networkReply)
 {
     qCDebug(requestsLog) << "got weather network data";
@@ -465,10 +512,17 @@ void AppModel::handleWeatherNetworkData(QNetworkReply *networkReply)
 
     QNetworkReply *rep = d->nam->get(QNetworkRequest(url));
     // connect up the signal right away
-    connect(rep, &QNetworkReply::finished,
-            this, [this, rep]() { handleForecastNetworkData(rep); });
+    connect(rep, &QNetworkReply::finished, this, [this, rep]() { handleForecastNetworkData(rep); });
 }
 
+/*!
+ * \brief AppModel::handleForecastNetworkData
+ * \param networkReply
+ *
+ * Get minimal and maximal temperature forecast, date, icon and description
+ * Set ready to true if false
+ * emit readyChanged and weatherChanged
+ */
 void AppModel::handleForecastNetworkData(QNetworkReply *networkReply)
 {
     qCDebug(requestsLog) << "got forecast";
@@ -577,6 +631,23 @@ void AppModel::setUseGps(bool value)
         emit weatherChanged();
     }
     emit useGpsChanged();
+}
+
+bool AppModel::useSensor() const
+{
+    return d->useSensor;
+}
+
+void AppModel::setUseSensor(bool value)
+{
+    d->useSensor = value;
+    if (value) {
+        d->city = "";
+        d->throttle.invalidate();
+        emit cityChanged();
+        emit weatherChanged();
+    }
+    emit useSensorChanged();
 }
 
 QString AppModel::city() const
