@@ -49,8 +49,8 @@
                          </base-DElement>
                          <object>{ccfc3b07-18a0-4a31-865d-a60932ed51b0}</object>
                          <name>WeatherData</name>
-                         <pos>x:90;y:530</pos>
-                         <rect>x:-155;y:-100;w:310;h:200</rect>
+                         <pos>x:120;y:520</pos>
+                         <rect>x:-140;y:-100;w:280;h:200</rect>
                          <auto-sized>false</auto-sized>
                          <visual-role>0</visual-role>
                         </DObject>
@@ -71,8 +71,8 @@
                          </base-DElement>
                          <object>{cc753aa8-54d4-4e55-ae53-b2bd3690cbb4}</object>
                          <name>AppModelPrivate</name>
-                         <pos>x:540;y:270</pos>
-                         <rect>x:-215;y:-170;w:430;h:340</rect>
+                         <pos>x:440;y:245</pos>
+                         <rect>x:-150;y:-80;w:300;h:160</rect>
                          <auto-sized>false</auto-sized>
                          <visual-role>0</visual-role>
                         </DObject>
@@ -93,8 +93,8 @@
                          </base-DElement>
                          <object>{e0caa8ce-8144-486b-8b48-3cb5d65638dc}</object>
                          <name>AppModel</name>
-                         <pos>x:90;y:245</pos>
-                         <rect>x:-200;y:-145;w:400;h:290</rect>
+                         <pos>x:135;y:245</pos>
+                         <rect>x:-100;y:-70;w:200;h:140</rect>
                          <visual-role>0</visual-role>
                         </DObject>
                        </base-DObject>
@@ -144,7 +144,7 @@
                        </base-DRelation>
                        <a>
                         <DAssociationEnd>
-                         <cradinality>1..*</cradinality>
+                         <cradinality>1</cradinality>
                          <navigable>true</navigable>
                          <kind>2</kind>
                         </DAssociationEnd>
@@ -154,7 +154,7 @@
                     </item>
                    </qlist>
                   </elements>
-                  <last-modified>1555487950952</last-modified>
+                  <last-modified>1555534579575</last-modified>
                   <toolbarid>Sequences</toolbarid>
                  </MDiagram>
                 </base-MDiagram>
@@ -183,7 +183,7 @@
                  <qlist>
                   <item>
                    <MClassMember>
-                    <uid>{25b8c094-7d6d-483e-9f3e-10b9f44b25b2}</uid>
+                    <uid>{dc7c73ac-c19c-40bb-b0a0-356edf46a1ee}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>explicit WeatherData(QObject *parent = 0)</declaration>
@@ -191,7 +191,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{210ebd89-2d42-4d2b-bc81-ca3e316c8afd}</uid>
+                    <uid>{623010e8-aab4-44ae-9e07-00797ce77bb2}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>WeatherData(const WeatherData &amp;other)</declaration>
@@ -199,7 +199,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{758aa2da-44be-4ead-856a-a827fd036897}</uid>
+                    <uid>{ee07d1c2-ae9b-4c39-afa9-45f1af188455}</uid>
                     <visibility>4</visibility>
                     <type>2</type>
                     <declaration>void dataChanged()</declaration>
@@ -207,15 +207,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{39917e35-ea83-4aa7-9ab6-d5818eddf327}</uid>
-                    <visibility>3</visibility>
-                    <type>1</type>
-                    <declaration>QString m_dayOfWeek</declaration>
-                   </MClassMember>
-                  </item>
-                  <item>
-                   <MClassMember>
-                    <uid>{9eeca94b-f970-4215-a76c-e468eaf16b6a}</uid>
+                    <uid>{883bd1f5-7fa4-4105-9ebf-43917de2248f}</uid>
                     <visibility>3</visibility>
                     <type>1</type>
                     <declaration>QString m_weatherIcon</declaration>
@@ -223,7 +215,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{458104cc-441e-4cbf-965b-3c3acbf58ef2}</uid>
+                    <uid>{e0e7679f-5803-4999-b44d-3f5019c673d1}</uid>
                     <visibility>3</visibility>
                     <type>1</type>
                     <declaration>QString m_weatherDescription</declaration>
@@ -231,7 +223,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{8420f909-581d-4f03-928e-318a6817481e}</uid>
+                    <uid>{70078ecd-3839-402c-86f1-111202899b56}</uid>
                     <visibility>3</visibility>
                     <type>1</type>
                     <declaration>QString m_temperature</declaration>
@@ -239,7 +231,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{99be209b-cc30-4bc3-9bf2-18ea478bc979}</uid>
+                    <uid>{1dafc010-d997-46e1-8620-b3ee370b987c}</uid>
                     <visibility>3</visibility>
                     <type>1</type>
                     <declaration>QString m_pressure</declaration>
@@ -247,7 +239,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{643340e8-5e17-4ae5-a2d1-f815636d919e}</uid>
+                    <uid>{648a5481-2f76-49b4-ae37-c8a7df0e7f46}</uid>
                     <visibility>3</visibility>
                     <type>1</type>
                     <declaration>QString m_humidity</declaration>
@@ -280,7 +272,7 @@
                  <qlist>
                   <item>
                    <MClassMember>
-                    <uid>{493fff1f-0083-482f-8baf-58c292a1bc42}</uid>
+                    <uid>{78fa8689-2c82-4bc2-8ca0-fa29fbbaed24}</uid>
                     <visibility>1</visibility>
                     <type>1</type>
                     <properties>64</properties>
@@ -289,55 +281,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{1c3c3a46-0fe8-4004-8e02-711ab5929cd0}</uid>
-                    <visibility>1</visibility>
-                    <type>1</type>
-                    <declaration>QGeoPositionInfoSource *src</declaration>
-                   </MClassMember>
-                  </item>
-                  <item>
-                   <MClassMember>
-                    <uid>{cc5479dd-6614-4f12-a7bc-b14842a9be88}</uid>
-                    <visibility>1</visibility>
-                    <type>1</type>
-                    <declaration>QGeoCoordinate coord</declaration>
-                   </MClassMember>
-                  </item>
-                  <item>
-                   <MClassMember>
-                    <uid>{eb18d7dc-076c-4c75-abe5-4fc7cc6790e6}</uid>
-                    <visibility>1</visibility>
-                    <type>1</type>
-                    <declaration>QString longitude, latitude</declaration>
-                   </MClassMember>
-                  </item>
-                  <item>
-                   <MClassMember>
-                    <uid>{752ffd3a-af35-4a15-bea4-9b2699e3ec40}</uid>
-                    <visibility>1</visibility>
-                    <type>1</type>
-                    <declaration>QString city</declaration>
-                   </MClassMember>
-                  </item>
-                  <item>
-                   <MClassMember>
-                    <uid>{260c977a-afda-45f3-a6ba-17d3b08cefa4}</uid>
-                    <visibility>1</visibility>
-                    <type>1</type>
-                    <declaration>QNetworkAccessManager *nam</declaration>
-                   </MClassMember>
-                  </item>
-                  <item>
-                   <MClassMember>
-                    <uid>{dc3715fe-26e1-4f7b-8a06-9a92662ce283}</uid>
-                    <visibility>1</visibility>
-                    <type>1</type>
-                    <declaration>QNetworkSession *ns</declaration>
-                   </MClassMember>
-                  </item>
-                  <item>
-                   <MClassMember>
-                    <uid>{e300d925-8eb6-4965-89f2-fff1489503f4}</uid>
+                    <uid>{3b297f17-96c7-4d8c-a5be-de933f236ec8}</uid>
                     <visibility>1</visibility>
                     <type>1</type>
                     <declaration>WeatherData now</declaration>
@@ -345,39 +289,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{9c379415-029e-45c8-991f-6662768d24b7}</uid>
-                    <visibility>1</visibility>
-                    <type>1</type>
-                    <declaration>QList&lt;WeatherData*&gt; forecast</declaration>
-                   </MClassMember>
-                  </item>
-                  <item>
-                   <MClassMember>
-                    <uid>{3fc74c6d-52f4-4fa6-aaab-4bfdc6c7fc2a}</uid>
-                    <visibility>1</visibility>
-                    <type>1</type>
-                    <declaration>QQmlListProperty&lt;WeatherData&gt; *fcProp</declaration>
-                   </MClassMember>
-                  </item>
-                  <item>
-                   <MClassMember>
-                    <uid>{e181b759-758b-4deb-882f-003f35b5e0e4}</uid>
-                    <visibility>1</visibility>
-                    <type>1</type>
-                    <declaration>bool ready</declaration>
-                   </MClassMember>
-                  </item>
-                  <item>
-                   <MClassMember>
-                    <uid>{0fe766d6-8650-425e-abd5-e49e036b1671}</uid>
-                    <visibility>1</visibility>
-                    <type>1</type>
-                    <declaration>bool useGps</declaration>
-                   </MClassMember>
-                  </item>
-                  <item>
-                   <MClassMember>
-                    <uid>{243d62c8-7920-4a66-ae4a-15a192bf20c2}</uid>
+                    <uid>{297696a1-f1da-4d9d-9542-96e3d8bf513f}</uid>
                     <visibility>1</visibility>
                     <type>1</type>
                     <declaration>bool useSensor</declaration>
@@ -385,7 +297,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{d0e095ce-a40b-4a1e-b20e-b0444563291b}</uid>
+                    <uid>{34102570-e538-46ea-8406-19aa09892dc3}</uid>
                     <visibility>1</visibility>
                     <type>1</type>
                     <declaration>QElapsedTimer throttle</declaration>
@@ -393,7 +305,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{e995d641-8a12-4773-b09b-5dc10105fbfd}</uid>
+                    <uid>{236e29bc-f89a-4f15-9ffc-c75602e8fdcf}</uid>
                     <visibility>1</visibility>
                     <type>1</type>
                     <declaration>int minMsBeforeNewRequest</declaration>
@@ -401,15 +313,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{c6d5cb91-788a-4526-8137-4d8e8e3b1454}</uid>
-                    <visibility>1</visibility>
-                    <type>1</type>
-                    <declaration>QTimer delayedCityRequestTimer</declaration>
-                   </MClassMember>
-                  </item>
-                  <item>
-                   <MClassMember>
-                    <uid>{c05d0566-dd11-41be-a473-8ac3b040d22b}</uid>
+                    <uid>{8af51dd6-6f01-474d-9c40-06d7d285a036}</uid>
                     <visibility>1</visibility>
                     <type>1</type>
                     <declaration>QTimer requestNewWeatherTimer</declaration>
@@ -417,18 +321,10 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{1f2d45f5-53b7-45c0-a9a4-886e6189aaf5}</uid>
-                    <visibility>1</visibility>
-                    <type>1</type>
-                    <declaration>QString app_ident</declaration>
-                   </MClassMember>
-                  </item>
-                  <item>
-                   <MClassMember>
-                    <uid>{23599de5-d807-4537-8392-1f96f9a25d87}</uid>
+                    <uid>{24f5e72a-ccb2-44d3-b4da-81f66aca4b2e}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
-                    <declaration>AppModelPrivate(ready, useGps, useSensor, minMsBeforeNewRequest)</declaration>
+                    <declaration>AppModelPrivate( useSensor, minMsBeforeNewRequest)</declaration>
                    </MClassMember>
                   </item>
                  </qlist>
@@ -504,7 +400,7 @@
                            </base-MRelation>
                            <a>
                             <MAssociationEnd>
-                             <cardinality>1..*</cardinality>
+                             <cardinality>1</cardinality>
                              <navigable>true</navigable>
                              <kind>2</kind>
                             </MAssociationEnd>
@@ -524,7 +420,7 @@
                  <qlist>
                   <item>
                    <MClassMember>
-                    <uid>{29a7d1a8-b7b6-47f8-aeb4-2e39614f705e}</uid>
+                    <uid>{d35f3fee-c6e8-47ed-a0a5-7a73f20b5a55}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>explicit AppModel(QObject *parent)</declaration>
@@ -532,7 +428,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{5ca3527c-3690-47c7-b47a-6b860479cb49}</uid>
+                    <uid>{e914771d-7b82-4568-a5c1-d3a7b5ff0812}</uid>
                     <visibility>1</visibility>
                     <type>2</type>
                     <declaration>~AppModel()</declaration>
@@ -540,25 +436,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{107cce14-4477-4f3a-8ebd-e861c631e2e2}</uid>
-                    <visibility>1</visibility>
-                    <type>2</type>
-                    <properties>4</properties>
-                    <declaration>WeatherData *weather()</declaration>
-                   </MClassMember>
-                  </item>
-                  <item>
-                   <MClassMember>
-                    <uid>{fa64ca31-bd76-4c2b-9e44-ea85744fdf2a}</uid>
-                    <visibility>1</visibility>
-                    <type>2</type>
-                    <properties>4</properties>
-                    <declaration>QQmlListProperty&lt;WeatherData&gt; forecast()</declaration>
-                   </MClassMember>
-                  </item>
-                  <item>
-                   <MClassMember>
-                    <uid>{763e6b8b-7c69-4392-9dbe-982dda8a74bd}</uid>
+                    <uid>{19cd968e-b277-464c-9583-6855a5b0fa14}</uid>
                     <visibility>7</visibility>
                     <type>2</type>
                     <properties>1024</properties>
@@ -567,87 +445,15 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{03ed5100-0416-4464-a13f-83bd9c5e125a}</uid>
+                    <uid>{875449a5-ba81-4861-aa5d-a1b74658009b}</uid>
                     <visibility>5</visibility>
                     <type>2</type>
-                    <declaration>void queryCity()</declaration>
+                    <declaration>void location()</declaration>
                    </MClassMember>
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{da705fb1-8233-4791-b04c-eee4a5b491ce}</uid>
-                    <visibility>5</visibility>
-                    <type>2</type>
-                    <declaration>void networkSessionOpened()</declaration>
-                   </MClassMember>
-                  </item>
-                  <item>
-                   <MClassMember>
-                    <uid>{f0299a79-9e7f-4ef6-9cbc-c7c4e4f1289f}</uid>
-                    <visibility>5</visibility>
-                    <type>2</type>
-                    <declaration>void positionUpdated(QGeoPositionInfo gpsPos)</declaration>
-                   </MClassMember>
-                  </item>
-                  <item>
-                   <MClassMember>
-                    <uid>{8bae1617-08ae-4713-98d9-f9348bef0e0d}</uid>
-                    <visibility>5</visibility>
-                    <type>2</type>
-                    <declaration>void handleGeoNetworkData(QNetworkReply *networkReply)</declaration>
-                   </MClassMember>
-                  </item>
-                  <item>
-                   <MClassMember>
-                    <uid>{cb3a91e7-0b06-4363-8a8a-3c4cf5ffca6f}</uid>
-                    <visibility>5</visibility>
-                    <type>2</type>
-                    <declaration>void handleWeatherNetworkData(QNetworkReply *networkReply)</declaration>
-                   </MClassMember>
-                  </item>
-                  <item>
-                   <MClassMember>
-                    <uid>{781c1d3f-90c5-4574-a32d-8cf8d8449260}</uid>
-                    <visibility>5</visibility>
-                    <type>2</type>
-                    <declaration>void handleForecastNetworkData(QNetworkReply *networkReply)</declaration>
-                   </MClassMember>
-                  </item>
-                  <item>
-                   <MClassMember>
-                    <uid>{a484f201-cf19-4280-b6ab-2b3e9f44666e}</uid>
-                    <visibility>4</visibility>
-                    <type>2</type>
-                    <declaration>void readyChanged()</declaration>
-                   </MClassMember>
-                  </item>
-                  <item>
-                   <MClassMember>
-                    <uid>{3e24607b-0582-499c-9525-c35013917fdc}</uid>
-                    <visibility>4</visibility>
-                    <type>2</type>
-                    <declaration>void useGpsChanged()</declaration>
-                   </MClassMember>
-                  </item>
-                  <item>
-                   <MClassMember>
-                    <uid>{a0364e54-a4e9-4eb2-a665-60cfafadd9f2}</uid>
-                    <visibility>4</visibility>
-                    <type>2</type>
-                    <declaration>void useSensorChanged()</declaration>
-                   </MClassMember>
-                  </item>
-                  <item>
-                   <MClassMember>
-                    <uid>{21349dd3-0d37-4c2b-829f-e459c60eddc4}</uid>
-                    <visibility>4</visibility>
-                    <type>2</type>
-                    <declaration>void cityChanged()</declaration>
-                   </MClassMember>
-                  </item>
-                  <item>
-                   <MClassMember>
-                    <uid>{437356e2-5d5b-4fa2-820a-dbb773f354f7}</uid>
+                    <uid>{49799696-5ee0-414d-a1e4-f095b1dac2d7}</uid>
                     <visibility>4</visibility>
                     <type>2</type>
                     <declaration>void weatherChanged()</declaration>
@@ -655,7 +461,7 @@
                   </item>
                   <item>
                    <MClassMember>
-                    <uid>{3f891015-1009-4144-905b-72a867026802}</uid>
+                    <uid>{70a1022d-b6f8-4b87-8f8a-a310bc3b49bb}</uid>
                     <visibility>3</visibility>
                     <type>1</type>
                     <declaration>AppModelPrivate *d</declaration>
