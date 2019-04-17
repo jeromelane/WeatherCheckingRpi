@@ -72,7 +72,6 @@ Item {
             PropertyChanges { target: main; opacity: 1 }
             PropertyChanges { target: wait; opacity: 0 }
             PropertyChanges { target: sensor; opacity: 0 }
-
         },
         State {
             name: "useSensor"
