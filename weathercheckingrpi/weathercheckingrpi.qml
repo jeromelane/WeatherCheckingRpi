@@ -71,6 +71,13 @@ Item {
             name: "ready"
             PropertyChanges { target: main; opacity: 1 }
             PropertyChanges { target: wait; opacity: 0 }
+            PropertyChanges { target: sensor; opacity: 0 }
+
+        },
+        State {
+            name: "useSensor"
+            PropertyChanges { target: iconRow; opacity: 0 }
+            PropertyChanges { target: sensor; opacity: 1 }
         }
     ]
 //! [1]
@@ -122,24 +129,33 @@ Item {
                 MouseArea {
                     anchors.fill: parent
                     onClicked: {
-                        if (model.useGps) {
-                            model.useGps = false
-                            model.city = "Brisbane"
+                        if (model.useSensor) {
+                            model.useSensor = false
+                            model.city = "BME280 Sensor"
+
                         } else {
-                            switch (model.city) {
-                            case "Brisbane":
-                                model.city = "Oslo"
-                                break
-                            case "Oslo":
-                                model.city = "Helsinki"
-                                break
-                            case "Helsinki":
-                                model.city = "New York"
-                                break
-                            case "New York":
-                                model.useGps = true
-                                model.useSensor = true
-                                break
+                            if(model.useGps){
+                                model.useGps = false
+                                model.city = "Brisbane"
+                            }else {
+                                switch (model.city) {
+                                case "BME280 Sensor":
+                                    model.city = "Brisbane"
+                                    break
+                                case "Brisbane":
+                                    model.city = "Oslo"
+                                    break
+                                case "Oslo":
+                                    model.city = "Helsinki"
+                                    break
+                                case "Helsinki":
+                                    model.city = "New York"
+                                    break
+                                case "New York":
+                                    model.useGps = true
+                                    break
+                                }
+
                             }
                         }
                     }
@@ -158,11 +174,8 @@ Item {
                           : "01d")
 
                 topText: (model.hasValidWeather ? model.weather.temperature : "??")
-                         + (model.useSensor ? model.weather.pressure : "Test Pa") + (model.useSensor ? model.weather.humidity : "Test %")
 
-                bottomText: (model.hasValidWeather
-                             ? model.weather.weatherDescription
-                             : "No weather data")
+                bottomText: (model.hasValidWeather ? model.weather.weatherDescription  : "No weather data")
 
                 MouseArea {
                     anchors.fill: parent
@@ -175,15 +188,62 @@ Item {
 //! [4]
 
             Row {
+                id: sensor
+                anchors.top: current.bottom
+
+                width: main.width - 12
+                height: (main.height - 25 - 24) / 3
+
+                property real iconWidth: sensor.width / 4 - 10
+                property real iconHeight: sensor.height
+
+                spacing: sensor.width - (4 * sensor.iconWidth)
+
+                SensorIcon {
+                    id: metric1
+                    width: sensor.iconWidth
+                    height: sensor.iconHeight
+
+                    metricIcon: "temperature"
+                    middileText: "Temperature"
+                    rightText: model.weather.temperature
+
+                }
+                SensorIcon {
+                    id: metric2
+                    width: sensor.iconWidth
+                    height: sensor.iconHeight
+
+                    metricIcon: "pression"
+                    middileText: "Pression"
+                    rightText: model.weather.pressure
+
+                }
+                SensorIcon {
+                    id: metric3
+                    width: sensor.iconWidth
+                    height: sensor.iconHeight
+
+                    metricIcon: "humidity"
+                    middileText: "Humidiy"
+                    rightText: model.weather.humidity
+
+                }
+
+
+            }
+
+            Row {
                 id: iconRow
                 spacing: 6
+
+                anchors.top: current.bottom
 
                 width: main.width - 12
                 height: (main.height - 25 - 24) / 3
 
                 property real iconWidth: iconRow.width / 4 - 10
                 property real iconHeight: iconRow.height
-
 
                 ForecastIcon {
                     id: forecast1
@@ -233,8 +293,13 @@ Item {
                     weatherIcon: (model.hasValidWeather ?
                               model.forecast[3].weatherIcon : "01d")
                 }
-
             }
+
+
+
+
+
+
         }
     }
 //! [2]

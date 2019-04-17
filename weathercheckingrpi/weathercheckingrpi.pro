@@ -45,4 +45,5 @@ DISTFILES += \
     components/WeatherIcon.qml \
     components/ForecastIcon.qml \
     components/BigForecastIcon.qml \
-    class_diag.qmodel
+    class_diag.qmodel \
+    diag_seq.qmodel

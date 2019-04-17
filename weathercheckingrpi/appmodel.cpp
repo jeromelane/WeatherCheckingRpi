@@ -154,11 +154,13 @@ void WeatherData::setTemperature(const QString &value)
 void WeatherData::setPressure(const QString &pressure)
 {
     m_pressure = pressure;
+    emit dataChanged();
 }
 
 void WeatherData::setHumidity(const QString &humidity)
 {
     m_humidity = humidity;
+    emit dataChanged();
 }
 
 class AppModelPrivate
@@ -227,6 +229,38 @@ static void forecastClear(QQmlListProperty<WeatherData> *prop)
     static_cast<AppModelPrivate*>(prop->data)->forecast.clear();
 }
 
+
+/*!
+ * \brief niceTemperatureString
+ * \param t
+ * \return formatted Temperature QString
+ */
+static QString niceTemperatureString(double t)
+{
+    return QString::number(qRound(t-ZERO_KELVIN)) + QChar(0xB0) ;
+}
+
+/*!
+ * \brief nicePressureString
+ * \param t
+ * \return formatted pressure QString
+ */
+static QString nicePressureString(double t)
+{
+    return QString::number(qRound(t)) + "Pa";
+}
+
+/*!
+ * \brief niceHumidityString
+ * \param t
+ * \return fromatted humidity QString
+ */
+static QString niceHumidityString(double t)
+{
+    return QString::number(qRound(t)) + "%";
+}
+
+
 //! [0]
 AppModel::AppModel(QObject *parent) :
         QObject(parent),
@@ -256,6 +290,11 @@ AppModel::AppModel(QObject *parent) :
         this->networkSessionOpened();
     // tell the system we want network
     d->ns->open();
+
+    double testpa = 959.5555;
+    double testhumidity=75;
+    d->now.setPressure(nicePressureString( testpa));
+    d->now.setHumidity(niceHumidityString(testhumidity));
 }
 //! [1]
 
@@ -280,13 +319,11 @@ void AppModel::networkSessionOpened()
 
     if (d->src) {
         d->useGps = true;
-        d->useSensor = true;
         connect(d->src, SIGNAL(positionUpdated(QGeoPositionInfo)), this, SLOT(positionUpdated(QGeoPositionInfo)));
         connect(d->src, SIGNAL(error(QGeoPositionInfoSource::Error)), this, SLOT(positionError(QGeoPositionInfoSource::Error)));
         d->src->startUpdates();
     } else {
         d->useGps = false;
-        d->useSensor = false;
         d->city = "Brisbane";
         emit cityChanged();
         this->refreshWeather();
@@ -447,16 +484,6 @@ void AppModel::refreshWeather()
     QNetworkReply *rep = d->nam->get(QNetworkRequest(url));
     // connect up the signal right away
     connect(rep, &QNetworkReply::finished, this, [this, rep]() { handleWeatherNetworkData(rep); });
-}
-
-/*!
- * \brief niceTemperatureString
- * \param t
- * \return formatted Temperature QString
- */
-static QString niceTemperatureString(double t)
-{
-    return QString::number(qRound(t-ZERO_KELVIN)) + QChar(0xB0);
 }
 
 /*!

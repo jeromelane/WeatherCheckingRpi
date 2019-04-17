@@ -83,7 +83,7 @@ Item {
         font.pointSize: 23
         wrapMode: Text.WordWrap
         width: parent.width
-        horizontalAlignment: Text.AlignRight
+        horizontalAlignment: Text.AlignHCenter
         anchors {
             bottom: current.bottom
             right: current.right
