@@ -15,16 +15,14 @@ DEFINES += QT_DEPRECATED_WARNINGS
 # You can also select to disable deprecated APIs only up to a certain version of Qt.
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
-
-
 SOURCES += main.cpp \
     appmodel.cpp \
-    dbmanager.cpp
+    appmodel.cpp \
     #sensor/bme280.c \
     #sensor/main.c
 
 HEADERS += appmodel.h \
-    dbmanager.h
+    appmodel.h
     #sensor/bme280.h \
     #sensor/bme280_defs.h
 
@@ -48,4 +46,8 @@ DISTFILES += \
     components/ForecastIcon.qml \
     components/BigForecastIcon.qml \
     class_diag.qmodel \
-    diag_seq.qmodel
+    diag_seq.qmodel \
+    diad_class_dbmanager.qmodel
+
+SUBDIRS += \
+    tests/tests.pro

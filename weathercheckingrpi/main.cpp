@@ -40,12 +40,14 @@
 #include <QLoggingCategory>
 
 #include "appmodel.h"
-#include "dbmanager.h"
+#include "dbmanager/dbmanager.h"
+#include "dbmanager/dbmanager.h"
 
 int main(int argc, char *argv[])
 {
     /*QString dbName = "test.db";
     DbManager db(dbName);
+
 
     if( QFile::exists(dbName))
     {
@@ -54,7 +56,7 @@ int main(int argc, char *argv[])
     } else {
         qDebug()<<"Data base not exist creating new....";
         //db.setDatabaseName(dbName);
-        db.sendQuery("CREATE TABLE metrics(id INTEGER PRIMARY KEY, name TEXT);");
+
         db.sendQuery("INSERT INTO metrics (name) VALUES ('bob')");
     }
 

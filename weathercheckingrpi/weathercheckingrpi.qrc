@@ -184,6 +184,10 @@
         <file>img/metrics/T.png</file>
         <file>appmodel.cpp</file>
         <file>main.cpp</file>
-        <file>dbmanager.h</file>
+        <file>dbmanager/dbmanager.cpp</file>
+        <file>dbmanager/dbmanager.h</file>
+        <file>zambretti/Zambretti.cpp</file>
+        <file>zambretti/Zambretti.h</file>
+        <file>tests/tests.pro</file>
     </qresource>
 </RCC>
