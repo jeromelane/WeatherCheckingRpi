@@ -13,10 +13,9 @@ The interface provides a weather icon corresponding to the current weather.
 
 # Documents
 - located at ./weathercheckingrpi/doc
-<<<<<<< HEAD
 
 # Raspberry wlan0 network IP
 - 192.168.1.125, castor
-=======
+
+# Actuality
 - Travaux en cours sur la nouvelle version de l'executable interface C/C++ dans Raspberry 
->>>>>>> ea39f1a0a112afb7523817e73a1755b5d01ab820
