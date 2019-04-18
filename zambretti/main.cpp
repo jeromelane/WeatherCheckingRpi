@@ -22,9 +22,13 @@ int main (void)
 {
 Zambretti Zamb;
 //optionnal: initial values:
-cout <<"la valeur actuelle de la pression est: "<<Zamb.getPressureVal()<<endl;
-cout<<"le nb de Zambretti est: "<<Zamb.getZnumber()<<endl;
+//cout << "la tendance de pression actuelle est :" <<Zamb.getTrend()<<endl;
+//cout << "la valeur actuelle de la pression est: " <<Zamb.getCurrentPressure()<<endl;
+//cout << "le nb de Zambretti est: " <<Zamb.getZnumber()<<endl;
+// Calcul Zambretti:
 Zamb.findZnumber();// this is the current Z number
+cout << "la tendance de pression actuelle est :" <<Zamb.getTrend()<<endl;
+cout << "le nb de Zambretti est: "<<Zamb.getZnumber()<<endl;
 
     return 0;
 }

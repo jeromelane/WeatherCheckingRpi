@@ -9,7 +9,9 @@ class Zambretti{
     public:
 
     Zambretti();
-    float getPressureVal();
+    int getTrend();
+    void setTrend(int currenttrend);
+    float getCurrentPressure();
     int getZnumber();
     void findZnumber();
     ~Zambretti();

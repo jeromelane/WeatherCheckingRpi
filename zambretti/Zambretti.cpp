@@ -21,10 +21,17 @@ Zambretti::Zambretti()
     m_Znumber = -1; //Zambretti number (=-1 of not available, =Zambretti number if available)
     m_CurrentPressure = 10000; // pressure (Pa)
     m_PastPressure= 10130;
-    
+}
+int Zambretti::getTrend()
+{
+   return this->m_trend; 
+}
+void Zambretti::setTrend(int currenttrend)
+{
+    this->m_trend = currenttrend;
 }
 
-float Zambretti::getPressureVal()
+float Zambretti::getCurrentPressure()
 {
     return this->m_CurrentPressure;
 }
@@ -44,7 +51,7 @@ void Zambretti::findZnumber()
     cPsealevel= cP*1;
     pPsealevel=pP*1;
     float trend = (CorrectionFactor*cPsealevel-pPsealevel)*6; //trend /h over 10min
-    //cout<<"la tendance est: "<<trend <<"Pa/hour"<<endl;
+    //cout<<"la tendance est: "<< trend <<"Pa/hour"<<endl;
     if (trend>0){if (trend<30) {this->m_trend=1;}else{this->m_trend=2;}}
     else{if (trend>-30){this->m_trend=1;}else{this->m_trend=0;}};
     int i=this->m_trend;
@@ -59,8 +66,6 @@ void Zambretti::findZnumber()
         default:m_Znumber=-1;
             break;
     }
-    //affichage provisoire de la valeur du nb de Zambretti
-    cout<<"le nb de Zambretti est: "<<this->m_Znumber<<endl;
 }
 
 Zambretti::~Zambretti()
