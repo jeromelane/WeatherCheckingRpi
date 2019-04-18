@@ -184,5 +184,6 @@
         <file>img/metrics/T.png</file>
         <file>appmodel.cpp</file>
         <file>main.cpp</file>
+        <file>dbmanager.h</file>
     </qresource>
 </RCC>

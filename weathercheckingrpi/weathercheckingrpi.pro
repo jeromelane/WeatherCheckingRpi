@@ -1,5 +1,5 @@
 TEMPLATE= app
-QT += core network positioning qml quick
+QT += core network positioning qml quick sql
 requires(qtConfig(bearermanagement))
 
 CONFIG += c++11
@@ -18,11 +18,13 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 
 SOURCES += main.cpp \
-    appmodel.cpp
+    appmodel.cpp \
+    dbmanager.cpp
     #sensor/bme280.c \
     #sensor/main.c
 
-HEADERS += appmodel.h
+HEADERS += appmodel.h \
+    dbmanager.h
     #sensor/bme280.h \
     #sensor/bme280_defs.h
 

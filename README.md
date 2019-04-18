@@ -13,3 +13,6 @@ The interface provides a weather icon corresponding to the current weather.
 
 # Documents
 - located at ./weathercheckingrpi/doc
+
+# Raspberry wlan0 network IP
+- 192.168.1.125, castor
