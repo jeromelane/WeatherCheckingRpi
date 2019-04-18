@@ -13,3 +13,4 @@ The interface provides a weather icon corresponding to the current weather.
 
 # Documents
 - located at ./weathercheckingrpi/doc
+- Travaux en cours sur la nouvelle version de l'executable interface C/C++ dans Raspberry 
