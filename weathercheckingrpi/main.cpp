@@ -40,14 +40,31 @@
 #include <QLoggingCategory>
 
 #include "appmodel.h"
+#include "dbmanager.h"
 
 int main(int argc, char *argv[])
 {
+    /*QString dbName = "test.db";
+    DbManager db(dbName);
+
+    if( QFile::exists(dbName))
+    {
+         qDebug()<<"Data base exist....";
+
+    } else {
+        qDebug()<<"Data base not exist creating new....";
+        //db.setDatabaseName(dbName);
+        db.sendQuery("CREATE TABLE metrics(id INTEGER PRIMARY KEY, name TEXT);");
+        db.sendQuery("INSERT INTO metrics (name) VALUES ('bob')");
+    }
+
+    //db.sendQueryAndRecieve("SELECT * FROM people;");*/
+
     QLoggingCategory::setFilterRules("wapp.*.debug=false");
     QGuiApplication application(argc, argv);
 
-    qmlRegisterType<WeatherData>("WeatherInfo", 1, 0, "WeatherData");
-    qmlRegisterType<AppModel>("WeatherInfo", 1, 0, "AppModel");
+    qmlRegisterType<WeatherData>("WeatherChecking", 1, 0, "WeatherData");
+    qmlRegisterType<AppModel>("WeatherChecking", 1, 0, "AppModel");
 
     qRegisterMetaType<WeatherData>();
 

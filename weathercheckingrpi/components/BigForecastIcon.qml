@@ -53,12 +53,12 @@ import QtQuick 2.0
 Item {
     id: current
 
-    property string topText: "20*"
+    //property string topText: "20*"
     property string bottomText: "Mostly cloudy"
     property string weatherIcon: "01d"
     property real smallSide: (current.width < current.height ? current.width : current.height)
 
-    Text {
+   /* Text {
         text: current.topText
         font.pointSize: 28
         anchors {
@@ -67,7 +67,7 @@ Item {
             topMargin: 5
             leftMargin: 5
         }
-    }
+    }*/
 
     WeatherIcon {
         weatherIcon: current.weatherIcon
@@ -83,7 +83,7 @@ Item {
         font.pointSize: 23
         wrapMode: Text.WordWrap
         width: parent.width
-        horizontalAlignment: Text.AlignRight
+        horizontalAlignment: Text.AlignHCenter
         anchors {
             bottom: current.bottom
             right: current.right

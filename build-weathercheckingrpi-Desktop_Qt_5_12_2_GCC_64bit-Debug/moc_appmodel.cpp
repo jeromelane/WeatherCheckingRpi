@@ -201,8 +201,8 @@ void WeatherData::dataChanged()
     QMetaObject::activate(this, &staticMetaObject, 0, nullptr);
 }
 struct qt_meta_stringdata_AppModel_t {
-    QByteArrayData data[30];
-    char stringdata0[413];
+    QByteArrayData data[32];
+    char stringdata0[440];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -215,45 +215,49 @@ QT_MOC_LITERAL(0, 0, 8), // "AppModel"
 QT_MOC_LITERAL(1, 9, 12), // "readyChanged"
 QT_MOC_LITERAL(2, 22, 0), // ""
 QT_MOC_LITERAL(3, 23, 13), // "useGpsChanged"
-QT_MOC_LITERAL(4, 37, 11), // "cityChanged"
-QT_MOC_LITERAL(5, 49, 14), // "weatherChanged"
-QT_MOC_LITERAL(6, 64, 14), // "refreshWeather"
-QT_MOC_LITERAL(7, 79, 9), // "queryCity"
-QT_MOC_LITERAL(8, 89, 20), // "networkSessionOpened"
-QT_MOC_LITERAL(9, 110, 15), // "positionUpdated"
-QT_MOC_LITERAL(10, 126, 16), // "QGeoPositionInfo"
-QT_MOC_LITERAL(11, 143, 6), // "gpsPos"
-QT_MOC_LITERAL(12, 150, 13), // "positionError"
-QT_MOC_LITERAL(13, 164, 29), // "QGeoPositionInfoSource::Error"
-QT_MOC_LITERAL(14, 194, 1), // "e"
-QT_MOC_LITERAL(15, 196, 20), // "handleGeoNetworkData"
-QT_MOC_LITERAL(16, 217, 14), // "QNetworkReply*"
-QT_MOC_LITERAL(17, 232, 12), // "networkReply"
-QT_MOC_LITERAL(18, 245, 24), // "handleWeatherNetworkData"
-QT_MOC_LITERAL(19, 270, 25), // "handleForecastNetworkData"
-QT_MOC_LITERAL(20, 296, 5), // "ready"
-QT_MOC_LITERAL(21, 302, 9), // "hasSource"
-QT_MOC_LITERAL(22, 312, 12), // "hasValidCity"
-QT_MOC_LITERAL(23, 325, 15), // "hasValidWeather"
-QT_MOC_LITERAL(24, 341, 6), // "useGps"
-QT_MOC_LITERAL(25, 348, 4), // "city"
-QT_MOC_LITERAL(26, 353, 7), // "weather"
-QT_MOC_LITERAL(27, 361, 12), // "WeatherData*"
-QT_MOC_LITERAL(28, 374, 8), // "forecast"
-QT_MOC_LITERAL(29, 383, 29) // "QQmlListProperty<WeatherData>"
+QT_MOC_LITERAL(4, 37, 16), // "useSensorChanged"
+QT_MOC_LITERAL(5, 54, 11), // "cityChanged"
+QT_MOC_LITERAL(6, 66, 14), // "weatherChanged"
+QT_MOC_LITERAL(7, 81, 14), // "refreshWeather"
+QT_MOC_LITERAL(8, 96, 9), // "queryCity"
+QT_MOC_LITERAL(9, 106, 20), // "networkSessionOpened"
+QT_MOC_LITERAL(10, 127, 15), // "positionUpdated"
+QT_MOC_LITERAL(11, 143, 16), // "QGeoPositionInfo"
+QT_MOC_LITERAL(12, 160, 6), // "gpsPos"
+QT_MOC_LITERAL(13, 167, 13), // "positionError"
+QT_MOC_LITERAL(14, 181, 29), // "QGeoPositionInfoSource::Error"
+QT_MOC_LITERAL(15, 211, 1), // "e"
+QT_MOC_LITERAL(16, 213, 20), // "handleGeoNetworkData"
+QT_MOC_LITERAL(17, 234, 14), // "QNetworkReply*"
+QT_MOC_LITERAL(18, 249, 12), // "networkReply"
+QT_MOC_LITERAL(19, 262, 24), // "handleWeatherNetworkData"
+QT_MOC_LITERAL(20, 287, 25), // "handleForecastNetworkData"
+QT_MOC_LITERAL(21, 313, 5), // "ready"
+QT_MOC_LITERAL(22, 319, 9), // "hasSource"
+QT_MOC_LITERAL(23, 329, 12), // "hasValidCity"
+QT_MOC_LITERAL(24, 342, 15), // "hasValidWeather"
+QT_MOC_LITERAL(25, 358, 6), // "useGps"
+QT_MOC_LITERAL(26, 365, 9), // "useSensor"
+QT_MOC_LITERAL(27, 375, 4), // "city"
+QT_MOC_LITERAL(28, 380, 7), // "weather"
+QT_MOC_LITERAL(29, 388, 12), // "WeatherData*"
+QT_MOC_LITERAL(30, 401, 8), // "forecast"
+QT_MOC_LITERAL(31, 410, 29) // "QQmlListProperty<WeatherData>"
 
     },
     "AppModel\0readyChanged\0\0useGpsChanged\0"
-    "cityChanged\0weatherChanged\0refreshWeather\0"
-    "queryCity\0networkSessionOpened\0"
-    "positionUpdated\0QGeoPositionInfo\0"
-    "gpsPos\0positionError\0QGeoPositionInfoSource::Error\0"
-    "e\0handleGeoNetworkData\0QNetworkReply*\0"
+    "useSensorChanged\0cityChanged\0"
+    "weatherChanged\0refreshWeather\0queryCity\0"
+    "networkSessionOpened\0positionUpdated\0"
+    "QGeoPositionInfo\0gpsPos\0positionError\0"
+    "QGeoPositionInfoSource::Error\0e\0"
+    "handleGeoNetworkData\0QNetworkReply*\0"
     "networkReply\0handleWeatherNetworkData\0"
     "handleForecastNetworkData\0ready\0"
     "hasSource\0hasValidCity\0hasValidWeather\0"
-    "useGps\0city\0weather\0WeatherData*\0"
-    "forecast\0QQmlListProperty<WeatherData>"
+    "useGps\0useSensor\0city\0weather\0"
+    "WeatherData*\0forecast\0"
+    "QQmlListProperty<WeatherData>"
 };
 #undef QT_MOC_LITERAL
 
@@ -263,30 +267,32 @@ static const uint qt_meta_data_AppModel[] = {
        8,       // revision
        0,       // classname
        0,    0, // classinfo
-      12,   14, // methods
-       8,   96, // properties
+      13,   14, // methods
+       9,  102, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
-       4,       // signalCount
+       5,       // signalCount
 
  // signals: name, argc, parameters, tag, flags
-       1,    0,   74,    2, 0x06 /* Public */,
-       3,    0,   75,    2, 0x06 /* Public */,
-       4,    0,   76,    2, 0x06 /* Public */,
-       5,    0,   77,    2, 0x06 /* Public */,
+       1,    0,   79,    2, 0x06 /* Public */,
+       3,    0,   80,    2, 0x06 /* Public */,
+       4,    0,   81,    2, 0x06 /* Public */,
+       5,    0,   82,    2, 0x06 /* Public */,
+       6,    0,   83,    2, 0x06 /* Public */,
 
  // slots: name, argc, parameters, tag, flags
-       6,    0,   78,    2, 0x0a /* Public */,
-       7,    0,   79,    2, 0x08 /* Private */,
-       8,    0,   80,    2, 0x08 /* Private */,
-       9,    1,   81,    2, 0x08 /* Private */,
-      12,    1,   84,    2, 0x08 /* Private */,
-      15,    1,   87,    2, 0x08 /* Private */,
-      18,    1,   90,    2, 0x08 /* Private */,
-      19,    1,   93,    2, 0x08 /* Private */,
+       7,    0,   84,    2, 0x0a /* Public */,
+       8,    0,   85,    2, 0x08 /* Private */,
+       9,    0,   86,    2, 0x08 /* Private */,
+      10,    1,   87,    2, 0x08 /* Private */,
+      13,    1,   90,    2, 0x08 /* Private */,
+      16,    1,   93,    2, 0x08 /* Private */,
+      19,    1,   96,    2, 0x08 /* Private */,
+      20,    1,   99,    2, 0x08 /* Private */,
 
  // signals: parameters
+    QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
@@ -296,31 +302,33 @@ static const uint qt_meta_data_AppModel[] = {
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
-    QMetaType::Void, 0x80000000 | 10,   11,
-    QMetaType::Void, 0x80000000 | 13,   14,
-    QMetaType::Void, 0x80000000 | 16,   17,
-    QMetaType::Void, 0x80000000 | 16,   17,
-    QMetaType::Void, 0x80000000 | 16,   17,
+    QMetaType::Void, 0x80000000 | 11,   12,
+    QMetaType::Void, 0x80000000 | 14,   15,
+    QMetaType::Void, 0x80000000 | 17,   18,
+    QMetaType::Void, 0x80000000 | 17,   18,
+    QMetaType::Void, 0x80000000 | 17,   18,
 
  // properties: name, type, flags
-      20, QMetaType::Bool, 0x00495001,
       21, QMetaType::Bool, 0x00495001,
       22, QMetaType::Bool, 0x00495001,
       23, QMetaType::Bool, 0x00495001,
-      24, QMetaType::Bool, 0x00495103,
-      25, QMetaType::QString, 0x00495103,
-      26, 0x80000000 | 27, 0x00495009,
+      24, QMetaType::Bool, 0x00495001,
+      25, QMetaType::Bool, 0x00495103,
+      26, QMetaType::Bool, 0x00495103,
+      27, QMetaType::QString, 0x00495103,
       28, 0x80000000 | 29, 0x00495009,
+      30, 0x80000000 | 31, 0x00495009,
 
  // properties: notify_signal_id
        0,
        0,
-       2,
        3,
+       4,
        1,
        2,
        3,
-       3,
+       4,
+       4,
 
        0        // eod
 };
@@ -333,33 +341,27 @@ void AppModel::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, vo
         switch (_id) {
         case 0: _t->readyChanged(); break;
         case 1: _t->useGpsChanged(); break;
-        case 2: _t->cityChanged(); break;
-        case 3: _t->weatherChanged(); break;
-        case 4: _t->refreshWeather(); break;
-        case 5: _t->queryCity(); break;
-        case 6: _t->networkSessionOpened(); break;
-        case 7: _t->positionUpdated((*reinterpret_cast< QGeoPositionInfo(*)>(_a[1]))); break;
-        case 8: _t->positionError((*reinterpret_cast< QGeoPositionInfoSource::Error(*)>(_a[1]))); break;
-        case 9: _t->handleGeoNetworkData((*reinterpret_cast< QNetworkReply*(*)>(_a[1]))); break;
-        case 10: _t->handleWeatherNetworkData((*reinterpret_cast< QNetworkReply*(*)>(_a[1]))); break;
-        case 11: _t->handleForecastNetworkData((*reinterpret_cast< QNetworkReply*(*)>(_a[1]))); break;
+        case 2: _t->useSensorChanged(); break;
+        case 3: _t->cityChanged(); break;
+        case 4: _t->weatherChanged(); break;
+        case 5: _t->refreshWeather(); break;
+        case 6: _t->queryCity(); break;
+        case 7: _t->networkSessionOpened(); break;
+        case 8: _t->positionUpdated((*reinterpret_cast< QGeoPositionInfo(*)>(_a[1]))); break;
+        case 9: _t->positionError((*reinterpret_cast< QGeoPositionInfoSource::Error(*)>(_a[1]))); break;
+        case 10: _t->handleGeoNetworkData((*reinterpret_cast< QNetworkReply*(*)>(_a[1]))); break;
+        case 11: _t->handleWeatherNetworkData((*reinterpret_cast< QNetworkReply*(*)>(_a[1]))); break;
+        case 12: _t->handleForecastNetworkData((*reinterpret_cast< QNetworkReply*(*)>(_a[1]))); break;
         default: ;
         }
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
         switch (_id) {
         default: *reinterpret_cast<int*>(_a[0]) = -1; break;
-        case 7:
+        case 8:
             switch (*reinterpret_cast<int*>(_a[1])) {
             default: *reinterpret_cast<int*>(_a[0]) = -1; break;
             case 0:
                 *reinterpret_cast<int*>(_a[0]) = qRegisterMetaType< QGeoPositionInfo >(); break;
-            }
-            break;
-        case 9:
-            switch (*reinterpret_cast<int*>(_a[1])) {
-            default: *reinterpret_cast<int*>(_a[0]) = -1; break;
-            case 0:
-                *reinterpret_cast<int*>(_a[0]) = qRegisterMetaType< QNetworkReply* >(); break;
             }
             break;
         case 10:
@@ -370,6 +372,13 @@ void AppModel::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, vo
             }
             break;
         case 11:
+            switch (*reinterpret_cast<int*>(_a[1])) {
+            default: *reinterpret_cast<int*>(_a[0]) = -1; break;
+            case 0:
+                *reinterpret_cast<int*>(_a[0]) = qRegisterMetaType< QNetworkReply* >(); break;
+            }
+            break;
+        case 12:
             switch (*reinterpret_cast<int*>(_a[1])) {
             default: *reinterpret_cast<int*>(_a[0]) = -1; break;
             case 0:
@@ -395,22 +404,29 @@ void AppModel::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, vo
         }
         {
             using _t = void (AppModel::*)();
-            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&AppModel::cityChanged)) {
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&AppModel::useSensorChanged)) {
                 *result = 2;
                 return;
             }
         }
         {
             using _t = void (AppModel::*)();
-            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&AppModel::weatherChanged)) {
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&AppModel::cityChanged)) {
                 *result = 3;
+                return;
+            }
+        }
+        {
+            using _t = void (AppModel::*)();
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&AppModel::weatherChanged)) {
+                *result = 4;
                 return;
             }
         }
     } else if (_c == QMetaObject::RegisterPropertyMetaType) {
         switch (_id) {
         default: *reinterpret_cast<int*>(_a[0]) = -1; break;
-        case 6:
+        case 7:
             *reinterpret_cast<int*>(_a[0]) = qRegisterMetaType< WeatherData* >(); break;
         }
     }
@@ -426,9 +442,10 @@ void AppModel::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, vo
         case 2: *reinterpret_cast< bool*>(_v) = _t->hasValidCity(); break;
         case 3: *reinterpret_cast< bool*>(_v) = _t->hasValidWeather(); break;
         case 4: *reinterpret_cast< bool*>(_v) = _t->useGps(); break;
-        case 5: *reinterpret_cast< QString*>(_v) = _t->city(); break;
-        case 6: *reinterpret_cast< WeatherData**>(_v) = _t->weather(); break;
-        case 7: *reinterpret_cast< QQmlListProperty<WeatherData>*>(_v) = _t->forecast(); break;
+        case 5: *reinterpret_cast< bool*>(_v) = _t->useSensor(); break;
+        case 6: *reinterpret_cast< QString*>(_v) = _t->city(); break;
+        case 7: *reinterpret_cast< WeatherData**>(_v) = _t->weather(); break;
+        case 8: *reinterpret_cast< QQmlListProperty<WeatherData>*>(_v) = _t->forecast(); break;
         default: break;
         }
     } else if (_c == QMetaObject::WriteProperty) {
@@ -437,7 +454,8 @@ void AppModel::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, vo
         void *_v = _a[0];
         switch (_id) {
         case 4: _t->setUseGps(*reinterpret_cast< bool*>(_v)); break;
-        case 5: _t->setCity(*reinterpret_cast< QString*>(_v)); break;
+        case 5: _t->setUseSensor(*reinterpret_cast< bool*>(_v)); break;
+        case 6: _t->setCity(*reinterpret_cast< QString*>(_v)); break;
         default: break;
         }
     } else if (_c == QMetaObject::ResetProperty) {
@@ -474,29 +492,29 @@ int AppModel::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 12)
+        if (_id < 13)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 12;
+        _id -= 13;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 12)
+        if (_id < 13)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 12;
+        _id -= 13;
     }
 #ifndef QT_NO_PROPERTIES
    else if (_c == QMetaObject::ReadProperty || _c == QMetaObject::WriteProperty
             || _c == QMetaObject::ResetProperty || _c == QMetaObject::RegisterPropertyMetaType) {
         qt_static_metacall(this, _c, _id, _a);
-        _id -= 8;
+        _id -= 9;
     } else if (_c == QMetaObject::QueryPropertyDesignable) {
-        _id -= 8;
+        _id -= 9;
     } else if (_c == QMetaObject::QueryPropertyScriptable) {
-        _id -= 8;
+        _id -= 9;
     } else if (_c == QMetaObject::QueryPropertyStored) {
-        _id -= 8;
+        _id -= 9;
     } else if (_c == QMetaObject::QueryPropertyEditable) {
-        _id -= 8;
+        _id -= 9;
     } else if (_c == QMetaObject::QueryPropertyUser) {
-        _id -= 8;
+        _id -= 9;
     }
 #endif // QT_NO_PROPERTIES
     return _id;
@@ -515,15 +533,21 @@ void AppModel::useGpsChanged()
 }
 
 // SIGNAL 2
-void AppModel::cityChanged()
+void AppModel::useSensorChanged()
 {
     QMetaObject::activate(this, &staticMetaObject, 2, nullptr);
 }
 
 // SIGNAL 3
-void AppModel::weatherChanged()
+void AppModel::cityChanged()
 {
     QMetaObject::activate(this, &staticMetaObject, 3, nullptr);
+}
+
+// SIGNAL 4
+void AppModel::weatherChanged()
+{
+    QMetaObject::activate(this, &staticMetaObject, 4, nullptr);
 }
 QT_WARNING_POP
 QT_END_MOC_NAMESPACE

@@ -1,0 +1,7 @@
+<map id="AppModel::cityChanged" name="AppModel::cityChanged">
+<area shape="rect" id="node2" href="$class_app_model.html#a67ab3004ccbe2822a8a0abb9fa96ace3" title="[1] " alt="" coords="223,5,377,32"/>
+<area shape="rect" id="node3" href="$class_app_model.html#ac5fe590924b727724d9c686bb2552ed8" title="AppModel::hadError" alt="" coords="231,56,369,83"/>
+<area shape="rect" id="node4" href="$class_app_model.html#a81c3ffb3370837086366c9f70bb3d5eb" title="AppModel::setUseGps" alt="" coords="223,107,377,133"/>
+<area shape="rect" id="node5" href="$class_app_model.html#ad1369130f74b4aabd0ac0d6b1b030014" title="AppModel::setUseSensor" alt="" coords="215,157,385,184"/>
+<area shape="rect" id="node6" href="$class_app_model.html#ad0135d4a1551b6484ac28c434f861af5" title="AppModel::setCity" alt="" coords="235,208,365,235"/>
+</map>

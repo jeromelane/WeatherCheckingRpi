@@ -1,0 +1,206 @@
+.TH "AppModel" 3 "Tue Apr 16 2019" "WeatherCheckingRpi project" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+AppModel \- [2]  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <appmodel\&.h>\fP
+.PP
+Inherits QObject\&.
+.SS "Public Slots"
+
+.in +1c
+.ti -1c
+.RI "Q_INVOKABLE void \fBrefreshWeather\fP ()"
+.br
+.RI "\fBAppModel::refreshWeather\fP Access http://api.openweathermap.org/data/2.5/weather site to get a specific city data Deals with connection errors\&. "
+.in -1c
+.SS "Signals"
+
+.in +1c
+.ti -1c
+.RI "void \fBreadyChanged\fP ()"
+.br
+.RI "[3] "
+.ti -1c
+.RI "void \fBuseGpsChanged\fP ()"
+.br
+.ti -1c
+.RI "void \fBuseSensorChanged\fP ()"
+.br
+.ti -1c
+.RI "void \fBcityChanged\fP ()"
+.br
+.ti -1c
+.RI "void \fBweatherChanged\fP ()"
+.br
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBAppModel\fP (QObject *parent=0)"
+.br
+.RI "[0] "
+.ti -1c
+.RI "\fB~AppModel\fP ()"
+.br
+.RI "[1] "
+.ti -1c
+.RI "bool \fBready\fP () const"
+.br
+.ti -1c
+.RI "bool \fBhasSource\fP () const"
+.br
+.ti -1c
+.RI "bool \fBuseGps\fP () const"
+.br
+.ti -1c
+.RI "bool \fBuseSensor\fP () const"
+.br
+.ti -1c
+.RI "bool \fBhasValidCity\fP () const"
+.br
+.ti -1c
+.RI "bool \fBhasValidWeather\fP () const"
+.br
+.ti -1c
+.RI "void \fBsetUseGps\fP (bool value)"
+.br
+.ti -1c
+.RI "void \fBhadError\fP (bool tryAgain)"
+.br
+.ti -1c
+.RI "void \fBsetUseSensor\fP (bool value)"
+.br
+.ti -1c
+.RI "QString \fBcity\fP () const"
+.br
+.ti -1c
+.RI "void \fBsetCity\fP (const QString &value)"
+.br
+.ti -1c
+.RI "\fBWeatherData\fP * \fBweather\fP () const"
+.br
+.ti -1c
+.RI "QQmlListProperty< \fBWeatherData\fP > \fBforecast\fP () const"
+.br
+.in -1c
+.SS "Properties"
+
+.in +1c
+.ti -1c
+.RI "bool \fBready\fP"
+.br
+.ti -1c
+.RI "bool \fBhasSource\fP"
+.br
+.ti -1c
+.RI "bool \fBhasValidCity\fP"
+.br
+.ti -1c
+.RI "bool \fBhasValidWeather\fP"
+.br
+.ti -1c
+.RI "bool \fBuseGps\fP"
+.br
+.ti -1c
+.RI "bool \fBuseSensor\fP"
+.br
+.ti -1c
+.RI "QString \fBcity\fP"
+.br
+.ti -1c
+.RI "\fBWeatherData\fP \fBweather\fP"
+.br
+.ti -1c
+.RI "QQmlListProperty< \fBWeatherData\fP > \fBforecast\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+[2] 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "AppModel::AppModel (QObject * parent = \fC0\fP)\fC [explicit]\fP"
+
+.PP
+[0] [0]
+.PP
+[1] 
+.SS "AppModel::~AppModel ()"
+
+.PP
+[1] 
+.SH "Member Function Documentation"
+.PP 
+.SS "QString AppModel::city () const"
+
+.SS "void AppModel::cityChanged ()\fC [signal]\fP"
+
+.SS "QQmlListProperty<\fBWeatherData\fP> AppModel::forecast () const"
+
+.SS "void AppModel::hadError (bool tryAgain)"
+Manage time to wait before sending new request to get weather information before 
+.SS "bool AppModel::hasSource () const"
+
+.SS "bool AppModel::hasValidCity () const"
+
+.SS "bool AppModel::hasValidWeather () const"
+
+.SS "bool AppModel::ready () const"
+
+.SS "void AppModel::readyChanged ()\fC [signal]\fP"
+
+.PP
+[3] 
+.SS "void AppModel::refreshWeather ()\fC [slot]\fP"
+
+.PP
+\fBAppModel::refreshWeather\fP Access http://api.openweathermap.org/data/2.5/weather site to get a specific city data Deals with connection errors\&. 
+.SS "void AppModel::setCity (const QString & value)"
+
+.SS "void AppModel::setUseGps (bool value)"
+
+.SS "void AppModel::setUseSensor (bool value)"
+
+.SS "bool AppModel::useGps () const"
+
+.SS "void AppModel::useGpsChanged ()\fC [signal]\fP"
+
+.SS "bool AppModel::useSensor () const"
+
+.SS "void AppModel::useSensorChanged ()\fC [signal]\fP"
+
+.SS "\fBWeatherData\fP* AppModel::weather () const"
+
+.SS "void AppModel::weatherChanged ()\fC [signal]\fP"
+
+.SH "Property Documentation"
+.PP 
+.SS "QString AppModel::city\fC [read]\fP, \fC [write]\fP"
+
+.SS "QQmlListProperty< \fBWeatherData\fP > AppModel::forecast\fC [read]\fP"
+
+.SS "bool AppModel::hasSource\fC [read]\fP"
+
+.SS "bool AppModel::hasValidCity\fC [read]\fP"
+
+.SS "bool AppModel::hasValidWeather\fC [read]\fP"
+
+.SS "bool AppModel::ready\fC [read]\fP"
+
+.SS "bool AppModel::useGps\fC [read]\fP, \fC [write]\fP"
+
+.SS "bool AppModel::useSensor\fC [read]\fP, \fC [write]\fP"
+
+.SS "\fBWeatherData\fP * AppModel::weather\fC [read]\fP"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for WeatherCheckingRpi project from the source code\&.

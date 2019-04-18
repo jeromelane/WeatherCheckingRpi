@@ -51,11 +51,11 @@
 import QtQuick 2.0
 import "components"
 //! [0]
-import WeatherInfo 1.0
+import WeatherChecking 1.0
 
 Item {
     id: window
-//! [0]
+
     width: 360
     height: 640
 
@@ -66,12 +66,24 @@ Item {
             name: "loading"
             PropertyChanges { target: main; opacity: 0 }
             PropertyChanges { target: wait; opacity: 1 }
+            /*when: (state == "ready")
+            PropertyChanges { target: main; opacity: 1 }
+            PropertyChanges { target: wait; opacity: 0 }
+            PropertyChanges { target: iconRow; opacity: 0 }*/
+
         },
         State {
             name: "ready"
             PropertyChanges { target: main; opacity: 1 }
             PropertyChanges { target: wait; opacity: 0 }
-        }
+            /*PropertyChanges { target: sensor; opacity: 0 }
+            PropertyChanges { target: iconRow; opacity: 1 }*/
+        }/*
+        State {
+            name: "useSensor"
+            PropertyChanges { target: iconRow; opacity: 0 }
+            PropertyChanges { target: sensor; opacity: 1 }
+        }*/
     ]
 //! [1]
     AppModel {
@@ -99,8 +111,16 @@ Item {
         id: main
         anchors.fill: parent
 
+        //state: "useInternet"
+
+       /* Rectangle {
+
+        id: rect1*/
+
         Column {
+            //id: mycol
             spacing: 6
+
 
             anchors {
                 fill: parent
@@ -113,40 +133,48 @@ Item {
                 color: "lightgrey"
 
                 Text {
-                    text: (model.hasValidCity ? model.city : "Unknown location") + (model.useGps ? " (GPS)" : "")
+                    //text: (model.hasValidCity ? model.city : "Unknown location") + (model.useGps ? " (GPS)" : "" ) + (model.useSensor ? " (Sensor)" : "" )
+                    text: "BME280 Sensor"
                     anchors.fill: parent
                     horizontalAlignment: Text.AlignHCenter
                     verticalAlignment: Text.AlignVCenter
-                }
+                } 
 
-                MouseArea {
+                /*MouseArea {
                     anchors.fill: parent
                     onClicked: {
-                        if (model.useGps) {
-                            model.useGps = false
-                            model.city = "Brisbane"
+                        if (model.useSensor) {
+                            model.useSensor = false
+                            model.city = "BME280 Sensor"
+
                         } else {
-                            switch (model.city) {
-                            case "Raspberry":
+                            if(model.useGps){
+                                model.useGps = false
                                 model.city = "Brisbane"
-                                break
-                            case "Brisbane":
-                                model.city = "Oslo"
-                                break
-                            case "Oslo":
-                                model.city = "Helsinki"
-                                break
-                            case "Helsinki":
-                                model.city = "New York"
-                                break
-                            case "New York":
-                                model.useGps = true
-                                break
+                            }else {
+                                switch (model.city) {
+                                case "BME280 Sensor":
+                                    model.city = "Brisbane"
+                                    break
+                                case "Brisbane":
+                                    model.city = "Oslo"
+                                    break
+                                case "Oslo":
+                                    model.city = "Helsinki"
+                                    break
+                                case "Helsinki":
+                                    model.city = "New York"
+                                    break
+                                case "New York":
+                                    model.useGps = true
+                                    break
+                                }
+
                             }
                         }
-                    }
+                    }*/
                 }
-            }
+
 
 //! [3]
             BigForecastIcon {
@@ -159,21 +187,9 @@ Item {
                           ? model.weather.weatherIcon
                           : "01d")
 
-                topText: (model.hasValidWeather
-                          ? model.weather.temperature
-                          : "??")
+                //topText: (model.hasValidWeather ? model.weather.temperature : "??")
 
-               /* topText: (model.hasValidWeather
-                          ? model.weather.pressure
-                          : "??")
-
-                topText: (model.hasValidWeather
-                          ? model.weather.humidity
-                          : "??")*/
-
-                bottomText: (model.hasValidWeather
-                             ? model.weather.weatherDescription
-                             : "No weather data")
+                bottomText: (model.hasValidWeather ? model.weather.weatherDescription  : "No weather data")
 
                 MouseArea {
                     anchors.fill: parent
@@ -181,20 +197,83 @@ Item {
                         model.refreshWeather()
                     }
                 }
-//! [4]
             }
-//! [4]
 
-            Row {
+        //}
+
+           /* Rectangle {
+                id: parentRow*/
+
+
+
+                Row{
+                    id: sensor
+                    width: main.width - 12
+                    height: (main.height - 25 - 24) / 3
+
+                    property real iconWidth: sensor.width / 4 - 10
+                    property real iconHeight: sensor.height
+                    //anchors.top: rect1.bottom
+                   /* states: State {
+                            name: "useSensor"
+                            PropertyChanges { target: sensor; opacity: 0; anchors.fill: parentRow}
+                            //PropertyChanges { target: iconRow; opacity: 0 }
+                            when: (window.state == "ready")
+                            //PropertyChanges { target: sensor; opacity: 1 }
+                            //PropertyChanges { target: sensor; opacity: 0 }
+                            PropertyChanges { target: iconRow; opacity: 1; anchors.fill: parentRow }
+                        }*/
+
+
+
+                    spacing: sensor.width - (4 * sensor.iconWidth)
+
+               // anchors.top: mycol.bottom
+
+                SensorIcon {
+                    id: metric1
+                    width: sensor.iconWidth
+                    height: sensor.iconHeight
+
+                    metricIcon: "temperature"
+                    middileText: "Temperature"
+                    rightText: model.weather.temperature
+
+                }
+                SensorIcon {
+                    id: metric2
+                    width: sensor.iconWidth
+                    height: sensor.iconHeight
+
+                    metricIcon: "pression"
+                    middileText: "Pression"
+                    rightText: model.weather.pressure
+
+                }
+                SensorIcon {
+                    id: metric3
+                    width: sensor.iconWidth
+                    height: sensor.iconHeight
+
+                    metricIcon: "humidity"
+                    middileText: "Humidiy"
+                    rightText: model.weather.humidity
+                }
+           }
+
+}
+
+                /*Row{
                 id: iconRow
                 spacing: 6
+
+                //anchors.top: current.bottom
 
                 width: main.width - 12
                 height: (main.height - 25 - 24) / 3
 
                 property real iconWidth: iconRow.width / 4 - 10
                 property real iconHeight: iconRow.height
-
 
                 ForecastIcon {
                     id: forecast1
@@ -244,10 +323,13 @@ Item {
                     weatherIcon: (model.hasValidWeather ?
                               model.forecast[3].weatherIcon : "01d")
                 }
-
+                }*/
             }
-        }
     }
+
+
+
+
 //! [2]
-}
+//}
 //! [2]

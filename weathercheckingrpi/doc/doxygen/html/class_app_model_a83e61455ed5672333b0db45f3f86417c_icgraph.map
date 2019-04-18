@@ -1,0 +1,4 @@
+<map id="AppModel::weatherChanged" name="AppModel::weatherChanged">
+<area shape="rect" id="node2" href="$class_app_model.html#a81c3ffb3370837086366c9f70bb3d5eb" title="AppModel::setUseGps" alt="" coords="248,5,403,32"/>
+<area shape="rect" id="node3" href="$class_app_model.html#ad1369130f74b4aabd0ac0d6b1b030014" title="AppModel::setUseSensor" alt="" coords="240,56,411,83"/>
+</map>

@@ -134,6 +134,9 @@ class AppModel : public QObject
     Q_PROPERTY(bool useGps
                READ useGps WRITE setUseGps
                NOTIFY useGpsChanged)
+    Q_PROPERTY(bool useSensor
+               READ useSensor WRITE setUseSensor
+               NOTIFY useSensorChanged)
     Q_PROPERTY(QString city
                READ city WRITE setCity
                NOTIFY cityChanged)
@@ -151,10 +154,14 @@ public:
     bool ready() const;
     bool hasSource() const;
     bool useGps() const;
+    bool useSensor() const;
     bool hasValidCity() const;
     bool hasValidWeather() const;
+
     void setUseGps(bool value);
     void hadError(bool tryAgain);
+
+    void setUseSensor(bool value);
 
     QString city() const;
     void setCity(const QString &value);
@@ -179,6 +186,7 @@ private slots:
 signals:
     void readyChanged();
     void useGpsChanged();
+    void useSensorChanged();
     void cityChanged();
     void weatherChanged();
 

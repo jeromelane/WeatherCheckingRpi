@@ -8,6 +8,14 @@ The interface provides a weather icon corresponding to the current weather.
 # Source repository
 - The weathercheckingrpi folder contains a modified version of the Qt creator example weatherinfo project also included in the git repository (WeatherCheckingRpi) untouched.
 - weathercheckingrpi contains source of the product in developement for the AJC training.
+- Sensor BME280 code: WeatherCheckingRpi/weathercheckingrpi/sensor/
+
 
 # Documents
 - located at ./weathercheckingrpi/doc
+
+# Raspberry wlan0 network IP
+- 192.168.1.125, castor
+
+# Actuality
+- Travaux en cours sur la nouvelle version de l'executable interface C/C++ dans Raspberry 

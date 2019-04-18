@@ -4,9 +4,6 @@
         <file>components/BigForecastIcon.qml</file>
         <file>components/ForecastIcon.qml</file>
         <file>components/WeatherIcon.qml</file>
-        <file>img/BM280/P.png</file>
-        <file>img/BM280/RH.png</file>
-        <file>img/BM280/T.png</file>
         <file>img/climat/preview.png</file>
         <file>img/climat/preview.svg</file>
         <file>img/climat/weather-city-template.png</file>
@@ -179,5 +176,14 @@
         <file>img/icons/weather-sunny-very-few-clouds.png</file>
         <file>img/icons/weather-sunny.png</file>
         <file>img/icons/weather-thundershower.png</file>
+        <file>appmodel.h</file>
+        <file>components/SensorIcon.qml</file>
+        <file>components/MetricIcon.qml</file>
+        <file>img/metrics/P.png</file>
+        <file>img/metrics/RH.png</file>
+        <file>img/metrics/T.png</file>
+        <file>appmodel.cpp</file>
+        <file>main.cpp</file>
+        <file>dbmanager.h</file>
     </qresource>
 </RCC>

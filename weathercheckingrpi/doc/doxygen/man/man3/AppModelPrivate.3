@@ -1,0 +1,133 @@
+.TH "AppModelPrivate" 3 "Tue Apr 16 2019" "WeatherCheckingRpi project" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+AppModelPrivate
+.SH SYNOPSIS
+.br
+.PP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBAppModelPrivate\fP ()"
+.br
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "QGeoPositionInfoSource * \fBsrc\fP"
+.br
+.ti -1c
+.RI "QGeoCoordinate \fBcoord\fP"
+.br
+.ti -1c
+.RI "QString \fBlongitude\fP"
+.br
+.ti -1c
+.RI "QString \fBlatitude\fP"
+.br
+.ti -1c
+.RI "QString \fBcity\fP"
+.br
+.ti -1c
+.RI "QNetworkAccessManager * \fBnam\fP"
+.br
+.ti -1c
+.RI "QNetworkSession * \fBns\fP"
+.br
+.ti -1c
+.RI "\fBWeatherData\fP \fBnow\fP"
+.br
+.ti -1c
+.RI "QList< \fBWeatherData\fP * > \fBforecast\fP"
+.br
+.ti -1c
+.RI "QQmlListProperty< \fBWeatherData\fP > * \fBfcProp\fP"
+.br
+.ti -1c
+.RI "bool \fBready\fP"
+.br
+.ti -1c
+.RI "bool \fBuseGps\fP"
+.br
+.ti -1c
+.RI "bool \fBuseSensor\fP"
+.br
+.ti -1c
+.RI "QElapsedTimer \fBthrottle\fP"
+.br
+.ti -1c
+.RI "int \fBnErrors\fP"
+.br
+.ti -1c
+.RI "int \fBminMsBeforeNewRequest\fP"
+.br
+.ti -1c
+.RI "QTimer \fBdelayedCityRequestTimer\fP"
+.br
+.ti -1c
+.RI "QTimer \fBrequestNewWeatherTimer\fP"
+.br
+.ti -1c
+.RI "QString \fBapp_ident\fP"
+.br
+.in -1c
+.SS "Static Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "static const int \fBbaseMsBeforeNewRequest\fP = 5 * 1000"
+.br
+.in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "AppModelPrivate::AppModelPrivate ()\fC [inline]\fP"
+
+.SH "Member Data Documentation"
+.PP 
+.SS "QString AppModelPrivate::app_ident"
+
+.SS "const int AppModelPrivate::baseMsBeforeNewRequest = 5 * 1000\fC [static]\fP"
+
+.SS "QString AppModelPrivate::city"
+
+.SS "QGeoCoordinate AppModelPrivate::coord"
+
+.SS "QTimer AppModelPrivate::delayedCityRequestTimer"
+
+.SS "QQmlListProperty<\fBWeatherData\fP>* AppModelPrivate::fcProp"
+
+.SS "QList<\fBWeatherData\fP*> AppModelPrivate::forecast"
+
+.SS "QString AppModelPrivate::latitude"
+
+.SS "QString AppModelPrivate::longitude"
+
+.SS "int AppModelPrivate::minMsBeforeNewRequest"
+
+.SS "QNetworkAccessManager* AppModelPrivate::nam"
+
+.SS "int AppModelPrivate::nErrors"
+
+.SS "\fBWeatherData\fP AppModelPrivate::now"
+
+.SS "QNetworkSession* AppModelPrivate::ns"
+
+.SS "bool AppModelPrivate::ready"
+
+.SS "QTimer AppModelPrivate::requestNewWeatherTimer"
+
+.SS "QGeoPositionInfoSource* AppModelPrivate::src"
+
+.SS "QElapsedTimer AppModelPrivate::throttle"
+
+.SS "bool AppModelPrivate::useGps"
+
+.SS "bool AppModelPrivate::useSensor"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for WeatherCheckingRpi project from the source code\&.
