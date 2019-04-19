@@ -14,8 +14,10 @@ public:
     bool sendQuery(QString query) const;
     void sendQueryAndRecieve(QString query);
     bool createDb(QString path, QString name);
+    bool removeDb(QString path, QString name);
     bool createTable();
-    void connection(QString path, QString name);
+    void openConnection(QString path, QString name);
+    void closeConnection();
     bool addMetrics(QString temperature, QString pressure, QString humidity, QString time);
     bool addMetric(QString metricValue, QString metricName);
 

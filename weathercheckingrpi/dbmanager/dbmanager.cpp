@@ -3,6 +3,7 @@
 #include <QtSql/QSqlQuery>
 #include <QSqlError>
 #include <QSqlRecord>
+#include <QFileInfo>
 
 #include <QtGui/QGuiApplication>
 #include <QtQuick/QQuickView>
@@ -20,7 +21,7 @@ DbManager::DbManager()
 
 DbManager::DbManager(QString path, QString name)
 {
-    connection(path, name);
+    openConnection(path, name);
     createTable();
 
 }
@@ -73,11 +74,26 @@ void DbManager::sendQueryAndRecieve(QString query)
 
 bool DbManager::createDb(QString path, QString name)
 {
-    connection(path, name);
+    openConnection(path, name);
     return createTable();
 }
 
-void DbManager::connection(QString path, QString name)
+bool DbManager::removeDb(QString path, QString name)
+{
+    QFileInfo check_file(path+ "/" + name);
+    if(check_file.exists() && check_file.isFile()) {
+        QFile file (path+ "/" + name);
+        if(file.remove()) {
+            qDebug() << "db file removed";
+            return true;
+        }
+        qDebug() << "db file could not be removed";
+    }
+    qDebug() << "db file does not exists";
+    return false;
+}
+
+void DbManager::openConnection(QString path, QString name)
 {
     m_sqlitDb = QSqlDatabase::addDatabase("QSQLITE");
     m_sqlitDb.setDatabaseName(path + "/" + name);
@@ -88,6 +104,11 @@ void DbManager::connection(QString path, QString name)
         qDebug() << "connection ok!";
     }
 
+}
+
+void DbManager::closeConnection()
+{
+    m_sqlitDb.close();
 }
 
 
