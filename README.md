@@ -19,3 +19,4 @@ The interface provides a weather icon corresponding to the current weather.
 
 # Actuality
 - Travaux en cours sur la nouvelle version de l'executable interface C/C++ dans Raspberry 
+- Interface c/c++ dans le dossier newsensorv6
