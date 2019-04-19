@@ -9,12 +9,19 @@
 #include <QtQml/QQmlEngine>
 #include <QtQuick/QQuickItem>
 
+#include <map>
+
 using namespace std;
 
-DbManager::DbManager(const QString path)
+DbManager::DbManager()
 {
-    create(path);
-    connection(path);
+
+}
+
+DbManager::DbManager(QString path, QString name)
+{
+    connection(path, name);
+    createTable();
 
 }
 
@@ -64,10 +71,16 @@ void DbManager::sendQueryAndRecieve(QString query)
 
 }
 
-void DbManager::connection(QString path)
+bool DbManager::createDb(QString path, QString name)
+{
+    connection(path, name);
+    return createTable();
+}
+
+void DbManager::connection(QString path, QString name)
 {
     m_sqlitDb = QSqlDatabase::addDatabase("QSQLITE");
-    m_sqlitDb.setDatabaseName(path);
+    m_sqlitDb.setDatabaseName(path + "/" + name);
 
     if( !m_sqlitDb.open() ) {
         qDebug() << "erreur de connection avec la base";
@@ -77,26 +90,72 @@ void DbManager::connection(QString path)
 
 }
 
-bool DbManager::create(QString path)
+
+
+bool DbManager::createTable()
 {
-    bool exists = false;
-    if( QFile::exists(path) )
+    bool success = false;
+
+    QSqlQuery query;
+    query.prepare("CREATE TABLE metrics(id INTEGER PRIMARY KEY, temperature TEXT, pressure TEXT, humidity TEXT, time TEXT);");
+
+    if (!query.exec())
     {
-        exists = true;
-        qDebug()<<"Database exist no need to create...";
-    } else {
-        qDebug()<<"Database does not exist creating new....";
-        this->sendQuery("CREATE TABLE metrics(id INTEGER PRIMARY KEY, temperature TEXT, pressure TEXT, humidity TEXT, time TEXT);");
+        qDebug() << "Couldn't create the table 'metrics': one might already exist.";
+        success = false;
     }
-    return exists;
+
+    return success;
 }
 
-void DbManager::insert(QString temperature, QString pressure, QString humidity, QString time )
+
+bool DbManager::addMetric(QString metricValue, QString metricName)
 {
-    //"INSERT INTO metrics (name) VALUES ('bob')"
-    this->sendQuery("INSERT INTO metrics (temperature) VALUES (\'"+ temperature+ "\')");
-    this->sendQuery("INSERT INTO metrics (pressure) VALUES (\'"+ pressure+ "\')");
-    this->sendQuery("INSERT INTO metrics (humidity) VALUES (\'"+ humidity+ "\')");
-    this->sendQuery("INSERT INTO metrics (time) VALUES (\'"+ time+ "\')");
+    bool success = false;
+    QString sqlquery = "INSERT INTO metrics ("+ metricName + ") VALUES (\'"+ metricValue+ "\')";
+
+    if (!metricValue.isEmpty())
+    {
+        QSqlQuery queryAdd;
+        queryAdd.prepare(sqlquery);
+        //queryAdd.bindValue(":name", metricValue);
+
+        if(queryAdd.exec())
+        {
+            success = true;
+        }
+        else
+        {
+            qDebug() << "add metrics failed: " << queryAdd.lastError();
+        }
+    }
+    else
+    {
+        qDebug() << "add metrics failed: name cannot be empty";
+    }
+    return success;
 }
+
+bool DbManager::addMetrics(QString temperature, QString pressure, QString humidity, QString time)
+{
+    bool success = true;
+    int count = 0;
+    map<QString,QString> metrics;
+    metrics["temperature"] = temperature;
+    metrics["pressure"] = pressure;
+    metrics["humidity"] = humidity;
+    metrics["time"] = time;
+
+    metrics.begin();
+
+    for(std::pair<QString, QString> element : metrics) {
+        bool partialsucces = addMetric( element.second,  element.first);
+        if( count ==0 && !partialsucces) {
+            success = false;
+        }
+    }
+    return success;
+
+}
+
 

@@ -17,12 +17,24 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += main.cpp \
     appmodel.cpp \
+    dbmanager/dbmanager.cpp \
+    dbmanager/dbmanager.cpp \
     appmodel.cpp \
+    main.cpp \
+    weatherdata.cpp \
+    tests/testsQt.cpp \
+    dbmanager/dbtable.cpp
     #sensor/bme280.c \
     #sensor/main.c
 
 HEADERS += appmodel.h \
-    appmodel.h
+    appmodel.h \
+    dbmanager/dbmanager.h \
+    dbmanager/dbmanager.h \
+    tests/moc_predefs.h \
+    appmodel.h \
+    weatherdata.h \
+    dbmanager/dbtable.h
     #sensor/bme280.h \
     #sensor/bme280_defs.h
 
@@ -49,5 +61,5 @@ DISTFILES += \
     diag_seq.qmodel \
     diad_class_dbmanager.qmodel
 
-SUBDIRS += \
-    tests/tests.pro
+#SUBDIRS += \
+ #   tests/tests.pro
