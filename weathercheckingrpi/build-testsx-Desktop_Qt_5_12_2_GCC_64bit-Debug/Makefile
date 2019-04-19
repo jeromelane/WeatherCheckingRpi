@@ -14,10 +14,10 @@ EQ            = =
 
 CC            = gcc
 CXX           = g++
-DEFINES       = -DQT_GUI_LIB -DQT_TESTLIB_LIB -DQT_CORE_LIB -DQT_TESTCASE_BUILDDIR='"/home/jerome/projects/WeatherCheckingRpi/weathercheckingrpi/build-testsx-Desktop_Qt_5_12_2_GCC_64bit-Debug"' -DQT_QML_DEBUG
+DEFINES       = -DQT_DEPRECATED_WARNINGS -DQT_QUICK_LIB -DQT_GUI_LIB -DQT_TESTLIB_LIB -DQT_SQL_LIB -DQT_QML_LIB -DQT_NETWORK_LIB -DQT_POSITIONING_LIB -DQT_CORE_LIB -DQT_TESTCASE_BUILDDIR='"/home/jerome/projects/WeatherCheckingRpi/weathercheckingrpi/build-testsx-Desktop_Qt_5_12_2_GCC_64bit-Debug"' -DQT_QML_DEBUG
 CFLAGS        = -pipe -g -Wall -W -D_REENTRANT -fPIC $(DEFINES)
-CXXFLAGS      = -pipe -g -Wall -W -D_REENTRANT -fPIC $(DEFINES)
-INCPATH       = -I../testsx -I. -I../../../../Qt/5.12.2/gcc_64/include -I../../../../Qt/5.12.2/gcc_64/include/QtGui -I../../../../Qt/5.12.2/gcc_64/include/QtTest -I../../../../Qt/5.12.2/gcc_64/include/QtCore -I. -isystem /usr/include/libdrm -I../../../../Qt/5.12.2/gcc_64/mkspecs/linux-g++
+CXXFLAGS      = -pipe -g -std=gnu++11 -Wall -W -D_REENTRANT -fPIC $(DEFINES)
+INCPATH       = -I../testsx -I. -I../../../../Qt/5.12.2/gcc_64/include -I../../../../Qt/5.12.2/gcc_64/include/QtQuick -I../../../../Qt/5.12.2/gcc_64/include/QtGui -I../../../../Qt/5.12.2/gcc_64/include/QtTest -I../../../../Qt/5.12.2/gcc_64/include/QtSql -I../../../../Qt/5.12.2/gcc_64/include/QtQml -I../../../../Qt/5.12.2/gcc_64/include/QtNetwork -I../../../../Qt/5.12.2/gcc_64/include/QtPositioning -I../../../../Qt/5.12.2/gcc_64/include/QtCore -I. -isystem /usr/include/libdrm -I../../../../Qt/5.12.2/gcc_64/mkspecs/linux-g++
 QMAKE         = /home/jerome/Qt/5.12.2/gcc_64/bin/qmake
 DEL_FILE      = rm -f
 CHK_DIR_EXISTS= test -d
@@ -40,7 +40,7 @@ DISTNAME      = testsx1.0.0
 DISTDIR = /home/jerome/projects/WeatherCheckingRpi/weathercheckingrpi/build-testsx-Desktop_Qt_5_12_2_GCC_64bit-Debug/.tmp/testsx1.0.0
 LINK          = g++
 LFLAGS        = -Wl,-rpath,/home/jerome/Qt/5.12.2/gcc_64/lib
-LIBS          = $(SUBLIBS) -L/home/jerome/Qt/5.12.2/gcc_64/lib -lQt5Gui -lQt5Test -lQt5Core -lGL -lpthread   
+LIBS          = $(SUBLIBS) -L/home/jerome/Qt/5.12.2/gcc_64/lib -lQt5Quick -lQt5Gui -lQt5Test -lQt5Sql -lQt5Qml -lQt5Network -lQt5Positioning -lQt5Core -lGL -lpthread   
 AR            = ar cqs
 RANLIB        = 
 SED           = sed
@@ -52,8 +52,10 @@ OBJECTS_DIR   = ./
 
 ####### Files
 
-SOURCES       = ../testsx/tst_testdbmanager.cpp 
-OBJECTS       = tst_testdbmanager.o
+SOURCES       = ../testsx/tst_testdbmanager.cpp \
+		../dbmanager/dbmanager.cpp 
+OBJECTS       = tst_testdbmanager.o \
+		dbmanager.o
 DIST          = ../../../../Qt/5.12.2/gcc_64/mkspecs/features/spec_pre.prf \
 		../../../../Qt/5.12.2/gcc_64/mkspecs/common/unix.conf \
 		../../../../Qt/5.12.2/gcc_64/mkspecs/common/linux.conf \
@@ -226,6 +228,7 @@ DIST          = ../../../../Qt/5.12.2/gcc_64/mkspecs/features/spec_pre.prf \
 		../../../../Qt/5.12.2/gcc_64/mkspecs/features/qt_config.prf \
 		../../../../Qt/5.12.2/gcc_64/mkspecs/linux-g++/qmake.conf \
 		../../../../Qt/5.12.2/gcc_64/mkspecs/features/spec_post.prf \
+		../testsx/.qmake.stash \
 		../../../../Qt/5.12.2/gcc_64/mkspecs/features/exclusive_builds.prf \
 		../../../../Qt/5.12.2/gcc_64/mkspecs/features/toolchain.prf \
 		../../../../Qt/5.12.2/gcc_64/mkspecs/features/default_pre.prf \
@@ -246,7 +249,8 @@ DIST          = ../../../../Qt/5.12.2/gcc_64/mkspecs/features/spec_pre.prf \
 		../../../../Qt/5.12.2/gcc_64/mkspecs/features/exceptions.prf \
 		../../../../Qt/5.12.2/gcc_64/mkspecs/features/yacc.prf \
 		../../../../Qt/5.12.2/gcc_64/mkspecs/features/lex.prf \
-		../testsx/testsx.pro  ../testsx/tst_testdbmanager.cpp
+		../testsx/testsx.pro ../dbmanager/dbmanager.h ../testsx/tst_testdbmanager.cpp \
+		../dbmanager/dbmanager.cpp
 QMAKE_TARGET  = testsx
 DESTDIR       = 
 TARGET        = testsx
@@ -430,6 +434,7 @@ Makefile: ../testsx/testsx.pro ../../../../Qt/5.12.2/gcc_64/mkspecs/linux-g++/qm
 		../../../../Qt/5.12.2/gcc_64/mkspecs/features/qt_config.prf \
 		../../../../Qt/5.12.2/gcc_64/mkspecs/linux-g++/qmake.conf \
 		../../../../Qt/5.12.2/gcc_64/mkspecs/features/spec_post.prf \
+		.qmake.stash \
 		../../../../Qt/5.12.2/gcc_64/mkspecs/features/exclusive_builds.prf \
 		../../../../Qt/5.12.2/gcc_64/mkspecs/features/toolchain.prf \
 		../../../../Qt/5.12.2/gcc_64/mkspecs/features/default_pre.prf \
@@ -451,8 +456,13 @@ Makefile: ../testsx/testsx.pro ../../../../Qt/5.12.2/gcc_64/mkspecs/linux-g++/qm
 		../../../../Qt/5.12.2/gcc_64/mkspecs/features/yacc.prf \
 		../../../../Qt/5.12.2/gcc_64/mkspecs/features/lex.prf \
 		../testsx/testsx.pro \
+		../../../../Qt/5.12.2/gcc_64/lib/libQt5Quick.prl \
 		../../../../Qt/5.12.2/gcc_64/lib/libQt5Gui.prl \
 		../../../../Qt/5.12.2/gcc_64/lib/libQt5Test.prl \
+		../../../../Qt/5.12.2/gcc_64/lib/libQt5Sql.prl \
+		../../../../Qt/5.12.2/gcc_64/lib/libQt5Qml.prl \
+		../../../../Qt/5.12.2/gcc_64/lib/libQt5Network.prl \
+		../../../../Qt/5.12.2/gcc_64/lib/libQt5Positioning.prl \
 		../../../../Qt/5.12.2/gcc_64/lib/libQt5Core.prl
 	$(QMAKE) -o Makefile ../testsx/testsx.pro -spec linux-g++ CONFIG+=debug CONFIG+=qml_debug
 ../../../../Qt/5.12.2/gcc_64/mkspecs/features/spec_pre.prf:
@@ -627,6 +637,7 @@ Makefile: ../testsx/testsx.pro ../../../../Qt/5.12.2/gcc_64/mkspecs/linux-g++/qm
 ../../../../Qt/5.12.2/gcc_64/mkspecs/features/qt_config.prf:
 ../../../../Qt/5.12.2/gcc_64/mkspecs/linux-g++/qmake.conf:
 ../../../../Qt/5.12.2/gcc_64/mkspecs/features/spec_post.prf:
+.qmake.stash:
 ../../../../Qt/5.12.2/gcc_64/mkspecs/features/exclusive_builds.prf:
 ../../../../Qt/5.12.2/gcc_64/mkspecs/features/toolchain.prf:
 ../../../../Qt/5.12.2/gcc_64/mkspecs/features/default_pre.prf:
@@ -648,8 +659,13 @@ Makefile: ../testsx/testsx.pro ../../../../Qt/5.12.2/gcc_64/mkspecs/linux-g++/qm
 ../../../../Qt/5.12.2/gcc_64/mkspecs/features/yacc.prf:
 ../../../../Qt/5.12.2/gcc_64/mkspecs/features/lex.prf:
 ../testsx/testsx.pro:
+../../../../Qt/5.12.2/gcc_64/lib/libQt5Quick.prl:
 ../../../../Qt/5.12.2/gcc_64/lib/libQt5Gui.prl:
 ../../../../Qt/5.12.2/gcc_64/lib/libQt5Test.prl:
+../../../../Qt/5.12.2/gcc_64/lib/libQt5Sql.prl:
+../../../../Qt/5.12.2/gcc_64/lib/libQt5Qml.prl:
+../../../../Qt/5.12.2/gcc_64/lib/libQt5Network.prl:
+../../../../Qt/5.12.2/gcc_64/lib/libQt5Positioning.prl:
 ../../../../Qt/5.12.2/gcc_64/lib/libQt5Core.prl:
 qmake: FORCE
 	@$(QMAKE) -o Makefile ../testsx/testsx.pro -spec linux-g++ CONFIG+=debug CONFIG+=qml_debug
@@ -666,7 +682,8 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents ../../../../Qt/5.12.2/gcc_64/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../testsx/tst_testdbmanager.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../dbmanager/dbmanager.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../testsx/tst_testdbmanager.cpp ../dbmanager/dbmanager.cpp $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -697,7 +714,7 @@ compiler_moc_predefs_make_all: moc_predefs.h
 compiler_moc_predefs_clean:
 	-$(DEL_FILE) moc_predefs.h
 moc_predefs.h: ../../../../Qt/5.12.2/gcc_64/mkspecs/features/data/dummy.cpp
-	g++ -pipe -g -Wall -W -dM -E -o moc_predefs.h ../../../../Qt/5.12.2/gcc_64/mkspecs/features/data/dummy.cpp
+	g++ -pipe -g -std=gnu++11 -Wall -W -dM -E -o moc_predefs.h ../../../../Qt/5.12.2/gcc_64/mkspecs/features/data/dummy.cpp
 
 compiler_moc_header_make_all:
 compiler_moc_header_clean:
@@ -1011,9 +1028,15 @@ tst_testdbmanager.moc: ../testsx/tst_testdbmanager.cpp \
 		../../../../Qt/5.12.2/gcc_64/include/QtCore/QMetaEnum \
 		../../../../Qt/5.12.2/gcc_64/include/QtTest/qttestversion.h \
 		../../../../Qt/5.12.2/gcc_64/include/QtCore/QCoreApplication \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/QFileInfo \
+		../dbmanager/dbmanager.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtSql/QSqlDatabase \
+		../../../../Qt/5.12.2/gcc_64/include/QtSql/qsqldatabase.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtSql/qtsqlglobal.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtSql/qtsql-config.h \
 		moc_predefs.h \
 		../../../../Qt/5.12.2/gcc_64/bin/moc
-	/home/jerome/Qt/5.12.2/gcc_64/bin/moc $(DEFINES) --include /home/jerome/projects/WeatherCheckingRpi/weathercheckingrpi/build-testsx-Desktop_Qt_5_12_2_GCC_64bit-Debug/moc_predefs.h -I/home/jerome/Qt/5.12.2/gcc_64/mkspecs/linux-g++ -I/home/jerome/projects/WeatherCheckingRpi/weathercheckingrpi/testsx -I/home/jerome/Qt/5.12.2/gcc_64/include -I/home/jerome/Qt/5.12.2/gcc_64/include/QtGui -I/home/jerome/Qt/5.12.2/gcc_64/include/QtTest -I/home/jerome/Qt/5.12.2/gcc_64/include/QtCore -I. -I/usr/include/c++/8 -I/usr/include/x86_64-linux-gnu/c++/8 -I/usr/include/c++/8/backward -I/usr/lib/gcc/x86_64-linux-gnu/8/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/8/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../testsx/tst_testdbmanager.cpp -o tst_testdbmanager.moc
+	/home/jerome/Qt/5.12.2/gcc_64/bin/moc $(DEFINES) --include /home/jerome/projects/WeatherCheckingRpi/weathercheckingrpi/build-testsx-Desktop_Qt_5_12_2_GCC_64bit-Debug/moc_predefs.h -I/home/jerome/Qt/5.12.2/gcc_64/mkspecs/linux-g++ -I/home/jerome/projects/WeatherCheckingRpi/weathercheckingrpi/testsx -I/home/jerome/Qt/5.12.2/gcc_64/include -I/home/jerome/Qt/5.12.2/gcc_64/include/QtQuick -I/home/jerome/Qt/5.12.2/gcc_64/include/QtGui -I/home/jerome/Qt/5.12.2/gcc_64/include/QtTest -I/home/jerome/Qt/5.12.2/gcc_64/include/QtSql -I/home/jerome/Qt/5.12.2/gcc_64/include/QtQml -I/home/jerome/Qt/5.12.2/gcc_64/include/QtNetwork -I/home/jerome/Qt/5.12.2/gcc_64/include/QtPositioning -I/home/jerome/Qt/5.12.2/gcc_64/include/QtCore -I. -I/usr/include/c++/8 -I/usr/include/x86_64-linux-gnu/c++/8 -I/usr/include/c++/8/backward -I/usr/lib/gcc/x86_64-linux-gnu/8/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/8/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../testsx/tst_testdbmanager.cpp -o tst_testdbmanager.moc
 
 compiler_yacc_decl_make_all:
 compiler_yacc_decl_clean:
@@ -1329,8 +1352,176 @@ tst_testdbmanager.o: ../testsx/tst_testdbmanager.cpp ../../../../Qt/5.12.2/gcc_6
 		../../../../Qt/5.12.2/gcc_64/include/QtCore/QMetaEnum \
 		../../../../Qt/5.12.2/gcc_64/include/QtTest/qttestversion.h \
 		../../../../Qt/5.12.2/gcc_64/include/QtCore/QCoreApplication \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/QFileInfo \
+		../dbmanager/dbmanager.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtSql/QSqlDatabase \
+		../../../../Qt/5.12.2/gcc_64/include/QtSql/qsqldatabase.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtSql/qtsqlglobal.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtSql/qtsql-config.h \
 		tst_testdbmanager.moc
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o tst_testdbmanager.o ../testsx/tst_testdbmanager.cpp
+
+dbmanager.o: ../dbmanager/dbmanager.cpp ../dbmanager/dbmanager.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/QString \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qstring.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qchar.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qglobal.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qconfig-bootstrapped.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qconfig.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qtcore-config.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qsystemdetection.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qprocessordetection.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qcompilerdetection.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qtypeinfo.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qsysinfo.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qlogging.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qflags.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qatomic.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qbasicatomic.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qatomic_bootstrap.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qgenericatomic.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qatomic_cxx11.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qatomic_msvc.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qglobalstatic.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qmutex.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qnumeric.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qversiontagging.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qbytearray.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qrefcount.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qnamespace.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qarraydata.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qstringliteral.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qstringalgorithms.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qstringview.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qstringbuilder.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtSql/QSqlDatabase \
+		../../../../Qt/5.12.2/gcc_64/include/QtSql/qsqldatabase.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtSql/qtsqlglobal.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtSql/qtsql-config.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/QDebug \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qdebug.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qalgorithms.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qhash.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qiterator.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qlist.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qhashfunctions.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qpair.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qbytearraylist.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qstringlist.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qregexp.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qstringmatcher.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qmap.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qtextstream.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qiodevice.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qobject.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qobjectdefs.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qobjectdefs_impl.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qcoreevent.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qscopedpointer.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qmetatype.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qvarlengtharray.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qcontainerfwd.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qobject_impl.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qlocale.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qvariant.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qshareddata.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qvector.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qpoint.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qset.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qcontiguouscache.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qsharedpointer.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qsharedpointer_impl.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtSql/QSqlQuery \
+		../../../../Qt/5.12.2/gcc_64/include/QtSql/qsqlquery.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtSql/QSqlError \
+		../../../../Qt/5.12.2/gcc_64/include/QtSql/qsqlerror.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtSql/QSqlRecord \
+		../../../../Qt/5.12.2/gcc_64/include/QtSql/qsqlrecord.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/QGuiApplication \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qguiapplication.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qtguiglobal.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qtgui-config.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qcoreapplication.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qeventloop.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qwindowdefs.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qwindowdefs_win.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qinputmethod.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qsize.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtQuick/QQuickView \
+		../../../../Qt/5.12.2/gcc_64/include/QtQuick/qquickview.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtQuick/qquickwindow.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtQuick/qtquickglobal.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtQml/qtqmlglobal.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtQml/qtqml-config.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtNetwork/qtnetworkglobal.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtNetwork/qtnetwork-config.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtQuick/qtquick-config.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtQuick/qsgrendererinterface.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtQuick/qsgnode.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtQuick/qsggeometry.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qopengl.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qt_windows.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qopengles2ext.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qopenglext.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/QRectF \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qrect.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qmargins.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/QMatrix4x4 \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qmatrix4x4.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qvector3d.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qvector4d.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qquaternion.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qgenericmatrix.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qdatastream.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qwindow.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/QObject \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/QEvent \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/QMargins \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/QRect \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qsurface.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qsurfaceformat.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qicon.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qpixmap.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qpaintdevice.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qcolor.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qrgb.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qrgba64.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qimage.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qpixelformat.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qtransform.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qmatrix.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qpolygon.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qregion.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qline.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qpainterpath.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qcursor.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qevent.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qkeysequence.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qurl.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qurlquery.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qfile.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qfiledevice.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qvector2d.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qtouchdevice.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtQml/qqml.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtQml/qqmlprivate.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtQml/qqmlparserstatus.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtQml/qqmlpropertyvaluesource.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtQml/qqmllist.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/qmetaobject.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtQml/qqmldebug.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtQml/QQmlEngine \
+		../../../../Qt/5.12.2/gcc_64/include/QtQml/qqmlengine.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtQml/qjsengine.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtQml/qjsvalue.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtQml/qqmlerror.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtQuick/QQuickItem \
+		../../../../Qt/5.12.2/gcc_64/include/QtQuick/qquickitem.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtQml/qqmlcomponent.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtCore/QList \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qfont.h \
+		../../../../Qt/5.12.2/gcc_64/include/QtGui/qaccessible.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o dbmanager.o ../dbmanager/dbmanager.cpp
 
 ####### Install
 

@@ -1,7 +1,11 @@
 #include <QtTest>
 #include <QCoreApplication>
 
-// add necessary includes here
+#include <QString>
+#include <QFileInfo>
+#include "../dbmanager/dbmanager.h"
+
+using namespace std;
 
 class TestDbManager : public QObject
 {
@@ -14,7 +18,8 @@ public:
 private slots:
     void initTestCase();
     void cleanupTestCase();
-    void test_case1();
+    void test_createTable();
+    void test_connection();
 
 };
 
@@ -38,11 +43,30 @@ void TestDbManager::cleanupTestCase()
 
 }
 
-void TestDbManager::test_case1()
+void TestDbManager::test_connection()
 {
+    QString name = "test.db";
+    QString path = "./";
+    DbManager db;
 
+    db.connection(path, name);
+
+    QFileInfo check_file(path+ "/" + name);
+    QVERIFY(check_file.exists() && check_file.isFile());
 }
 
-QTEST_MAIN(TestDbManager)
+void TestDbManager::test_createTable()
+{
+    QString name = "test.db";
+    QString path = "./";
+    DbManager db;
+    db.connection(path, name);
+    db.createTable();
+    QFileInfo check_file(path);
+    QVERIFY(check_file.exists() && check_file.isFile());
+}
 
+
+
+QTEST_MAIN(TestDbManager)
 #include "tst_testdbmanager.moc"

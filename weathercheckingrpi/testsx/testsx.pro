@@ -1,7 +1,13 @@
-QT += testlib
+QT += testlib sql core network positioning qml quick
 QT += gui
-CONFIG += qt warn_on depend_includepath testcase
+
+DEFINES += QT_DEPRECATED_WARNINGS
+
+CONFIG += qt warn_on depend_includepath testcase c++11
 
 TEMPLATE = app
 
-SOURCES +=  tst_testdbmanager.cpp
+SOURCES +=  tst_testdbmanager.cpp \
+            "../dbmanager/dbmanager.cpp"
+
+HEADERS += "../dbmanager/dbmanager.h"
