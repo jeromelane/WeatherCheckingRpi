@@ -7,7 +7,10 @@ CONFIG += qt warn_on depend_includepath testcase c++11
 
 TEMPLATE = app
 
-SOURCES +=  tst_testdbmanager.cpp \
-            "../dbmanager/dbmanager.cpp"
+SOURCES +=  \
+            "../dbmanager/dbmanager.cpp" \
+    "../../WeatherCheckingRpiSimple/appmodel.cpp"
+    tst_testappmodel.cpp
 
 HEADERS += "../dbmanager/dbmanager.h"
+             "../../WeatherCheckingRpiSimple/appmodel.h"

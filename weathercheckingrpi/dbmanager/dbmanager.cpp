@@ -118,7 +118,7 @@ bool DbManager::createTable()
     bool success = false;
 
     QSqlQuery query;
-    query.prepare("CREATE TABLE metrics(id INTEGER PRIMARY KEY, temperature TEXT, pressure TEXT, humidity TEXT, time TEXT);");
+    query.prepare("CREATE TABLE metrics(id INTEGER PRIMARY KEY, temperature TEXT, pressure TEXT, humidity TEXT, time TEXT, forecast TEXT, zambrettiNum TEXT);");
 
     if (!query.exec())
     {
@@ -178,5 +178,92 @@ bool DbManager::addMetrics(QString temperature, QString pressure, QString humidi
     return success;
 
 }
+
+bool DbManager::addZambForecast(QString forecast, QString zambrettiNum)
+{
+
+    addMetric(forecast,  "forecast");
+    return  addMetric(zambrettiNum,  "zambrettiNum");
+}
+
+
+bool DbManager::removeMetric(const QString& metricName, QString value)
+{
+    bool success = false;
+
+    if (metricExists(metricName, value))
+    {
+        QSqlQuery queryDelete;
+        queryDelete.prepare("DELETE FROM metrics WHERE "+metricName+" = (:value)");
+        queryDelete.bindValue(":value", value);
+        success = queryDelete.exec();
+
+        if(!success)
+        {
+            qDebug() << "remove metric failed: " << queryDelete.lastError();
+        }
+    }
+    else
+    {
+        qDebug() << "remove metric failed: metric does not exist";
+    }
+
+    return success;
+}
+
+void DbManager::printAllMetrics() const
+{
+    qDebug() << "Persons in db:";
+    QSqlQuery query("SELECT * FROM metrics");
+    int pressure = query.record().indexOf("pressure");
+    while (query.next())
+    {
+        QString value = query.value(pressure).toString();
+        qDebug() << "===" << value;
+    }
+}
+
+bool DbManager::metricExists(QString metricName, const QString& value) const
+{
+    bool exists = false;
+
+    QSqlQuery checkQuery;
+    checkQuery.prepare("SELECT " + metricName + " FROM metrics WHERE "+ metricName +" = (:value)");
+    checkQuery.bindValue(":value", value);
+
+    if (checkQuery.exec())
+    {
+        if (checkQuery.next())
+        {
+            exists = true;
+        }
+    }
+    else
+    {
+        qDebug() << "metric exists failed: " << checkQuery.lastError();
+    }
+
+    return exists;
+}
+
+bool DbManager::removeAllMetrics()
+{
+    bool success = false;
+
+    QSqlQuery removeQuery;
+    removeQuery.prepare("DELETE FROM metrics");
+
+    if (removeQuery.exec())
+    {
+        success = true;
+    }
+    else
+    {
+        qDebug() << "remove all mretics failed: " << removeQuery.lastError();
+    }
+
+    return success;
+}
+
 
 

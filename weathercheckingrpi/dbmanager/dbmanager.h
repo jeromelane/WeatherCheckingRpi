@@ -19,7 +19,12 @@ public:
     void openConnection(QString path, QString name);
     void closeConnection();
     bool addMetrics(QString temperature, QString pressure, QString humidity, QString time);
+    bool addZambForecast(QString forecast, QString zambrettiNum);
     bool addMetric(QString metricValue, QString metricName);
+    void printAllMetrics() const;
+    bool metricExists(QString metricName, const QString& value) const;
+    bool removeAllMetrics();
+    bool removeMetric(const QString& metricName, QString value);
 
 private:
     QSqlDatabase m_sqlitDb;
