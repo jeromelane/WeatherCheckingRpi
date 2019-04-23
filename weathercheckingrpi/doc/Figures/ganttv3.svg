@@ -15,8 +15,8 @@
    version="1.1"
    id="svg8"
    inkscape:version="0.92.3 (2405546, 2018-03-11)"
-   sodipodi:docname="gantt.svg"
-   inkscape:export-filename="/home/jerome/Bureau/gantt.svg.png"
+   sodipodi:docname="ganttv3.svg"
+   inkscape:export-filename="/home/jerome/projects/WeatherCheckingRpi/weathercheckingrpi/doc/Figures/gantt.v3.png"
    inkscape:export-xdpi="96"
    inkscape:export-ydpi="96">
   <defs
@@ -71,8 +71,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.49497475"
-     inkscape:cx="946.54206"
-     inkscape:cy="646.87037"
+     inkscape:cx="509.14601"
+     inkscape:cy="1616.6168"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"

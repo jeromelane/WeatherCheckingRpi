@@ -54,7 +54,6 @@
 #include <QtCore/QObject>
 #include <QtCore/QString>
 
-//! [0]
 class WeatherData : public QObject {
     Q_OBJECT
     Q_PROPERTY(QString weatherIcon
@@ -96,7 +95,7 @@ public:
 
 signals:
     void dataChanged();
-    //! [0]
+
 private:
     QString m_weather;
     QString m_weatherDescription;
@@ -104,14 +103,13 @@ private:
     QString m_temperature;
     QString m_pressure;
     QString m_humidity;
-//! [1]
+
 };
-//! [1]
 
 Q_DECLARE_METATYPE(WeatherData)
 
 class AppModelPrivate;
-//! [2]
+
 class AppModel : public QObject
 {
     Q_OBJECT
@@ -130,26 +128,20 @@ public:
     ~AppModel();
 
     bool hasValidWeather() const;
-
-
     bool ready() const;
     WeatherData *weather() const;
-
 
 public slots:
     Q_INVOKABLE void refreshWeather();
 
 public:
-        void handleZambrettiData();
-        void handleZambrettiNum(int);
+    void handleZambrettiData();
+    void handleZambrettiNum(int);
 
-
-//! [3]
 signals:
     void readyChanged();
     void weatherChanged();
 
-//! [3]
 
 private:
     AppModelPrivate *d;
