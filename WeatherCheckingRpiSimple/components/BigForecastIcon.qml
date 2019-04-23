@@ -54,8 +54,8 @@ Item {
     id: current
 
     //property string topText: "20*"
-    property string bottomText: "Mostly cloudy"
-    property string weatherIcon: "01d"
+    property string bottomText: "No weather forecast data"
+    property string weatherIcon: "unknown"
     property real smallSide: (current.width < current.height ? current.width : current.height)
 
    /* Text {
@@ -71,7 +71,7 @@ Item {
 
     WeatherIcon {
         weatherIcon: current.weatherIcon
-        useServerIcon: false
+        //useServerIcon: false
         anchors.centerIn: parent
         anchors.verticalCenterOffset: -15
         width: current.smallSide

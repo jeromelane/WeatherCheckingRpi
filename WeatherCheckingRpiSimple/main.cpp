@@ -43,50 +43,59 @@
 #include "dbmanager/dbmanager.h"
 #include "dbmanager/dbmanager.h"
 
+#include <iostream>
+using namespace std;
+
 int main(int argc, char *argv[])
 {
+    try {
+        // activer le capteur initsensor
+        // refreshsensor
+        // faire moyenne de 60s de mesures toutes les minutes et stocker dans la bd averageCalculator
+        // les deux pressions Zambretti recuperer de la bd
+        // getTrend, getZNumber et stocker les valeurs
+        // traiter ZNumber pur avoir la description
+        // afficher valeur description de Zambretti, tendance, P, T, H quand stocker  (init)
+        // rafraichir IHM toutes les 60s.
 
-    // activer le capteur initsensor
-    // refreshsensor
-    // faire moyenne de 60s de mesures toutes les minutes et stocker dans la bd averageCalculator
-    // les deux pressions Zambretti recuperer de la bd
-    // getTrend, getZNumber et stocker les valeurs
-    // traiter ZNumber pur avoir la description
-    // afficher valeur description de Zambretti, tendance, P, T, H quand stocker  (init)
-    // rafraichir IHM toutes les 60s.
-
-    /*QString dbName = "test.db";
-    DbManager db(dbName);
+        /*QString dbName = "test.db";
+        DbManager db(dbName);
 
 
-    if( QFile::exists(dbName))
-    {
-         qDebug()<<"Data base exist....";
+        if( QFile::exists(dbName))
+        {
+             qDebug()<<"Data base exist....";
 
-    } else {
-        qDebug()<<"Data base not exist creating new....";
-        //db.setDatabaseName(dbName);
+        } else {
+            qDebug()<<"Data base not exist creating new....";
+            //db.setDatabaseName(dbName);
 
-        db.sendQuery("INSERT INTO metrics (name) VALUES ('bob')");
+            db.sendQuery("INSERT INTO metrics (name) VALUES ('bob')");
+        }
+
+        //db.sendQueryAndRecieve("SELECT * FROM people;");*/
+
+        QLoggingCategory::setFilterRules("wapp.*.debug=false");
+        QGuiApplication application(argc, argv);
+
+        qmlRegisterType<WeatherData>("WeatherChecking", 1, 0, "WeatherData");
+        qmlRegisterType<AppModel>("WeatherChecking", 1, 0, "AppModel");
+
+        qRegisterMetaType<WeatherData>();
+
+
+        const QString mainQmlApp = QStringLiteral("qrc:///main.qml");
+        QQuickView view;
+        view.setSource(QUrl(mainQmlApp));
+        view.setResizeMode(QQuickView::SizeRootObjectToView);
+
+        QObject::connect(view.engine(), SIGNAL(quit()), qApp, SLOT(quit()));
+        view.setGeometry(QRect(100, 100, 360, 640));
+        view.show();
+        application.exec();
+    } catch (string const& chain) {
+        cerr << chain << endl;
+        return 1;
     }
-
-    //db.sendQueryAndRecieve("SELECT * FROM people;");*/
-
-    QLoggingCategory::setFilterRules("wapp.*.debug=false");
-    QGuiApplication application(argc, argv);
-
-    qmlRegisterType<WeatherData>("WeatherChecking", 1, 0, "WeatherData");
-    qmlRegisterType<AppModel>("WeatherChecking", 1, 0, "AppModel");
-
-    qRegisterMetaType<WeatherData>();
-
-    const QString mainQmlApp = QStringLiteral("qrc:///main.qml");
-    QQuickView view;
-    view.setSource(QUrl(mainQmlApp));
-    view.setResizeMode(QQuickView::SizeRootObjectToView);
-
-    QObject::connect(view.engine(), SIGNAL(quit()), qApp, SLOT(quit()));
-    view.setGeometry(QRect(100, 100, 360, 640));
-    view.show();
-    return application.exec();
+    return 0;
 }

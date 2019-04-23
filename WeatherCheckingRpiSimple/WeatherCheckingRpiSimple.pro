@@ -17,16 +17,15 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += main.cpp \
     appmodel.cpp \
-    dbmanager/dbmanager.cpp \
-    zambretti/zambretti.cpp \
-    main.cpp
+    dbmanager/dbmanager.cpp\
+    zambretti/Zambretti.cpp
     #weatherdata.cpp
     #sensor/bme280.c \
     #sensor/main.c
 
 HEADERS += appmodel.h \
-    dbmanager/dbmanager.h \
-    zambretti/zambretti.h
+    dbmanager/dbmanager.h\
+    zambretti/Zambretti.h
     #weatherdata.h
     #sensor/bme280.h \
     #sensor/bme280_defs.h

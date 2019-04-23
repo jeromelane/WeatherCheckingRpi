@@ -60,8 +60,10 @@
 #include <QElapsedTimer>
 #include <QLoggingCategory>
 #include <QDir>
+#include <QCoreApplication>
 
 #include "dbmanager/dbmanager.h"
+#include "zambretti/Zambretti.h"
 
 /*
  *This application uses http://openweathermap.org/api
@@ -158,26 +160,39 @@ public:
     //static const int baseMsBeforeNewRequest = 5 * 1000; // 5 s, increased after each missing answer up to 10x
     WeatherData now;
     bool ready;
-    QElapsedTimer throttle;
+    //QElapsedTimer throttle;
     //int nErrors;
     //int minMsBeforeNewRequest;
+        //DbManager db;
     QTimer requestNewWeatherTimer;
-    DbManager db;
+    QJsonDocument ztable;
 
-    AppModelPrivate() :
+    AppModelPrivate():
             ready(false)
             //nErrors(0)
             //minMsBeforeNewRequest(baseMsBeforeNewRequest)
     {
        // db = DbManager();
         //db.openConnection("mypath","test.db");
+        const QStringList args = QCoreApplication::arguments();
+
+        if(args.count() > 1)
+        {
+            QString ztablepath = args[1];
+            setZambrettiQJsonDocument(ztablepath);
+        } else {
+            throw "No args provided, please provide the Zambretti table path.";
+        }
 
         requestNewWeatherTimer.setSingleShot(false);
         requestNewWeatherTimer.setInterval(1*10*1000); // 1 min
+
         //throttle.invalidate();
         //ready = true;
         //qDebug() << "ready: " + QString::number(ready);
     }
+
+    void setZambrettiQJsonDocument(QString ztablepath);
 };
 
 /*!
@@ -198,6 +213,26 @@ static QString niceTemperatureString(double t)
 static QString nicePressureString(double t)
 {
     return QString::number(qRound(t)) + "Pa";
+}
+
+static QString niceZamberttiTrendString(signed int t)
+{
+    QString symb ;
+    switch(t) {
+    case 1:
+        symb = "-";
+        break;
+    case 0:
+        symb = "=";
+        break;
+    case 2:
+        symb = "+";
+         break;
+    default:
+        symb = "?";
+    }
+    return symb;
+
 }
 
 /*!
@@ -225,14 +260,15 @@ AppModel::AppModel(QObject *parent) :
     d->now.setPressure(nicePressureString( testpa));
     d->now.setHumidity(niceHumidityString(testhumidity));
 
-    int znum = 13;
-    connect(&d->requestNewWeatherTimer, SIGNAL(timeout()), this, SLOT(handleZambrettiData(znum)));
+    //connect(&d->requestNewWeatherTimer, SIGNAL(timeout()), this, SLOT(handleZambrettiData()));
+
     connect(&d->requestNewWeatherTimer, SIGNAL(timeout()), this, SLOT(refreshWeather()));
 
+    /*AppModel* a = this;
+    connect(&d->requestNewWeatherTimer, &QTimer::timeout, this, &AppModel::refreshWeather);*/
+    //this->refreshWeather(znum);
 
     d->requestNewWeatherTimer.start();
-
-
 
 }
 
@@ -245,27 +281,57 @@ AppModel::~AppModel()
     delete d;
 }
 
-void AppModel::handleZambrettiData(int zambretti_num)
+bool AppModel::ready() const
 {
+    return d->ready;
+}
 
+void AppModelPrivate::setZambrettiQJsonDocument(QString zpathtable) {
     qDebug() << "got Zambretti data";
 
     QJsonParseError *error = new QJsonParseError();
 
-    QString refpath="C:/Users/U/Documents/projets/WeatherCheckingRpi/WeatherCheckingRpiSimple";
-    QFile zambjson(refpath+ "/data/zambretti_table.json");
+    //QString refpath="C:/Users/U/Documents/projets/WeatherCheckingRpi/WeatherCheckingRpiSimple";
+    QFile zambjson(zpathtable + "/data/zambretti_table.json");
     zambjson.open(QIODevice::ReadOnly | QIODevice::Text);
     QString inputData = zambjson.readAll();
     //qDebug() << inputData;
     QJsonDocument document = QJsonDocument::fromJson(inputData.toUtf8(),error);
     zambjson.close();
+    this->ztable = document;
+    //return document;
+}
+void AppModel::handleZambrettiData()
+{
+    Zambretti Zamb;
+    // Calcul Zambretti:
+    Zamb.findZnumber();// this is the current Z number
+    qDebug() << "la tendance de pression actuelle est :" <<Zamb.getTrend()<<endl;
+    qDebug() << "le nb de Zambretti est: "<<Zamb.getZnumber()<<endl;
 
-    QString strJson(document.toJson(QJsonDocument::Compact));
+    //execute zambretti algo here.
+    if(Zamb.getTrend() != -1){
+        d->now.setWeatherTrend(niceZamberttiTrendString(Zamb.getTrend()));
+    } else {
+        qDebug() << "No trend available";
+    }
+
+    signed int zambretti_num = Zamb.getZnumber();
+    if( zambretti_num  != -1) {
+        handleZambrettiNum(zambretti_num);
+    }
+}
+
+void AppModel::handleZambrettiNum(signed int zambretti_num)
+{
+    qDebug() << "got Zambretti number";
+
+    //QString strJson(d->ztable.toJson(QJsonDocument::Compact));
     //qDebug() <<   strJson;
 
     QJsonObject jo;
-    QJsonValue jv;
-    QJsonObject root = document.object();
+    //QJsonValue jv;
+    QJsonObject root = d->ztable.object();
 
     qDebug() << "# of json keys: " << QString::number(root.size());
 
@@ -308,10 +374,13 @@ void AppModel::refreshWeather()
     d->now.setHumidity(niceHumidityString(testhumidity));
     d->now.setWeatherTrend("?");
 
+
+    handleZambrettiData();
+
    // d->ready = true;
 
     //emit readyChanged();
-    //emit weatherChanged();
+    emit weatherChanged();
 }
 
 
@@ -320,8 +389,8 @@ WeatherData *AppModel::weather() const
     return &(d->now);
 }
 
-bool AppModel::ready() const
+bool AppModel::hasValidWeather() const
 {
-    return d->ready;
+    return !((d->now.weatherIcon().isEmpty()) && (d->now.weatherIcon().size() > 1) && d->now.weatherIcon() != "");
 }
 

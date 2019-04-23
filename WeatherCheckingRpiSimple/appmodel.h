@@ -121,21 +121,29 @@ class AppModel : public QObject
     Q_PROPERTY(WeatherData *weather
                READ weather
                NOTIFY weatherChanged)
+    Q_PROPERTY(bool hasValidWeather
+               READ hasValidWeather
+               NOTIFY weatherChanged)
 
 public:
-    explicit AppModel(QObject *parent = nullptr);
+    explicit AppModel(QObject *parent = nullptr);//QString ztablepath = ""
     ~AppModel();
+
+    bool hasValidWeather() const;
+
 
     bool ready() const;
     WeatherData *weather() const;
 
 
 public slots:
-    void handleZambrettiData(int);
     Q_INVOKABLE void refreshWeather();
 
+public:
+        void handleZambrettiData();
+        void handleZambrettiNum(int);
 
-\
+
 //! [3]
 signals:
     void readyChanged();
@@ -145,6 +153,7 @@ signals:
 
 private:
     AppModelPrivate *d;
+
 
 //! [4]
 };

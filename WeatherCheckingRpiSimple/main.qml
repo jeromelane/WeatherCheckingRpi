@@ -132,8 +132,6 @@ Item {
                     horizontalAlignment: Text.AlignHCenter
                     verticalAlignment: Text.AlignVCenter
                 }
-
-
             }
 
             BigForecastIcon {
@@ -142,11 +140,11 @@ Item {
                 width: main.width - 12
                 height: 2 * (main.height - 25 - 12) / 3
 
-                weatherIcon: (model.hasValidWeather  ? model.weather.weatherIcon : "01d")
+                weatherIcon: (model.hasValidWeather ? model.weather.weatherIcon : "unknown" )
 
                 //topText: (model.hasValidWeather ? model.weather.temperature : "??")
 
-                bottomText: (model.hasValidWeather ? model.weather.weatherDescription  : "No weather data") + (model.hasValidWeather ? model.weather.weatherTrend : " NA ")
+                bottomText: ( model.weather.weatherDescription ) + " " + (model.weather.weatherTrend)
 
                 MouseArea {
                     anchors.fill: parent
