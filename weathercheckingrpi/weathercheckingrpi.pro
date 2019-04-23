@@ -53,7 +53,8 @@ DISTFILES += \
     components/BigForecastIcon.qml \
     class_diag.qmodel \
     diag_seq.qmodel \
-    diad_class_dbmanager.qmodel
+    diad_class_dbmanager.qmodel \
+    diag_activity.qmodel
 
 #SUBDIRS += \
  #   tests/tests.pro
