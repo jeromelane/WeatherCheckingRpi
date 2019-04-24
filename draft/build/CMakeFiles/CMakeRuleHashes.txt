@@ -1,3 +1,0 @@
-# Hashes of file build rules.
-fa885a9107eaf1a0011b4759d40ca96b src/CMakeFiles/quicktest1_autogen
-eadf868914bae21313d8298ba90eb25d src/qrc_resources.cpp
