@@ -53,22 +53,17 @@
 
 #include <QtCore/QObject>
 #include <QtCore/QString>
-#include <QtNetwork/QNetworkReply>
-#include <QtQml/QQmlListProperty>
 
-#include <QtPositioning/QGeoPositionInfoSource>
-
-//! [0]
 class WeatherData : public QObject {
     Q_OBJECT
-    Q_PROPERTY(QString dayOfWeek
-               READ dayOfWeek WRITE setDayOfWeek
-               NOTIFY dataChanged)
     Q_PROPERTY(QString weatherIcon
                READ weatherIcon WRITE setWeatherIcon
                NOTIFY dataChanged)
     Q_PROPERTY(QString weatherDescription
                READ weatherDescription WRITE setWeatherDescription
+               NOTIFY dataChanged)
+    Q_PROPERTY(QString weatherTrend
+               READ weatherTrend WRITE setWeatherTrend
                NOTIFY dataChanged)
     Q_PROPERTY(QString temperature
                READ temperature WRITE setTemperature
@@ -81,119 +76,76 @@ class WeatherData : public QObject {
                NOTIFY dataChanged)
 
 public:
-    explicit WeatherData(QObject *parent = 0);
+    explicit WeatherData(QObject *parent = nullptr);
     WeatherData(const WeatherData &other);
 
-    QString dayOfWeek() const;
     QString weatherIcon() const;
     QString weatherDescription() const;
+    QString weatherTrend() const;
     QString temperature() const;
     QString pressure() const;
     QString humidity() const;
 
-    void setDayOfWeek(const QString &value);
     void setWeatherIcon(const QString &value);
     void setWeatherDescription(const QString &value);
+    void setWeatherTrend(const QString &value);
     void setTemperature(const QString &value);
     void setPressure(const QString &pressure);
     void setHumidity(const QString &humidity);
 
 signals:
     void dataChanged();
-    //! [0]
+
 private:
-    QString m_dayOfWeek;
     QString m_weather;
     QString m_weatherDescription;
+    QString m_weatherTrend;
     QString m_temperature;
     QString m_pressure;
     QString m_humidity;
-//! [1]
+
 };
-//! [1]
 
 Q_DECLARE_METATYPE(WeatherData)
 
 class AppModelPrivate;
-//! [2]
+
 class AppModel : public QObject
 {
     Q_OBJECT
     Q_PROPERTY(bool ready
                READ ready
                NOTIFY readyChanged)
-    Q_PROPERTY(bool hasSource
-               READ hasSource
-               NOTIFY readyChanged)
-    Q_PROPERTY(bool hasValidCity
-               READ hasValidCity
-               NOTIFY cityChanged)
-    Q_PROPERTY(bool hasValidWeather
-               READ hasValidWeather
-               NOTIFY weatherChanged)
-    Q_PROPERTY(bool useGps
-               READ useGps WRITE setUseGps
-               NOTIFY useGpsChanged)
-    Q_PROPERTY(bool useSensor
-               READ useSensor WRITE setUseSensor
-               NOTIFY useSensorChanged)
-    Q_PROPERTY(QString city
-               READ city WRITE setCity
-               NOTIFY cityChanged)
     Q_PROPERTY(WeatherData *weather
                READ weather
                NOTIFY weatherChanged)
-    Q_PROPERTY(QQmlListProperty<WeatherData> forecast
-               READ forecast
+    Q_PROPERTY(bool hasValidWeather
+               READ hasValidWeather
                NOTIFY weatherChanged)
 
 public:
-    explicit AppModel(QObject *parent = 0);
+    explicit AppModel(QObject *parent = nullptr);//QString ztablepath = ""
     ~AppModel();
 
-    bool ready() const;
-    bool hasSource() const;
-    bool useGps() const;
-    bool useSensor() const;
-    bool hasValidCity() const;
     bool hasValidWeather() const;
-
-    void setUseGps(bool value);
-    void hadError(bool tryAgain);
-
-    void setUseSensor(bool value);
-
-    QString city() const;
-    void setCity(const QString &value);
-
+    bool ready() const;
     WeatherData *weather() const;
-    QQmlListProperty<WeatherData> forecast() const;
 
 public slots:
     Q_INVOKABLE void refreshWeather();
 
-//! [2]
-private slots:
-    void queryCity();
-    void networkSessionOpened();
-    void positionUpdated(QGeoPositionInfo gpsPos);
-    void positionError(QGeoPositionInfoSource::Error e);
-    void handleGeoNetworkData(QNetworkReply *networkReply);
-    void handleWeatherNetworkData(QNetworkReply *networkReply);
-    void handleForecastNetworkData(QNetworkReply *networkReply);
+public:
+    void handleZambrettiData();
+    void handleZambrettiNum(int);
 
-//! [3]
 signals:
     void readyChanged();
-    void useGpsChanged();
-    void useSensorChanged();
-    void cityChanged();
     void weatherChanged();
 
-//! [3]
 
 private:
     AppModelPrivate *d;
+
 
 //! [4]
 };

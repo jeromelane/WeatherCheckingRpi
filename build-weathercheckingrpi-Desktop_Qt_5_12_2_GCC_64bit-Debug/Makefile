@@ -54,34 +54,22 @@ OBJECTS_DIR   = ./
 
 SOURCES       = ../weathercheckingrpi/main.cpp \
 		../weathercheckingrpi/appmodel.cpp \
-		../weathercheckingrpi/dbmanager/dbmanager.cpp \
-		../weathercheckingrpi/dbmanager/dbmanager.cpp \
-		../weathercheckingrpi/appmodel.cpp \
-		../weathercheckingrpi/main.cpp \
-		../weathercheckingrpi/weatherdata.cpp \
-		tests/testsQt.cpp \
-		../weathercheckingrpi/dbmanager/dbtable.cpp qrc_weathercheckingrpi.cpp \
-		moc_appmodel.cpp \
-		moc_weatherdata.cpp
+		../weathercheckingrpi/zambretti/Zambretti.cpp qrc_weathercheckingrpi.cpp \
+		moc_appmodel.cpp
 OBJECTS       = main.o \
 		appmodel.o \
-		dbmanager.o \
-		dbmanager.o \
-		appmodel.o \
-		main.o \
-		weatherdata.o \
-		testsQt.o \
-		dbtable.o \
+		Zambretti.o \
 		qrc_weathercheckingrpi.o \
-		moc_appmodel.o \
-		moc_weatherdata.o
+		moc_appmodel.o
 DIST          = ../weathercheckingrpi/sensor/bme280 \
 		../weathercheckingrpi/components/WeatherIcon.qml \
 		../weathercheckingrpi/components/ForecastIcon.qml \
 		../weathercheckingrpi/components/BigForecastIcon.qml \
+		../weathercheckingrpi/components/SensorIcon.qml \
 		../weathercheckingrpi/class_diag.qmodel \
 		../weathercheckingrpi/diag_seq.qmodel \
 		../weathercheckingrpi/diad_class_dbmanager.qmodel \
+		../weathercheckingrpi/diag_activity.qmodel \
 		../../../Qt/5.12.2/gcc_64/mkspecs/features/spec_pre.prf \
 		../../../Qt/5.12.2/gcc_64/mkspecs/common/unix.conf \
 		../../../Qt/5.12.2/gcc_64/mkspecs/common/linux.conf \
@@ -274,21 +262,9 @@ DIST          = ../weathercheckingrpi/sensor/bme280 \
 		../../../Qt/5.12.2/gcc_64/mkspecs/features/yacc.prf \
 		../../../Qt/5.12.2/gcc_64/mkspecs/features/lex.prf \
 		../weathercheckingrpi/weathercheckingrpi.pro ../weathercheckingrpi/appmodel.h \
-		../weathercheckingrpi/appmodel.h \
-		../weathercheckingrpi/dbmanager/dbmanager.h \
-		../weathercheckingrpi/dbmanager/dbmanager.h \
-		tests/moc_predefs.h \
-		../weathercheckingrpi/appmodel.h \
-		../weathercheckingrpi/weatherdata.h \
-		../weathercheckingrpi/dbmanager/dbtable.h ../weathercheckingrpi/main.cpp \
+		../weathercheckingrpi/zambretti/Zambretti.h ../weathercheckingrpi/main.cpp \
 		../weathercheckingrpi/appmodel.cpp \
-		../weathercheckingrpi/dbmanager/dbmanager.cpp \
-		../weathercheckingrpi/dbmanager/dbmanager.cpp \
-		../weathercheckingrpi/appmodel.cpp \
-		../weathercheckingrpi/main.cpp \
-		../weathercheckingrpi/weatherdata.cpp \
-		tests/testsQt.cpp \
-		../weathercheckingrpi/dbmanager/dbtable.cpp
+		../weathercheckingrpi/zambretti/Zambretti.cpp
 QMAKE_TARGET  = weathercheckingrpi
 DESTDIR       = 
 TARGET        = weathercheckingrpi
@@ -717,8 +693,8 @@ distdir: FORCE
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents ../weathercheckingrpi/weathercheckingrpi.qrc $(DISTDIR)/
 	$(COPY_FILE) --parents ../../../Qt/5.12.2/gcc_64/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../weathercheckingrpi/appmodel.h ../weathercheckingrpi/appmodel.h ../weathercheckingrpi/dbmanager/dbmanager.h ../weathercheckingrpi/dbmanager/dbmanager.h tests/moc_predefs.h ../weathercheckingrpi/appmodel.h ../weathercheckingrpi/weatherdata.h ../weathercheckingrpi/dbmanager/dbtable.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../weathercheckingrpi/main.cpp ../weathercheckingrpi/appmodel.cpp ../weathercheckingrpi/dbmanager/dbmanager.cpp ../weathercheckingrpi/dbmanager/dbmanager.cpp ../weathercheckingrpi/appmodel.cpp ../weathercheckingrpi/main.cpp ../weathercheckingrpi/weatherdata.cpp tests/testsQt.cpp ../weathercheckingrpi/dbmanager/dbtable.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../weathercheckingrpi/appmodel.h ../weathercheckingrpi/zambretti/Zambretti.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../weathercheckingrpi/main.cpp ../weathercheckingrpi/appmodel.cpp ../weathercheckingrpi/zambretti/Zambretti.cpp $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -747,30 +723,35 @@ compiler_rcc_clean:
 	-$(DEL_FILE) qrc_weathercheckingrpi.cpp
 qrc_weathercheckingrpi.cpp: ../weathercheckingrpi/weathercheckingrpi.qrc \
 		../../../Qt/5.12.2/gcc_64/bin/rcc \
+		../weathercheckingrpi/weatherdata.h \
 		../weathercheckingrpi/weathercheckingrpi.qml \
+		../weathercheckingrpi/weatherdata.cpp \
 		../weathercheckingrpi/main.cpp \
 		../weathercheckingrpi/appmodel.cpp \
 		../weathercheckingrpi/appmodel.h \
-		../weathercheckingrpi/tests/tests.pro \
 		../weathercheckingrpi/dbmanager/dbmanager.h \
 		../weathercheckingrpi/dbmanager/dbmanager.cpp \
 		../weathercheckingrpi/img/metrics/P.png \
 		../weathercheckingrpi/img/metrics/T.png \
 		../weathercheckingrpi/img/metrics/RH.png \
-		../weathercheckingrpi/img/icons/weather-sleet.png \
-		../weathercheckingrpi/img/icons/weather-overcast.png \
-		../weathercheckingrpi/img/icons/weather-storm.png \
-		../weathercheckingrpi/img/icons/weather-thundershower.png \
+		../weathercheckingrpi/img/icons/weather-few-clouds.png \
 		../weathercheckingrpi/img/icons/weather-icy.png \
+		../weathercheckingrpi/img/icons/weather-snow.png \
+		../weathercheckingrpi/img/icons/weather-haze.png \
+		../weathercheckingrpi/img/icons/weather-windy.png \
+		../weathercheckingrpi/img/icons/weather-storm.png \
 		../weathercheckingrpi/img/icons/weather-showers.png \
-		../weathercheckingrpi/img/icons/weather-fog.png \
+		../weathercheckingrpi/img/icons/weather-showers-spitting.png \
+		../weathercheckingrpi/img/icons/weather-sunny.png \
+		../weathercheckingrpi/img/icons/README.txt \
+		../weathercheckingrpi/img/icons/weather-sleet.png \
+		../weathercheckingrpi/img/icons/weather-thundershower.png \
+		../weathercheckingrpi/img/icons/weather-overcast.png \
+		../weathercheckingrpi/img/icons/weather-unknown.png \
+		../weathercheckingrpi/img/icons/weather-windy-rain.png \
 		../weathercheckingrpi/img/icons/weather-sunny-very-few-clouds.png \
 		../weathercheckingrpi/img/icons/qt_attribution.json \
-		../weathercheckingrpi/img/icons/README.txt \
-		../weathercheckingrpi/img/icons/weather-haze.png \
-		../weathercheckingrpi/img/icons/weather-few-clouds.png \
-		../weathercheckingrpi/img/icons/weather-snow.png \
-		../weathercheckingrpi/img/icons/weather-sunny.png \
+		../weathercheckingrpi/img/icons/weather-fog.png \
 		../weathercheckingrpi/img/climat/weather-night-fullmoon-partially-cloudy.svg \
 		../weathercheckingrpi/img/climat/weather-night-waningcrescent-foggy.png \
 		../weathercheckingrpi/img/climat/weather-windy-rain.png \
@@ -935,7 +916,111 @@ qrc_weathercheckingrpi.cpp: ../weathercheckingrpi/weathercheckingrpi.qrc \
 		../weathercheckingrpi/components/WeatherIcon.qml \
 		../weathercheckingrpi/components/SensorIcon.qml \
 		../weathercheckingrpi/zambretti/Zambretti.h \
+		../weathercheckingrpi/zambretti/main.cpp \
 		../weathercheckingrpi/zambretti/Zambretti.cpp \
+		../weathercheckingrpi/zambretti/temp/Zambretti.h \
+		../weathercheckingrpi/zambretti/temp/Zambretti.cpp \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/QObject \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qobject.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qobjectdefs.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qnamespace.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qglobal.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qconfig-bootstrapped.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qconfig.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qtcore-config.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qsystemdetection.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qprocessordetection.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qcompilerdetection.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qtypeinfo.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qsysinfo.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qlogging.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qflags.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qatomic.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qbasicatomic.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qatomic_bootstrap.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qgenericatomic.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qatomic_cxx11.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qatomic_msvc.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qglobalstatic.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qmutex.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qnumeric.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qversiontagging.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qobjectdefs_impl.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qstring.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qchar.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qbytearray.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qrefcount.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qarraydata.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qstringliteral.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qstringalgorithms.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qstringview.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qstringbuilder.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qlist.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qalgorithms.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qiterator.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qhashfunctions.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qpair.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qbytearraylist.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qstringlist.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qregexp.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qstringmatcher.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qcoreevent.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qscopedpointer.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qmetatype.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qvarlengtharray.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qcontainerfwd.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qobject_impl.h \
+		../weathercheckingrpi/weatherdata.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/QObject \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qobject.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qobjectdefs.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qnamespace.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qglobal.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qconfig-bootstrapped.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qconfig.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qtcore-config.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qsystemdetection.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qprocessordetection.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qcompilerdetection.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qtypeinfo.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qsysinfo.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qlogging.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qflags.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qatomic.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qbasicatomic.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qatomic_bootstrap.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qgenericatomic.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qatomic_cxx11.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qatomic_msvc.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qglobalstatic.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qmutex.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qnumeric.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qversiontagging.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qobjectdefs_impl.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qstring.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qchar.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qbytearray.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qrefcount.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qarraydata.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qstringliteral.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qstringalgorithms.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qstringview.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qstringbuilder.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qlist.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qalgorithms.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qiterator.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qhashfunctions.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qpair.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qbytearraylist.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qstringlist.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qregexp.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qstringmatcher.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qcoreevent.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qscopedpointer.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qmetatype.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qvarlengtharray.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qcontainerfwd.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qobject_impl.h \
 		../../../Qt/5.12.2/gcc_64/include/QtGui/QGuiApplication \
 		../../../Qt/5.12.2/gcc_64/include/QtGui/qguiapplication.h \
 		../../../Qt/5.12.2/gcc_64/include/QtGui/qtguiglobal.h \
@@ -1089,40 +1174,6 @@ qrc_weathercheckingrpi.cpp: ../weathercheckingrpi/weathercheckingrpi.qrc \
 		../../../Qt/5.12.2/gcc_64/include/QtCore/qloggingcategory.h \
 		../weathercheckingrpi/appmodel.h \
 		../../../Qt/5.12.2/gcc_64/include/QtCore/QString \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/QNetworkReply \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/qnetworkreply.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/QIODevice \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/QVariant \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/QNetworkRequest \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/qnetworkrequest.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/QSharedDataPointer \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/QUrl \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/QNetworkAccessManager \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/qnetworkaccessmanager.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/QVector \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/QSslConfiguration \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/qsslconfiguration.h \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/qsslsocket.h \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/qtcpsocket.h \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/qabstractsocket.h \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/qsslerror.h \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/qsslcertificate.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qcryptographichash.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qdatetime.h \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/qssl.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/QFlags \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/QSslPreSharedKeyAuthenticator \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/qsslpresharedkeyauthenticator.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/QMetaType \
-		../../../Qt/5.12.2/gcc_64/include/QtQml/QQmlListProperty \
-		../../../Qt/5.12.2/gcc_64/include/QtPositioning/QGeoPositionInfoSource \
-		../../../Qt/5.12.2/gcc_64/include/QtPositioning/qgeopositioninfosource.h \
-		../../../Qt/5.12.2/gcc_64/include/QtPositioning/QGeoPositionInfo \
-		../../../Qt/5.12.2/gcc_64/include/QtPositioning/qgeopositioninfo.h \
-		../../../Qt/5.12.2/gcc_64/include/QtPositioning/QGeoCoordinate \
-		../../../Qt/5.12.2/gcc_64/include/QtPositioning/qgeocoordinate.h \
-		../../../Qt/5.12.2/gcc_64/include/QtPositioning/qpositioningglobal.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/QDateTime \
 		../weathercheckingrpi/dbmanager/dbmanager.h \
 		../../../Qt/5.12.2/gcc_64/include/QtSql/QSqlDatabase \
 		../../../Qt/5.12.2/gcc_64/include/QtSql/qsqldatabase.h \
@@ -1180,71 +1231,6 @@ qrc_weathercheckingrpi.cpp: ../weathercheckingrpi/weathercheckingrpi.qrc \
 		../../../Qt/5.12.2/gcc_64/include/QtCore/qcontainerfwd.h \
 		../../../Qt/5.12.2/gcc_64/include/QtCore/qobject_impl.h \
 		../../../Qt/5.12.2/gcc_64/include/QtCore/QString \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/QNetworkReply \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/qnetworkreply.h \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/qtnetworkglobal.h \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/qtnetwork-config.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/QIODevice \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qiodevice.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/QVariant \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qvariant.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qmap.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qdebug.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qhash.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qtextstream.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qlocale.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qshareddata.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qvector.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qpoint.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qset.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qcontiguouscache.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qsharedpointer.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qsharedpointer_impl.h \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/QNetworkRequest \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/qnetworkrequest.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/QSharedDataPointer \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/QUrl \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qurl.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qurlquery.h \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/QNetworkAccessManager \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/qnetworkaccessmanager.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/QVector \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/QSslConfiguration \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/qsslconfiguration.h \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/qsslsocket.h \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/qtcpsocket.h \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/qabstractsocket.h \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/qsslerror.h \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/qsslcertificate.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qcryptographichash.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qdatetime.h \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/qssl.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/QFlags \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/QSslPreSharedKeyAuthenticator \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/qsslpresharedkeyauthenticator.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/QMetaType \
-		../../../Qt/5.12.2/gcc_64/include/QtQml/QQmlListProperty \
-		../../../Qt/5.12.2/gcc_64/include/QtQml/qqmllist.h \
-		../../../Qt/5.12.2/gcc_64/include/QtQml/qtqmlglobal.h \
-		../../../Qt/5.12.2/gcc_64/include/QtQml/qtqml-config.h \
-		../../../Qt/5.12.2/gcc_64/include/QtPositioning/QGeoPositionInfoSource \
-		../../../Qt/5.12.2/gcc_64/include/QtPositioning/qgeopositioninfosource.h \
-		../../../Qt/5.12.2/gcc_64/include/QtPositioning/QGeoPositionInfo \
-		../../../Qt/5.12.2/gcc_64/include/QtPositioning/qgeopositioninfo.h \
-		../../../Qt/5.12.2/gcc_64/include/QtPositioning/QGeoCoordinate \
-		../../../Qt/5.12.2/gcc_64/include/QtPositioning/qgeocoordinate.h \
-		../../../Qt/5.12.2/gcc_64/include/QtPositioning/qpositioningglobal.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/QDateTime \
-		../../../Qt/5.12.2/gcc_64/include/QtPositioning/qgeosatelliteinfosource.h \
-		../../../Qt/5.12.2/gcc_64/include/QtPositioning/QGeoSatelliteInfo \
-		../../../Qt/5.12.2/gcc_64/include/QtPositioning/qgeosatelliteinfo.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/QList \
-		../../../Qt/5.12.2/gcc_64/include/QtPositioning/qnmeapositioninfosource.h \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/qnetworkconfigmanager.h \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/qnetworkconfiguration.h \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/qnetworksession.h \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/qnetworkinterface.h \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/qhostaddress.h \
 		../../../Qt/5.12.2/gcc_64/include/QtCore/QJsonDocument \
 		../../../Qt/5.12.2/gcc_64/include/QtCore/qjsondocument.h \
 		../../../Qt/5.12.2/gcc_64/include/QtCore/qjsonvalue.h \
@@ -1256,11 +1242,42 @@ qrc_weathercheckingrpi.cpp: ../weathercheckingrpi/weathercheckingrpi.qrc \
 		../../../Qt/5.12.2/gcc_64/include/QtCore/QTimer \
 		../../../Qt/5.12.2/gcc_64/include/QtCore/qtimer.h \
 		../../../Qt/5.12.2/gcc_64/include/QtCore/qbasictimer.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/QFile \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qfile.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qfiledevice.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qiodevice.h \
 		../../../Qt/5.12.2/gcc_64/include/QtCore/QUrlQuery \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qurlquery.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qshareddata.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qhash.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qurl.h \
 		../../../Qt/5.12.2/gcc_64/include/QtCore/QElapsedTimer \
 		../../../Qt/5.12.2/gcc_64/include/QtCore/qelapsedtimer.h \
 		../../../Qt/5.12.2/gcc_64/include/QtCore/QLoggingCategory \
 		../../../Qt/5.12.2/gcc_64/include/QtCore/qloggingcategory.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qdebug.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qmap.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qtextstream.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qlocale.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qvariant.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qvector.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qpoint.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qset.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qcontiguouscache.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qsharedpointer.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qsharedpointer_impl.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/QDir \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qdir.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qfileinfo.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/QCoreApplication \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qcoreapplication.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qeventloop.h \
+		../weathercheckingrpi/dbmanager/dbmanager.h \
+		../../../Qt/5.12.2/gcc_64/include/QtSql/QSqlDatabase \
+		../../../Qt/5.12.2/gcc_64/include/QtSql/qsqldatabase.h \
+		../../../Qt/5.12.2/gcc_64/include/QtSql/qtsqlglobal.h \
+		../../../Qt/5.12.2/gcc_64/include/QtSql/qtsql-config.h \
+		../weathercheckingrpi/zambretti/Zambretti.h \
 		../../../Qt/5.12.2/gcc_64/include/QtCore/QObject \
 		../../../Qt/5.12.2/gcc_64/include/QtCore/qobject.h \
 		../../../Qt/5.12.2/gcc_64/include/QtCore/qobjectdefs.h \
@@ -1312,61 +1329,6 @@ qrc_weathercheckingrpi.cpp: ../weathercheckingrpi/weathercheckingrpi.qrc \
 		../../../Qt/5.12.2/gcc_64/include/QtCore/qcontainerfwd.h \
 		../../../Qt/5.12.2/gcc_64/include/QtCore/qobject_impl.h \
 		../../../Qt/5.12.2/gcc_64/include/QtCore/QString \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/QNetworkReply \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/qnetworkreply.h \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/qtnetworkglobal.h \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/qtnetwork-config.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/QIODevice \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qiodevice.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/QVariant \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qvariant.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qmap.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qdebug.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qhash.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qtextstream.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qlocale.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qshareddata.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qvector.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qpoint.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qset.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qcontiguouscache.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qsharedpointer.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qsharedpointer_impl.h \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/QNetworkRequest \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/qnetworkrequest.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/QSharedDataPointer \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/QUrl \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qurl.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qurlquery.h \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/QNetworkAccessManager \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/qnetworkaccessmanager.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/QVector \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/QSslConfiguration \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/qsslconfiguration.h \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/qsslsocket.h \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/qtcpsocket.h \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/qabstractsocket.h \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/qsslerror.h \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/qsslcertificate.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qcryptographichash.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qdatetime.h \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/qssl.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/QFlags \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/QSslPreSharedKeyAuthenticator \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/qsslpresharedkeyauthenticator.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/QMetaType \
-		../../../Qt/5.12.2/gcc_64/include/QtQml/QQmlListProperty \
-		../../../Qt/5.12.2/gcc_64/include/QtQml/qqmllist.h \
-		../../../Qt/5.12.2/gcc_64/include/QtQml/qtqmlglobal.h \
-		../../../Qt/5.12.2/gcc_64/include/QtQml/qtqml-config.h \
-		../../../Qt/5.12.2/gcc_64/include/QtPositioning/QGeoPositionInfoSource \
-		../../../Qt/5.12.2/gcc_64/include/QtPositioning/qgeopositioninfosource.h \
-		../../../Qt/5.12.2/gcc_64/include/QtPositioning/QGeoPositionInfo \
-		../../../Qt/5.12.2/gcc_64/include/QtPositioning/qgeopositioninfo.h \
-		../../../Qt/5.12.2/gcc_64/include/QtPositioning/QGeoCoordinate \
-		../../../Qt/5.12.2/gcc_64/include/QtPositioning/qgeocoordinate.h \
-		../../../Qt/5.12.2/gcc_64/include/QtPositioning/qpositioningglobal.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/QDateTime \
 		../../../Qt/5.12.2/gcc_64/include/QtCore/QString \
 		../../../Qt/5.12.2/gcc_64/include/QtCore/qstring.h \
 		../../../Qt/5.12.2/gcc_64/include/QtCore/qchar.h \
@@ -1479,6 +1441,10 @@ qrc_weathercheckingrpi.cpp: ../weathercheckingrpi/weathercheckingrpi.qrc \
 		../../../Qt/5.12.2/gcc_64/include/QtSql/qsqlerror.h \
 		../../../Qt/5.12.2/gcc_64/include/QtSql/QSqlRecord \
 		../../../Qt/5.12.2/gcc_64/include/QtSql/qsqlrecord.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/QFileInfo \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qfileinfo.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qfile.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qfiledevice.h \
 		../../../Qt/5.12.2/gcc_64/include/QtGui/QGuiApplication \
 		../../../Qt/5.12.2/gcc_64/include/QtGui/qguiapplication.h \
 		../../../Qt/5.12.2/gcc_64/include/QtGui/qtguiglobal.h \
@@ -1541,8 +1507,6 @@ qrc_weathercheckingrpi.cpp: ../weathercheckingrpi/weathercheckingrpi.qrc \
 		../../../Qt/5.12.2/gcc_64/include/QtGui/qkeysequence.h \
 		../../../Qt/5.12.2/gcc_64/include/QtCore/qurl.h \
 		../../../Qt/5.12.2/gcc_64/include/QtCore/qurlquery.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qfile.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qfiledevice.h \
 		../../../Qt/5.12.2/gcc_64/include/QtGui/qvector2d.h \
 		../../../Qt/5.12.2/gcc_64/include/QtGui/qtouchdevice.h \
 		../../../Qt/5.12.2/gcc_64/include/QtQml/qqml.h \
@@ -1563,6 +1527,7 @@ qrc_weathercheckingrpi.cpp: ../weathercheckingrpi/weathercheckingrpi.qrc \
 		../../../Qt/5.12.2/gcc_64/include/QtCore/QList \
 		../../../Qt/5.12.2/gcc_64/include/QtGui/qfont.h \
 		../../../Qt/5.12.2/gcc_64/include/QtGui/qaccessible.h \
+		../weathercheckingrpi/zambretti/Zambretti.h \
 		../weathercheckingrpi/zambretti/Zambretti.h
 	/home/jerome/Qt/5.12.2/gcc_64/bin/rcc -name weathercheckingrpi ../weathercheckingrpi/weathercheckingrpi.qrc -o qrc_weathercheckingrpi.cpp
 
@@ -1572,9 +1537,9 @@ compiler_moc_predefs_clean:
 moc_predefs.h: ../../../Qt/5.12.2/gcc_64/mkspecs/features/data/dummy.cpp
 	g++ -pipe -g -std=gnu++11 -Wall -W -dM -E -o moc_predefs.h ../../../Qt/5.12.2/gcc_64/mkspecs/features/data/dummy.cpp
 
-compiler_moc_header_make_all: moc_appmodel.cpp moc_appmodel.cpp moc_appmodel.cpp moc_weatherdata.cpp
+compiler_moc_header_make_all: moc_appmodel.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) moc_appmodel.cpp moc_appmodel.cpp moc_appmodel.cpp moc_weatherdata.cpp
+	-$(DEL_FILE) moc_appmodel.cpp
 moc_appmodel.cpp: ../weathercheckingrpi/appmodel.h \
 		../../../Qt/5.12.2/gcc_64/include/QtCore/QObject \
 		../../../Qt/5.12.2/gcc_64/include/QtCore/qobject.h \
@@ -1627,341 +1592,9 @@ moc_appmodel.cpp: ../weathercheckingrpi/appmodel.h \
 		../../../Qt/5.12.2/gcc_64/include/QtCore/qcontainerfwd.h \
 		../../../Qt/5.12.2/gcc_64/include/QtCore/qobject_impl.h \
 		../../../Qt/5.12.2/gcc_64/include/QtCore/QString \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/QNetworkReply \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/qnetworkreply.h \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/qtnetworkglobal.h \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/qtnetwork-config.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/QIODevice \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qiodevice.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/QVariant \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qvariant.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qmap.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qdebug.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qhash.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qtextstream.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qlocale.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qshareddata.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qvector.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qpoint.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qset.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qcontiguouscache.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qsharedpointer.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qsharedpointer_impl.h \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/QNetworkRequest \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/qnetworkrequest.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/QSharedDataPointer \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/QUrl \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qurl.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qurlquery.h \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/QNetworkAccessManager \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/qnetworkaccessmanager.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/QVector \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/QSslConfiguration \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/qsslconfiguration.h \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/qsslsocket.h \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/qtcpsocket.h \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/qabstractsocket.h \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/qsslerror.h \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/qsslcertificate.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qcryptographichash.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qdatetime.h \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/qssl.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/QFlags \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/QSslPreSharedKeyAuthenticator \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/qsslpresharedkeyauthenticator.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/QMetaType \
-		../../../Qt/5.12.2/gcc_64/include/QtQml/QQmlListProperty \
-		../../../Qt/5.12.2/gcc_64/include/QtQml/qqmllist.h \
-		../../../Qt/5.12.2/gcc_64/include/QtQml/qtqmlglobal.h \
-		../../../Qt/5.12.2/gcc_64/include/QtQml/qtqml-config.h \
-		../../../Qt/5.12.2/gcc_64/include/QtPositioning/QGeoPositionInfoSource \
-		../../../Qt/5.12.2/gcc_64/include/QtPositioning/qgeopositioninfosource.h \
-		../../../Qt/5.12.2/gcc_64/include/QtPositioning/QGeoPositionInfo \
-		../../../Qt/5.12.2/gcc_64/include/QtPositioning/qgeopositioninfo.h \
-		../../../Qt/5.12.2/gcc_64/include/QtPositioning/QGeoCoordinate \
-		../../../Qt/5.12.2/gcc_64/include/QtPositioning/qgeocoordinate.h \
-		../../../Qt/5.12.2/gcc_64/include/QtPositioning/qpositioningglobal.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/QDateTime \
 		moc_predefs.h \
 		../../../Qt/5.12.2/gcc_64/bin/moc
 	/home/jerome/Qt/5.12.2/gcc_64/bin/moc $(DEFINES) --include /home/jerome/projects/WeatherCheckingRpi/build-weathercheckingrpi-Desktop_Qt_5_12_2_GCC_64bit-Debug/moc_predefs.h -I/home/jerome/Qt/5.12.2/gcc_64/mkspecs/linux-g++ -I/home/jerome/projects/WeatherCheckingRpi/weathercheckingrpi -I/home/jerome/Qt/5.12.2/gcc_64/include -I/home/jerome/Qt/5.12.2/gcc_64/include/QtQuick -I/home/jerome/Qt/5.12.2/gcc_64/include/QtGui -I/home/jerome/Qt/5.12.2/gcc_64/include/QtQml -I/home/jerome/Qt/5.12.2/gcc_64/include/QtNetwork -I/home/jerome/Qt/5.12.2/gcc_64/include/QtPositioning -I/home/jerome/Qt/5.12.2/gcc_64/include/QtSql -I/home/jerome/Qt/5.12.2/gcc_64/include/QtCore -I. -I/usr/include/c++/8 -I/usr/include/x86_64-linux-gnu/c++/8 -I/usr/include/c++/8/backward -I/usr/lib/gcc/x86_64-linux-gnu/8/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/8/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../weathercheckingrpi/appmodel.h -o moc_appmodel.cpp
-
-moc_appmodel.cpp: ../weathercheckingrpi/appmodel.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/QObject \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qobject.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qobjectdefs.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qnamespace.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qglobal.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qconfig-bootstrapped.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qconfig.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qtcore-config.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qsystemdetection.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qprocessordetection.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qcompilerdetection.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qtypeinfo.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qsysinfo.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qlogging.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qflags.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qatomic.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qbasicatomic.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qatomic_bootstrap.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qgenericatomic.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qatomic_cxx11.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qatomic_msvc.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qglobalstatic.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qmutex.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qnumeric.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qversiontagging.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qobjectdefs_impl.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qstring.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qchar.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qbytearray.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qrefcount.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qarraydata.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qstringliteral.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qstringalgorithms.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qstringview.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qstringbuilder.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qlist.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qalgorithms.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qiterator.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qhashfunctions.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qpair.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qbytearraylist.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qstringlist.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qregexp.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qstringmatcher.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qcoreevent.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qscopedpointer.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qmetatype.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qvarlengtharray.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qcontainerfwd.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qobject_impl.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/QString \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/QNetworkReply \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/qnetworkreply.h \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/qtnetworkglobal.h \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/qtnetwork-config.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/QIODevice \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qiodevice.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/QVariant \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qvariant.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qmap.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qdebug.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qhash.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qtextstream.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qlocale.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qshareddata.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qvector.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qpoint.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qset.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qcontiguouscache.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qsharedpointer.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qsharedpointer_impl.h \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/QNetworkRequest \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/qnetworkrequest.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/QSharedDataPointer \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/QUrl \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qurl.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qurlquery.h \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/QNetworkAccessManager \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/qnetworkaccessmanager.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/QVector \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/QSslConfiguration \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/qsslconfiguration.h \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/qsslsocket.h \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/qtcpsocket.h \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/qabstractsocket.h \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/qsslerror.h \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/qsslcertificate.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qcryptographichash.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qdatetime.h \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/qssl.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/QFlags \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/QSslPreSharedKeyAuthenticator \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/qsslpresharedkeyauthenticator.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/QMetaType \
-		../../../Qt/5.12.2/gcc_64/include/QtQml/QQmlListProperty \
-		../../../Qt/5.12.2/gcc_64/include/QtQml/qqmllist.h \
-		../../../Qt/5.12.2/gcc_64/include/QtQml/qtqmlglobal.h \
-		../../../Qt/5.12.2/gcc_64/include/QtQml/qtqml-config.h \
-		../../../Qt/5.12.2/gcc_64/include/QtPositioning/QGeoPositionInfoSource \
-		../../../Qt/5.12.2/gcc_64/include/QtPositioning/qgeopositioninfosource.h \
-		../../../Qt/5.12.2/gcc_64/include/QtPositioning/QGeoPositionInfo \
-		../../../Qt/5.12.2/gcc_64/include/QtPositioning/qgeopositioninfo.h \
-		../../../Qt/5.12.2/gcc_64/include/QtPositioning/QGeoCoordinate \
-		../../../Qt/5.12.2/gcc_64/include/QtPositioning/qgeocoordinate.h \
-		../../../Qt/5.12.2/gcc_64/include/QtPositioning/qpositioningglobal.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/QDateTime \
-		moc_predefs.h \
-		../../../Qt/5.12.2/gcc_64/bin/moc
-	/home/jerome/Qt/5.12.2/gcc_64/bin/moc $(DEFINES) --include /home/jerome/projects/WeatherCheckingRpi/build-weathercheckingrpi-Desktop_Qt_5_12_2_GCC_64bit-Debug/moc_predefs.h -I/home/jerome/Qt/5.12.2/gcc_64/mkspecs/linux-g++ -I/home/jerome/projects/WeatherCheckingRpi/weathercheckingrpi -I/home/jerome/Qt/5.12.2/gcc_64/include -I/home/jerome/Qt/5.12.2/gcc_64/include/QtQuick -I/home/jerome/Qt/5.12.2/gcc_64/include/QtGui -I/home/jerome/Qt/5.12.2/gcc_64/include/QtQml -I/home/jerome/Qt/5.12.2/gcc_64/include/QtNetwork -I/home/jerome/Qt/5.12.2/gcc_64/include/QtPositioning -I/home/jerome/Qt/5.12.2/gcc_64/include/QtSql -I/home/jerome/Qt/5.12.2/gcc_64/include/QtCore -I. -I/usr/include/c++/8 -I/usr/include/x86_64-linux-gnu/c++/8 -I/usr/include/c++/8/backward -I/usr/lib/gcc/x86_64-linux-gnu/8/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/8/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../weathercheckingrpi/appmodel.h -o moc_appmodel.cpp
-
-moc_appmodel.cpp: ../weathercheckingrpi/appmodel.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/QObject \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qobject.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qobjectdefs.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qnamespace.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qglobal.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qconfig-bootstrapped.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qconfig.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qtcore-config.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qsystemdetection.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qprocessordetection.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qcompilerdetection.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qtypeinfo.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qsysinfo.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qlogging.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qflags.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qatomic.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qbasicatomic.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qatomic_bootstrap.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qgenericatomic.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qatomic_cxx11.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qatomic_msvc.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qglobalstatic.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qmutex.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qnumeric.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qversiontagging.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qobjectdefs_impl.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qstring.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qchar.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qbytearray.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qrefcount.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qarraydata.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qstringliteral.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qstringalgorithms.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qstringview.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qstringbuilder.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qlist.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qalgorithms.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qiterator.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qhashfunctions.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qpair.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qbytearraylist.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qstringlist.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qregexp.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qstringmatcher.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qcoreevent.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qscopedpointer.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qmetatype.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qvarlengtharray.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qcontainerfwd.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qobject_impl.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/QString \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/QNetworkReply \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/qnetworkreply.h \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/qtnetworkglobal.h \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/qtnetwork-config.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/QIODevice \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qiodevice.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/QVariant \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qvariant.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qmap.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qdebug.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qhash.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qtextstream.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qlocale.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qshareddata.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qvector.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qpoint.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qset.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qcontiguouscache.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qsharedpointer.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qsharedpointer_impl.h \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/QNetworkRequest \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/qnetworkrequest.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/QSharedDataPointer \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/QUrl \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qurl.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qurlquery.h \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/QNetworkAccessManager \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/qnetworkaccessmanager.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/QVector \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/QSslConfiguration \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/qsslconfiguration.h \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/qsslsocket.h \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/qtcpsocket.h \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/qabstractsocket.h \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/qsslerror.h \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/qsslcertificate.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qcryptographichash.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qdatetime.h \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/qssl.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/QFlags \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/QSslPreSharedKeyAuthenticator \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/qsslpresharedkeyauthenticator.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/QMetaType \
-		../../../Qt/5.12.2/gcc_64/include/QtQml/QQmlListProperty \
-		../../../Qt/5.12.2/gcc_64/include/QtQml/qqmllist.h \
-		../../../Qt/5.12.2/gcc_64/include/QtQml/qtqmlglobal.h \
-		../../../Qt/5.12.2/gcc_64/include/QtQml/qtqml-config.h \
-		../../../Qt/5.12.2/gcc_64/include/QtPositioning/QGeoPositionInfoSource \
-		../../../Qt/5.12.2/gcc_64/include/QtPositioning/qgeopositioninfosource.h \
-		../../../Qt/5.12.2/gcc_64/include/QtPositioning/QGeoPositionInfo \
-		../../../Qt/5.12.2/gcc_64/include/QtPositioning/qgeopositioninfo.h \
-		../../../Qt/5.12.2/gcc_64/include/QtPositioning/QGeoCoordinate \
-		../../../Qt/5.12.2/gcc_64/include/QtPositioning/qgeocoordinate.h \
-		../../../Qt/5.12.2/gcc_64/include/QtPositioning/qpositioningglobal.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/QDateTime \
-		moc_predefs.h \
-		../../../Qt/5.12.2/gcc_64/bin/moc
-	/home/jerome/Qt/5.12.2/gcc_64/bin/moc $(DEFINES) --include /home/jerome/projects/WeatherCheckingRpi/build-weathercheckingrpi-Desktop_Qt_5_12_2_GCC_64bit-Debug/moc_predefs.h -I/home/jerome/Qt/5.12.2/gcc_64/mkspecs/linux-g++ -I/home/jerome/projects/WeatherCheckingRpi/weathercheckingrpi -I/home/jerome/Qt/5.12.2/gcc_64/include -I/home/jerome/Qt/5.12.2/gcc_64/include/QtQuick -I/home/jerome/Qt/5.12.2/gcc_64/include/QtGui -I/home/jerome/Qt/5.12.2/gcc_64/include/QtQml -I/home/jerome/Qt/5.12.2/gcc_64/include/QtNetwork -I/home/jerome/Qt/5.12.2/gcc_64/include/QtPositioning -I/home/jerome/Qt/5.12.2/gcc_64/include/QtSql -I/home/jerome/Qt/5.12.2/gcc_64/include/QtCore -I. -I/usr/include/c++/8 -I/usr/include/x86_64-linux-gnu/c++/8 -I/usr/include/c++/8/backward -I/usr/lib/gcc/x86_64-linux-gnu/8/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/8/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../weathercheckingrpi/appmodel.h -o moc_appmodel.cpp
-
-moc_weatherdata.cpp: ../weathercheckingrpi/weatherdata.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/QObject \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qobject.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qobjectdefs.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qnamespace.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qglobal.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qconfig-bootstrapped.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qconfig.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qtcore-config.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qsystemdetection.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qprocessordetection.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qcompilerdetection.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qtypeinfo.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qsysinfo.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qlogging.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qflags.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qatomic.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qbasicatomic.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qatomic_bootstrap.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qgenericatomic.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qatomic_cxx11.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qatomic_msvc.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qglobalstatic.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qmutex.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qnumeric.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qversiontagging.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qobjectdefs_impl.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qstring.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qchar.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qbytearray.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qrefcount.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qarraydata.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qstringliteral.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qstringalgorithms.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qstringview.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qstringbuilder.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qlist.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qalgorithms.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qiterator.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qhashfunctions.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qpair.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qbytearraylist.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qstringlist.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qregexp.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qstringmatcher.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qcoreevent.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qscopedpointer.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qmetatype.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qvarlengtharray.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qcontainerfwd.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qobject_impl.h \
-		moc_predefs.h \
-		../../../Qt/5.12.2/gcc_64/bin/moc
-	/home/jerome/Qt/5.12.2/gcc_64/bin/moc $(DEFINES) --include /home/jerome/projects/WeatherCheckingRpi/build-weathercheckingrpi-Desktop_Qt_5_12_2_GCC_64bit-Debug/moc_predefs.h -I/home/jerome/Qt/5.12.2/gcc_64/mkspecs/linux-g++ -I/home/jerome/projects/WeatherCheckingRpi/weathercheckingrpi -I/home/jerome/Qt/5.12.2/gcc_64/include -I/home/jerome/Qt/5.12.2/gcc_64/include/QtQuick -I/home/jerome/Qt/5.12.2/gcc_64/include/QtGui -I/home/jerome/Qt/5.12.2/gcc_64/include/QtQml -I/home/jerome/Qt/5.12.2/gcc_64/include/QtNetwork -I/home/jerome/Qt/5.12.2/gcc_64/include/QtPositioning -I/home/jerome/Qt/5.12.2/gcc_64/include/QtSql -I/home/jerome/Qt/5.12.2/gcc_64/include/QtCore -I. -I/usr/include/c++/8 -I/usr/include/x86_64-linux-gnu/c++/8 -I/usr/include/c++/8/backward -I/usr/lib/gcc/x86_64-linux-gnu/8/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/8/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../weathercheckingrpi/weatherdata.h -o moc_weatherdata.cpp
 
 compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
@@ -2130,40 +1763,6 @@ main.o: ../weathercheckingrpi/main.cpp ../../../Qt/5.12.2/gcc_64/include/QtGui/Q
 		../../../Qt/5.12.2/gcc_64/include/QtCore/qloggingcategory.h \
 		../weathercheckingrpi/appmodel.h \
 		../../../Qt/5.12.2/gcc_64/include/QtCore/QString \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/QNetworkReply \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/qnetworkreply.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/QIODevice \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/QVariant \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/QNetworkRequest \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/qnetworkrequest.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/QSharedDataPointer \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/QUrl \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/QNetworkAccessManager \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/qnetworkaccessmanager.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/QVector \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/QSslConfiguration \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/qsslconfiguration.h \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/qsslsocket.h \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/qtcpsocket.h \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/qabstractsocket.h \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/qsslerror.h \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/qsslcertificate.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qcryptographichash.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qdatetime.h \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/qssl.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/QFlags \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/QSslPreSharedKeyAuthenticator \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/qsslpresharedkeyauthenticator.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/QMetaType \
-		../../../Qt/5.12.2/gcc_64/include/QtQml/QQmlListProperty \
-		../../../Qt/5.12.2/gcc_64/include/QtPositioning/QGeoPositionInfoSource \
-		../../../Qt/5.12.2/gcc_64/include/QtPositioning/qgeopositioninfosource.h \
-		../../../Qt/5.12.2/gcc_64/include/QtPositioning/QGeoPositionInfo \
-		../../../Qt/5.12.2/gcc_64/include/QtPositioning/qgeopositioninfo.h \
-		../../../Qt/5.12.2/gcc_64/include/QtPositioning/QGeoCoordinate \
-		../../../Qt/5.12.2/gcc_64/include/QtPositioning/qgeocoordinate.h \
-		../../../Qt/5.12.2/gcc_64/include/QtPositioning/qpositioningglobal.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/QDateTime \
 		../weathercheckingrpi/dbmanager/dbmanager.h \
 		../../../Qt/5.12.2/gcc_64/include/QtSql/QSqlDatabase \
 		../../../Qt/5.12.2/gcc_64/include/QtSql/qsqldatabase.h \
@@ -2223,71 +1822,6 @@ appmodel.o: ../weathercheckingrpi/appmodel.cpp ../weathercheckingrpi/appmodel.h 
 		../../../Qt/5.12.2/gcc_64/include/QtCore/qcontainerfwd.h \
 		../../../Qt/5.12.2/gcc_64/include/QtCore/qobject_impl.h \
 		../../../Qt/5.12.2/gcc_64/include/QtCore/QString \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/QNetworkReply \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/qnetworkreply.h \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/qtnetworkglobal.h \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/qtnetwork-config.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/QIODevice \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qiodevice.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/QVariant \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qvariant.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qmap.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qdebug.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qhash.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qtextstream.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qlocale.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qshareddata.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qvector.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qpoint.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qset.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qcontiguouscache.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qsharedpointer.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qsharedpointer_impl.h \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/QNetworkRequest \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/qnetworkrequest.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/QSharedDataPointer \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/QUrl \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qurl.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qurlquery.h \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/QNetworkAccessManager \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/qnetworkaccessmanager.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/QVector \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/QSslConfiguration \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/qsslconfiguration.h \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/qsslsocket.h \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/qtcpsocket.h \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/qabstractsocket.h \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/qsslerror.h \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/qsslcertificate.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qcryptographichash.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qdatetime.h \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/qssl.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/QFlags \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/QSslPreSharedKeyAuthenticator \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/qsslpresharedkeyauthenticator.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/QMetaType \
-		../../../Qt/5.12.2/gcc_64/include/QtQml/QQmlListProperty \
-		../../../Qt/5.12.2/gcc_64/include/QtQml/qqmllist.h \
-		../../../Qt/5.12.2/gcc_64/include/QtQml/qtqmlglobal.h \
-		../../../Qt/5.12.2/gcc_64/include/QtQml/qtqml-config.h \
-		../../../Qt/5.12.2/gcc_64/include/QtPositioning/QGeoPositionInfoSource \
-		../../../Qt/5.12.2/gcc_64/include/QtPositioning/qgeopositioninfosource.h \
-		../../../Qt/5.12.2/gcc_64/include/QtPositioning/QGeoPositionInfo \
-		../../../Qt/5.12.2/gcc_64/include/QtPositioning/qgeopositioninfo.h \
-		../../../Qt/5.12.2/gcc_64/include/QtPositioning/QGeoCoordinate \
-		../../../Qt/5.12.2/gcc_64/include/QtPositioning/qgeocoordinate.h \
-		../../../Qt/5.12.2/gcc_64/include/QtPositioning/qpositioningglobal.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/QDateTime \
-		../../../Qt/5.12.2/gcc_64/include/QtPositioning/qgeosatelliteinfosource.h \
-		../../../Qt/5.12.2/gcc_64/include/QtPositioning/QGeoSatelliteInfo \
-		../../../Qt/5.12.2/gcc_64/include/QtPositioning/qgeosatelliteinfo.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/QList \
-		../../../Qt/5.12.2/gcc_64/include/QtPositioning/qnmeapositioninfosource.h \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/qnetworkconfigmanager.h \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/qnetworkconfiguration.h \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/qnetworksession.h \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/qnetworkinterface.h \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/qhostaddress.h \
 		../../../Qt/5.12.2/gcc_64/include/QtCore/QJsonDocument \
 		../../../Qt/5.12.2/gcc_64/include/QtCore/qjsondocument.h \
 		../../../Qt/5.12.2/gcc_64/include/QtCore/qjsonvalue.h \
@@ -2299,765 +1833,52 @@ appmodel.o: ../weathercheckingrpi/appmodel.cpp ../weathercheckingrpi/appmodel.h 
 		../../../Qt/5.12.2/gcc_64/include/QtCore/QTimer \
 		../../../Qt/5.12.2/gcc_64/include/QtCore/qtimer.h \
 		../../../Qt/5.12.2/gcc_64/include/QtCore/qbasictimer.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/QFile \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qfile.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qfiledevice.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qiodevice.h \
 		../../../Qt/5.12.2/gcc_64/include/QtCore/QUrlQuery \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qurlquery.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qshareddata.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qhash.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qurl.h \
 		../../../Qt/5.12.2/gcc_64/include/QtCore/QElapsedTimer \
 		../../../Qt/5.12.2/gcc_64/include/QtCore/qelapsedtimer.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/QLoggingCategory \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qloggingcategory.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o appmodel.o ../weathercheckingrpi/appmodel.cpp
-
-dbmanager.o: ../weathercheckingrpi/dbmanager/dbmanager.cpp ../weathercheckingrpi/dbmanager/dbmanager.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/QString \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qstring.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qchar.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qglobal.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qconfig-bootstrapped.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qconfig.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qtcore-config.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qsystemdetection.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qprocessordetection.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qcompilerdetection.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qtypeinfo.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qsysinfo.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qlogging.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qflags.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qatomic.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qbasicatomic.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qatomic_bootstrap.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qgenericatomic.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qatomic_cxx11.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qatomic_msvc.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qglobalstatic.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qmutex.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qnumeric.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qversiontagging.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qbytearray.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qrefcount.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qnamespace.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qarraydata.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qstringliteral.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qstringalgorithms.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qstringview.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qstringbuilder.h \
-		../../../Qt/5.12.2/gcc_64/include/QtSql/QSqlDatabase \
-		../../../Qt/5.12.2/gcc_64/include/QtSql/qsqldatabase.h \
-		../../../Qt/5.12.2/gcc_64/include/QtSql/qtsqlglobal.h \
-		../../../Qt/5.12.2/gcc_64/include/QtSql/qtsql-config.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/QDebug \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qdebug.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qalgorithms.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qhash.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qiterator.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qlist.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qhashfunctions.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qpair.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qbytearraylist.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qstringlist.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qregexp.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qstringmatcher.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qmap.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qtextstream.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qiodevice.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qobject.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qobjectdefs.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qobjectdefs_impl.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qcoreevent.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qscopedpointer.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qmetatype.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qvarlengtharray.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qcontainerfwd.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qobject_impl.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qlocale.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qvariant.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qshareddata.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qvector.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qpoint.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qset.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qcontiguouscache.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qsharedpointer.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qsharedpointer_impl.h \
-		../../../Qt/5.12.2/gcc_64/include/QtSql/QSqlQuery \
-		../../../Qt/5.12.2/gcc_64/include/QtSql/qsqlquery.h \
-		../../../Qt/5.12.2/gcc_64/include/QtSql/QSqlError \
-		../../../Qt/5.12.2/gcc_64/include/QtSql/qsqlerror.h \
-		../../../Qt/5.12.2/gcc_64/include/QtSql/QSqlRecord \
-		../../../Qt/5.12.2/gcc_64/include/QtSql/qsqlrecord.h \
-		../../../Qt/5.12.2/gcc_64/include/QtGui/QGuiApplication \
-		../../../Qt/5.12.2/gcc_64/include/QtGui/qguiapplication.h \
-		../../../Qt/5.12.2/gcc_64/include/QtGui/qtguiglobal.h \
-		../../../Qt/5.12.2/gcc_64/include/QtGui/qtgui-config.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qcoreapplication.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qeventloop.h \
-		../../../Qt/5.12.2/gcc_64/include/QtGui/qwindowdefs.h \
-		../../../Qt/5.12.2/gcc_64/include/QtGui/qwindowdefs_win.h \
-		../../../Qt/5.12.2/gcc_64/include/QtGui/qinputmethod.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qsize.h \
-		../../../Qt/5.12.2/gcc_64/include/QtQuick/QQuickView \
-		../../../Qt/5.12.2/gcc_64/include/QtQuick/qquickview.h \
-		../../../Qt/5.12.2/gcc_64/include/QtQuick/qquickwindow.h \
-		../../../Qt/5.12.2/gcc_64/include/QtQuick/qtquickglobal.h \
-		../../../Qt/5.12.2/gcc_64/include/QtQml/qtqmlglobal.h \
-		../../../Qt/5.12.2/gcc_64/include/QtQml/qtqml-config.h \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/qtnetworkglobal.h \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/qtnetwork-config.h \
-		../../../Qt/5.12.2/gcc_64/include/QtQuick/qtquick-config.h \
-		../../../Qt/5.12.2/gcc_64/include/QtQuick/qsgrendererinterface.h \
-		../../../Qt/5.12.2/gcc_64/include/QtQuick/qsgnode.h \
-		../../../Qt/5.12.2/gcc_64/include/QtQuick/qsggeometry.h \
-		../../../Qt/5.12.2/gcc_64/include/QtGui/qopengl.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qt_windows.h \
-		../../../Qt/5.12.2/gcc_64/include/QtGui/qopengles2ext.h \
-		../../../Qt/5.12.2/gcc_64/include/QtGui/qopenglext.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/QRectF \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qrect.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qmargins.h \
-		../../../Qt/5.12.2/gcc_64/include/QtGui/QMatrix4x4 \
-		../../../Qt/5.12.2/gcc_64/include/QtGui/qmatrix4x4.h \
-		../../../Qt/5.12.2/gcc_64/include/QtGui/qvector3d.h \
-		../../../Qt/5.12.2/gcc_64/include/QtGui/qvector4d.h \
-		../../../Qt/5.12.2/gcc_64/include/QtGui/qquaternion.h \
-		../../../Qt/5.12.2/gcc_64/include/QtGui/qgenericmatrix.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qdatastream.h \
-		../../../Qt/5.12.2/gcc_64/include/QtGui/qwindow.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/QObject \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/QEvent \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/QMargins \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/QRect \
-		../../../Qt/5.12.2/gcc_64/include/QtGui/qsurface.h \
-		../../../Qt/5.12.2/gcc_64/include/QtGui/qsurfaceformat.h \
-		../../../Qt/5.12.2/gcc_64/include/QtGui/qicon.h \
-		../../../Qt/5.12.2/gcc_64/include/QtGui/qpixmap.h \
-		../../../Qt/5.12.2/gcc_64/include/QtGui/qpaintdevice.h \
-		../../../Qt/5.12.2/gcc_64/include/QtGui/qcolor.h \
-		../../../Qt/5.12.2/gcc_64/include/QtGui/qrgb.h \
-		../../../Qt/5.12.2/gcc_64/include/QtGui/qrgba64.h \
-		../../../Qt/5.12.2/gcc_64/include/QtGui/qimage.h \
-		../../../Qt/5.12.2/gcc_64/include/QtGui/qpixelformat.h \
-		../../../Qt/5.12.2/gcc_64/include/QtGui/qtransform.h \
-		../../../Qt/5.12.2/gcc_64/include/QtGui/qmatrix.h \
-		../../../Qt/5.12.2/gcc_64/include/QtGui/qpolygon.h \
-		../../../Qt/5.12.2/gcc_64/include/QtGui/qregion.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qline.h \
-		../../../Qt/5.12.2/gcc_64/include/QtGui/qpainterpath.h \
-		../../../Qt/5.12.2/gcc_64/include/QtGui/qcursor.h \
-		../../../Qt/5.12.2/gcc_64/include/QtGui/qevent.h \
-		../../../Qt/5.12.2/gcc_64/include/QtGui/qkeysequence.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qurl.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qurlquery.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qfile.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qfiledevice.h \
-		../../../Qt/5.12.2/gcc_64/include/QtGui/qvector2d.h \
-		../../../Qt/5.12.2/gcc_64/include/QtGui/qtouchdevice.h \
-		../../../Qt/5.12.2/gcc_64/include/QtQml/qqml.h \
-		../../../Qt/5.12.2/gcc_64/include/QtQml/qqmlprivate.h \
-		../../../Qt/5.12.2/gcc_64/include/QtQml/qqmlparserstatus.h \
-		../../../Qt/5.12.2/gcc_64/include/QtQml/qqmlpropertyvaluesource.h \
-		../../../Qt/5.12.2/gcc_64/include/QtQml/qqmllist.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qmetaobject.h \
-		../../../Qt/5.12.2/gcc_64/include/QtQml/qqmldebug.h \
-		../../../Qt/5.12.2/gcc_64/include/QtQml/QQmlEngine \
-		../../../Qt/5.12.2/gcc_64/include/QtQml/qqmlengine.h \
-		../../../Qt/5.12.2/gcc_64/include/QtQml/qjsengine.h \
-		../../../Qt/5.12.2/gcc_64/include/QtQml/qjsvalue.h \
-		../../../Qt/5.12.2/gcc_64/include/QtQml/qqmlerror.h \
-		../../../Qt/5.12.2/gcc_64/include/QtQuick/QQuickItem \
-		../../../Qt/5.12.2/gcc_64/include/QtQuick/qquickitem.h \
-		../../../Qt/5.12.2/gcc_64/include/QtQml/qqmlcomponent.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/QList \
-		../../../Qt/5.12.2/gcc_64/include/QtGui/qfont.h \
-		../../../Qt/5.12.2/gcc_64/include/QtGui/qaccessible.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o dbmanager.o ../weathercheckingrpi/dbmanager/dbmanager.cpp
-
-dbmanager.o: ../weathercheckingrpi/dbmanager/dbmanager.cpp ../weathercheckingrpi/dbmanager/dbmanager.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/QString \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qstring.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qchar.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qglobal.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qconfig-bootstrapped.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qconfig.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qtcore-config.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qsystemdetection.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qprocessordetection.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qcompilerdetection.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qtypeinfo.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qsysinfo.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qlogging.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qflags.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qatomic.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qbasicatomic.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qatomic_bootstrap.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qgenericatomic.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qatomic_cxx11.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qatomic_msvc.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qglobalstatic.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qmutex.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qnumeric.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qversiontagging.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qbytearray.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qrefcount.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qnamespace.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qarraydata.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qstringliteral.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qstringalgorithms.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qstringview.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qstringbuilder.h \
-		../../../Qt/5.12.2/gcc_64/include/QtSql/QSqlDatabase \
-		../../../Qt/5.12.2/gcc_64/include/QtSql/qsqldatabase.h \
-		../../../Qt/5.12.2/gcc_64/include/QtSql/qtsqlglobal.h \
-		../../../Qt/5.12.2/gcc_64/include/QtSql/qtsql-config.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/QDebug \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qdebug.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qalgorithms.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qhash.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qiterator.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qlist.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qhashfunctions.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qpair.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qbytearraylist.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qstringlist.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qregexp.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qstringmatcher.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qmap.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qtextstream.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qiodevice.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qobject.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qobjectdefs.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qobjectdefs_impl.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qcoreevent.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qscopedpointer.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qmetatype.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qvarlengtharray.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qcontainerfwd.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qobject_impl.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qlocale.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qvariant.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qshareddata.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qvector.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qpoint.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qset.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qcontiguouscache.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qsharedpointer.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qsharedpointer_impl.h \
-		../../../Qt/5.12.2/gcc_64/include/QtSql/QSqlQuery \
-		../../../Qt/5.12.2/gcc_64/include/QtSql/qsqlquery.h \
-		../../../Qt/5.12.2/gcc_64/include/QtSql/QSqlError \
-		../../../Qt/5.12.2/gcc_64/include/QtSql/qsqlerror.h \
-		../../../Qt/5.12.2/gcc_64/include/QtSql/QSqlRecord \
-		../../../Qt/5.12.2/gcc_64/include/QtSql/qsqlrecord.h \
-		../../../Qt/5.12.2/gcc_64/include/QtGui/QGuiApplication \
-		../../../Qt/5.12.2/gcc_64/include/QtGui/qguiapplication.h \
-		../../../Qt/5.12.2/gcc_64/include/QtGui/qtguiglobal.h \
-		../../../Qt/5.12.2/gcc_64/include/QtGui/qtgui-config.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qcoreapplication.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qeventloop.h \
-		../../../Qt/5.12.2/gcc_64/include/QtGui/qwindowdefs.h \
-		../../../Qt/5.12.2/gcc_64/include/QtGui/qwindowdefs_win.h \
-		../../../Qt/5.12.2/gcc_64/include/QtGui/qinputmethod.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qsize.h \
-		../../../Qt/5.12.2/gcc_64/include/QtQuick/QQuickView \
-		../../../Qt/5.12.2/gcc_64/include/QtQuick/qquickview.h \
-		../../../Qt/5.12.2/gcc_64/include/QtQuick/qquickwindow.h \
-		../../../Qt/5.12.2/gcc_64/include/QtQuick/qtquickglobal.h \
-		../../../Qt/5.12.2/gcc_64/include/QtQml/qtqmlglobal.h \
-		../../../Qt/5.12.2/gcc_64/include/QtQml/qtqml-config.h \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/qtnetworkglobal.h \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/qtnetwork-config.h \
-		../../../Qt/5.12.2/gcc_64/include/QtQuick/qtquick-config.h \
-		../../../Qt/5.12.2/gcc_64/include/QtQuick/qsgrendererinterface.h \
-		../../../Qt/5.12.2/gcc_64/include/QtQuick/qsgnode.h \
-		../../../Qt/5.12.2/gcc_64/include/QtQuick/qsggeometry.h \
-		../../../Qt/5.12.2/gcc_64/include/QtGui/qopengl.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qt_windows.h \
-		../../../Qt/5.12.2/gcc_64/include/QtGui/qopengles2ext.h \
-		../../../Qt/5.12.2/gcc_64/include/QtGui/qopenglext.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/QRectF \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qrect.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qmargins.h \
-		../../../Qt/5.12.2/gcc_64/include/QtGui/QMatrix4x4 \
-		../../../Qt/5.12.2/gcc_64/include/QtGui/qmatrix4x4.h \
-		../../../Qt/5.12.2/gcc_64/include/QtGui/qvector3d.h \
-		../../../Qt/5.12.2/gcc_64/include/QtGui/qvector4d.h \
-		../../../Qt/5.12.2/gcc_64/include/QtGui/qquaternion.h \
-		../../../Qt/5.12.2/gcc_64/include/QtGui/qgenericmatrix.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qdatastream.h \
-		../../../Qt/5.12.2/gcc_64/include/QtGui/qwindow.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/QObject \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/QEvent \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/QMargins \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/QRect \
-		../../../Qt/5.12.2/gcc_64/include/QtGui/qsurface.h \
-		../../../Qt/5.12.2/gcc_64/include/QtGui/qsurfaceformat.h \
-		../../../Qt/5.12.2/gcc_64/include/QtGui/qicon.h \
-		../../../Qt/5.12.2/gcc_64/include/QtGui/qpixmap.h \
-		../../../Qt/5.12.2/gcc_64/include/QtGui/qpaintdevice.h \
-		../../../Qt/5.12.2/gcc_64/include/QtGui/qcolor.h \
-		../../../Qt/5.12.2/gcc_64/include/QtGui/qrgb.h \
-		../../../Qt/5.12.2/gcc_64/include/QtGui/qrgba64.h \
-		../../../Qt/5.12.2/gcc_64/include/QtGui/qimage.h \
-		../../../Qt/5.12.2/gcc_64/include/QtGui/qpixelformat.h \
-		../../../Qt/5.12.2/gcc_64/include/QtGui/qtransform.h \
-		../../../Qt/5.12.2/gcc_64/include/QtGui/qmatrix.h \
-		../../../Qt/5.12.2/gcc_64/include/QtGui/qpolygon.h \
-		../../../Qt/5.12.2/gcc_64/include/QtGui/qregion.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qline.h \
-		../../../Qt/5.12.2/gcc_64/include/QtGui/qpainterpath.h \
-		../../../Qt/5.12.2/gcc_64/include/QtGui/qcursor.h \
-		../../../Qt/5.12.2/gcc_64/include/QtGui/qevent.h \
-		../../../Qt/5.12.2/gcc_64/include/QtGui/qkeysequence.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qurl.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qurlquery.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qfile.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qfiledevice.h \
-		../../../Qt/5.12.2/gcc_64/include/QtGui/qvector2d.h \
-		../../../Qt/5.12.2/gcc_64/include/QtGui/qtouchdevice.h \
-		../../../Qt/5.12.2/gcc_64/include/QtQml/qqml.h \
-		../../../Qt/5.12.2/gcc_64/include/QtQml/qqmlprivate.h \
-		../../../Qt/5.12.2/gcc_64/include/QtQml/qqmlparserstatus.h \
-		../../../Qt/5.12.2/gcc_64/include/QtQml/qqmlpropertyvaluesource.h \
-		../../../Qt/5.12.2/gcc_64/include/QtQml/qqmllist.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qmetaobject.h \
-		../../../Qt/5.12.2/gcc_64/include/QtQml/qqmldebug.h \
-		../../../Qt/5.12.2/gcc_64/include/QtQml/QQmlEngine \
-		../../../Qt/5.12.2/gcc_64/include/QtQml/qqmlengine.h \
-		../../../Qt/5.12.2/gcc_64/include/QtQml/qjsengine.h \
-		../../../Qt/5.12.2/gcc_64/include/QtQml/qjsvalue.h \
-		../../../Qt/5.12.2/gcc_64/include/QtQml/qqmlerror.h \
-		../../../Qt/5.12.2/gcc_64/include/QtQuick/QQuickItem \
-		../../../Qt/5.12.2/gcc_64/include/QtQuick/qquickitem.h \
-		../../../Qt/5.12.2/gcc_64/include/QtQml/qqmlcomponent.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/QList \
-		../../../Qt/5.12.2/gcc_64/include/QtGui/qfont.h \
-		../../../Qt/5.12.2/gcc_64/include/QtGui/qaccessible.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o dbmanager.o ../weathercheckingrpi/dbmanager/dbmanager.cpp
-
-appmodel.o: ../weathercheckingrpi/appmodel.cpp ../weathercheckingrpi/appmodel.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/QObject \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qobject.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qobjectdefs.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qnamespace.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qglobal.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qconfig-bootstrapped.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qconfig.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qtcore-config.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qsystemdetection.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qprocessordetection.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qcompilerdetection.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qtypeinfo.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qsysinfo.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qlogging.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qflags.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qatomic.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qbasicatomic.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qatomic_bootstrap.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qgenericatomic.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qatomic_cxx11.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qatomic_msvc.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qglobalstatic.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qmutex.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qnumeric.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qversiontagging.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qobjectdefs_impl.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qstring.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qchar.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qbytearray.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qrefcount.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qarraydata.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qstringliteral.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qstringalgorithms.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qstringview.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qstringbuilder.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qlist.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qalgorithms.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qiterator.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qhashfunctions.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qpair.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qbytearraylist.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qstringlist.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qregexp.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qstringmatcher.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qcoreevent.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qscopedpointer.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qmetatype.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qvarlengtharray.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qcontainerfwd.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qobject_impl.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/QString \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/QNetworkReply \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/qnetworkreply.h \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/qtnetworkglobal.h \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/qtnetwork-config.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/QIODevice \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qiodevice.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/QVariant \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qvariant.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qmap.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qdebug.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qhash.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qtextstream.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qlocale.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qshareddata.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qvector.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qpoint.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qset.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qcontiguouscache.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qsharedpointer.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qsharedpointer_impl.h \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/QNetworkRequest \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/qnetworkrequest.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/QSharedDataPointer \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/QUrl \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qurl.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qurlquery.h \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/QNetworkAccessManager \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/qnetworkaccessmanager.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/QVector \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/QSslConfiguration \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/qsslconfiguration.h \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/qsslsocket.h \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/qtcpsocket.h \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/qabstractsocket.h \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/qsslerror.h \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/qsslcertificate.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qcryptographichash.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qdatetime.h \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/qssl.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/QFlags \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/QSslPreSharedKeyAuthenticator \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/qsslpresharedkeyauthenticator.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/QMetaType \
-		../../../Qt/5.12.2/gcc_64/include/QtQml/QQmlListProperty \
-		../../../Qt/5.12.2/gcc_64/include/QtQml/qqmllist.h \
-		../../../Qt/5.12.2/gcc_64/include/QtQml/qtqmlglobal.h \
-		../../../Qt/5.12.2/gcc_64/include/QtQml/qtqml-config.h \
-		../../../Qt/5.12.2/gcc_64/include/QtPositioning/QGeoPositionInfoSource \
-		../../../Qt/5.12.2/gcc_64/include/QtPositioning/qgeopositioninfosource.h \
-		../../../Qt/5.12.2/gcc_64/include/QtPositioning/QGeoPositionInfo \
-		../../../Qt/5.12.2/gcc_64/include/QtPositioning/qgeopositioninfo.h \
-		../../../Qt/5.12.2/gcc_64/include/QtPositioning/QGeoCoordinate \
-		../../../Qt/5.12.2/gcc_64/include/QtPositioning/qgeocoordinate.h \
-		../../../Qt/5.12.2/gcc_64/include/QtPositioning/qpositioningglobal.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/QDateTime \
-		../../../Qt/5.12.2/gcc_64/include/QtPositioning/qgeosatelliteinfosource.h \
-		../../../Qt/5.12.2/gcc_64/include/QtPositioning/QGeoSatelliteInfo \
-		../../../Qt/5.12.2/gcc_64/include/QtPositioning/qgeosatelliteinfo.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/QList \
-		../../../Qt/5.12.2/gcc_64/include/QtPositioning/qnmeapositioninfosource.h \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/qnetworkconfigmanager.h \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/qnetworkconfiguration.h \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/qnetworksession.h \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/qnetworkinterface.h \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/qhostaddress.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/QJsonDocument \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qjsondocument.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qjsonvalue.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/QJsonObject \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qjsonobject.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/QJsonArray \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qjsonarray.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/QStringList \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/QTimer \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qtimer.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qbasictimer.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/QUrlQuery \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/QElapsedTimer \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qelapsedtimer.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/QLoggingCategory \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qloggingcategory.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o appmodel.o ../weathercheckingrpi/appmodel.cpp
-
-main.o: ../weathercheckingrpi/main.cpp ../../../Qt/5.12.2/gcc_64/include/QtGui/QGuiApplication \
-		../../../Qt/5.12.2/gcc_64/include/QtGui/qguiapplication.h \
-		../../../Qt/5.12.2/gcc_64/include/QtGui/qtguiglobal.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qglobal.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qconfig-bootstrapped.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qconfig.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qtcore-config.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qsystemdetection.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qprocessordetection.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qcompilerdetection.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qtypeinfo.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qsysinfo.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qlogging.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qflags.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qatomic.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qbasicatomic.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qatomic_bootstrap.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qgenericatomic.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qatomic_cxx11.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qatomic_msvc.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qglobalstatic.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qmutex.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qnumeric.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qversiontagging.h \
-		../../../Qt/5.12.2/gcc_64/include/QtGui/qtgui-config.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qcoreapplication.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qstring.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qchar.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qbytearray.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qrefcount.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qnamespace.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qarraydata.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qstringliteral.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qstringalgorithms.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qstringview.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qstringbuilder.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qobject.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qobjectdefs.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qobjectdefs_impl.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qlist.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qalgorithms.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qiterator.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qhashfunctions.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qpair.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qbytearraylist.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qstringlist.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qregexp.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qstringmatcher.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qcoreevent.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qscopedpointer.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qmetatype.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qvarlengtharray.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qcontainerfwd.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qobject_impl.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qeventloop.h \
-		../../../Qt/5.12.2/gcc_64/include/QtGui/qwindowdefs.h \
-		../../../Qt/5.12.2/gcc_64/include/QtGui/qwindowdefs_win.h \
-		../../../Qt/5.12.2/gcc_64/include/QtGui/qinputmethod.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qlocale.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qvariant.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qmap.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qdebug.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qhash.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qtextstream.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qiodevice.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qvector.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qpoint.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qset.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qcontiguouscache.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qsharedpointer.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qshareddata.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qsharedpointer_impl.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qsize.h \
-		../../../Qt/5.12.2/gcc_64/include/QtQuick/QQuickView \
-		../../../Qt/5.12.2/gcc_64/include/QtQuick/qquickview.h \
-		../../../Qt/5.12.2/gcc_64/include/QtQuick/qquickwindow.h \
-		../../../Qt/5.12.2/gcc_64/include/QtQuick/qtquickglobal.h \
-		../../../Qt/5.12.2/gcc_64/include/QtQml/qtqmlglobal.h \
-		../../../Qt/5.12.2/gcc_64/include/QtQml/qtqml-config.h \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/qtnetworkglobal.h \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/qtnetwork-config.h \
-		../../../Qt/5.12.2/gcc_64/include/QtQuick/qtquick-config.h \
-		../../../Qt/5.12.2/gcc_64/include/QtQuick/qsgrendererinterface.h \
-		../../../Qt/5.12.2/gcc_64/include/QtQuick/qsgnode.h \
-		../../../Qt/5.12.2/gcc_64/include/QtQuick/qsggeometry.h \
-		../../../Qt/5.12.2/gcc_64/include/QtGui/qopengl.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qt_windows.h \
-		../../../Qt/5.12.2/gcc_64/include/QtGui/qopengles2ext.h \
-		../../../Qt/5.12.2/gcc_64/include/QtGui/qopenglext.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/QRectF \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qrect.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qmargins.h \
-		../../../Qt/5.12.2/gcc_64/include/QtGui/QMatrix4x4 \
-		../../../Qt/5.12.2/gcc_64/include/QtGui/qmatrix4x4.h \
-		../../../Qt/5.12.2/gcc_64/include/QtGui/qvector3d.h \
-		../../../Qt/5.12.2/gcc_64/include/QtGui/qvector4d.h \
-		../../../Qt/5.12.2/gcc_64/include/QtGui/qquaternion.h \
-		../../../Qt/5.12.2/gcc_64/include/QtGui/qgenericmatrix.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qdatastream.h \
-		../../../Qt/5.12.2/gcc_64/include/QtGui/qwindow.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/QObject \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/QEvent \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/QMargins \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/QRect \
-		../../../Qt/5.12.2/gcc_64/include/QtGui/qsurface.h \
-		../../../Qt/5.12.2/gcc_64/include/QtGui/qsurfaceformat.h \
-		../../../Qt/5.12.2/gcc_64/include/QtGui/qicon.h \
-		../../../Qt/5.12.2/gcc_64/include/QtGui/qpixmap.h \
-		../../../Qt/5.12.2/gcc_64/include/QtGui/qpaintdevice.h \
-		../../../Qt/5.12.2/gcc_64/include/QtGui/qcolor.h \
-		../../../Qt/5.12.2/gcc_64/include/QtGui/qrgb.h \
-		../../../Qt/5.12.2/gcc_64/include/QtGui/qrgba64.h \
-		../../../Qt/5.12.2/gcc_64/include/QtGui/qimage.h \
-		../../../Qt/5.12.2/gcc_64/include/QtGui/qpixelformat.h \
-		../../../Qt/5.12.2/gcc_64/include/QtGui/qtransform.h \
-		../../../Qt/5.12.2/gcc_64/include/QtGui/qmatrix.h \
-		../../../Qt/5.12.2/gcc_64/include/QtGui/qpolygon.h \
-		../../../Qt/5.12.2/gcc_64/include/QtGui/qregion.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qline.h \
-		../../../Qt/5.12.2/gcc_64/include/QtGui/qpainterpath.h \
-		../../../Qt/5.12.2/gcc_64/include/QtGui/qcursor.h \
-		../../../Qt/5.12.2/gcc_64/include/QtGui/qevent.h \
-		../../../Qt/5.12.2/gcc_64/include/QtGui/qkeysequence.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qurl.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qurlquery.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qfile.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qfiledevice.h \
-		../../../Qt/5.12.2/gcc_64/include/QtGui/qvector2d.h \
-		../../../Qt/5.12.2/gcc_64/include/QtGui/qtouchdevice.h \
-		../../../Qt/5.12.2/gcc_64/include/QtQml/qqml.h \
-		../../../Qt/5.12.2/gcc_64/include/QtQml/qqmlprivate.h \
-		../../../Qt/5.12.2/gcc_64/include/QtQml/qqmlparserstatus.h \
-		../../../Qt/5.12.2/gcc_64/include/QtQml/qqmlpropertyvaluesource.h \
-		../../../Qt/5.12.2/gcc_64/include/QtQml/qqmllist.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qmetaobject.h \
-		../../../Qt/5.12.2/gcc_64/include/QtQml/qqmldebug.h \
-		../../../Qt/5.12.2/gcc_64/include/QtQml/QQmlEngine \
-		../../../Qt/5.12.2/gcc_64/include/QtQml/qqmlengine.h \
-		../../../Qt/5.12.2/gcc_64/include/QtQml/qjsengine.h \
-		../../../Qt/5.12.2/gcc_64/include/QtQml/qjsvalue.h \
-		../../../Qt/5.12.2/gcc_64/include/QtQml/qqmlerror.h \
-		../../../Qt/5.12.2/gcc_64/include/QtQml/QQmlContext \
-		../../../Qt/5.12.2/gcc_64/include/QtQml/qqmlcontext.h \
-		../../../Qt/5.12.2/gcc_64/include/QtQuick/QQuickItem \
-		../../../Qt/5.12.2/gcc_64/include/QtQuick/qquickitem.h \
-		../../../Qt/5.12.2/gcc_64/include/QtQml/qqmlcomponent.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/QList \
-		../../../Qt/5.12.2/gcc_64/include/QtGui/qfont.h \
-		../../../Qt/5.12.2/gcc_64/include/QtGui/qaccessible.h \
 		../../../Qt/5.12.2/gcc_64/include/QtCore/QLoggingCategory \
 		../../../Qt/5.12.2/gcc_64/include/QtCore/qloggingcategory.h \
-		../weathercheckingrpi/appmodel.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/QString \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/QNetworkReply \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/qnetworkreply.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/QIODevice \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/QVariant \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/QNetworkRequest \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/qnetworkrequest.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/QSharedDataPointer \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/QUrl \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/QNetworkAccessManager \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/qnetworkaccessmanager.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/QVector \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/QSslConfiguration \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/qsslconfiguration.h \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/qsslsocket.h \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/qtcpsocket.h \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/qabstractsocket.h \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/qsslerror.h \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/qsslcertificate.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qcryptographichash.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qdatetime.h \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/qssl.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/QFlags \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/QSslPreSharedKeyAuthenticator \
-		../../../Qt/5.12.2/gcc_64/include/QtNetwork/qsslpresharedkeyauthenticator.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/QMetaType \
-		../../../Qt/5.12.2/gcc_64/include/QtQml/QQmlListProperty \
-		../../../Qt/5.12.2/gcc_64/include/QtPositioning/QGeoPositionInfoSource \
-		../../../Qt/5.12.2/gcc_64/include/QtPositioning/qgeopositioninfosource.h \
-		../../../Qt/5.12.2/gcc_64/include/QtPositioning/QGeoPositionInfo \
-		../../../Qt/5.12.2/gcc_64/include/QtPositioning/qgeopositioninfo.h \
-		../../../Qt/5.12.2/gcc_64/include/QtPositioning/QGeoCoordinate \
-		../../../Qt/5.12.2/gcc_64/include/QtPositioning/qgeocoordinate.h \
-		../../../Qt/5.12.2/gcc_64/include/QtPositioning/qpositioningglobal.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/QDateTime \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qdebug.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qmap.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qtextstream.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qlocale.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qvariant.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qvector.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qpoint.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qset.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qcontiguouscache.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qsharedpointer.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qsharedpointer_impl.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/QDir \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qdir.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qfileinfo.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/QCoreApplication \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qcoreapplication.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qeventloop.h \
 		../weathercheckingrpi/dbmanager/dbmanager.h \
 		../../../Qt/5.12.2/gcc_64/include/QtSql/QSqlDatabase \
 		../../../Qt/5.12.2/gcc_64/include/QtSql/qsqldatabase.h \
 		../../../Qt/5.12.2/gcc_64/include/QtSql/qtsqlglobal.h \
-		../../../Qt/5.12.2/gcc_64/include/QtSql/qtsql-config.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../weathercheckingrpi/main.cpp
+		../../../Qt/5.12.2/gcc_64/include/QtSql/qtsql-config.h \
+		../weathercheckingrpi/zambretti/Zambretti.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o appmodel.o ../weathercheckingrpi/appmodel.cpp
 
-weatherdata.o: ../weathercheckingrpi/weatherdata.cpp ../weathercheckingrpi/weatherdata.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/QObject \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qobject.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qobjectdefs.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qnamespace.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qglobal.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qconfig-bootstrapped.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qconfig.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qtcore-config.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qsystemdetection.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qprocessordetection.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qcompilerdetection.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qtypeinfo.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qsysinfo.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qlogging.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qflags.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qatomic.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qbasicatomic.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qatomic_bootstrap.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qgenericatomic.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qatomic_cxx11.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qatomic_msvc.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qglobalstatic.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qmutex.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qnumeric.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qversiontagging.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qobjectdefs_impl.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qstring.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qchar.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qbytearray.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qrefcount.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qarraydata.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qstringliteral.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qstringalgorithms.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qstringview.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qstringbuilder.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qlist.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qalgorithms.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qiterator.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qhashfunctions.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qpair.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qbytearraylist.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qstringlist.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qregexp.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qstringmatcher.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qcoreevent.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qscopedpointer.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qmetatype.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qvarlengtharray.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qcontainerfwd.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qobject_impl.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o weatherdata.o ../weathercheckingrpi/weatherdata.cpp
-
-testsQt.o: tests/testsQt.cpp 
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o testsQt.o tests/testsQt.cpp
-
-dbtable.o: ../weathercheckingrpi/dbmanager/dbtable.cpp ../weathercheckingrpi/dbmanager/dbtable.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/QString \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qstring.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qchar.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qglobal.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qconfig-bootstrapped.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qconfig.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qtcore-config.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qsystemdetection.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qprocessordetection.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qcompilerdetection.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qtypeinfo.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qsysinfo.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qlogging.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qflags.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qatomic.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qbasicatomic.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qatomic_bootstrap.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qgenericatomic.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qatomic_cxx11.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qatomic_msvc.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qglobalstatic.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qmutex.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qnumeric.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qversiontagging.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qbytearray.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qrefcount.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qnamespace.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qarraydata.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qstringliteral.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qstringalgorithms.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qstringview.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qstringbuilder.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o dbtable.o ../weathercheckingrpi/dbmanager/dbtable.cpp
+Zambretti.o: ../weathercheckingrpi/zambretti/Zambretti.cpp ../weathercheckingrpi/zambretti/Zambretti.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o Zambretti.o ../weathercheckingrpi/zambretti/Zambretti.cpp
 
 qrc_weathercheckingrpi.o: qrc_weathercheckingrpi.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o qrc_weathercheckingrpi.o qrc_weathercheckingrpi.cpp
 
 moc_appmodel.o: moc_appmodel.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_appmodel.o moc_appmodel.cpp
-
-moc_weatherdata.o: moc_weatherdata.cpp 
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_weatherdata.o moc_weatherdata.cpp
 
 ####### Install
 

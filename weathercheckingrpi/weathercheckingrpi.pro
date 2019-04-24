@@ -17,18 +17,12 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += main.cpp \
     appmodel.cpp \
-    dbmanager/dbmanager.cpp \
-    main.cpp \
-    weatherdata.cpp \
-    dbmanager/dbtable.cpp
+    zambretti/Zambretti.cpp
     #sensor/bme280.c \
     #sensor/main.c
 
 HEADERS += appmodel.h \
-    dbmanager/dbmanager.h \
-    tests/moc_predefs.h \
-    weatherdata.h \
-    dbmanager/dbtable.h
+        zambretti/Zambretti.h
     #sensor/bme280.h \
     #sensor/bme280_defs.h
 
@@ -51,6 +45,7 @@ DISTFILES += \
     components/WeatherIcon.qml \
     components/ForecastIcon.qml \
     components/BigForecastIcon.qml \
+    components/SensorIcon.qml \
     class_diag.qmodel \
     diag_seq.qmodel \
     diad_class_dbmanager.qmodel \

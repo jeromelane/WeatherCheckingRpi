@@ -59,7 +59,7 @@ Item {
     width: 360
     height: 640
 
-    state: "loading"
+    state: "ready"
 
     states: [
         State {
@@ -111,16 +111,9 @@ Item {
         id: main
         anchors.fill: parent
 
-        //state: "useInternet"
-
-       /* Rectangle {
-
-        id: rect1*/
-
         Column {
             //id: mycol
             spacing: 6
-
 
             anchors {
                 fill: parent
@@ -138,58 +131,20 @@ Item {
                     anchors.fill: parent
                     horizontalAlignment: Text.AlignHCenter
                     verticalAlignment: Text.AlignVCenter
-                } 
-
-                /*MouseArea {
-                    anchors.fill: parent
-                    onClicked: {
-                        if (model.useSensor) {
-                            model.useSensor = false
-                            model.city = "BME280 Sensor"
-
-                        } else {
-                            if(model.useGps){
-                                model.useGps = false
-                                model.city = "Brisbane"
-                            }else {
-                                switch (model.city) {
-                                case "BME280 Sensor":
-                                    model.city = "Brisbane"
-                                    break
-                                case "Brisbane":
-                                    model.city = "Oslo"
-                                    break
-                                case "Oslo":
-                                    model.city = "Helsinki"
-                                    break
-                                case "Helsinki":
-                                    model.city = "New York"
-                                    break
-                                case "New York":
-                                    model.useGps = true
-                                    break
-                                }
-
-                            }
-                        }
-                    }*/
                 }
+            }
 
-
-//! [3]
             BigForecastIcon {
                 id: current
 
-                width: main.width -12
+                width: main.width - 12
                 height: 2 * (main.height - 25 - 12) / 3
 
-                weatherIcon: (model.hasValidWeather
-                          ? model.weather.weatherIcon
-                          : "01d")
+                weatherIcon: (model.hasValidWeather ? model.weather.weatherIcon : "unknown" )
 
                 //topText: (model.hasValidWeather ? model.weather.temperature : "??")
 
-                bottomText: (model.hasValidWeather ? model.weather.weatherDescription  : "No weather data")
+                bottomText: ( model.weather.weatherDescription ) + " " + (model.weather.weatherTrend)
 
                 MouseArea {
                     anchors.fill: parent
@@ -199,36 +154,16 @@ Item {
                 }
             }
 
-        //}
 
-           /* Rectangle {
-                id: parentRow*/
+            Row{
+                id: sensor
+                width: main.width - 12
+                height: (main.height - 25 - 24) / 3
 
+                property real iconWidth: sensor.width / 4 - 10
+                property real iconHeight: sensor.height
 
-
-                Row{
-                    id: sensor
-                    width: main.width - 12
-                    height: (main.height - 25 - 24) / 3
-
-                    property real iconWidth: sensor.width / 4 - 10
-                    property real iconHeight: sensor.height
-                    //anchors.top: rect1.bottom
-                   /* states: State {
-                            name: "useSensor"
-                            PropertyChanges { target: sensor; opacity: 0; anchors.fill: parentRow}
-                            //PropertyChanges { target: iconRow; opacity: 0 }
-                            when: (window.state == "ready")
-                            //PropertyChanges { target: sensor; opacity: 1 }
-                            //PropertyChanges { target: sensor; opacity: 0 }
-                            PropertyChanges { target: iconRow; opacity: 1; anchors.fill: parentRow }
-                        }*/
-
-
-
-                    spacing: sensor.width - (4 * sensor.iconWidth)
-
-               // anchors.top: mycol.bottom
+                spacing: sensor.width - (4 * sensor.iconWidth)
 
                 SensorIcon {
                     id: metric1
@@ -259,77 +194,9 @@ Item {
                     middileText: "Humidiy"
                     rightText: model.weather.humidity
                 }
-           }
-
+            }//row
+        } //column
+    }//Item
 }
 
-                /*Row{
-                id: iconRow
-                spacing: 6
 
-                //anchors.top: current.bottom
-
-                width: main.width - 12
-                height: (main.height - 25 - 24) / 3
-
-                property real iconWidth: iconRow.width / 4 - 10
-                property real iconHeight: iconRow.height
-
-                ForecastIcon {
-                    id: forecast1
-                    width: iconRow.iconWidth
-                    height: iconRow.iconHeight
-
-                    topText: (model.hasValidWeather ?
-                              model.forecast[0].dayOfWeek : "??")
-                    bottomText: (model.hasValidWeather ?
-                                 model.forecast[0].temperature : "??/??")
-                    weatherIcon: (model.hasValidWeather ?
-                              model.forecast[0].weatherIcon : "01d")
-                }
-                ForecastIcon {
-                    id: forecast2
-                    width: iconRow.iconWidth
-                    height: iconRow.iconHeight
-
-                    topText: (model.hasValidWeather ?
-                              model.forecast[1].dayOfWeek : "??")
-                    bottomText: (model.hasValidWeather ?
-                                 model.forecast[1].temperature : "??/??")
-                    weatherIcon: (model.hasValidWeather ?
-                              model.forecast[1].weatherIcon : "01d")
-                }
-                ForecastIcon {
-                    id: forecast3
-                    width: iconRow.iconWidth
-                    height: iconRow.iconHeight
-
-                    topText: (model.hasValidWeather ?
-                              model.forecast[2].dayOfWeek : "??")
-                    bottomText: (model.hasValidWeather ?
-                                 model.forecast[2].temperature : "??/??")
-                    weatherIcon: (model.hasValidWeather ?
-                              model.forecast[2].weatherIcon : "01d")
-                }
-                ForecastIcon {
-                    id: forecast4
-                    width: iconRow.iconWidth
-                    height: iconRow.iconHeight
-
-                    topText: (model.hasValidWeather ?
-                              model.forecast[3].dayOfWeek : "??")
-                    bottomText: (model.hasValidWeather ?
-                                 model.forecast[3].temperature : "??/??")
-                    weatherIcon: (model.hasValidWeather ?
-                              model.forecast[3].weatherIcon : "01d")
-                }
-                }*/
-            }
-    }
-
-
-
-
-//! [2]
-//}
-//! [2]

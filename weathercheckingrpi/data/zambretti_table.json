@@ -1,194 +1,194 @@
-[
- {
-   "Forecast number": "1",
-   "Forecast Letter": "A",
-   "Forecast Text": "Settled Fine",
-   "Pressure": 1050
- },
- {
-   "Forecast number": "2",
-   "Forecast Letter": "B",
-   "Forecast Text": "Fine Weather",
-   "Pressure": 1040
- },
- {
-   "Forecast number": "3",
-   "Forecast Letter": "D",
-   "Forecast Text": "Fine Becoming Less Settled",
-   "Pressure": 1024
- },
- {
-   "Forecast number": "4",
-   "Forecast Letter": "H",
-   "Forecast Text": "Fairly Fine Showery Later",
-   "Pressure": 1018
- },
- {
-   "Forecast number": "5",
-   "Forecast Letter": "O",
-   "Forecast Text": "Showery Becoming more unsettled",
-   "Pressure": 1010
- },
- {
-   "Forecast number": "6",
-   "Forecast Letter": "R",
-   "Forecast Text": "Unsettled, Rain later",
-   "Pressure": 1004
- },
- {
-   "Forecast number": "7",
-   "Forecast Letter": "U",
-   "Forecast Text": "Rain at times, worse later",
-   "Pressure": 998
- },
- {
-   "Forecast number": "8",
-   "Forecast Letter": "V",
-   "Forecast Text": "Rain at times, becoming very unsettled",
-   "Pressure": 991
- },
- {
-   "Forecast number": "9",
-   "Forecast Letter": "X",
-   "Forecast Text": "Very Unsettled, Rain",
-   "Pressure": 985
- },
- {
-   "Forecast number": "10",
-   "Forecast Letter": "A",
-   "Forecast Text": "Settled Fine",
-   "Pressure": 1033
- },
- {
-   "Forecast number": "11",
-   "Forecast Letter": "B",
-   "Forecast Text": "Fine Weather",
-   "Pressure": 1023
- },
- {
-   "Forecast number": "12",
-   "Forecast Letter": "E",
-   "Forecast Text": "Fine, Possibly showers",
-   "Pressure": 1014
- },
- {
-   "Forecast number": "13",
-   "Forecast Letter": "K",
-   "Forecast Text": "Fairly Fine , Showers likely",
-   "Pressure": 1008
- },
- {
-   "Forecast number": "14",
-   "Forecast Letter": "N",
-   "Forecast Text": "Showery Bright Intervals",
-   "Pressure": 1000
- },
- {
-   "Forecast number": "15",
-   "Forecast Letter": "P",
-   "Forecast Text": "Changeable some rain",
-   "Pressure": 994
- },
- {
-   "Forecast number": "16",
-   "Forecast Letter": "S",
-   "Forecast Text": "Unsettled, rain at times",
-   "Pressure": 989
- },
- {
-   "Forecast number": "17",
-   "Forecast Letter": "W",
-   "Forecast Text": "Rain at Frequent Intervals",
-   "Pressure": 981
- },
- {
-   "Forecast number": "18",
-   "Forecast Letter": "X",
-   "Forecast Text": "Very Unsettled, Rain",
-   "Pressure": 974
- },
- {
-   "Forecast number": "19",
-   "Forecast Letter": "Z",
-   "Forecast Text": "Stormy, much rain",
-   "Pressure": 960
- },
- {
-   "Forecast number": "20",
-   "Forecast Letter": "A",
-   "Forecast Text": "Settled Fine",
-   "Pressure": 1030
- },
- {
-   "Forecast number": "21",
-   "Forecast Letter": "B",
-   "Forecast Text": "Fine Weather",
-   "Pressure": 1022
- },
- {
-   "Forecast number": "22",
-   "Forecast Letter": "C",
-   "Forecast Text": "Becoming Fine",
-   "Pressure": 1012
- },
- {
-   "Forecast number": "23",
-   "Forecast Letter": "F",
-   "Forecast Text": "Fairly Fine, Improving",
-   "Pressure": 1007
- },
- {
-   "Forecast number": "24",
-   "Forecast Letter": "G",
-   "Forecast Text": "Fairly Fine, Possibly showers, early",
-   "Pressure": 1000
- },
- {
-   "Forecast number": "25",
-   "Forecast Letter": "I",
-   "Forecast Text": "Showery Early, Improving",
-   "Pressure": 995
- },
- {
-   "Forecast number": "26",
-   "Forecast Letter": "J",
-   "Forecast Text": "Changeable Mending",
-   "Pressure": 990
- },
- {
-   "Forecast number": "27",
-   "Forecast Letter": "L",
-   "Forecast Text": "Rather Unsettled Clearing Later",
-   "Pressure": 984
- },
- {
-   "Forecast number": "28",
-   "Forecast Letter": "M",
-   "Forecast Text": "Unsettled, Probably Improving",
-   "Pressure": 978
- },
- {
-   "Forecast number": "29",
-   "Forecast Letter": "Q",
-   "Forecast Text": "Unsettled, short fine Intervals",
-   "Pressure": 970
- },
- {
-   "Forecast number": "30",
-   "Forecast Letter": "T",
-   "Forecast Text": "Very Unsettled, Finer at times",
-   "Pressure": 965
- },
- {
-   "Forecast number": "31",
-   "Forecast Letter": "Y",
-   "Forecast Text": "Stormy, possibly improving",
-   "Pressure": 959
- },
- {
-   "Forecast number": "32",
-   "Forecast Letter": "Z",
-   "Forecast Text": "Stormy, much rain",
-   "Pressure": 947
- }
-]
+{
+   "1": {
+      "Forecast Letter": "A",
+      "Forecast Text": "Settled Fine",
+      "Pressure": 1050,
+      "Figure": "weather-overcast"
+   },
+   "2": {
+      "Forecast Letter": "B",
+      "Forecast Text": "Fine Weather",
+      "Pressure": 1040,
+      "Figure": "weather-sunny"
+   },
+   "3": {
+      "Forecast Letter": "D",
+      "Forecast Text": "Fine Becoming Less Settled",
+      "Pressure": 1024,
+      "Figure": "weather-overcast"
+   },
+   "4": {
+      "Forecast Letter": "H",
+      "Forecast Text": "Fairly Fine Showery Later",
+      "Pressure": 1018,
+      "Figure": "weather-overcast"
+   },
+   "5": {
+      "Forecast Letter": "O",
+      "Forecast Text": "Showery Becoming more unsettled",
+      "Pressure": 1010,
+      "Figure": "weather-showers-spitting"
+   },
+   "6": {
+      "Forecast Letter": "R",
+      "Forecast Text": "Unsettled, Rain later",
+      "Pressure": 1004,
+      "Figure": "weather-showers-spitting"
+   },
+   "7": {
+      "Forecast Letter": "U",
+      "Forecast Text": "Rain at times, worse later. ",
+      "Pressure": 998,
+      "Figure": "weather-showers-spitting"
+   },
+   "8": {
+      "Forecast Letter": "V",
+      "Forecast Text": "Rain at times, becoming very unsettled",
+      "Pressure": 991,
+      "Figure": "weather-showers-spitting"
+   },
+   "9": {
+      "Forecast Letter": "X",
+      "Forecast Text": "Very Unsettled, Rain",
+      "Pressure": 985,
+      "Figure": "weather-showers-spitting"
+   },
+   "10": {
+      "Forecast Letter": "A",
+      "Forecast Text": "Settled Fine",
+      "Pressure": 1033,
+      "Figure": "weather-overcast"
+   },
+   "11": {
+      "Forecast Letter": "B",
+      "Forecast Text": "Fine Weather",
+      "Pressure": 1023,
+      "Figure": "weather-sunny"
+   },
+   "12": {
+      "Forecast Letter": "E",
+      "Forecast Text": "Fine, Possibly showers",
+      "Pressure": 1014,
+      "Figure": "weather-overcast"
+   },
+   "13": {
+      "Forecast Letter": "K",
+      "Forecast Text": "Fairly Fine , Showers likely",
+      "Pressure": 1008,
+      "Figure": "weather-overcast"
+   },
+   "14": {
+      "Forecast Letter": "N",
+      "Forecast Text": "Showery Bright Intervals",
+      "Pressure": 1000,
+      "Figure": "weather-showers-spitting"
+   },
+   "15": {
+      "Forecast Letter": "P",
+      "Forecast Text": "Changeable some rain",
+      "Pressure": 994,
+      "Figure": "weather-showers-spitting"
+   },
+   "16": {
+      "Forecast Letter": "S",
+      "Forecast Text": "Unsettled, rain at times",
+      "Pressure": 989,
+      "Figure": "weather-showers-spitting"
+   },
+   "17": {
+      "Forecast Letter": "W",
+      "Forecast Text": "Rain at Frequent Intervals",
+      "Pressure": 981,
+      "Figure": "weather-showers-spitting"
+   },
+   "18": {
+      "Forecast Letter": "X",
+      "Forecast Text": "Very Unsettled, Rain",
+      "Pressure": 974,
+      "Figure": "weather-showers-spitting"
+   },
+   "19": {
+      "Forecast Letter": "Z",
+      "Forecast Text": "Stormy, much rain",
+      "Pressure": 960,
+      "Figure": "weather-showers-spitting"
+   },
+   "20": {
+      "Forecast Letter": "A",
+      "Forecast Text": "Settled Fine",
+      "Pressure": 1030,
+      "Figure": "weather-overcast"
+   },
+   "21": {
+      "Forecast Letter": "B",
+      "Forecast Text": "Fine Weather",
+      "Pressure": 1022,
+      "Figure": "weather-sunny"
+   },
+   "22": {
+      "Forecast Letter": "C",
+      "Forecast Text": "Becoming Fine",
+      "Pressure": 1012,
+      "Figure": "weather-sunny"
+   },
+   "23": {
+      "Forecast Letter": "F",
+      "Forecast Text": "Fairly Fine, Improving",
+      "Pressure": 1007,
+      "Figure": "weather-overcast"
+   },
+   "24": {
+      "Forecast Letter": "G",
+      "Forecast Text": "Fairly Fine, Possibly showers, early",
+      "Pressure": 1000,
+      "Figure": "weather-overcast"
+   },
+   "25": {
+      "Forecast Letter": "I",
+      "Forecast Text": "Showery Early, Improving",
+      "Pressure": 995,
+      "Figure": "weather-showers-spitting"
+   },
+   "26": {
+      "Forecast Letter": "J",
+      "Forecast Text": "Changeable Mending",
+      "Pressure": 990,
+      "Figure": "weather-overcast"
+   },
+   "27": {
+      "Forecast Letter": "L",
+      "Forecast Text": "Rather Unsettled Clearing Later",
+      "Pressure": 984,
+      "Figure": "weather-overcast"
+   },
+   "28": {
+      "Forecast Letter": "M",
+      "Forecast Text": "Unsettled, Probably Improving",
+      "Pressure": 978,
+      "Figure": "weather-overcast"
+   },
+   "29": {
+      "Forecast Letter": "Q",
+      "Forecast Text": "Unsettled, short fine Intervals",
+      "Pressure": 970,
+      "Figure": "weather-overcast"
+   },
+   "30": {
+      "Forecast Letter": "T",
+      "Forecast Text": "Very Unsettled, Finer at times",
+      "Pressure": 965,
+      "Figure": "weather-overcast"
+   },
+   "31": {
+      "Forecast Letter": "Y",
+      "Forecast Text": "Stormy, possibly improving",
+      "Pressure": 959,
+      "Figure": "weather-windy"
+   },
+   "32": {
+      "Forecast Letter": "Z",
+      "Forecast Text": "Stormy, much rain",
+      "Pressure": 947,
+      "Figure": "weather-windy-rain"
+   }
+}

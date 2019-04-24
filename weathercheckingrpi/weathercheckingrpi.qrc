@@ -188,6 +188,14 @@
         <file>dbmanager/dbmanager.h</file>
         <file>zambretti/Zambretti.cpp</file>
         <file>zambretti/Zambretti.h</file>
-        <file>tests/tests.pro</file>
+        <file>img/icons/weather-showers-spitting.png</file>
+        <file>img/icons/weather-unknown.png</file>
+        <file>img/icons/weather-windy-rain.png</file>
+        <file>img/icons/weather-windy.png</file>
+        <file>zambretti/temp/Zambretti.cpp</file>
+        <file>zambretti/temp/Zambretti.h</file>
+        <file>zambretti/main.cpp</file>
+        <file>weatherdata.cpp</file>
+        <file>weatherdata.h</file>
     </qresource>
 </RCC>
