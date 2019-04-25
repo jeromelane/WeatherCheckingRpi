@@ -14,10 +14,10 @@ EQ            = =
 
 CC            = gcc
 CXX           = g++
-DEFINES       = -DQT_DEPRECATED_WARNINGS -DQT_QML_DEBUG -DQT_QUICK_LIB -DQT_GUI_LIB -DQT_QML_LIB -DQT_NETWORK_LIB -DQT_POSITIONING_LIB -DQT_SQL_LIB -DQT_CORE_LIB
+DEFINES       = -DQT_DEPRECATED_WARNINGS -DQT_QML_DEBUG -DQT_QUICK_LIB -DQT_GUI_LIB -DQT_QML_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB
 CFLAGS        = -pipe -g -Wall -W -D_REENTRANT -fPIC $(DEFINES)
 CXXFLAGS      = -pipe -g -std=gnu++11 -Wall -W -D_REENTRANT -fPIC $(DEFINES)
-INCPATH       = -I../weathercheckingrpi -I. -I../../../Qt/5.12.2/gcc_64/include -I../../../Qt/5.12.2/gcc_64/include/QtQuick -I../../../Qt/5.12.2/gcc_64/include/QtGui -I../../../Qt/5.12.2/gcc_64/include/QtQml -I../../../Qt/5.12.2/gcc_64/include/QtNetwork -I../../../Qt/5.12.2/gcc_64/include/QtPositioning -I../../../Qt/5.12.2/gcc_64/include/QtSql -I../../../Qt/5.12.2/gcc_64/include/QtCore -I. -isystem /usr/include/libdrm -I../../../Qt/5.12.2/gcc_64/mkspecs/linux-g++
+INCPATH       = -I../weathercheckingrpi -I. -I../../../Qt/5.12.2/gcc_64/include -I../../../Qt/5.12.2/gcc_64/include/QtQuick -I../../../Qt/5.12.2/gcc_64/include/QtGui -I../../../Qt/5.12.2/gcc_64/include/QtQml -I../../../Qt/5.12.2/gcc_64/include/QtNetwork -I../../../Qt/5.12.2/gcc_64/include/QtCore -I. -isystem /usr/include/libdrm -I../../../Qt/5.12.2/gcc_64/mkspecs/linux-g++
 QMAKE         = /home/jerome/Qt/5.12.2/gcc_64/bin/qmake
 DEL_FILE      = rm -f
 CHK_DIR_EXISTS= test -d
@@ -40,7 +40,7 @@ DISTNAME      = weathercheckingrpi1.0.0
 DISTDIR = /home/jerome/projects/WeatherCheckingRpi/build-weathercheckingrpi-Desktop_Qt_5_12_2_GCC_64bit-Debug/.tmp/weathercheckingrpi1.0.0
 LINK          = g++
 LFLAGS        = -Wl,-rpath,/home/jerome/Qt/5.12.2/gcc_64/lib
-LIBS          = $(SUBLIBS) -L/home/jerome/Qt/5.12.2/gcc_64/lib -lQt5Quick -lQt5Gui -lQt5Qml -lQt5Network -lQt5Positioning -lQt5Sql -lQt5Core -lGL -lpthread   
+LIBS          = $(SUBLIBS) -L/home/jerome/Qt/5.12.2/gcc_64/lib -lQt5Quick -lQt5Gui -lQt5Qml -lQt5Network -lQt5Core -lGL -lpthread   
 AR            = ar cqs
 RANLIB        = 
 SED           = sed
@@ -54,15 +54,16 @@ OBJECTS_DIR   = ./
 
 SOURCES       = ../weathercheckingrpi/main.cpp \
 		../weathercheckingrpi/appmodel.cpp \
+		../weathercheckingrpi/appmodelprivate.cpp \
 		../weathercheckingrpi/zambretti/Zambretti.cpp qrc_weathercheckingrpi.cpp \
 		moc_appmodel.cpp
 OBJECTS       = main.o \
 		appmodel.o \
+		appmodelprivate.o \
 		Zambretti.o \
 		qrc_weathercheckingrpi.o \
 		moc_appmodel.o
-DIST          = ../weathercheckingrpi/sensor/bme280 \
-		../weathercheckingrpi/components/WeatherIcon.qml \
+DIST          = ../weathercheckingrpi/components/WeatherIcon.qml \
 		../weathercheckingrpi/components/ForecastIcon.qml \
 		../weathercheckingrpi/components/BigForecastIcon.qml \
 		../weathercheckingrpi/components/SensorIcon.qml \
@@ -262,8 +263,10 @@ DIST          = ../weathercheckingrpi/sensor/bme280 \
 		../../../Qt/5.12.2/gcc_64/mkspecs/features/yacc.prf \
 		../../../Qt/5.12.2/gcc_64/mkspecs/features/lex.prf \
 		../weathercheckingrpi/weathercheckingrpi.pro ../weathercheckingrpi/appmodel.h \
+		../weathercheckingrpi/appmodelprivate.h \
 		../weathercheckingrpi/zambretti/Zambretti.h ../weathercheckingrpi/main.cpp \
 		../weathercheckingrpi/appmodel.cpp \
+		../weathercheckingrpi/appmodelprivate.cpp \
 		../weathercheckingrpi/zambretti/Zambretti.cpp
 QMAKE_TARGET  = weathercheckingrpi
 DESTDIR       = 
@@ -473,8 +476,6 @@ Makefile: ../weathercheckingrpi/weathercheckingrpi.pro ../../../Qt/5.12.2/gcc_64
 		../../../Qt/5.12.2/gcc_64/lib/libQt5Gui.prl \
 		../../../Qt/5.12.2/gcc_64/lib/libQt5Qml.prl \
 		../../../Qt/5.12.2/gcc_64/lib/libQt5Network.prl \
-		../../../Qt/5.12.2/gcc_64/lib/libQt5Positioning.prl \
-		../../../Qt/5.12.2/gcc_64/lib/libQt5Sql.prl \
 		../../../Qt/5.12.2/gcc_64/lib/libQt5Core.prl
 	$(QMAKE) -o Makefile ../weathercheckingrpi/weathercheckingrpi.pro -spec linux-g++ CONFIG+=debug CONFIG+=qml_debug
 ../../../Qt/5.12.2/gcc_64/mkspecs/features/spec_pre.prf:
@@ -674,8 +675,6 @@ Makefile: ../weathercheckingrpi/weathercheckingrpi.pro ../../../Qt/5.12.2/gcc_64
 ../../../Qt/5.12.2/gcc_64/lib/libQt5Gui.prl:
 ../../../Qt/5.12.2/gcc_64/lib/libQt5Qml.prl:
 ../../../Qt/5.12.2/gcc_64/lib/libQt5Network.prl:
-../../../Qt/5.12.2/gcc_64/lib/libQt5Positioning.prl:
-../../../Qt/5.12.2/gcc_64/lib/libQt5Sql.prl:
 ../../../Qt/5.12.2/gcc_64/lib/libQt5Core.prl:
 qmake: FORCE
 	@$(QMAKE) -o Makefile ../weathercheckingrpi/weathercheckingrpi.pro -spec linux-g++ CONFIG+=debug CONFIG+=qml_debug
@@ -693,8 +692,8 @@ distdir: FORCE
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents ../weathercheckingrpi/weathercheckingrpi.qrc $(DISTDIR)/
 	$(COPY_FILE) --parents ../../../Qt/5.12.2/gcc_64/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../weathercheckingrpi/appmodel.h ../weathercheckingrpi/zambretti/Zambretti.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../weathercheckingrpi/main.cpp ../weathercheckingrpi/appmodel.cpp ../weathercheckingrpi/zambretti/Zambretti.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../weathercheckingrpi/appmodel.h ../weathercheckingrpi/appmodelprivate.h ../weathercheckingrpi/zambretti/Zambretti.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../weathercheckingrpi/main.cpp ../weathercheckingrpi/appmodel.cpp ../weathercheckingrpi/appmodelprivate.cpp ../weathercheckingrpi/zambretti/Zambretti.cpp $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -723,9 +722,7 @@ compiler_rcc_clean:
 	-$(DEL_FILE) qrc_weathercheckingrpi.cpp
 qrc_weathercheckingrpi.cpp: ../weathercheckingrpi/weathercheckingrpi.qrc \
 		../../../Qt/5.12.2/gcc_64/bin/rcc \
-		../weathercheckingrpi/weatherdata.h \
 		../weathercheckingrpi/weathercheckingrpi.qml \
-		../weathercheckingrpi/weatherdata.cpp \
 		../weathercheckingrpi/main.cpp \
 		../weathercheckingrpi/appmodel.cpp \
 		../weathercheckingrpi/appmodel.h \
@@ -752,164 +749,6 @@ qrc_weathercheckingrpi.cpp: ../weathercheckingrpi/weathercheckingrpi.qrc \
 		../weathercheckingrpi/img/icons/weather-sunny-very-few-clouds.png \
 		../weathercheckingrpi/img/icons/qt_attribution.json \
 		../weathercheckingrpi/img/icons/weather-fog.png \
-		../weathercheckingrpi/img/climat/weather-night-fullmoon-partially-cloudy.svg \
-		../weathercheckingrpi/img/climat/weather-night-waningcrescent-foggy.png \
-		../weathercheckingrpi/img/climat/weather-windy-rain.png \
-		../weathercheckingrpi/img/climat/weather-dusty.png \
-		../weathercheckingrpi/img/climat/weather-sunny-very-few-clouds.svg \
-		../weathercheckingrpi/img/climat/weather-night-newmoon-thunderstorms.svg \
-		../weathercheckingrpi/img/climat/weather-night-firstquarter-foggy.png \
-		../weathercheckingrpi/img/climat/weather-night-newmoon-partially-cloudy.svg \
-		../weathercheckingrpi/img/climat/weather-night-fullmoon-rain.svg \
-		../weathercheckingrpi/img/climat/weather-night-lastquarter-snow.png \
-		../weathercheckingrpi/img/climat/weather-city-template.svg \
-		../weathercheckingrpi/img/climat/weather-night-lastquarter-partially-cloudy.png \
-		../weathercheckingrpi/img/climat/weather-night-waningcrescent-partially-cloudy.svg \
-		../weathercheckingrpi/img/climat/weather-night-waxingcrescent-snow.png \
-		../weathercheckingrpi/img/climat/weather-night-waxingcrescent-partially-cloudy.png \
-		../weathercheckingrpi/img/climat/weather-night-waxing-gibbous-cloudy.png \
-		../weathercheckingrpi/img/climat/weather-night-waxingcrescent-clear.png \
-		../weathercheckingrpi/img/climat/weather-night-waxingcrescent-foggy.svg \
-		../weathercheckingrpi/img/climat/weather-smog.svg \
-		../weathercheckingrpi/img/climat/weather-night-foggy.svg \
-		../weathercheckingrpi/img/climat/weather-sleet.svg \
-		../weathercheckingrpi/img/climat/preview.svg \
-		../weathercheckingrpi/img/climat/weather-night-waxingcrescent-thunderstorms.svg \
-		../weathercheckingrpi/img/climat/weather-night-waxing-gibbous-snow.png \
-		../weathercheckingrpi/img/climat/weather-night-newmoon-clear.png \
-		../weathercheckingrpi/img/climat/weather-night-newmoon-foggy.svg \
-		../weathercheckingrpi/img/climat/weather-night-firstquarter-partially-cloudy.svg \
-		../weathercheckingrpi/img/climat/weather-thundershower.png \
-		../weathercheckingrpi/img/climat/weather-night-waningcrescent-snow.png \
-		../weathercheckingrpi/img/climat/weather-night-waxingcrescent-cloudy.png \
-		../weathercheckingrpi/img/climat/weather-night-newmoon-rain.svg \
-		../weathercheckingrpi/img/climat/weather-night-fullmoon-thunderstorms.svg \
-		../weathercheckingrpi/img/climat/weather-night-waning-gibbous-snow.png \
-		../weathercheckingrpi/img/climat/weather-freezing-rain.png \
-		../weathercheckingrpi/img/climat/weather-night-lastquarter-cloudy.png \
-		../weathercheckingrpi/img/climat/weather-night-waningcrescent-clear.png \
-		../weathercheckingrpi/img/climat/weather-night-firstquarter-cloudy.png \
-		../weathercheckingrpi/img/climat/weather-night-firstquarter-rain.png \
-		../weathercheckingrpi/img/climat/weather-night-lastquarter-foggy.png \
-		../weathercheckingrpi/img/climat/weather-night-waningcrescent-foggy.svg \
-		../weathercheckingrpi/img/climat/weather-night-firstquarter-clear.png \
-		../weathercheckingrpi/img/climat/weather-windy-rain.svg \
-		../weathercheckingrpi/img/climat/weather-dusty.svg \
-		../weathercheckingrpi/img/climat/weather-sunny-thunderstorms.png \
-		../weathercheckingrpi/img/climat/weather-icy.png \
-		../weathercheckingrpi/img/climat/weather-night-firstquarter-foggy.svg \
-		../weathercheckingrpi/img/climat/weather-night-lastquarter-snow.svg \
-		../weathercheckingrpi/img/climat/weather-night-lastquarter-partially-cloudy.svg \
-		../weathercheckingrpi/img/climat/weather-night-newmoon-cloudy.png \
-		../weathercheckingrpi/img/climat/weather-night-waxingcrescent-snow.svg \
-		../weathercheckingrpi/img/climat/weather-night-waxingcrescent-partially-cloudy.svg \
-		../weathercheckingrpi/img/climat/weather-night-waxing-gibbous-cloudy.svg \
-		../weathercheckingrpi/img/climat/weather-night-waxingcrescent-clear.svg \
-		../weathercheckingrpi/img/climat/weather-sunny-few-clouds.png \
-		../weathercheckingrpi/img/climat/weather-night-waxing-gibbous-snow.svg \
-		../weathercheckingrpi/img/climat/weather-night-newmoon-clear.svg \
-		../weathercheckingrpi/img/climat/weather-sunny-haze.png \
-		../weathercheckingrpi/img/climat/weather-thundershower.svg \
-		../weathercheckingrpi/img/climat/weather-night-waningcrescent-snow.svg \
-		../weathercheckingrpi/img/climat/weather-night-waxingcrescent-cloudy.svg \
-		../weathercheckingrpi/img/climat/weather-night-lastquarter-thunderstorms.png \
-		../weathercheckingrpi/img/climat/weather-freezing-rain.svg \
-		../weathercheckingrpi/img/climat/weather-fog.png \
-		../weathercheckingrpi/img/climat/weather-night-waning-gibbous-snow.svg \
-		../weathercheckingrpi/img/climat/weather-night-lastquarter-clear.png \
-		../weathercheckingrpi/img/climat/weather-night-waningcrescent-clear.svg \
-		../weathercheckingrpi/img/climat/weather-night-lastquarter-cloudy.svg \
-		../weathercheckingrpi/img/climat/weather-night-firstquarter-cloudy.svg \
-		../weathercheckingrpi/img/climat/weather-night-firstquarter-rain.svg \
-		../weathercheckingrpi/img/climat/weather-night-fullmoon-snow.png \
-		../weathercheckingrpi/img/climat/weather-night-lastquarter-foggy.svg \
-		../weathercheckingrpi/img/climat/weather-night-firstquarter-clear.svg \
-		../weathercheckingrpi/img/climat/weather-sunny-thunderstorms.svg \
-		../weathercheckingrpi/img/climat/weather-icy.svg \
-		../weathercheckingrpi/img/climat/weather-night-newmoon-cloudy.svg \
-		../weathercheckingrpi/img/climat/weather-overcast.png \
-		../weathercheckingrpi/img/climat/weather-night-waxing-gibbous-foggy.png \
-		../weathercheckingrpi/img/climat/weather-sunny-few-clouds.svg \
-		../weathercheckingrpi/img/climat/weather-sunny-smog.png \
-		../weathercheckingrpi/img/climat/weather-night-waning-gibbous-cloudy.png \
-		../weathercheckingrpi/img/climat/weather-sunny.png \
-		../weathercheckingrpi/img/climat/weather-night-newmoon-snow.png \
-		../weathercheckingrpi/img/climat/weather-sunny-haze.svg \
-		../weathercheckingrpi/img/climat/weather-night-lastquarter-rain.png \
-		../weathercheckingrpi/img/climat/weather-night-fullmoon-cloudy.png \
-		../weathercheckingrpi/img/climat/weather-showers-spitting.png \
-		../weathercheckingrpi/img/climat/weather-night-lastquarter-thunderstorms.svg \
-		../weathercheckingrpi/img/climat/weather-night-waxingcrescent-rain.png \
-		../weathercheckingrpi/img/climat/weather-fog.svg \
-		../weathercheckingrpi/img/climat/weather-night-lastquarter-clear.svg \
-		../weathercheckingrpi/img/climat/weather-night-waningcrescent-cloudy.png \
-		../weathercheckingrpi/img/climat/weather-night-fullmoon-snow.svg \
-		../weathercheckingrpi/img/climat/weather-night-waning-gibbous-foggy.png \
-		../weathercheckingrpi/img/climat/weather-night-waning-gibbous-thunderstorms.png \
-		../weathercheckingrpi/img/climat/weather-night-waxing-gibbous-rain.png \
-		../weathercheckingrpi/img/climat/weather-night-waning-gibbous-partially-cloudy.png \
-		../weathercheckingrpi/img/climat/weather-night-waningcrescent-rain.png \
-		../weathercheckingrpi/img/climat/weather-overcast.svg \
-		../weathercheckingrpi/img/climat/weather-night-waxing-gibbous-clear.png \
-		../weathercheckingrpi/img/climat/weather-sunny-very-hot.png \
-		../weathercheckingrpi/img/climat/weather-night-waxing-gibbous-foggy.svg \
-		../weathercheckingrpi/img/climat/weather-sunny-smog.svg \
-		../weathercheckingrpi/img/climat/weather-night-waning-gibbous-cloudy.svg \
-		../weathercheckingrpi/img/climat/weather-night-waning-gibbous-rain.png \
-		../weathercheckingrpi/img/climat/weather-sunny.svg \
-		../weathercheckingrpi/img/climat/weather-night-newmoon-snow.svg \
-		../weathercheckingrpi/img/climat/weather-night-firstquarter-thunderstorms.png \
-		../weathercheckingrpi/img/climat/weather-sunny-fog.png \
-		../weathercheckingrpi/img/climat/weather-night-waningcrescent-thunderstorms.png \
-		../weathercheckingrpi/img/climat/weather-night-lastquarter-rain.svg \
-		../weathercheckingrpi/img/climat/weather-night-firstquarter-snow.png \
-		../weathercheckingrpi/img/climat/weather-night-fullmoon-cloudy.svg \
-		../weathercheckingrpi/img/climat/weather-showers-spitting.svg \
-		../weathercheckingrpi/img/climat/weather-night-waxingcrescent-rain.svg \
-		../weathercheckingrpi/img/climat/weather-night-waning-gibbous-clear.png \
-		../weathercheckingrpi/img/climat/weather-windy.png \
-		../weathercheckingrpi/img/climat/weather-night-fullmoon-clear.png \
-		../weathercheckingrpi/img/climat/weather-night-waningcrescent-cloudy.svg \
-		../weathercheckingrpi/img/climat/weather-haze.png \
-		../weathercheckingrpi/img/climat/weather-night-waning-gibbous-foggy.svg \
-		../weathercheckingrpi/img/climat/weather-fog-redone.png \
-		../weathercheckingrpi/img/climat/weather-night-waning-gibbous-thunderstorms.svg \
-		../weathercheckingrpi/img/climat/weather-night-waxing-gibbous-rain.svg \
-		../weathercheckingrpi/img/climat/weather-night-waning-gibbous-partially-cloudy.svg \
-		../weathercheckingrpi/img/climat/weather-night-waningcrescent-rain.svg \
-		../weathercheckingrpi/img/climat/weather-night-waxing-gibbous-partially-cloudy.png \
-		../weathercheckingrpi/img/climat/weather-night-waxing-gibbous-thunderstorms.png \
-		../weathercheckingrpi/img/climat/weather-night-waxing-gibbous-clear.svg \
-		../weathercheckingrpi/img/climat/weather-sunny-very-hot.svg \
-		../weathercheckingrpi/img/climat/weather-night-fullmoon-partially-cloudy.png \
-		../weathercheckingrpi/img/climat/weather-night-waning-gibbous-rain.svg \
-		../weathercheckingrpi/img/climat/weather-sunny-very-few-clouds.png \
-		../weathercheckingrpi/img/climat/weather-night-newmoon-thunderstorms.png \
-		../weathercheckingrpi/img/climat/weather-night-firstquarter-thunderstorms.svg \
-		../weathercheckingrpi/img/climat/weather-sunny-fog.svg \
-		../weathercheckingrpi/img/climat/weather-city-template.png \
-		../weathercheckingrpi/img/climat/weather-night-newmoon-partially-cloudy.png \
-		../weathercheckingrpi/img/climat/weather-night-fullmoon-rain.png \
-		../weathercheckingrpi/img/climat/weather-night-waningcrescent-partially-cloudy.png \
-		../weathercheckingrpi/img/climat/weather-night-waningcrescent-thunderstorms.svg \
-		../weathercheckingrpi/img/climat/weather-night-firstquarter-snow.svg \
-		../weathercheckingrpi/img/climat/weather-night-waxingcrescent-foggy.png \
-		../weathercheckingrpi/img/climat/weather-smog.png \
-		../weathercheckingrpi/img/climat/weather-night-foggy.png \
-		../weathercheckingrpi/img/climat/weather-sleet.png \
-		../weathercheckingrpi/img/climat/weather-night-waning-gibbous-clear.svg \
-		../weathercheckingrpi/img/climat/weather-windy.svg \
-		../weathercheckingrpi/img/climat/weather-night-waxingcrescent-thunderstorms.png \
-		../weathercheckingrpi/img/climat/weather-night-fullmoon-clear.svg \
-		../weathercheckingrpi/img/climat/preview.png \
-		../weathercheckingrpi/img/climat/weather-haze.svg \
-		../weathercheckingrpi/img/climat/weather-fog-redone.svg \
-		../weathercheckingrpi/img/climat/weather-night-newmoon-foggy.png \
-		../weathercheckingrpi/img/climat/weather-night-firstquarter-partially-cloudy.png \
-		../weathercheckingrpi/img/climat/weather-night-newmoon-rain.png \
-		../weathercheckingrpi/img/climat/weather-night-fullmoon-thunderstorms.png \
-		../weathercheckingrpi/img/climat/weather-night-waxing-gibbous-thunderstorms.svg \
-		../weathercheckingrpi/img/climat/weather-night-waxing-gibbous-partially-cloudy.svg \
 		../weathercheckingrpi/components/BigForecastIcon.qml \
 		../weathercheckingrpi/components/MetricIcon.qml \
 		../weathercheckingrpi/components/ForecastIcon.qml \
@@ -920,107 +759,6 @@ qrc_weathercheckingrpi.cpp: ../weathercheckingrpi/weathercheckingrpi.qrc \
 		../weathercheckingrpi/zambretti/Zambretti.cpp \
 		../weathercheckingrpi/zambretti/temp/Zambretti.h \
 		../weathercheckingrpi/zambretti/temp/Zambretti.cpp \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/QObject \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qobject.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qobjectdefs.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qnamespace.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qglobal.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qconfig-bootstrapped.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qconfig.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qtcore-config.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qsystemdetection.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qprocessordetection.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qcompilerdetection.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qtypeinfo.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qsysinfo.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qlogging.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qflags.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qatomic.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qbasicatomic.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qatomic_bootstrap.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qgenericatomic.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qatomic_cxx11.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qatomic_msvc.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qglobalstatic.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qmutex.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qnumeric.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qversiontagging.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qobjectdefs_impl.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qstring.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qchar.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qbytearray.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qrefcount.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qarraydata.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qstringliteral.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qstringalgorithms.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qstringview.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qstringbuilder.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qlist.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qalgorithms.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qiterator.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qhashfunctions.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qpair.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qbytearraylist.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qstringlist.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qregexp.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qstringmatcher.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qcoreevent.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qscopedpointer.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qmetatype.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qvarlengtharray.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qcontainerfwd.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qobject_impl.h \
-		../weathercheckingrpi/weatherdata.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/QObject \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qobject.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qobjectdefs.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qnamespace.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qglobal.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qconfig-bootstrapped.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qconfig.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qtcore-config.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qsystemdetection.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qprocessordetection.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qcompilerdetection.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qtypeinfo.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qsysinfo.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qlogging.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qflags.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qatomic.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qbasicatomic.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qatomic_bootstrap.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qgenericatomic.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qatomic_cxx11.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qatomic_msvc.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qglobalstatic.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qmutex.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qnumeric.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qversiontagging.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qobjectdefs_impl.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qstring.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qchar.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qbytearray.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qrefcount.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qarraydata.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qstringliteral.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qstringalgorithms.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qstringview.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qstringbuilder.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qlist.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qalgorithms.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qiterator.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qhashfunctions.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qpair.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qbytearraylist.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qstringlist.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qregexp.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qstringmatcher.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qcoreevent.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qscopedpointer.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qmetatype.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qvarlengtharray.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qcontainerfwd.h \
-		../../../Qt/5.12.2/gcc_64/include/QtCore/qobject_impl.h \
 		../../../Qt/5.12.2/gcc_64/include/QtGui/QGuiApplication \
 		../../../Qt/5.12.2/gcc_64/include/QtGui/qguiapplication.h \
 		../../../Qt/5.12.2/gcc_64/include/QtGui/qtguiglobal.h \
@@ -1174,11 +912,7 @@ qrc_weathercheckingrpi.cpp: ../weathercheckingrpi/weathercheckingrpi.qrc \
 		../../../Qt/5.12.2/gcc_64/include/QtCore/qloggingcategory.h \
 		../weathercheckingrpi/appmodel.h \
 		../../../Qt/5.12.2/gcc_64/include/QtCore/QString \
-		../weathercheckingrpi/dbmanager/dbmanager.h \
-		../../../Qt/5.12.2/gcc_64/include/QtSql/QSqlDatabase \
-		../../../Qt/5.12.2/gcc_64/include/QtSql/qsqldatabase.h \
-		../../../Qt/5.12.2/gcc_64/include/QtSql/qtsqlglobal.h \
-		../../../Qt/5.12.2/gcc_64/include/QtSql/qtsql-config.h \
+		../weathercheckingrpi/appmodelprivate.h \
 		../weathercheckingrpi/appmodel.h \
 		../../../Qt/5.12.2/gcc_64/include/QtCore/QObject \
 		../../../Qt/5.12.2/gcc_64/include/QtCore/qobject.h \
@@ -1231,6 +965,7 @@ qrc_weathercheckingrpi.cpp: ../weathercheckingrpi/weathercheckingrpi.qrc \
 		../../../Qt/5.12.2/gcc_64/include/QtCore/qcontainerfwd.h \
 		../../../Qt/5.12.2/gcc_64/include/QtCore/qobject_impl.h \
 		../../../Qt/5.12.2/gcc_64/include/QtCore/QString \
+		../weathercheckingrpi/appmodelprivate.h \
 		../../../Qt/5.12.2/gcc_64/include/QtCore/QJsonDocument \
 		../../../Qt/5.12.2/gcc_64/include/QtCore/qjsondocument.h \
 		../../../Qt/5.12.2/gcc_64/include/QtCore/qjsonvalue.h \
@@ -1272,11 +1007,6 @@ qrc_weathercheckingrpi.cpp: ../weathercheckingrpi/weathercheckingrpi.qrc \
 		../../../Qt/5.12.2/gcc_64/include/QtCore/QCoreApplication \
 		../../../Qt/5.12.2/gcc_64/include/QtCore/qcoreapplication.h \
 		../../../Qt/5.12.2/gcc_64/include/QtCore/qeventloop.h \
-		../weathercheckingrpi/dbmanager/dbmanager.h \
-		../../../Qt/5.12.2/gcc_64/include/QtSql/QSqlDatabase \
-		../../../Qt/5.12.2/gcc_64/include/QtSql/qsqldatabase.h \
-		../../../Qt/5.12.2/gcc_64/include/QtSql/qtsqlglobal.h \
-		../../../Qt/5.12.2/gcc_64/include/QtSql/qtsql-config.h \
 		../weathercheckingrpi/zambretti/Zambretti.h \
 		../../../Qt/5.12.2/gcc_64/include/QtCore/QObject \
 		../../../Qt/5.12.2/gcc_64/include/QtCore/qobject.h \
@@ -1329,6 +1059,8 @@ qrc_weathercheckingrpi.cpp: ../weathercheckingrpi/weathercheckingrpi.qrc \
 		../../../Qt/5.12.2/gcc_64/include/QtCore/qcontainerfwd.h \
 		../../../Qt/5.12.2/gcc_64/include/QtCore/qobject_impl.h \
 		../../../Qt/5.12.2/gcc_64/include/QtCore/QString \
+		../weathercheckingrpi/appmodelprivate.h \
+		../weathercheckingrpi/appmodel.h \
 		../../../Qt/5.12.2/gcc_64/include/QtCore/QString \
 		../../../Qt/5.12.2/gcc_64/include/QtCore/qstring.h \
 		../../../Qt/5.12.2/gcc_64/include/QtCore/qchar.h \
@@ -1437,10 +1169,6 @@ qrc_weathercheckingrpi.cpp: ../weathercheckingrpi/weathercheckingrpi.qrc \
 		../../../Qt/5.12.2/gcc_64/include/QtCore/qsharedpointer_impl.h \
 		../../../Qt/5.12.2/gcc_64/include/QtSql/QSqlQuery \
 		../../../Qt/5.12.2/gcc_64/include/QtSql/qsqlquery.h \
-		../../../Qt/5.12.2/gcc_64/include/QtSql/QSqlError \
-		../../../Qt/5.12.2/gcc_64/include/QtSql/qsqlerror.h \
-		../../../Qt/5.12.2/gcc_64/include/QtSql/QSqlRecord \
-		../../../Qt/5.12.2/gcc_64/include/QtSql/qsqlrecord.h \
 		../../../Qt/5.12.2/gcc_64/include/QtCore/QFileInfo \
 		../../../Qt/5.12.2/gcc_64/include/QtCore/qfileinfo.h \
 		../../../Qt/5.12.2/gcc_64/include/QtCore/qfile.h \
@@ -1592,9 +1320,11 @@ moc_appmodel.cpp: ../weathercheckingrpi/appmodel.h \
 		../../../Qt/5.12.2/gcc_64/include/QtCore/qcontainerfwd.h \
 		../../../Qt/5.12.2/gcc_64/include/QtCore/qobject_impl.h \
 		../../../Qt/5.12.2/gcc_64/include/QtCore/QString \
+		../weathercheckingrpi/appmodelprivate.h \
+		../weathercheckingrpi/appmodel.h \
 		moc_predefs.h \
 		../../../Qt/5.12.2/gcc_64/bin/moc
-	/home/jerome/Qt/5.12.2/gcc_64/bin/moc $(DEFINES) --include /home/jerome/projects/WeatherCheckingRpi/build-weathercheckingrpi-Desktop_Qt_5_12_2_GCC_64bit-Debug/moc_predefs.h -I/home/jerome/Qt/5.12.2/gcc_64/mkspecs/linux-g++ -I/home/jerome/projects/WeatherCheckingRpi/weathercheckingrpi -I/home/jerome/Qt/5.12.2/gcc_64/include -I/home/jerome/Qt/5.12.2/gcc_64/include/QtQuick -I/home/jerome/Qt/5.12.2/gcc_64/include/QtGui -I/home/jerome/Qt/5.12.2/gcc_64/include/QtQml -I/home/jerome/Qt/5.12.2/gcc_64/include/QtNetwork -I/home/jerome/Qt/5.12.2/gcc_64/include/QtPositioning -I/home/jerome/Qt/5.12.2/gcc_64/include/QtSql -I/home/jerome/Qt/5.12.2/gcc_64/include/QtCore -I. -I/usr/include/c++/8 -I/usr/include/x86_64-linux-gnu/c++/8 -I/usr/include/c++/8/backward -I/usr/lib/gcc/x86_64-linux-gnu/8/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/8/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../weathercheckingrpi/appmodel.h -o moc_appmodel.cpp
+	/home/jerome/Qt/5.12.2/gcc_64/bin/moc $(DEFINES) --include /home/jerome/projects/WeatherCheckingRpi/build-weathercheckingrpi-Desktop_Qt_5_12_2_GCC_64bit-Debug/moc_predefs.h -I/home/jerome/Qt/5.12.2/gcc_64/mkspecs/linux-g++ -I/home/jerome/projects/WeatherCheckingRpi/weathercheckingrpi -I/home/jerome/Qt/5.12.2/gcc_64/include -I/home/jerome/Qt/5.12.2/gcc_64/include/QtQuick -I/home/jerome/Qt/5.12.2/gcc_64/include/QtGui -I/home/jerome/Qt/5.12.2/gcc_64/include/QtQml -I/home/jerome/Qt/5.12.2/gcc_64/include/QtNetwork -I/home/jerome/Qt/5.12.2/gcc_64/include/QtCore -I. -I/usr/include/c++/8 -I/usr/include/x86_64-linux-gnu/c++/8 -I/usr/include/c++/8/backward -I/usr/lib/gcc/x86_64-linux-gnu/8/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/8/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../weathercheckingrpi/appmodel.h -o moc_appmodel.cpp
 
 compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
@@ -1763,11 +1493,7 @@ main.o: ../weathercheckingrpi/main.cpp ../../../Qt/5.12.2/gcc_64/include/QtGui/Q
 		../../../Qt/5.12.2/gcc_64/include/QtCore/qloggingcategory.h \
 		../weathercheckingrpi/appmodel.h \
 		../../../Qt/5.12.2/gcc_64/include/QtCore/QString \
-		../weathercheckingrpi/dbmanager/dbmanager.h \
-		../../../Qt/5.12.2/gcc_64/include/QtSql/QSqlDatabase \
-		../../../Qt/5.12.2/gcc_64/include/QtSql/qsqldatabase.h \
-		../../../Qt/5.12.2/gcc_64/include/QtSql/qtsqlglobal.h \
-		../../../Qt/5.12.2/gcc_64/include/QtSql/qtsql-config.h
+		../weathercheckingrpi/appmodelprivate.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../weathercheckingrpi/main.cpp
 
 appmodel.o: ../weathercheckingrpi/appmodel.cpp ../weathercheckingrpi/appmodel.h \
@@ -1822,6 +1548,7 @@ appmodel.o: ../weathercheckingrpi/appmodel.cpp ../weathercheckingrpi/appmodel.h 
 		../../../Qt/5.12.2/gcc_64/include/QtCore/qcontainerfwd.h \
 		../../../Qt/5.12.2/gcc_64/include/QtCore/qobject_impl.h \
 		../../../Qt/5.12.2/gcc_64/include/QtCore/QString \
+		../weathercheckingrpi/appmodelprivate.h \
 		../../../Qt/5.12.2/gcc_64/include/QtCore/QJsonDocument \
 		../../../Qt/5.12.2/gcc_64/include/QtCore/qjsondocument.h \
 		../../../Qt/5.12.2/gcc_64/include/QtCore/qjsonvalue.h \
@@ -1863,13 +1590,102 @@ appmodel.o: ../weathercheckingrpi/appmodel.cpp ../weathercheckingrpi/appmodel.h 
 		../../../Qt/5.12.2/gcc_64/include/QtCore/QCoreApplication \
 		../../../Qt/5.12.2/gcc_64/include/QtCore/qcoreapplication.h \
 		../../../Qt/5.12.2/gcc_64/include/QtCore/qeventloop.h \
-		../weathercheckingrpi/dbmanager/dbmanager.h \
-		../../../Qt/5.12.2/gcc_64/include/QtSql/QSqlDatabase \
-		../../../Qt/5.12.2/gcc_64/include/QtSql/qsqldatabase.h \
-		../../../Qt/5.12.2/gcc_64/include/QtSql/qtsqlglobal.h \
-		../../../Qt/5.12.2/gcc_64/include/QtSql/qtsql-config.h \
 		../weathercheckingrpi/zambretti/Zambretti.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o appmodel.o ../weathercheckingrpi/appmodel.cpp
+
+appmodelprivate.o: ../weathercheckingrpi/appmodelprivate.cpp ../weathercheckingrpi/appmodelprivate.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/QObject \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qobject.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qobjectdefs.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qnamespace.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qglobal.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qconfig-bootstrapped.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qconfig.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qtcore-config.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qsystemdetection.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qprocessordetection.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qcompilerdetection.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qtypeinfo.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qsysinfo.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qlogging.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qflags.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qatomic.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qbasicatomic.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qatomic_bootstrap.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qgenericatomic.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qatomic_cxx11.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qatomic_msvc.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qglobalstatic.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qmutex.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qnumeric.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qversiontagging.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qobjectdefs_impl.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qstring.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qchar.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qbytearray.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qrefcount.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qarraydata.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qstringliteral.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qstringalgorithms.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qstringview.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qstringbuilder.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qlist.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qalgorithms.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qiterator.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qhashfunctions.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qpair.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qbytearraylist.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qstringlist.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qregexp.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qstringmatcher.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qcoreevent.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qscopedpointer.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qmetatype.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qvarlengtharray.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qcontainerfwd.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qobject_impl.h \
+		../weathercheckingrpi/appmodel.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/QString \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/QJsonDocument \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qjsondocument.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qjsonvalue.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/QJsonObject \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qjsonobject.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/QTimer \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qtimer.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qbasictimer.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/QFile \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qfile.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qfiledevice.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qiodevice.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/QUrlQuery \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qurlquery.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qshareddata.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qhash.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qurl.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/QElapsedTimer \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qelapsedtimer.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/QLoggingCategory \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qloggingcategory.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qdebug.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qmap.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qtextstream.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qlocale.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qvariant.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qvector.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qpoint.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qset.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qcontiguouscache.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qsharedpointer.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qsharedpointer_impl.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/QDir \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qdir.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qfileinfo.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/QCoreApplication \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qcoreapplication.h \
+		../../../Qt/5.12.2/gcc_64/include/QtCore/qeventloop.h \
+		../weathercheckingrpi/zambretti/Zambretti.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o appmodelprivate.o ../weathercheckingrpi/appmodelprivate.cpp
 
 Zambretti.o: ../weathercheckingrpi/zambretti/Zambretti.cpp ../weathercheckingrpi/zambretti/Zambretti.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o Zambretti.o ../weathercheckingrpi/zambretti/Zambretti.cpp

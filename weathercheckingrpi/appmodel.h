@@ -48,11 +48,12 @@
 **
 ****************************************************************************/
 
-#ifndef APPMODEL_H
-#define APPMODEL_H
+#pragma once
 
 #include <QtCore/QObject>
 #include <QtCore/QString>
+#include <QJsonDocument>
+
 
 class WeatherData : public QObject {
     Q_OBJECT
@@ -130,6 +131,7 @@ public:
     bool hasValidWeather() const;
     bool ready() const;
     WeatherData *weather() const;
+    QJsonDocument ztable;
 
 public slots:
     Q_INVOKABLE void refreshWeather();
@@ -137,18 +139,22 @@ public slots:
 public:
     void handleZambrettiData();
     void handleZambrettiNum(int);
+        void setZambrettiQJsonDocument();
+        QJsonDocument buildZambrettiQJsonDocument(QString zpathtable);
+
+        QJsonDocument getZtable() const;
+        void setZtable(const QJsonDocument &value);
 
 signals:
-    void readyChanged();
-    void weatherChanged();
+        void readyChanged();
+        void weatherChanged();
 
 
 private:
-    AppModelPrivate *d;
+        AppModelPrivate *d;
 
 
 //! [4]
 };
 //! [4]
 
-#endif // APPMODEL_H

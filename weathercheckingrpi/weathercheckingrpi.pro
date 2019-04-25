@@ -1,6 +1,6 @@
 TEMPLATE= app
-QT += core network positioning qml quick sql
-requires(qtConfig(bearermanagement))
+QT += core qml quick
+#requires(qtConfig(bearermanagement))
 
 CONFIG += c++11
 
@@ -17,14 +17,21 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += main.cpp \
     appmodel.cpp \
+    appmodelprivate.cpp \
     zambretti/Zambretti.cpp
     #sensor/bme280.c \
-    #sensor/main.c
+    #sensor/Average.cpp \
+    #sensor/sensor.c
+
 
 HEADERS += appmodel.h \
-        zambretti/Zambretti.h
+    appmodelprivate.h \
+        zambretti/Zambretti.h \
+    #sensor/Average.h \
     #sensor/bme280.h \
-    #sensor/bme280_defs.h
+    #sensor/bme280_defs.h \
+    #sensor/sensor.h
+
 
 RESOURCES += \
     weathercheckingrpi.qrc
@@ -41,7 +48,6 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 DISTFILES += \
-    sensor/bme280 \
     components/WeatherIcon.qml \
     components/ForecastIcon.qml \
     components/BigForecastIcon.qml \

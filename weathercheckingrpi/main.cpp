@@ -40,8 +40,8 @@
 #include <QLoggingCategory>
 
 #include "appmodel.h"
-#include "dbmanager/dbmanager.h"
-#include "dbmanager/dbmanager.h"
+//#include "dbmanager/dbmanager.h"
+//#include "dbmanager/dbmanager.h"
 
 #include <iostream>
 using namespace std;
@@ -58,22 +58,6 @@ int main(int argc, char *argv[])
         // afficher valeur description de Zambretti, tendance, P, T, H quand stocker  (init)
         // rafraichir IHM toutes les 60s.
 
-        /*QString dbName = "test.db";
-        DbManager db(dbName);
-
-
-        if( QFile::exists(dbName))
-        {
-             qDebug()<<"Data base exist....";
-
-        } else {
-            qDebug()<<"Data base not exist creating new....";
-            //db.setDatabaseName(dbName);
-
-            db.sendQuery("INSERT INTO metrics (name) VALUES ('bob')");
-        }
-
-        //db.sendQueryAndRecieve("SELECT * FROM people;");*/
 
         QLoggingCategory::setFilterRules("wapp.*.debug=false");
         QGuiApplication application(argc, argv);
@@ -92,7 +76,7 @@ int main(int argc, char *argv[])
         view.setGeometry(QRect(100, 100, 360, 640));
         view.show();
         application.exec();
-    } catch (string const& chain) {
+    } catch (char const* chain) {
         cerr << chain << endl;
         return 1;
     }
