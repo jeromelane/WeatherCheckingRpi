@@ -53,6 +53,8 @@
 #include <QtCore/QObject>
 #include <QtCore/QString>
 #include <QJsonDocument>
+#include "sensor/Average.h"
+#include "sensor/sensor.h"
 
 
 class WeatherData : public QObject {
@@ -132,6 +134,8 @@ public:
     bool ready() const;
     WeatherData *weather() const;
     QJsonDocument ztable;
+    Average measurement;
+    vector <struct data> measurements;
 
 public slots:
     Q_INVOKABLE void refreshWeather();
@@ -139,19 +143,27 @@ public slots:
 public:
     void handleZambrettiData();
     void handleZambrettiNum(int);
-        void setZambrettiQJsonDocument();
-        QJsonDocument buildZambrettiQJsonDocument(QString zpathtable);
+    void setZambrettiQJsonDocument();
+    QJsonDocument buildZambrettiQJsonDocument(QString zpathtable);
 
-        QJsonDocument getZtable() const;
-        void setZtable(const QJsonDocument &value);
+    QJsonDocument getZtable() const;
+    void setZtable(const QJsonDocument &value);
+
+
+
+    Average getMeasurement() const;
+    void setMeasurement(const Average &value);
+
+    vector<struct data> getMeasurements() const;
+    void setMeasurements(const vector<struct data> &value);
 
 signals:
-        void readyChanged();
-        void weatherChanged();
+    void readyChanged();
+    void weatherChanged();
 
 
 private:
-        AppModelPrivate *d;
+    AppModelPrivate *d;
 
 
 //! [4]

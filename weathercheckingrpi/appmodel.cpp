@@ -64,7 +64,7 @@
 
 //#include "dbmanager/dbmanager.h"
 #include "zambretti/Zambretti.h"
-//#include "sensor/Average.h"
+#include "sensor/Average.h"
 #include <iostream>
 
 using namespace std;
@@ -146,7 +146,7 @@ public:
 
 
         requestNewWeatherTimer.setSingleShot(false);
-        requestNewWeatherTimer.setInterval(1*10*1000); // 1 min
+        requestNewWeatherTimer.setInterval(1*1*1000); // 1 s
 
         //throttle.invalidate();
         //ready = true;
@@ -254,23 +254,35 @@ AppModel::AppModel(QObject *parent) :
 {
     //d->ready = true;
 
-    double testtp = 20;
+   /* double testtp = 20;
     double testpa = 959.5555;
-    double testhumidity = 75;
-    d->now.setTemperature(niceTemperatureString( testtp));
-    d->now.setPressure(nicePressureString( testpa));
-    d->now.setHumidity(niceHumidityString(testhumidity));
-    //connect(&d->requestNewWeatherTimer, SIGNAL(timeout()), this, SLOT(handleZambrettiData()));
+    double testhumidity = 75;*/
+
+    struct bme280_dev dev;
+    struct data avg;
+    Average measurement(&dev);// The initialization is done while creating the object measurement
+
+    cout << "initialisation: "<< measurement.getSucessInitialization()<<endl;// this returns a boolean that tells you if the initialization went fine
+
+    this->measurements = vector<struct data>();
+
     try{
+
         setZambrettiQJsonDocument();
 
-        connect(&d->requestNewWeatherTimer, SIGNAL(timeout()), this, SLOT(refreshWeather()));
+        while(true) {
+            measurement.measurevalue();
+            avg = measurement.getData();
+            this->measurements.push_back( avg );
 
-        /*AppModel* a = this;
-        connect(&d->requestNewWeatherTimer, &QTimer::timeout, this, &AppModel::refreshWeather);*/
-        //this->refreshWeather(znum);
+            /*d->now.setTemperature(niceTemperatureString(avg.temperature));
+            d->now.setPressure(nicePressureString(avg.pressure));
+            d->now.setHumidity(niceHumidityString(avg.humidity));*/
 
-        d->requestNewWeatherTimer.start();
+            connect(&d->requestNewWeatherTimer, SIGNAL(timeout()), this, SLOT(refreshWeather()));
+            d->requestNewWeatherTimer.start();
+        }
+
     } catch (char const* chain) {
         cerr << chain << endl;
     }
@@ -281,8 +293,7 @@ AppModel::AppModel(QObject *parent) :
 
 AppModel::~AppModel()
 {
-   // d->db.closeConnection();
-    //TODO close db
+
     delete d;
 }
 
@@ -322,6 +333,12 @@ bool AppModel::ready() const
 void AppModel::handleZambrettiData()
 {
     Zambretti *Zamb = new Zambretti();
+    if(this->getMeasurements().size() >= 2){
+        Zamb->setCurrentPressure( this->getMeasurements().back().pressure);
+        Zamb->setPastPressure(this->getMeasurements().front().pressure ) ;
+        this->getMeasurements().erase (this->getMeasurements().begin());
+
+    }
     // Calcul Zambretti:
     Zamb->findZnumber();// this is the current Z number
     qDebug() << "la tendance de pression actuelle est :" <<Zamb->getTrend()<<endl;
@@ -384,15 +401,14 @@ void AppModel::refreshWeather()
     // connect up the signal right away
     //connect(rep, &QNetworkReply::finished, this, [this, rep]() { handleWeatherNetworkData(rep); });
 
-    double testtp = 1;
+/*    double testtp = 1;
     double testpa = 1;
-    double testhumidity= 1;
+    double testhumidity= 1;*/
 
-    d->now.setTemperature(niceTemperatureString( testtp));
-    d->now.setPressure(nicePressureString(testpa));
-    d->now.setHumidity(niceHumidityString(testhumidity));
+    d->now.setTemperature(niceTemperatureString( this->getMeasurements().back().temperature));
+    d->now.setPressure(nicePressureString(this->getMeasurements().back().pressure));
+    d->now.setHumidity(niceHumidityString(this->getMeasurements().back().humidity));
     d->now.setWeatherTrend("?");
-
 
     handleZambrettiData();
 
@@ -407,6 +423,27 @@ WeatherData *AppModel::weather() const
 {
     return &(d->now);
 }
+
+vector<struct data> AppModel::getMeasurements() const
+{
+    return measurements;
+}
+
+void AppModel::setMeasurements(const vector<struct data> &value)
+{
+    measurements = value;
+}
+
+Average AppModel::getMeasurement() const
+{
+    return measurement;
+}
+
+void AppModel::setMeasurement(const Average &value)
+{
+    measurement = value;
+}
+
 
 QJsonDocument AppModel::getZtable() const
 {

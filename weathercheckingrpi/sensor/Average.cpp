@@ -12,6 +12,7 @@ int rounded(float x){ // This function rounds a float to the nearest integer
             if (deci<0.5) return Rinf;
             else return Rinf+1;
             }
+
 Average::Average(struct bme280_dev *dev) 
 {
     m_N=9;
@@ -35,8 +36,8 @@ struct data Average::getData()
 }
 
 void Average::measurevalue(){
-for (int i=0; i<=m_N; i++)
-    { 
+    for (int i=0; i<=m_N; i++)
+    {
         int goal;
         goal=time(NULL)+1;
         this->m_data_meteo_temp = refreshSensor(this->m_dev);
@@ -49,21 +50,25 @@ for (int i=0; i<=m_N; i++)
         m_data_meteo_tab.humiditytab[i]=m_data_meteo_temp.humidity;
         while(goal>time(NULL)){};//wait until the next second
     }
-this->m_data_meteo_sum.currenttime=0;
-this->m_data_meteo_sum.temperature=0;
-this->m_data_meteo_sum.pressure=0;
-this->m_data_meteo_sum.humidity=0;
-for (int i=0; i<=m_N; i++){
-    this->m_data_meteo_sum.currenttime+=m_data_meteo_tab.currenttimetab[i];
-    this->m_data_meteo_sum.temperature+=m_data_meteo_tab.temperaturetab[i];
-    this->m_data_meteo_sum.pressure+=m_data_meteo_tab.pressuretab[i];
-    this->m_data_meteo_sum.humidity+=m_data_meteo_tab.humiditytab[i];
+
+    this->m_data_meteo_sum.currenttime=0;
+    this->m_data_meteo_sum.temperature=0;
+    this->m_data_meteo_sum.pressure=0;
+    this->m_data_meteo_sum.humidity=0;
+
+    for (int i=0; i<=m_N; i++){
+        this->m_data_meteo_sum.currenttime+=m_data_meteo_tab.currenttimetab[i];
+        this->m_data_meteo_sum.temperature+=m_data_meteo_tab.temperaturetab[i];
+        this->m_data_meteo_sum.pressure+=m_data_meteo_tab.pressuretab[i];
+        this->m_data_meteo_sum.humidity+=m_data_meteo_tab.humiditytab[i];
     }
+
     m_data_meteo.currenttime=(rounded(m_data_meteo_sum.currenttime/(m_N+1)))+1555900000;
     m_data_meteo.temperature=(m_data_meteo_sum.temperature/(m_N+1));
     m_data_meteo.pressure=(m_data_meteo_sum.pressure/(m_N+1))/10;
     m_data_meteo.humidity=(m_data_meteo_sum.humidity/(m_N+1));
 }
+
 Average::~Average()
 {
 }

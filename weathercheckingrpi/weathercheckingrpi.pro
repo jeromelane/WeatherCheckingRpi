@@ -17,18 +17,18 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += main.cpp \
     appmodel.cpp \
-    zambretti/Zambretti.cpp
-    #sensor/bme280.c \
-    #sensor/Average.cpp \
-    #sensor/sensor.c
+    zambretti/Zambretti.cpp \
+    sensor/bme280.c \
+    sensor/Average.cpp \
+    sensor/sensor.c
 
 
 HEADERS += appmodel.h \
         zambretti/Zambretti.h \
-    #sensor/Average.h \
-    #sensor/bme280.h \
-    #sensor/bme280_defs.h \
-    #sensor/sensor.h
+    sensor/Average.h \
+    sensor/bme280.h \
+    sensor/bme280_defs.h \
+    sensor/sensor.h
 
 
 RESOURCES += \

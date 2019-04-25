@@ -16,7 +16,12 @@ class Zambretti{
     void findZnumber();
     ~Zambretti();
     
-    private:
+    void setCurrentPressure(float CurrentPressure);
+
+    float getPastPressure() const;
+    void setPastPressure(float PastPressure);
+
+private:
     int m_trend;
     int m_Znumber;
     float m_CurrentPressure;

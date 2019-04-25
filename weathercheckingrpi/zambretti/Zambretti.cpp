@@ -71,3 +71,18 @@ void Zambretti::findZnumber()
 Zambretti::~Zambretti()
 {
 }
+
+void Zambretti::setCurrentPressure(float CurrentPressure)
+{
+    m_CurrentPressure = CurrentPressure;
+}
+
+float Zambretti::getPastPressure() const
+{
+    return m_PastPressure;
+}
+
+void Zambretti::setPastPressure(float PastPressure)
+{
+    m_PastPressure = PastPressure;
+}
