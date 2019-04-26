@@ -48,12 +48,14 @@ MetricsAverage::~MetricsAverage()
 }
 
 void MetricsAverage::measurevalue(){
-
+    qDebug() << "measure value";
     for (int i=0; i<=m_N; i++)
     {
         int goal;
         goal=time(NULL)+1;
+        //qDebug() << "fin boucle 1";
         this->m_data_meteo_temp = refreshSensor(this->m_dev);
+        //qDebug() << "fin boucle 1.1";
         this->m_data_meteo_temp.currenttime-=1555900000;
         // we must substract a value in order to compute an average
         // without exceeding the maximum value of the integer type
@@ -61,6 +63,7 @@ void MetricsAverage::measurevalue(){
         m_data_meteo_tab.temperaturetab[i]=m_data_meteo_temp.temperature;
         m_data_meteo_tab.pressuretab[i]=m_data_meteo_temp.pressure;
         m_data_meteo_tab.humiditytab[i]=m_data_meteo_temp.humidity;
+        //qDebug() << "fin boucle 1.2";
         while(goal>time(NULL)){};//wait until the next second
     }
 
@@ -80,4 +83,5 @@ void MetricsAverage::measurevalue(){
     m_data_meteo.temperature=(m_data_meteo_sum.temperature/(m_N+1));
     m_data_meteo.pressure=(m_data_meteo_sum.pressure/(m_N+1))/10;
     m_data_meteo.humidity=(m_data_meteo_sum.humidity/(m_N+1));
+    //qDebug() << "fin boucle 2";
 }

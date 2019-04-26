@@ -139,7 +139,6 @@ public:
         //DbManager db;
     QTimer requestNewWeatherTimer;
 
-
     AppModelPrivate():
             ready(false)
             //nErrors(0)
@@ -147,7 +146,6 @@ public:
     {
        // db = DbManager();
         //db.openConnection("mypath","test.db");
-
 
         requestNewWeatherTimer.setSingleShot(false);
         requestNewWeatherTimer.setInterval(1*1*1000); // 1 s
@@ -267,7 +265,7 @@ AppModel::AppModel(QObject *parent) :
 
     MetricsAverage measurement(&dev);// The initialization is done while creating the object measurement
     cout << "initialisation: "<< measurement.getSucessInitialization()<<endl;// this returns a boolean that tells you if the initialization went fine
-    this->measurement=measurement;
+    this->measurement = measurement;
     this->measurements = vector<struct data>();
 
     try{
@@ -279,17 +277,25 @@ AppModel::AppModel(QObject *parent) :
         this->measurements.push_back( avg );
         printMeasurements();*/
 
-        qDebug() << "measurments round finished";
-
         /*d->now.setTemperature(niceTemperatureString(avg.temperature));
         d->now.setPressure(nicePressureString(avg.pressure));
         d->now.setHumidity(niceHumidityString(avg.humidity));*/
 
         //connect(&d->requestNewWeatherTimer, SIGNAL(timeout()), this, SLOT(refreshWeather()));
         //d->requestNewWeatherTimer.start();
-
-        connect(this, SIGNAL(measurementsUpdated()), this, SLOT(refreshWeather()));
         this->measurevalue();
+        refreshWeather();
+        //while(true) {
+        //connect(this->measurevalue(), SIGNAL(measurementsUpdated()), this, SLOT(refreshWeather()));
+
+
+        connect(&d->requestNewWeatherTimer, SIGNAL(timeout()), this, SLOT(refreshWeather()));
+        this->measurevalue();
+        d->requestNewWeatherTimer.start();
+
+        //this->measurevalue;
+        //qDebug() << "measurments round finished";
+        //}
 
     } catch (char const* chain) {
         cerr << chain << endl;
@@ -298,9 +304,10 @@ AppModel::AppModel(QObject *parent) :
 }
 
 void AppModel::measurevalue(){
+
     this->measurement.measurevalue();
     this->measurements.push_back(this->measurement.getData());
-    emit measurementsUpdated();
+    //emit measurementsUpdated();
 }
 
 AppModel::~AppModel()
@@ -312,7 +319,6 @@ AppModel::~AppModel()
 QJsonDocument AppModel::buildZambrettiQJsonDocument(QString zpathtable)
 {
     QJsonParseError *error = new QJsonParseError();
-
     //QString refpath="C:/Users/U/Documents/projets/WeatherCheckingRpi/WeatherCheckingRpiSimple";
     QFile zambjson(zpathtable + "/data/zambretti_table.json");
     zambjson.open(QIODevice::ReadOnly | QIODevice::Text);
@@ -347,13 +353,35 @@ void AppModel::handleZambrettiData()
     qDebug() << "handleZambrettiData";
     Zambretti *Zamb = new Zambretti();
     if(this->getMeasurements().size() >= 2){
+        qDebug() << "trend";
         Zamb->setCurrentPressure( this->getMeasurements().back().pressure);
         Zamb->setPastPressure(this->getMeasurements().front().pressure ) ;
-        this->getMeasurements().erase (this->getMeasurements().begin());
+
+        //std::vector<struct data>::iterator pend;
+
+        cout << "# mesurments: " << this->getMeasurements().size() << endl;
+        std::cout << "myvector contains:";
+        for (unsigned i=0; i<this->getMeasurements().size(); ++i) {
+            this->printMeasurement(this->getMeasurements()[i]);
+            std::cout << '\n';
+        }
+
+        if(this->getMeasurements().size() > 2) {
+            qDebug() << "erase mesurements";
+            while( this->getMeasurements().size() > 2) {
+                //this->getMeasurements().erase (this->getMeasurements().begin());
+                this->getMeasurements().pop_back();
+            }
+            //this->getMeasurements().erase(this->getMeasurements().begin() );
+        }
+
+        //this->getMeasurements().erase(remove(this->getMeasurements().begin(), this->getMeasurements().end(), val), this->getMeasurements().end());
+        //this->getMeasurements().erase (this->getMeasurements().begin());
 
     }
-    // Calcul Zambretti:
-    Zamb->findZnumber();// this is the current Z number
+     qDebug() << " Calcul Zambretti";
+
+     Zamb->findZnumber();// this is the current Z number
     qDebug() << "la tendance de pression actuelle est :" <<Zamb->getTrend()<<endl;
     qDebug() << "le nb de Zambretti est: "<<Zamb->getZnumber()<<endl;
 
@@ -382,7 +410,7 @@ void AppModel::handleZambrettiNum(signed int zambretti_num)
     //QJsonValue jv;
     QJsonObject root = this->ztable.object();
 
-    qDebug() << "# of json keys: " << QString::number(root.size());
+    //qDebug() << "# of json keys: " << QString::number(root.size());
 
     QString zqstring = QString::number(zambretti_num);
     jo = root.value(zqstring).toObject();
@@ -407,15 +435,15 @@ void AppModel::refreshWeather()
 {
 
     qDebug() << "refreshing weather";
+    //this->measurevalue();
 
     /*measurement.measurevalue();
     struct data avg = measurement.getData();
     this->measurements.push_back( avg );
     printMeasurements();*/
-    niceTemperatureString( this->getMeasurements().back().temperature);
+    //niceTemperatureString( this->getMeasurements().back().temperature);
     // qDebug() << "tests";
-
-     qDebug() << niceTemperatureString( this->getMeasurements().back().temperature);
+     //qDebug() << niceTemperatureString( this->getMeasurements().back().temperature);
 
     d->now.setTemperature(niceTemperatureString( this->getMeasurements().back().temperature));
     d->now.setPressure(nicePressureString(this->getMeasurements().back().pressure));
@@ -445,10 +473,10 @@ void AppModel::printMeasurements() const
 void AppModel::printMeasurement( struct data data ) const
 {
 
-    cout << to_string(data.humidity) << endl;
-    cout << to_string(data.pressure)  << endl;
-    cout << to_string(data.temperature) << endl;
-    cout << to_string(data.currenttime) << endl;
+    cout << "humidity: " << to_string(data.humidity) << endl;
+    cout << "pressure: " <<to_string(data.pressure)  << endl;
+    cout << "temperature: " <<to_string(data.temperature) << endl;
+    cout << "currenttime: " << to_string(data.currenttime) << endl;
 
 }
 

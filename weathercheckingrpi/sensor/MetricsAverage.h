@@ -4,6 +4,7 @@
 #include <time.h>
 #include <iostream>
 #include <QtCore/QObject>
+#include <QDebug>
 #include "sensor.h"
 using namespace std;
 
