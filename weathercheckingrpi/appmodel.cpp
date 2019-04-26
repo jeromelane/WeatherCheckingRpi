@@ -48,6 +48,9 @@
 **
 ****************************************************************************/
 
+/*!
+ * \author Jerome Lane
+ */
 #include "appmodel.h"
 
 #include <QJsonDocument>
@@ -221,10 +224,10 @@ static QString niceZamberttiTrendString(signed int t)
     QString symb ;
     switch(t) {
     case 1:
-        symb = "-";
+        symb = "=";
         break;
     case 0:
-        symb = "=";
+        symb = "-";
         break;
     case 2:
         symb = "+";

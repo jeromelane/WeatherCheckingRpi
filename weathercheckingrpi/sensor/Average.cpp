@@ -6,14 +6,13 @@
 #include "sensor.h"
 using namespace std;
 
-int rounded(float x){ // This function rounds a float to the nearest integer
-            int Rinf=(int)x;
-            float deci = x-Rinf;
-            if (deci<0.5) return Rinf;
-            else return Rinf+1;
-            }
 
-Average::Average(struct bme280_dev *dev) 
+Average::Average()
+{
+
+}
+
+Average::Average(struct bme280_dev *dev)
 {
     m_N=9;
     //m_data_meteo_temp;
@@ -34,6 +33,14 @@ struct data Average::getData()
 {
     return this->m_data_meteo;
 }
+
+
+int Average::rounded(float x){ // This function rounds a float to the nearest integer
+    int Rinf=(int)x;
+    float deci = x-Rinf;
+    if (deci<0.5) return Rinf;
+    else return Rinf+1;
+    }
 
 void Average::measurevalue(){
     for (int i=0; i<=m_N; i++)

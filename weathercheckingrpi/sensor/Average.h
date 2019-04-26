@@ -21,11 +21,12 @@ struct datatab // This structure is used to record a set of values
 class Average{
 
 public:
-    
+    Average();
     Average(struct bme280_dev *dev);
     void measurevalue();
     bool getSucessInitialization();
     struct data getData();
+    int rounded(float x);
     ~Average();
 
 private:

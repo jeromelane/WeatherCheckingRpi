@@ -48,6 +48,10 @@
 **
 ****************************************************************************/
 
+/*!
+ * \author Jerome Lane
+ */
+
 #pragma once
 
 #include <QtCore/QObject>
@@ -55,7 +59,6 @@
 #include <QJsonDocument>
 #include "sensor/Average.h"
 #include "sensor/sensor.h"
-
 
 class WeatherData : public QObject {
     Q_OBJECT
@@ -127,7 +130,7 @@ class AppModel : public QObject
                NOTIFY weatherChanged)
 
 public:
-    explicit AppModel(QObject *parent = nullptr);//QString ztablepath = ""
+    explicit AppModel(QObject *parent = nullptr);
     ~AppModel();
 
     bool hasValidWeather() const;
@@ -143,17 +146,13 @@ public slots:
 public:
     void handleZambrettiData();
     void handleZambrettiNum(int);
-    void setZambrettiQJsonDocument();
     QJsonDocument buildZambrettiQJsonDocument(QString zpathtable);
 
+    void setZambrettiQJsonDocument();
     QJsonDocument getZtable() const;
     void setZtable(const QJsonDocument &value);
-
-
-
     Average getMeasurement() const;
     void setMeasurement(const Average &value);
-
     vector<struct data> getMeasurements() const;
     void setMeasurements(const vector<struct data> &value);
 
@@ -165,8 +164,6 @@ signals:
 private:
     AppModelPrivate *d;
 
-
-//! [4]
 };
 //! [4]
 

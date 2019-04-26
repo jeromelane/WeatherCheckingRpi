@@ -48,9 +48,10 @@
 **
 ****************************************************************************/
 
+
 import QtQuick 2.0
 import "components"
-//! [0]
+
 import WeatherChecking 1.0
 
 Item {
