@@ -147,6 +147,8 @@ public:
     void handleZambrettiData();
     void handleZambrettiNum(int);
     QJsonDocument buildZambrettiQJsonDocument(QString zpathtable);
+    void printMeasurement( struct data data ) const;
+    void printMeasurements( ) const;
 
     void setZambrettiQJsonDocument();
     QJsonDocument getZtable() const;

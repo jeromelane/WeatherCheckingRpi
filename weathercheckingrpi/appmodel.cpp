@@ -68,6 +68,7 @@
 //#include "dbmanager/dbmanager.h"
 #include "zambretti/Zambretti.h"
 #include "sensor/Average.h"
+#include "sensor/sensor.h"
 #include <iostream>
 
 using namespace std;
@@ -273,18 +274,18 @@ AppModel::AppModel(QObject *parent) :
 
         setZambrettiQJsonDocument();
 
-        while(true) {
-            measurement.measurevalue();
-            avg = measurement.getData();
-            this->measurements.push_back( avg );
+        measurement.measurevalue();
+        avg = measurement.getData();
+        this->measurements.push_back( avg );
+        qDebug() << "measurments round finished";
 
-            /*d->now.setTemperature(niceTemperatureString(avg.temperature));
-            d->now.setPressure(nicePressureString(avg.pressure));
-            d->now.setHumidity(niceHumidityString(avg.humidity));*/
+        /*d->now.setTemperature(niceTemperatureString(avg.temperature));
+        d->now.setPressure(nicePressureString(avg.pressure));
+        d->now.setHumidity(niceHumidityString(avg.humidity));*/
 
-            connect(&d->requestNewWeatherTimer, SIGNAL(timeout()), this, SLOT(refreshWeather()));
-            d->requestNewWeatherTimer.start();
-        }
+        connect(&d->requestNewWeatherTimer, SIGNAL(timeout()), this, SLOT(refreshWeather()));
+        d->requestNewWeatherTimer.start();
+
 
     } catch (char const* chain) {
         cerr << chain << endl;
@@ -396,17 +397,7 @@ void AppModel::handleZambrettiNum(signed int zambretti_num)
 void AppModel::refreshWeather()
 {
 
-    //qCDebug(requestsLog) << "refreshing weather";
     qDebug() << "refreshing weather";
-
-    //d->db.getLastUpdatedMetrics();
-
-    // connect up the signal right away
-    //connect(rep, &QNetworkReply::finished, this, [this, rep]() { handleWeatherNetworkData(rep); });
-
-/*    double testtp = 1;
-    double testpa = 1;
-    double testhumidity= 1;*/
 
     d->now.setTemperature(niceTemperatureString( this->getMeasurements().back().temperature));
     d->now.setPressure(nicePressureString(this->getMeasurements().back().pressure));
@@ -415,9 +406,6 @@ void AppModel::refreshWeather()
 
     handleZambrettiData();
 
-   // d->ready = true;
-
-    //emit readyChanged();
     emit weatherChanged();
 }
 
@@ -426,6 +414,30 @@ WeatherData *AppModel::weather() const
 {
     return &(d->now);
 }
+
+void AppModel::printMeasurements() const
+{
+    for(auto const& m: measurements) {
+        printMeasurement(m);
+    }
+}
+
+
+
+
+
+
+
+void AppModel::printMeasurement( struct data data ) const
+{
+
+    cout << to_string(data.humidity) << endl;
+    cout << to_string(data.pressure)  << endl;
+    cout << to_string(data.temperature) << endl;
+    cout << to_string(data.currenttime) << endl;
+
+}
+
 
 vector<struct data> AppModel::getMeasurements() const
 {
