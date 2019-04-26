@@ -1,4 +1,4 @@
-#include "Average.h"
+#include "MetricsAverage.h"
 #include <string>
 #include <time.h>
 #include <iostream>
@@ -7,12 +7,12 @@
 using namespace std;
 
 
-Average::Average()
+MetricsAverage::MetricsAverage()
 {
 
 }
 
-Average::Average(struct bme280_dev *dev)
+MetricsAverage::MetricsAverage(struct bme280_dev *dev)
 {
     m_N=9;
     //m_data_meteo_temp;
@@ -24,25 +24,31 @@ Average::Average(struct bme280_dev *dev)
     rslt_success=initSensor(dev);// We choose to initialize the sensor within the constructor
     if (rslt_success==0){m_success=0;}
 }
-bool Average::getSucessInitialization()
+bool MetricsAverage::getSucessInitialization()
 {
     return this->m_success;
 }
 
-struct data Average::getData()
+struct data MetricsAverage::getData()
 {
     return this->m_data_meteo;
 }
 
 
-int Average::rounded(float x){ // This function rounds a float to the nearest integer
+int MetricsAverage::rounded(float x){ // This function rounds a float to the nearest integer
     int Rinf=(int)x;
     float deci = x-Rinf;
     if (deci<0.5) return Rinf;
     else return Rinf+1;
     }
 
-void Average::measurevalue(){
+
+MetricsAverage::~MetricsAverage()
+{
+}
+
+void MetricsAverage::measurevalue(){
+
     for (int i=0; i<=m_N; i++)
     {
         int goal;
@@ -74,8 +80,4 @@ void Average::measurevalue(){
     m_data_meteo.temperature=(m_data_meteo_sum.temperature/(m_N+1));
     m_data_meteo.pressure=(m_data_meteo_sum.pressure/(m_N+1))/10;
     m_data_meteo.humidity=(m_data_meteo_sum.humidity/(m_N+1));
-}
-
-Average::~Average()
-{
 }

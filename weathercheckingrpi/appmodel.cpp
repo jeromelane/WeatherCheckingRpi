@@ -67,7 +67,7 @@
 
 //#include "dbmanager/dbmanager.h"
 #include "zambretti/Zambretti.h"
-#include "sensor/Average.h"
+#include "sensor/MetricsAverage.h"
 #include "sensor/sensor.h"
 #include <iostream>
 
@@ -263,29 +263,33 @@ AppModel::AppModel(QObject *parent) :
     double testhumidity = 75;*/
 
     struct bme280_dev dev;
-    struct data avg;
-    Average measurement(&dev);// The initialization is done while creating the object measurement
+   // struct data avg;
 
+    MetricsAverage measurement(&dev);// The initialization is done while creating the object measurement
     cout << "initialisation: "<< measurement.getSucessInitialization()<<endl;// this returns a boolean that tells you if the initialization went fine
-
+    this->measurement=measurement;
     this->measurements = vector<struct data>();
 
     try{
 
         setZambrettiQJsonDocument();
 
-        measurement.measurevalue();
+        /*measurement.measurevalue();
         avg = measurement.getData();
         this->measurements.push_back( avg );
+        printMeasurements();*/
+
         qDebug() << "measurments round finished";
 
         /*d->now.setTemperature(niceTemperatureString(avg.temperature));
         d->now.setPressure(nicePressureString(avg.pressure));
         d->now.setHumidity(niceHumidityString(avg.humidity));*/
 
-        connect(&d->requestNewWeatherTimer, SIGNAL(timeout()), this, SLOT(refreshWeather()));
-        d->requestNewWeatherTimer.start();
+        //connect(&d->requestNewWeatherTimer, SIGNAL(timeout()), this, SLOT(refreshWeather()));
+        //d->requestNewWeatherTimer.start();
 
+        connect(this, SIGNAL(measurementsUpdated()), this, SLOT(refreshWeather()));
+        this->measurevalue();
 
     } catch (char const* chain) {
         cerr << chain << endl;
@@ -293,7 +297,11 @@ AppModel::AppModel(QObject *parent) :
 
 }
 
-//! [1]
+void AppModel::measurevalue(){
+    this->measurement.measurevalue();
+    this->measurements.push_back(this->measurement.getData());
+    emit measurementsUpdated();
+}
 
 AppModel::~AppModel()
 {
@@ -336,6 +344,7 @@ bool AppModel::ready() const
 
 void AppModel::handleZambrettiData()
 {
+    qDebug() << "handleZambrettiData";
     Zambretti *Zamb = new Zambretti();
     if(this->getMeasurements().size() >= 2){
         Zamb->setCurrentPressure( this->getMeasurements().back().pressure);
@@ -399,6 +408,15 @@ void AppModel::refreshWeather()
 
     qDebug() << "refreshing weather";
 
+    /*measurement.measurevalue();
+    struct data avg = measurement.getData();
+    this->measurements.push_back( avg );
+    printMeasurements();*/
+    niceTemperatureString( this->getMeasurements().back().temperature);
+    // qDebug() << "tests";
+
+     qDebug() << niceTemperatureString( this->getMeasurements().back().temperature);
+
     d->now.setTemperature(niceTemperatureString( this->getMeasurements().back().temperature));
     d->now.setPressure(nicePressureString(this->getMeasurements().back().pressure));
     d->now.setHumidity(niceHumidityString(this->getMeasurements().back().humidity));
@@ -424,10 +442,6 @@ void AppModel::printMeasurements() const
 
 
 
-
-
-
-
 void AppModel::printMeasurement( struct data data ) const
 {
 
@@ -449,12 +463,12 @@ void AppModel::setMeasurements(const vector<struct data> &value)
     measurements = value;
 }
 
-Average AppModel::getMeasurement() const
+MetricsAverage AppModel::getMeasurement() const
 {
     return measurement;
 }
 
-void AppModel::setMeasurement(const Average &value)
+void AppModel::setMeasurement(const MetricsAverage &value)
 {
     measurement = value;
 }

@@ -19,16 +19,16 @@ SOURCES += main.cpp \
     appmodel.cpp \
     zambretti/Zambretti.cpp \
     sensor/bme280.c \
-    sensor/Average.cpp \
-    sensor/sensor.c
+    sensor/sensor.c \
+    sensor/MetricsAverage.cpp
 
 
 HEADERS += appmodel.h \
         zambretti/Zambretti.h \
-    sensor/Average.h \
     sensor/bme280.h \
     sensor/bme280_defs.h \
-    sensor/sensor.h
+    sensor/sensor.h \
+    sensor/MetricsAverage.h
 
 
 RESOURCES += \

@@ -196,8 +196,8 @@ void WeatherData::dataChanged()
     QMetaObject::activate(this, &staticMetaObject, 0, Q_NULLPTR);
 }
 struct qt_meta_stringdata_AppModel_t {
-    QByteArrayData data[9];
-    char stringdata0[96];
+    QByteArrayData data[11];
+    char stringdata0[129];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -210,15 +210,18 @@ QT_MOC_LITERAL(0, 0, 8), // "AppModel"
 QT_MOC_LITERAL(1, 9, 12), // "readyChanged"
 QT_MOC_LITERAL(2, 22, 0), // ""
 QT_MOC_LITERAL(3, 23, 14), // "weatherChanged"
-QT_MOC_LITERAL(4, 38, 14), // "refreshWeather"
-QT_MOC_LITERAL(5, 53, 5), // "ready"
-QT_MOC_LITERAL(6, 59, 7), // "weather"
-QT_MOC_LITERAL(7, 67, 12), // "WeatherData*"
-QT_MOC_LITERAL(8, 80, 15) // "hasValidWeather"
+QT_MOC_LITERAL(4, 38, 19), // "measurementsUpdated"
+QT_MOC_LITERAL(5, 58, 14), // "refreshWeather"
+QT_MOC_LITERAL(6, 73, 12), // "measurevalue"
+QT_MOC_LITERAL(7, 86, 5), // "ready"
+QT_MOC_LITERAL(8, 92, 7), // "weather"
+QT_MOC_LITERAL(9, 100, 12), // "WeatherData*"
+QT_MOC_LITERAL(10, 113, 15) // "hasValidWeather"
 
     },
     "AppModel\0readyChanged\0\0weatherChanged\0"
-    "refreshWeather\0ready\0weather\0WeatherData*\0"
+    "measurementsUpdated\0refreshWeather\0"
+    "measurevalue\0ready\0weather\0WeatherData*\0"
     "hasValidWeather"
 };
 #undef QT_MOC_LITERAL
@@ -229,31 +232,35 @@ static const uint qt_meta_data_AppModel[] = {
        7,       // revision
        0,       // classname
        0,    0, // classinfo
-       3,   14, // methods
-       3,   32, // properties
+       5,   14, // methods
+       3,   44, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
-       2,       // signalCount
+       3,       // signalCount
 
  // signals: name, argc, parameters, tag, flags
-       1,    0,   29,    2, 0x06 /* Public */,
-       3,    0,   30,    2, 0x06 /* Public */,
+       1,    0,   39,    2, 0x06 /* Public */,
+       3,    0,   40,    2, 0x06 /* Public */,
+       4,    0,   41,    2, 0x06 /* Public */,
 
  // slots: name, argc, parameters, tag, flags
-       4,    0,   31,    2, 0x0a /* Public */,
+       5,    0,   42,    2, 0x0a /* Public */,
+       6,    0,   43,    2, 0x0a /* Public */,
 
  // signals: parameters
+    QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
 
  // slots: parameters
     QMetaType::Void,
+    QMetaType::Void,
 
  // properties: name, type, flags
-       5, QMetaType::Bool, 0x00495001,
-       6, 0x80000000 | 7, 0x00495009,
-       8, QMetaType::Bool, 0x00495001,
+       7, QMetaType::Bool, 0x00495001,
+       8, 0x80000000 | 9, 0x00495009,
+      10, QMetaType::Bool, 0x00495001,
 
  // properties: notify_signal_id
        0,
@@ -271,7 +278,9 @@ void AppModel::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, vo
         switch (_id) {
         case 0: _t->readyChanged(); break;
         case 1: _t->weatherChanged(); break;
-        case 2: _t->refreshWeather(); break;
+        case 2: _t->measurementsUpdated(); break;
+        case 3: _t->refreshWeather(); break;
+        case 4: _t->measurevalue(); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
@@ -288,6 +297,13 @@ void AppModel::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, vo
             typedef void (AppModel::*_t)();
             if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&AppModel::weatherChanged)) {
                 *result = 1;
+                return;
+            }
+        }
+        {
+            typedef void (AppModel::*_t)();
+            if (*reinterpret_cast<_t *>(func) == static_cast<_t>(&AppModel::measurementsUpdated)) {
+                *result = 2;
                 return;
             }
         }
@@ -341,13 +357,13 @@ int AppModel::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 3)
+        if (_id < 5)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 3;
+        _id -= 5;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 3)
+        if (_id < 5)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 3;
+        _id -= 5;
     }
 #ifndef QT_NO_PROPERTIES
    else if (_c == QMetaObject::ReadProperty || _c == QMetaObject::WriteProperty
@@ -379,5 +395,11 @@ void AppModel::readyChanged()
 void AppModel::weatherChanged()
 {
     QMetaObject::activate(this, &staticMetaObject, 1, Q_NULLPTR);
+}
+
+// SIGNAL 2
+void AppModel::measurementsUpdated()
+{
+    QMetaObject::activate(this, &staticMetaObject, 2, Q_NULLPTR);
 }
 QT_END_MOC_NAMESPACE

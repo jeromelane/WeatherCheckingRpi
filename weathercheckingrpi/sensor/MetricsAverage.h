@@ -3,6 +3,7 @@
 #include <string>
 #include <time.h>
 #include <iostream>
+#include <QtCore/QObject>
 #include "sensor.h"
 using namespace std;
 
@@ -18,16 +19,17 @@ struct datatab // This structure is used to record a set of values
     float humiditytab[10]; 
 };
 
-class Average{
+class MetricsAverage
+{
 
 public:
-    Average();
-    Average(struct bme280_dev *dev);
+    MetricsAverage();
+    MetricsAverage(struct bme280_dev *dev);
     void measurevalue();
     bool getSucessInitialization();
     struct data getData();
     int rounded(float x);
-    ~Average();
+    ~MetricsAverage();
 
 private:
     int m_N;

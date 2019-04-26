@@ -58,7 +58,6 @@ int main(int argc, char *argv[])
         // afficher valeur description de Zambretti, tendance, P, T, H quand stocker  (init)
         // rafraichir IHM toutes les 60s.
 
-
         QLoggingCategory::setFilterRules("wapp.*.debug=false");
         QGuiApplication application(argc, argv);
 
