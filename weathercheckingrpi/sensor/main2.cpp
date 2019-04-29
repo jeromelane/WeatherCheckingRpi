@@ -9,7 +9,7 @@
  =====================================================================================         
 */
 #include <time.h>
-#include "Average.h"
+#include "MetricsAverage.h"
 #include <string>
 #include <iostream>
 using namespace std;
@@ -18,7 +18,7 @@ int main() {
     struct bme280_dev dev;
     struct data AverageData;
 
-    Average measurement(&dev);// The initialization is done while creating the object measurement
+    MetricsAverage measurement(&dev);// The initialization is done while creating the object measurement
     cout << "initialisation: "<<measurement.getSucessInitialization()<<endl;// this returns a boolean that tells you if the initialization went fine
     
     measurement.measurevalue();// This returns a structure data that contains the average values:

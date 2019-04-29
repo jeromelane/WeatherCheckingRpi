@@ -29,6 +29,7 @@ private slots:
     void initTestCase();
     void cleanupTestCase();
     void test_case1();
+    void test_case2();
 
 };
 
@@ -54,19 +55,49 @@ void wcrpi::cleanupTestCase()
 
 void wcrpi::test_case1()
 {
-    QString zpathtable = "/home/jerome/projects/WeatherCheckingRpi/tests/weathercheckingrpi/" ;
-
+    //QString zpathtable = "/home/jerome/projects/WeatherCheckingRpi/tests/weathercheckingrpi/" ;
+    QString zpathtable = "/home/pi/Bureau/Dev/WeatherCheckingRpi/tests/weathercheckingrpi/";
     AppModel *app;
     try{
         app = new AppModel();
     }catch (char const* e) {
         cerr << e << endl;
     }
-    qDebug() << app->buildZambrettiQJsonDocument(zpathtable);
+    qDebug() << "Json doc: " << app->buildZambrettiQJsonDocument(zpathtable);
     app->setZtable(app->buildZambrettiQJsonDocument(zpathtable));
     QString strJson(app->ztable.toJson(QJsonDocument::Compact));
+    qDebug() << "str Json: " << strJson;
     app->handleZambrettiNum(13);
     QVERIFY(app->weather()->weatherDescription() == "Fairly Fine , Showers likely");
+}
+
+void wcrpi::test_case2()
+{
+    AppModel *app;
+    try{
+        app = new AppModel();
+    }catch (char const* e) {
+        cerr << e << endl;
+    }
+
+    struct bme280_dev dev;
+    MetricsAverage measurement(&dev);// The initialization is done while creating the object measurement
+    cout << "initialisation: "<< measurement.getSucessInitialization()<<endl;// this returns a boolean that tells you if the initialization went fine
+    app->measurement = measurement;
+    app->measurements = vector<struct data>();
+
+    for(int i =0; i < 3; i++) {
+        qDebug() << "measuring value " << i << endl;
+        app->measurevalue();
+    }
+
+    Zambretti *Zamb = new Zambretti();
+    app->manageMetricsAverage(Zamb);
+
+    qDebug() << "-- measurements after removal:";
+    app->printMeasurements();
+
+    QVERIFY(app->measurements.size() == 1);
 }
 
 QTEST_MAIN(wcrpi)

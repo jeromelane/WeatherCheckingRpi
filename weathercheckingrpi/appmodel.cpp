@@ -148,7 +148,7 @@ public:
         //db.openConnection("mypath","test.db");
 
         requestNewWeatherTimer.setSingleShot(false);
-        requestNewWeatherTimer.setInterval(1*1*1000); // 1 s
+        requestNewWeatherTimer.setInterval(1*20*1000); // 1 s
 
         //throttle.invalidate();
         //ready = true;
@@ -283,14 +283,13 @@ AppModel::AppModel(QObject *parent) :
 
         //connect(&d->requestNewWeatherTimer, SIGNAL(timeout()), this, SLOT(refreshWeather()));
         //d->requestNewWeatherTimer.start();
-        this->measurevalue();
-        refreshWeather();
+        //this->measurevalue();
+        //refreshWeather();
         //while(true) {
         //connect(this->measurevalue(), SIGNAL(measurementsUpdated()), this, SLOT(refreshWeather()));
 
-
         connect(&d->requestNewWeatherTimer, SIGNAL(timeout()), this, SLOT(refreshWeather()));
-        this->measurevalue();
+
         d->requestNewWeatherTimer.start();
 
         //this->measurevalue;
@@ -302,7 +301,11 @@ AppModel::AppModel(QObject *parent) :
     }
 
 }
-
+/*!
+ * call MetricsAverage mesurevalue method
+ * add metrics data to AppModel measurements vector
+ *
+ */
 void AppModel::measurevalue(){
 
     this->measurement.measurevalue();
@@ -348,10 +351,8 @@ bool AppModel::ready() const
     return d->ready;
 }
 
-void AppModel::handleZambrettiData()
+void AppModel::manageMetricsAverage(Zambretti *Zamb )
 {
-    qDebug() << "handleZambrettiData";
-    Zambretti *Zamb = new Zambretti();
     if(this->getMeasurements().size() >= 2){
         qDebug() << "trend";
         Zamb->setCurrentPressure( this->getMeasurements().back().pressure);
@@ -359,31 +360,43 @@ void AppModel::handleZambrettiData()
 
         //std::vector<struct data>::iterator pend;
 
-        cout << "# mesurments: " << this->getMeasurements().size() << endl;
-        std::cout << "myvector contains:";
-        for (unsigned i=0; i<this->getMeasurements().size(); ++i) {
-            this->printMeasurement(this->getMeasurements()[i]);
-            std::cout << '\n';
-        }
+        this->printMeasurements();
 
         if(this->getMeasurements().size() > 2) {
-            qDebug() << "erase mesurements";
-            while( this->getMeasurements().size() > 2) {
+            qDebug() << "erase measurements";
+            while( this->getMeasurements().size() > 1) {
                 //this->getMeasurements().erase (this->getMeasurements().begin());
-                this->getMeasurements().pop_back();
+                try {
+                    //this->measurements.pop_back();
+                    this->measurements.erase(this->measurements.begin() );
+                } catch (char const chain) {
+                    cerr << "error: " << chain<< endl;
+                }
+
+                qDebug() << "size after removal" << this->getMeasurements().size();
             }
-            //this->getMeasurements().erase(this->getMeasurements().begin() );
+            qDebug() << "finished removing measurements";
+            //this->measurements.erase(this->measurements.begin() );
         }
 
         //this->getMeasurements().erase(remove(this->getMeasurements().begin(), this->getMeasurements().end(), val), this->getMeasurements().end());
-        //this->getMeasurements().erase (this->getMeasurements().begin());
 
+    } else {
+        qDebug() << "No average to remove";
     }
-     qDebug() << " Calcul Zambretti";
+
+}
+
+void AppModel::handleZambrettiData()
+{
+    qDebug() << "handleZambrettiData";
+    Zambretti *Zamb = new Zambretti();
+    manageMetricsAverage(Zamb );
+    qDebug() << " Calculate Zambretti";
 
      Zamb->findZnumber();// this is the current Z number
-    qDebug() << "la tendance de pression actuelle est :" <<Zamb->getTrend()<<endl;
-    qDebug() << "le nb de Zambretti est: "<<Zamb->getZnumber()<<endl;
+    qDebug() << "Current trend:" <<Zamb->getTrend()<<endl;
+    qDebug() << "Zambretti num: "<<Zamb->getZnumber()<<endl;
 
     //execute zambretti algo here.
     if(Zamb->getTrend() != -1){
@@ -444,6 +457,7 @@ void AppModel::refreshWeather()
     //niceTemperatureString( this->getMeasurements().back().temperature);
     // qDebug() << "tests";
      //qDebug() << niceTemperatureString( this->getMeasurements().back().temperature);
+    this->measurevalue();
 
     d->now.setTemperature(niceTemperatureString( this->getMeasurements().back().temperature));
     d->now.setPressure(nicePressureString(this->getMeasurements().back().pressure));
@@ -451,6 +465,8 @@ void AppModel::refreshWeather()
     d->now.setWeatherTrend("?");
 
     handleZambrettiData();
+
+
 
     emit weatherChanged();
 }
@@ -463,6 +479,8 @@ WeatherData *AppModel::weather() const
 
 void AppModel::printMeasurements() const
 {
+    qDebug() << "# mesurments: " << this->getMeasurements().size() ;
+    qDebug() << "contains:";
     for(auto const& m: measurements) {
         printMeasurement(m);
     }
@@ -473,10 +491,10 @@ void AppModel::printMeasurements() const
 void AppModel::printMeasurement( struct data data ) const
 {
 
-    cout << "humidity: " << to_string(data.humidity) << endl;
-    cout << "pressure: " <<to_string(data.pressure)  << endl;
-    cout << "temperature: " <<to_string(data.temperature) << endl;
-    cout << "currenttime: " << to_string(data.currenttime) << endl;
+    qDebug() <<"humidity: " << data.humidity ;
+    qDebug() << "pressure: " << data.pressure   ;
+    qDebug() << "temperature: "  << data.temperature ;
+    qDebug() << "currenttime: " << data.currenttime << endl ;
 
 }
 

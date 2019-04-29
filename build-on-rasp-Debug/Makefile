@@ -54,8 +54,7 @@ SOURCES       = ../weathercheckingrpi/main.cpp \
 		../weathercheckingrpi/sensor/bme280.c \
 		../weathercheckingrpi/sensor/sensor.c \
 		../weathercheckingrpi/sensor/MetricsAverage.cpp qrc_weathercheckingrpi.cpp \
-		moc_appmodel.cpp \
-		moc_MetricsAverage.cpp
+		moc_appmodel.cpp
 OBJECTS       = main.o \
 		appmodel.o \
 		Zambretti.o \
@@ -63,8 +62,7 @@ OBJECTS       = main.o \
 		sensor.o \
 		MetricsAverage.o \
 		qrc_weathercheckingrpi.o \
-		moc_appmodel.o \
-		moc_MetricsAverage.o
+		moc_appmodel.o
 DIST          = ../weathercheckingrpi/components/WeatherIcon.qml \
 		../weathercheckingrpi/components/ForecastIcon.qml \
 		../weathercheckingrpi/components/BigForecastIcon.qml \
@@ -404,9 +402,9 @@ qrc_weathercheckingrpi.cpp: ../weathercheckingrpi/weathercheckingrpi.qrc \
 		../weathercheckingrpi/zambretti/Zambretti.h
 	/usr/lib/arm-linux-gnueabihf/qt5/bin/rcc -name weathercheckingrpi ../weathercheckingrpi/weathercheckingrpi.qrc -o qrc_weathercheckingrpi.cpp
 
-compiler_moc_header_make_all: moc_appmodel.cpp moc_MetricsAverage.cpp
+compiler_moc_header_make_all: moc_appmodel.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) moc_appmodel.cpp moc_MetricsAverage.cpp
+	-$(DEL_FILE) moc_appmodel.cpp
 moc_appmodel.cpp: ../weathercheckingrpi/sensor/MetricsAverage.h \
 		../weathercheckingrpi/sensor/sensor.h \
 		../weathercheckingrpi/sensor/bme280.h \
@@ -414,13 +412,6 @@ moc_appmodel.cpp: ../weathercheckingrpi/sensor/MetricsAverage.h \
 		../weathercheckingrpi/appmodel.h \
 		/usr/lib/arm-linux-gnueabihf/qt5/bin/moc
 	/usr/lib/arm-linux-gnueabihf/qt5/bin/moc $(DEFINES) -I/usr/lib/arm-linux-gnueabihf/qt5/mkspecs/linux-g++ -I/home/pi/Bureau/Dev/WeatherCheckingRpi/weathercheckingrpi -I/usr/include/arm-linux-gnueabihf/qt5 -I/usr/include/arm-linux-gnueabihf/qt5/QtQuick -I/usr/include/arm-linux-gnueabihf/qt5/QtGui -I/usr/include/arm-linux-gnueabihf/qt5/QtQml -I/usr/include/arm-linux-gnueabihf/qt5/QtNetwork -I/usr/include/arm-linux-gnueabihf/qt5/QtCore -I. -I/usr/include/c++/6 -I/usr/include/arm-linux-gnueabihf/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/arm-linux-gnueabihf/6/include -I/usr/local/include -I/usr/lib/gcc/arm-linux-gnueabihf/6/include-fixed -I/usr/include/arm-linux-gnueabihf -I/usr/include ../weathercheckingrpi/appmodel.h -o moc_appmodel.cpp
-
-moc_MetricsAverage.cpp: ../weathercheckingrpi/sensor/sensor.h \
-		../weathercheckingrpi/sensor/bme280.h \
-		../weathercheckingrpi/sensor/bme280_defs.h \
-		../weathercheckingrpi/sensor/MetricsAverage.h \
-		/usr/lib/arm-linux-gnueabihf/qt5/bin/moc
-	/usr/lib/arm-linux-gnueabihf/qt5/bin/moc $(DEFINES) -I/usr/lib/arm-linux-gnueabihf/qt5/mkspecs/linux-g++ -I/home/pi/Bureau/Dev/WeatherCheckingRpi/weathercheckingrpi -I/usr/include/arm-linux-gnueabihf/qt5 -I/usr/include/arm-linux-gnueabihf/qt5/QtQuick -I/usr/include/arm-linux-gnueabihf/qt5/QtGui -I/usr/include/arm-linux-gnueabihf/qt5/QtQml -I/usr/include/arm-linux-gnueabihf/qt5/QtNetwork -I/usr/include/arm-linux-gnueabihf/qt5/QtCore -I. -I/usr/include/c++/6 -I/usr/include/arm-linux-gnueabihf/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/arm-linux-gnueabihf/6/include -I/usr/local/include -I/usr/lib/gcc/arm-linux-gnueabihf/6/include-fixed -I/usr/include/arm-linux-gnueabihf -I/usr/include ../weathercheckingrpi/sensor/MetricsAverage.h -o moc_MetricsAverage.cpp
 
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
@@ -472,9 +463,6 @@ qrc_weathercheckingrpi.o: qrc_weathercheckingrpi.cpp
 
 moc_appmodel.o: moc_appmodel.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_appmodel.o moc_appmodel.cpp
-
-moc_MetricsAverage.o: moc_MetricsAverage.cpp 
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_MetricsAverage.o moc_MetricsAverage.cpp
 
 ####### Install
 

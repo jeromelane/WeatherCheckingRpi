@@ -59,6 +59,7 @@
 #include <QJsonDocument>
 #include "sensor/MetricsAverage.h"
 #include "sensor/sensor.h"
+#include "zambretti/Zambretti.h"
 
 class WeatherData : public QObject {
     Q_OBJECT
@@ -142,14 +143,16 @@ public:
 
 public slots:
     Q_INVOKABLE void refreshWeather();
-    void measurevalue();
+
 
 public:
     void handleZambrettiData();
     void handleZambrettiNum(int);
+    void manageMetricsAverage(Zambretti *Zamb );
     QJsonDocument buildZambrettiQJsonDocument(QString zpathtable);
     void printMeasurement( struct data data ) const;
     void printMeasurements( ) const;
+    void measurevalue();
 
     void setZambrettiQJsonDocument();
     QJsonDocument getZtable() const;
@@ -158,6 +161,7 @@ public:
     void setMeasurement(const MetricsAverage &value);
     vector<struct data> getMeasurements() const;
     void setMeasurements(const vector<struct data> &value);
+
 
 signals:
     void readyChanged();
