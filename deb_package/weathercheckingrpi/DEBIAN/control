@@ -3,6 +3,6 @@ Version: 1.0
 Section: base
 Priority: optional
 Architecture: Raspberry Pi model 3
-Depends: Qt BME280 sensor
+Depends: 
 Maintainer: Mr Jerome Lane <jerome.lane@hotmail.com>
 Description: Displays weather data

@@ -287,7 +287,9 @@ AppModel::AppModel(QObject *parent) :
 
         //while(true) {
         //connect(this->measurevalue(), SIGNAL(measurementsUpdated()), this, SLOT(refreshWeather()));
+
         refreshWeather();
+
         /*connect(&d->requestNewWeatherTimer, SIGNAL(timeout()), this, SLOT(refreshWeather()));
         d->requestNewWeatherTimer.start();*/
 
