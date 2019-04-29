@@ -1,0 +1,3 @@
+#!/bin/bash
+touch ~/.myecho_content
+echo "program wckrpi installed" > ~/.myecho_content
