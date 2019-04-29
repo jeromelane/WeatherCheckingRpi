@@ -32,6 +32,9 @@ public:
     int rounded(float x);
     ~MetricsAverage();
 
+    bme280_dev *getDev() const;
+    void setDev(bme280_dev *dev);
+
 private:
     int m_N;
     struct data m_data_meteo_temp;

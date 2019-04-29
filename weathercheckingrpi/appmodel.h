@@ -143,6 +143,7 @@ public:
 
 public slots:
     Q_INVOKABLE void refreshWeather();
+        void measurevalue();
 
 
 public:
@@ -152,7 +153,7 @@ public:
     QJsonDocument buildZambrettiQJsonDocument(QString zpathtable);
     void printMeasurement( struct data data ) const;
     void printMeasurements( ) const;
-    void measurevalue();
+
 
     void setZambrettiQJsonDocument();
     QJsonDocument getZtable() const;

@@ -119,19 +119,26 @@ void print_sensor_data(struct bme280_data *comp_data)
 	settings_sel |= BME280_FILTER_SEL;
 	rslt = bme280_set_sensor_settings(settings_sel, dev);
 	rslt = bme280_set_sensor_mode(BME280_NORMAL_MODE, dev);
+    //printf("sensor.c : init 0x%p\n", dev->delay_ms);
 
   return rslt;
   }
 
   struct data refreshSensor(struct bme280_dev  *dev)
   {
+      //printf("sensor.c : refreshSensor 0x%p\n", dev->delay_ms);
+     // printf ("s1\n");
     int CurrentTime;
     struct bme280_data comp_data;
     struct data sensordata;
     /* Delay while the sensor completes a measurement */
-		dev->delay_ms(70);// can be adjusted to more than 70
+
+        dev->delay_ms(70);// can be adjusted to more than 70
+        //printf ("s2\n");
     CurrentTime=time(NULL);//integer in seconds
+   // printf ("s3\n");
     bme280_get_sensor_data(BME280_ALL, &comp_data, dev);
+    //printf ("s4\n");
 		//print_sensor_data(&comp_data);//optionnal: a enlever apres compilation
     sensordata.currenttime=CurrentTime;
     sensordata.temperature=comp_data.temperature;

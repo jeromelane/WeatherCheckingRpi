@@ -6,6 +6,7 @@
 #include "sensor.h"
 using namespace std;
 
+struct bme280_dev g_dev;
 
 MetricsAverage::MetricsAverage()
 {
@@ -19,10 +20,12 @@ MetricsAverage::MetricsAverage(struct bme280_dev *dev)
     //m_data_meteo_tab;
     m_data_meteo_sum.currenttime=0;
     //m_data_meteo;
-    m_dev = dev;
+    m_dev = &g_dev;
     int8_t rslt_success;
-    rslt_success=initSensor(dev);// We choose to initialize the sensor within the constructor
+    rslt_success=initSensor(this->m_dev);// We choose to initialize the sensor within the constructor
     if (rslt_success==0){m_success=0;}
+        //qDebug() << "Init : " << m_dev;
+
 }
 bool MetricsAverage::getSucessInitialization()
 {
@@ -47,15 +50,30 @@ MetricsAverage::~MetricsAverage()
 {
 }
 
+bme280_dev *MetricsAverage::getDev() const
+{
+    return m_dev;
+}
+
+void MetricsAverage::setDev(bme280_dev *dev)
+{
+    m_dev = dev;
+}
+
 void MetricsAverage::measurevalue(){
     qDebug() << "measure value";
+    //qDebug() << "measure value : " << m_dev;
+
     for (int i=0; i<=m_N; i++)
     {
         int goal;
         goal=time(NULL)+1;
-        //qDebug() << "fin boucle 1";
+
+        //qDebug() <<  this->m_dev;
+        //qDebug() << "refresh sensor boucle 1";
+        //This line makes the programme crash when refreshing with Qt connect method
         this->m_data_meteo_temp = refreshSensor(this->m_dev);
-        //qDebug() << "fin boucle 1.1";
+        //qDebug() << "fin refresh sensor 1.1";
         this->m_data_meteo_temp.currenttime-=1555900000;
         // we must substract a value in order to compute an average
         // without exceeding the maximum value of the integer type

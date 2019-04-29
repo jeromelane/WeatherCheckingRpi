@@ -30,6 +30,7 @@ private slots:
     void cleanupTestCase();
     void test_case1();
     void test_case2();
+    void test_case3();
 
 };
 
@@ -73,6 +74,7 @@ void wcrpi::test_case1()
 
 void wcrpi::test_case2()
 {
+    QSKIP("skip measurement managment test");
     AppModel *app;
     try{
         app = new AppModel();
@@ -94,10 +96,33 @@ void wcrpi::test_case2()
     Zambretti *Zamb = new Zambretti();
     app->manageMetricsAverage(Zamb);
 
-    qDebug() << "-- measurements after removal:";
+    qDebug() << "-- measurements after removal: ";
     app->printMeasurements();
 
     QVERIFY(app->measurements.size() == 1);
+
+}
+
+void wcrpi::test_case3()
+{
+    AppModel *app;
+    try{
+        app = new AppModel();
+    }catch (char const* e) {
+        cerr << e << endl;
+    }
+
+    struct bme280_dev dev;
+    MetricsAverage measurement(&dev);
+    app->measurement = measurement;
+    app->measurements = vector<struct data>();
+    for(int i =0; i < 2; i++) {
+        qDebug() << "measuring value " << i << endl;
+        app->refreshWeather();
+    }
+
+    struct data test = refreshSensor(measurement.getDev());
+    cout << "time:  " << test.currenttime << endl;
 }
 
 QTEST_MAIN(wcrpi)

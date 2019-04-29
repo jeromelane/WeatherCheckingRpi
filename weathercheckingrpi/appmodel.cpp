@@ -264,7 +264,7 @@ AppModel::AppModel(QObject *parent) :
    // struct data avg;
 
     MetricsAverage measurement(&dev);// The initialization is done while creating the object measurement
-    cout << "initialisation: "<< measurement.getSucessInitialization()<<endl;// this returns a boolean that tells you if the initialization went fine
+    //cout << "initialisation: "<< measurement.getSucessInitialization()<<endl;// this returns a boolean that tells you if the initialization went fine
     this->measurement = measurement;
     this->measurements = vector<struct data>();
 
@@ -284,13 +284,13 @@ AppModel::AppModel(QObject *parent) :
         //connect(&d->requestNewWeatherTimer, SIGNAL(timeout()), this, SLOT(refreshWeather()));
         //d->requestNewWeatherTimer.start();
         //this->measurevalue();
-        //refreshWeather();
+
         //while(true) {
         //connect(this->measurevalue(), SIGNAL(measurementsUpdated()), this, SLOT(refreshWeather()));
+        refreshWeather();
+        //connect(&d->requestNewWeatherTimer, SIGNAL(timeout()), this, SLOT(refreshWeather()));
 
-        connect(&d->requestNewWeatherTimer, SIGNAL(timeout()), this, SLOT(refreshWeather()));
-
-        d->requestNewWeatherTimer.start();
+        //d->requestNewWeatherTimer.start();
 
         //this->measurevalue;
         //qDebug() << "measurments round finished";
