@@ -62,7 +62,6 @@ void MetricsAverage::setDev(bme280_dev *dev)
 
 void MetricsAverage::measurevalue(){
     qDebug() << "measure value";
-    //qDebug() << "measure value : " << m_dev;
 
     for (int i=0; i<=m_N; i++)
     {
