@@ -148,7 +148,7 @@ public:
         //db.openConnection("mypath","test.db");
 
         requestNewWeatherTimer.setSingleShot(false);
-        requestNewWeatherTimer.setInterval(1*20*1000); // 1 s
+        requestNewWeatherTimer.setInterval(1*1*1000); // 1 s
 
         //throttle.invalidate();
         //ready = true;
@@ -210,12 +210,12 @@ static QString niceTemperatureString(double t)
 
 /*!
  * \brief nicePressureString
- * \param t
- * \return formatted pressure QString
+ * \param t in Pa
+ * \return formatted pressure QString in hPa
  */
 static QString nicePressureString(double t)
 {
-    return QString::number(qRound(t)) + "Pa";
+    return QString::number(qRound(t /10)) + "hPa";
 }
 
 static QString niceZamberttiTrendString(signed int t)
@@ -288,9 +288,8 @@ AppModel::AppModel(QObject *parent) :
         //while(true) {
         //connect(this->measurevalue(), SIGNAL(measurementsUpdated()), this, SLOT(refreshWeather()));
         refreshWeather();
-        //connect(&d->requestNewWeatherTimer, SIGNAL(timeout()), this, SLOT(refreshWeather()));
-
-        //d->requestNewWeatherTimer.start();
+        /*connect(&d->requestNewWeatherTimer, SIGNAL(timeout()), this, SLOT(refreshWeather()));
+        d->requestNewWeatherTimer.start();*/
 
         //this->measurevalue;
         //qDebug() << "measurments round finished";
