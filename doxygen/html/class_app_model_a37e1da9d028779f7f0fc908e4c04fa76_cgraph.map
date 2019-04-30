@@ -1,0 +1,4 @@
+<map id="AppModel::refreshWeather" name="AppModel::refreshWeather">
+<area shape="rect" id="node2" href="$class_app_model.html#a51e3556fa389b11c251a0a94f0a5655c" title="AppModel::measurevalue" alt="" coords="245,5,415,32"/>
+<area shape="rect" id="node3" href="$class_weather_data.html#afee514cbb8713059cf8d0602b33cadf5" title="WeatherData::setTemperature" alt="" coords="231,56,429,83"/>
+</map>

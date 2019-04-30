@@ -1,13 +1,9 @@
 var searchData=
 [
-  ['setcity',['setCity',['../class_app_model.html#ad0135d4a1551b6484ac28c434f861af5',1,'AppModel']]],
-  ['setdayofweek',['setDayOfWeek',['../class_weather_data.html#ab47f3e7cde6cf4d93dfb1750ac014f00',1,'WeatherData']]],
-  ['sethumidity',['setHumidity',['../class_weather_data.html#aad895695b5f0651c58657973f2140509',1,'WeatherData']]],
-  ['setpressure',['setPressure',['../class_weather_data.html#ad5b453016656864e2bc3a09fc75919a0',1,'WeatherData']]],
-  ['settemperature',['setTemperature',['../class_weather_data.html#afee514cbb8713059cf8d0602b33cadf5',1,'WeatherData']]],
-  ['setusegps',['setUseGps',['../class_app_model.html#a81c3ffb3370837086366c9f70bb3d5eb',1,'AppModel']]],
-  ['setusesensor',['setUseSensor',['../class_app_model.html#ad1369130f74b4aabd0ac0d6b1b030014',1,'AppModel']]],
-  ['setweatherdescription',['setWeatherDescription',['../class_weather_data.html#a68686722f2e0bbf5cb28f0fdc96e280d',1,'WeatherData']]],
-  ['setweathericon',['setWeatherIcon',['../class_weather_data.html#a2a8093aaf20e1fb3c63c429a4ae0a977',1,'WeatherData']]],
-  ['src',['src',['../class_app_model_private.html#a6f5f4021a335ff82b19cc9c5ed4d19a7',1,'AppModelPrivate']]]
+  ['pressure',['pressure',['../class_weather_data.html#a2529c61089c163abf0e2dd80a51c47cb',1,'WeatherData::pressure()'],['../structbme280__data.html#a45f80ad1a10a6704bb6f8dec70976c72',1,'bme280_data::pressure()'],['../structbme280__uncomp__data.html#afa4d1b43f8412d393dcc5fd41f4203ce',1,'bme280_uncomp_data::pressure()'],['../structdata.html#a6382da4e622ddd126cdc26169531e69f',1,'data::pressure()'],['../class_weather_data.html#af726e713890bd6d310fe4a718dd69c77',1,'WeatherData::pressure()']]],
+  ['pressuretab',['pressuretab',['../structdatatab.html#ab8d11176f31a5fb8851108aa8547470c',1,'datatab']]],
+  ['print_5fsensor_5fdata',['print_sensor_data',['../sensor_8c.html#ac1e8e819dc312cb84abad861e72ea7c4',1,'sensor.c']]],
+  ['printallmetrics',['printAllMetrics',['../class_db_manager.html#a403b78f34127ab02882b55e345c39e8b',1,'DbManager']]],
+  ['printmeasurement',['printMeasurement',['../class_app_model.html#a2bb0474a4f5f73ca23f9f72c97912192',1,'AppModel']]],
+  ['printmeasurements',['printMeasurements',['../class_app_model.html#ac60073d6c96f7471f7227be130033399',1,'AppModel']]]
 ];

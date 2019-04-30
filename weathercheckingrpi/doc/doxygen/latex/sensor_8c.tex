@@ -1,0 +1,129 @@
+\hypertarget{sensor_8c}{}\section{sensor/sensor.c File Reference}
+\label{sensor_8c}\index{sensor/sensor.\+c@{sensor/sensor.\+c}}
+{\ttfamily \#include \char`\"{}bme280.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}sensor.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$time.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$unistd.\+h$>$}\newline
+{\ttfamily \#include $<$wiring\+Pi.\+h$>$}\newline
+{\ttfamily \#include $<$wiring\+Pi\+S\+P\+I.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$linux/i2c-\/dev.\+h$>$}\newline
+{\ttfamily \#include $<$sys/ioctl.\+h$>$}\newline
+{\ttfamily \#include $<$sys/types.\+h$>$}\newline
+{\ttfamily \#include $<$fcntl.\+h$>$}\newline
+Include dependency graph for sensor.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{sensor_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{sensor_8c_ab3f5e0244ce96783f08622c42900b0d9}{channel}~0
+\item 
+\#define \hyperlink{sensor_8c_a9518a1732e8d5fd66e8a87af770f7bd6}{U\+S\+E\+S\+P\+I\+S\+I\+N\+G\+L\+E\+R\+E\+A\+D\+W\+R\+I\+TE}~0
+\item 
+\#define \hyperlink{sensor_8c_a02b41100a6327246594b35ed0addb75a}{U\+S\+E\+I\+IC}~1
+\item 
+\#define \hyperlink{sensor_8c_aae5a5911585681181d49ef77ea110c87}{I\+I\+C\+\_\+\+Dev}~\char`\"{}/dev/i2c-\/1\char`\"{}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{sensor_8c_adc86d5995b888a6f4ef7dd5647b94f8f}{user\+\_\+delay\+\_\+ms} (uint32\+\_\+t period)
+\item 
+int8\+\_\+t \hyperlink{sensor_8c_a61d05d759826396913c31963c102ed66}{user\+\_\+i2c\+\_\+read} (uint8\+\_\+t id, uint8\+\_\+t reg\+\_\+addr, uint8\+\_\+t $\ast$\hyperlink{structdata}{data}, uint16\+\_\+t len)
+\item 
+int8\+\_\+t \hyperlink{sensor_8c_af8c157ca16fed243ea76c8a1155e8afd}{user\+\_\+i2c\+\_\+write} (uint8\+\_\+t id, uint8\+\_\+t reg\+\_\+addr, uint8\+\_\+t $\ast$\hyperlink{structdata}{data}, uint16\+\_\+t len)
+\item 
+void \hyperlink{sensor_8c_ac1e8e819dc312cb84abad861e72ea7c4}{print\+\_\+sensor\+\_\+data} (struct \hyperlink{structbme280__data}{bme280\+\_\+data} $\ast$comp\+\_\+data)
+\item 
+int8\+\_\+t \hyperlink{sensor_8c_a0e934b3f8361dee99aff98fdfa3b55b3}{init\+Sensor} (struct \hyperlink{structbme280__dev}{bme280\+\_\+dev} $\ast$dev)
+\item 
+struct \hyperlink{structdata}{data} \hyperlink{sensor_8c_adfc1360298a56db6aa43338408f523ba}{refresh\+Sensor} (struct \hyperlink{structbme280__dev}{bme280\+\_\+dev} $\ast$dev)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{sensor_8c_a6f8059414f0228f0256115e024eeed4b}{fd}
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\mbox{\Hypertarget{sensor_8c_ab3f5e0244ce96783f08622c42900b0d9}\label{sensor_8c_ab3f5e0244ce96783f08622c42900b0d9}} 
+\index{sensor.\+c@{sensor.\+c}!channel@{channel}}
+\index{channel@{channel}!sensor.\+c@{sensor.\+c}}
+\subsubsection{\texorpdfstring{channel}{channel}}
+{\footnotesize\ttfamily \#define channel~0}
+
+\mbox{\Hypertarget{sensor_8c_aae5a5911585681181d49ef77ea110c87}\label{sensor_8c_aae5a5911585681181d49ef77ea110c87}} 
+\index{sensor.\+c@{sensor.\+c}!I\+I\+C\+\_\+\+Dev@{I\+I\+C\+\_\+\+Dev}}
+\index{I\+I\+C\+\_\+\+Dev@{I\+I\+C\+\_\+\+Dev}!sensor.\+c@{sensor.\+c}}
+\subsubsection{\texorpdfstring{I\+I\+C\+\_\+\+Dev}{IIC\_Dev}}
+{\footnotesize\ttfamily \#define I\+I\+C\+\_\+\+Dev~\char`\"{}/dev/i2c-\/1\char`\"{}}
+
+\mbox{\Hypertarget{sensor_8c_a02b41100a6327246594b35ed0addb75a}\label{sensor_8c_a02b41100a6327246594b35ed0addb75a}} 
+\index{sensor.\+c@{sensor.\+c}!U\+S\+E\+I\+IC@{U\+S\+E\+I\+IC}}
+\index{U\+S\+E\+I\+IC@{U\+S\+E\+I\+IC}!sensor.\+c@{sensor.\+c}}
+\subsubsection{\texorpdfstring{U\+S\+E\+I\+IC}{USEIIC}}
+{\footnotesize\ttfamily \#define U\+S\+E\+I\+IC~1}
+
+\mbox{\Hypertarget{sensor_8c_a9518a1732e8d5fd66e8a87af770f7bd6}\label{sensor_8c_a9518a1732e8d5fd66e8a87af770f7bd6}} 
+\index{sensor.\+c@{sensor.\+c}!U\+S\+E\+S\+P\+I\+S\+I\+N\+G\+L\+E\+R\+E\+A\+D\+W\+R\+I\+TE@{U\+S\+E\+S\+P\+I\+S\+I\+N\+G\+L\+E\+R\+E\+A\+D\+W\+R\+I\+TE}}
+\index{U\+S\+E\+S\+P\+I\+S\+I\+N\+G\+L\+E\+R\+E\+A\+D\+W\+R\+I\+TE@{U\+S\+E\+S\+P\+I\+S\+I\+N\+G\+L\+E\+R\+E\+A\+D\+W\+R\+I\+TE}!sensor.\+c@{sensor.\+c}}
+\subsubsection{\texorpdfstring{U\+S\+E\+S\+P\+I\+S\+I\+N\+G\+L\+E\+R\+E\+A\+D\+W\+R\+I\+TE}{USESPISINGLEREADWRITE}}
+{\footnotesize\ttfamily \#define U\+S\+E\+S\+P\+I\+S\+I\+N\+G\+L\+E\+R\+E\+A\+D\+W\+R\+I\+TE~0}
+
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{sensor_8c_a0e934b3f8361dee99aff98fdfa3b55b3}\label{sensor_8c_a0e934b3f8361dee99aff98fdfa3b55b3}} 
+\index{sensor.\+c@{sensor.\+c}!init\+Sensor@{init\+Sensor}}
+\index{init\+Sensor@{init\+Sensor}!sensor.\+c@{sensor.\+c}}
+\subsubsection{\texorpdfstring{init\+Sensor()}{initSensor()}}
+{\footnotesize\ttfamily int8\+\_\+t init\+Sensor (\begin{DoxyParamCaption}\item[{struct \hyperlink{structbme280__dev}{bme280\+\_\+dev} $\ast$}]{dev }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{sensor_8c_ac1e8e819dc312cb84abad861e72ea7c4}\label{sensor_8c_ac1e8e819dc312cb84abad861e72ea7c4}} 
+\index{sensor.\+c@{sensor.\+c}!print\+\_\+sensor\+\_\+data@{print\+\_\+sensor\+\_\+data}}
+\index{print\+\_\+sensor\+\_\+data@{print\+\_\+sensor\+\_\+data}!sensor.\+c@{sensor.\+c}}
+\subsubsection{\texorpdfstring{print\+\_\+sensor\+\_\+data()}{print\_sensor\_data()}}
+{\footnotesize\ttfamily void print\+\_\+sensor\+\_\+data (\begin{DoxyParamCaption}\item[{struct \hyperlink{structbme280__data}{bme280\+\_\+data} $\ast$}]{comp\+\_\+data }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{sensor_8c_adfc1360298a56db6aa43338408f523ba}\label{sensor_8c_adfc1360298a56db6aa43338408f523ba}} 
+\index{sensor.\+c@{sensor.\+c}!refresh\+Sensor@{refresh\+Sensor}}
+\index{refresh\+Sensor@{refresh\+Sensor}!sensor.\+c@{sensor.\+c}}
+\subsubsection{\texorpdfstring{refresh\+Sensor()}{refreshSensor()}}
+{\footnotesize\ttfamily struct \hyperlink{structdata}{data} refresh\+Sensor (\begin{DoxyParamCaption}\item[{struct \hyperlink{structbme280__dev}{bme280\+\_\+dev} $\ast$}]{dev }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{sensor_8c_adc86d5995b888a6f4ef7dd5647b94f8f}\label{sensor_8c_adc86d5995b888a6f4ef7dd5647b94f8f}} 
+\index{sensor.\+c@{sensor.\+c}!user\+\_\+delay\+\_\+ms@{user\+\_\+delay\+\_\+ms}}
+\index{user\+\_\+delay\+\_\+ms@{user\+\_\+delay\+\_\+ms}!sensor.\+c@{sensor.\+c}}
+\subsubsection{\texorpdfstring{user\+\_\+delay\+\_\+ms()}{user\_delay\_ms()}}
+{\footnotesize\ttfamily void user\+\_\+delay\+\_\+ms (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{period }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{sensor_8c_a61d05d759826396913c31963c102ed66}\label{sensor_8c_a61d05d759826396913c31963c102ed66}} 
+\index{sensor.\+c@{sensor.\+c}!user\+\_\+i2c\+\_\+read@{user\+\_\+i2c\+\_\+read}}
+\index{user\+\_\+i2c\+\_\+read@{user\+\_\+i2c\+\_\+read}!sensor.\+c@{sensor.\+c}}
+\subsubsection{\texorpdfstring{user\+\_\+i2c\+\_\+read()}{user\_i2c\_read()}}
+{\footnotesize\ttfamily int8\+\_\+t user\+\_\+i2c\+\_\+read (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{id,  }\item[{uint8\+\_\+t}]{reg\+\_\+addr,  }\item[{uint8\+\_\+t $\ast$}]{data,  }\item[{uint16\+\_\+t}]{len }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{sensor_8c_af8c157ca16fed243ea76c8a1155e8afd}\label{sensor_8c_af8c157ca16fed243ea76c8a1155e8afd}} 
+\index{sensor.\+c@{sensor.\+c}!user\+\_\+i2c\+\_\+write@{user\+\_\+i2c\+\_\+write}}
+\index{user\+\_\+i2c\+\_\+write@{user\+\_\+i2c\+\_\+write}!sensor.\+c@{sensor.\+c}}
+\subsubsection{\texorpdfstring{user\+\_\+i2c\+\_\+write()}{user\_i2c\_write()}}
+{\footnotesize\ttfamily int8\+\_\+t user\+\_\+i2c\+\_\+write (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{id,  }\item[{uint8\+\_\+t}]{reg\+\_\+addr,  }\item[{uint8\+\_\+t $\ast$}]{data,  }\item[{uint16\+\_\+t}]{len }\end{DoxyParamCaption})}
+
+
+
+\subsection{Variable Documentation}
+\mbox{\Hypertarget{sensor_8c_a6f8059414f0228f0256115e024eeed4b}\label{sensor_8c_a6f8059414f0228f0256115e024eeed4b}} 
+\index{sensor.\+c@{sensor.\+c}!fd@{fd}}
+\index{fd@{fd}!sensor.\+c@{sensor.\+c}}
+\subsubsection{\texorpdfstring{fd}{fd}}
+{\footnotesize\ttfamily int fd}
+

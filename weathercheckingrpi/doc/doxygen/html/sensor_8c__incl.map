@@ -1,0 +1,5 @@
+<map id="sensor/sensor.c" name="sensor/sensor.c">
+<area shape="rect" id="node2" href="$bme280_8h.html" title="Sensor driver for BME280 sensor. " alt="" coords="44,155,123,181"/>
+<area shape="rect" id="node6" href="$sensor_8h.html" title="sensor.h" alt="" coords="85,80,157,107"/>
+<area shape="rect" id="node3" href="$bme280__defs_8h.html" title="Sensor driver for BME280 sensor. " alt="" coords="28,229,139,256"/>
+</map>

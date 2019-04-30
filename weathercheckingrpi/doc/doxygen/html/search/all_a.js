@@ -1,7 +1,8 @@
 var searchData=
 [
-  ['ready',['ready',['../class_app_model_private.html#ab0434f387adadf9ed65183496fe80f77',1,'AppModelPrivate::ready()'],['../class_app_model.html#a2af4f584bf701bff4546e889c16316d7',1,'AppModel::ready()'],['../class_app_model.html#a3917fdc3dd8c97715991d9fd1a23abcc',1,'AppModel::ready() const']]],
-  ['readychanged',['readyChanged',['../class_app_model.html#a574c2bd6f5c92ac9268107f8399989cb',1,'AppModel']]],
-  ['refreshweather',['refreshWeather',['../class_app_model.html#a37e1da9d028779f7f0fc908e4c04fa76',1,'AppModel']]],
-  ['requestnewweathertimer',['requestNewWeatherTimer',['../class_app_model_private.html#ad073c8bcf6739fd658009860e12aa72c',1,'AppModelPrivate']]]
+  ['openconnection',['openConnection',['../class_db_manager.html#a0d30e17db55d9a545b648b58d38409b6',1,'DbManager']]],
+  ['osr_5fh',['osr_h',['../structbme280__settings.html#ab09e8c0b2ff1ee7e7eb35540ad95acf5',1,'bme280_settings']]],
+  ['osr_5fp',['osr_p',['../structbme280__settings.html#a6359b35d9547f53dea01d893313c7dc3',1,'bme280_settings']]],
+  ['osr_5ft',['osr_t',['../structbme280__settings.html#a49bf8f73813386b4dc37a9676230c263',1,'bme280_settings']]],
+  ['oversampling_5fsettings',['OVERSAMPLING_SETTINGS',['../bme280_8c.html#a17c5a85c1a9613150ab6a7f798baa427',1,'bme280.c']]]
 ];

@@ -1,0 +1,5 @@
+<map id="bme280_dev" name="bme280_dev">
+<area shape="rect" id="node2" href="$structbme280__calib__data.html" title="Calibration data. " alt="" coords="5,5,140,32"/>
+<area shape="rect" id="node3" href="$structbme280__settings.html" title="bme280 sensor settings structure which comprises of mode, oversampling and filter settings..." alt="" coords="164,5,285,32"/>
+<area shape="rect" id="node4" href="$structdata.html" title="data" alt="" coords="309,5,356,32"/>
+</map>

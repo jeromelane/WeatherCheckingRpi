@@ -1,12 +1,9 @@
 var searchData=
 [
-  ['setcity',['setCity',['../class_app_model.html#ad0135d4a1551b6484ac28c434f861af5',1,'AppModel']]],
-  ['setdayofweek',['setDayOfWeek',['../class_weather_data.html#ab47f3e7cde6cf4d93dfb1750ac014f00',1,'WeatherData']]],
-  ['sethumidity',['setHumidity',['../class_weather_data.html#aad895695b5f0651c58657973f2140509',1,'WeatherData']]],
-  ['setpressure',['setPressure',['../class_weather_data.html#ad5b453016656864e2bc3a09fc75919a0',1,'WeatherData']]],
-  ['settemperature',['setTemperature',['../class_weather_data.html#afee514cbb8713059cf8d0602b33cadf5',1,'WeatherData']]],
-  ['setusegps',['setUseGps',['../class_app_model.html#a81c3ffb3370837086366c9f70bb3d5eb',1,'AppModel']]],
-  ['setusesensor',['setUseSensor',['../class_app_model.html#ad1369130f74b4aabd0ac0d6b1b030014',1,'AppModel']]],
-  ['setweatherdescription',['setWeatherDescription',['../class_weather_data.html#a68686722f2e0bbf5cb28f0fdc96e280d',1,'WeatherData']]],
-  ['setweathericon',['setWeatherIcon',['../class_weather_data.html#a2a8093aaf20e1fb3c63c429a4ae0a977',1,'WeatherData']]]
+  ['main',['main',['../main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97',1,'main(int argc, char *argv[]):&#160;main.cpp'],['../main2_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4',1,'main():&#160;main2.cpp'],['../zambretti_2main_8cpp.html#a840291bc02cba5474a4cb46a9b9566fe',1,'main(void):&#160;main.cpp']]],
+  ['managemetricsaverage',['manageMetricsAverage',['../class_app_model.html#a91f558862aad6b2509f03e49b549270e',1,'AppModel']]],
+  ['measurementsupdated',['measurementsUpdated',['../class_app_model.html#a1d9a24aeaab75b815f6500e9521dc091',1,'AppModel']]],
+  ['measurevalue',['measurevalue',['../class_app_model.html#a51e3556fa389b11c251a0a94f0a5655c',1,'AppModel::measurevalue()'],['../class_metrics_average.html#ad7c1ebb802eb2b710fc823f82e4ecf7e',1,'MetricsAverage::measurevalue()']]],
+  ['metricexists',['metricExists',['../class_db_manager.html#a2a88468ac169883b9f77cfcf3ec853c9',1,'DbManager']]],
+  ['metricsaverage',['MetricsAverage',['../class_metrics_average.html#ae62764cf04f8b12618021c9c8dda927d',1,'MetricsAverage::MetricsAverage()'],['../class_metrics_average.html#a6d76aae6b11e42433bb93c47568de695',1,'MetricsAverage::MetricsAverage(struct bme280_dev *dev)']]]
 ];

@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['city',['city',['../class_app_model_private.html#a9a1ea4d9c7b777128bb9180c0cb460a2',1,'AppModelPrivate']]],
-  ['coord',['coord',['../class_app_model_private.html#a6ce8f938ce4197f9a2d1a5fdf90687d7',1,'AppModelPrivate']]]
+  ['fd',['fd',['../sensor_8c.html#a6f8059414f0228f0256115e024eeed4b',1,'sensor.c']]],
+  ['filter',['filter',['../structbme280__settings.html#a46eae004d968b4fd9a89e5cb5748f1c1',1,'bme280_settings']]]
 ];

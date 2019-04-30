@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>WeatherCheckingRpi project: Class Members</title>
+<title>weathercheckingrpi: Class Members</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -20,9 +20,12 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="weather-sunny.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">WeatherCheckingRpi project
+   <div id="projectname">weathercheckingrpi
+   &#160;<span id="projectnumber">1.1</span>
    </div>
+   <div id="projectbrief">Graphical interface displaying weather metrics.</div>
   </td>
  </tr>
  </tbody>
@@ -61,11 +64,17 @@ $(function() {
 <div class="textblock">Here is a list of all class members with links to the classes they belong to:</div>
 
 <h3><a id="index_a"></a>- a -</h3><ul>
-<li>app_ident
-: <a class="el" href="class_app_model_private.html#a5441fbeeb55ca91647be56e38105d690">AppModelPrivate</a>
+<li>addMetric()
+: <a class="el" href="class_db_manager.html#aec06961d5c5f828bddca53d57b1783c6">DbManager</a>
+</li>
+<li>addMetrics()
+: <a class="el" href="class_db_manager.html#ac428e3219240fa0432d9b2a037d1d00c">DbManager</a>
+</li>
+<li>addZambForecast()
+: <a class="el" href="class_db_manager.html#a43a28838e80ae08ee2379a9d2f971e21">DbManager</a>
 </li>
 <li>AppModel()
-: <a class="el" href="class_app_model.html#affb3ea459bceb0650cdc810f3f5a2256">AppModel</a>
+: <a class="el" href="class_app_model.html#a14293f7293e1bcbfdb5499789f9e134b">AppModel</a>
 </li>
 <li>AppModelPrivate()
 : <a class="el" href="class_app_model_private.html#ac7e4e160306c7ff9c771d2dd34c243ac">AppModelPrivate</a>
@@ -74,22 +83,33 @@ $(function() {
 
 
 <h3><a id="index_b"></a>- b -</h3><ul>
-<li>baseMsBeforeNewRequest
-: <a class="el" href="class_app_model_private.html#a5552b8c0c8e1f50ea6fe10801272e526">AppModelPrivate</a>
+<li>buildZambrettiQJsonDocument()
+: <a class="el" href="class_app_model.html#a2e738230cd01012b529adadc3f7c4eae">AppModel</a>
 </li>
 </ul>
 
 
 <h3><a id="index_c"></a>- c -</h3><ul>
-<li>city
-: <a class="el" href="class_app_model.html#aa6915cabdaaf04805e00b5a2f75311e8">AppModel</a>
-, <a class="el" href="class_app_model_private.html#a9a1ea4d9c7b777128bb9180c0cb460a2">AppModelPrivate</a>
+<li>calib_data
+: <a class="el" href="structbme280__dev.html#a8a57e57db020663dc3a8f3438cd6b399">bme280_dev</a>
 </li>
-<li>cityChanged()
-: <a class="el" href="class_app_model.html#aeb28c7a57316aaf6295a943a65f60569">AppModel</a>
+<li>chip_id
+: <a class="el" href="structbme280__dev.html#a6147bb3590bc7d1b02c41454d13c81c0">bme280_dev</a>
 </li>
-<li>coord
-: <a class="el" href="class_app_model_private.html#a6ce8f938ce4197f9a2d1a5fdf90687d7">AppModelPrivate</a>
+<li>closeConnection()
+: <a class="el" href="class_db_manager.html#acbf62228942a303d4b914475803319f4">DbManager</a>
+</li>
+<li>createDb()
+: <a class="el" href="class_db_manager.html#a6730317c113a14f24fee2fe144feadcc">DbManager</a>
+</li>
+<li>createTable()
+: <a class="el" href="class_db_manager.html#ac8c34581c717a41e7585a6dabceec002">DbManager</a>
+</li>
+<li>currenttime
+: <a class="el" href="structdata.html#ab041cff3ed545724b9157b87eaac1a08">data</a>
+</li>
+<li>currenttimetab
+: <a class="el" href="structdatatab.html#ac19f083c0dcb6a011d92b76ca7f486e6">datatab</a>
 </li>
 </ul>
 
@@ -98,88 +118,240 @@ $(function() {
 <li>dataChanged()
 : <a class="el" href="class_weather_data.html#a23185106cf22ef8c57c96154e37b24d1">WeatherData</a>
 </li>
-<li>dayOfWeek
-: <a class="el" href="class_weather_data.html#a483043396f44ae957716ebb005644d0d">WeatherData</a>
+<li>DbManager()
+: <a class="el" href="class_db_manager.html#a0d16cf5bba931362e6c581eb1b5ba66a">DbManager</a>
 </li>
-<li>delayedCityRequestTimer
-: <a class="el" href="class_app_model_private.html#aa42651b04c201eaa24ef5c86a67f4b42">AppModelPrivate</a>
+<li>DbTable()
+: <a class="el" href="class_db_table.html#a58c18caaf80638d74ca14f5599ae4248">DbTable</a>
+</li>
+<li>delay_ms
+: <a class="el" href="structbme280__dev.html#a8f8957a3f4438239bd79b075691f0fd1">bme280_dev</a>
+</li>
+<li>dev_id
+: <a class="el" href="structbme280__dev.html#a1f75cc7ecf84476a440ded0cd8c2fba7">bme280_dev</a>
+</li>
+<li>dig_H1
+: <a class="el" href="structbme280__calib__data.html#aa6521d4105f928a3734361923ded1402">bme280_calib_data</a>
+</li>
+<li>dig_H2
+: <a class="el" href="structbme280__calib__data.html#a129f0a99b6fa997aff11d1e66800f762">bme280_calib_data</a>
+</li>
+<li>dig_H3
+: <a class="el" href="structbme280__calib__data.html#a567370a48166d5c44493f0bf172fbaad">bme280_calib_data</a>
+</li>
+<li>dig_H4
+: <a class="el" href="structbme280__calib__data.html#a2b1fb6cbf75cae79fa5ea43d8e5eb6f7">bme280_calib_data</a>
+</li>
+<li>dig_H5
+: <a class="el" href="structbme280__calib__data.html#a36cff966ad8a2777b773b5da5930830b">bme280_calib_data</a>
+</li>
+<li>dig_H6
+: <a class="el" href="structbme280__calib__data.html#a9aab678b157796957cb0819fa3027599">bme280_calib_data</a>
+</li>
+<li>dig_P1
+: <a class="el" href="structbme280__calib__data.html#aa2a4a84a415069af6292d92fa2517c18">bme280_calib_data</a>
+</li>
+<li>dig_P2
+: <a class="el" href="structbme280__calib__data.html#a13ddffe344b00ae3230f5412019c25c7">bme280_calib_data</a>
+</li>
+<li>dig_P3
+: <a class="el" href="structbme280__calib__data.html#a8e86eee62639bef1ded9f51b6c863577">bme280_calib_data</a>
+</li>
+<li>dig_P4
+: <a class="el" href="structbme280__calib__data.html#abd53f31d52c16118691b65a59f51e388">bme280_calib_data</a>
+</li>
+<li>dig_P5
+: <a class="el" href="structbme280__calib__data.html#a5583773f96cdaf8ccdd20412082d8542">bme280_calib_data</a>
+</li>
+<li>dig_P6
+: <a class="el" href="structbme280__calib__data.html#aa5781cae586a4b1ed76ad78050fec41a">bme280_calib_data</a>
+</li>
+<li>dig_P7
+: <a class="el" href="structbme280__calib__data.html#a647f5cb10618b453ecd9b8819068ad13">bme280_calib_data</a>
+</li>
+<li>dig_P8
+: <a class="el" href="structbme280__calib__data.html#a405be361198254a2522797bd38f7a2a0">bme280_calib_data</a>
+</li>
+<li>dig_P9
+: <a class="el" href="structbme280__calib__data.html#aaba752b373db185367a51c481bae6f75">bme280_calib_data</a>
+</li>
+<li>dig_T1
+: <a class="el" href="structbme280__calib__data.html#af8eb813b4a350b19596105013792aee8">bme280_calib_data</a>
+</li>
+<li>dig_T2
+: <a class="el" href="structbme280__calib__data.html#a608c0112ccb3fdc3c11f1e174cdbde1b">bme280_calib_data</a>
+</li>
+<li>dig_T3
+: <a class="el" href="structbme280__calib__data.html#af04a21f46f9244b879ad16af5a40ebb2">bme280_calib_data</a>
 </li>
 </ul>
 
 
 <h3><a id="index_f"></a>- f -</h3><ul>
-<li>fcProp
-: <a class="el" href="class_app_model_private.html#a2de18f475201900df044dffb35c64347">AppModelPrivate</a>
+<li>filter
+: <a class="el" href="structbme280__settings.html#a46eae004d968b4fd9a89e5cb5748f1c1">bme280_settings</a>
 </li>
-<li>forecast()
-: <a class="el" href="class_app_model.html#aa9209b2390924841a009ab0d22b9a1b3">AppModel</a>
-, <a class="el" href="class_app_model_private.html#a4a0ab8ebb3742361ce643075cdb1baac">AppModelPrivate</a>
+<li>findZnumber()
+: <a class="el" href="class_zambretti.html#a2722dff0af5aab457e344f9e4de0e6f2">Zambretti</a>
+</li>
+</ul>
+
+
+<h3><a id="index_g"></a>- g -</h3><ul>
+<li>getCurrentPressure()
+: <a class="el" href="class_zambretti.html#ab7f8a79fbd772925a9e41c5789826385">Zambretti</a>
+</li>
+<li>getData()
+: <a class="el" href="class_metrics_average.html#aebeda8dfb7b624fe9cbbeb9b6dfc51e5">MetricsAverage</a>
+</li>
+<li>getDev()
+: <a class="el" href="class_metrics_average.html#ad476d4c4f04a3303d236dba4849c8045">MetricsAverage</a>
+</li>
+<li>getHumidity()
+: <a class="el" href="class_db_table.html#ad14c292fe435fe7b86f48554c75da206">DbTable</a>
+</li>
+<li>getMeasurement()
+: <a class="el" href="class_app_model.html#ac9dff9ffdd21a1749d2461c3d2587f6a">AppModel</a>
+</li>
+<li>getMeasurements()
+: <a class="el" href="class_app_model.html#aeb65a362d2a2875ed038dc1ae359a337">AppModel</a>
+</li>
+<li>getPastPressure()
+: <a class="el" href="class_zambretti.html#a1c420aa581bae4f38859f110e6d2d876">Zambretti</a>
+</li>
+<li>getPressure()
+: <a class="el" href="class_db_table.html#afdc8c975dce8cfd9d578931252eb75cd">DbTable</a>
+</li>
+<li>getSucessInitialization()
+: <a class="el" href="class_metrics_average.html#a17fc55cc103b48439645e4cb48cd62d2">MetricsAverage</a>
+</li>
+<li>getTemperature()
+: <a class="el" href="class_db_table.html#a7c3362a6fe703dc2c5fa3e217c52792f">DbTable</a>
+</li>
+<li>getTime()
+: <a class="el" href="class_db_table.html#aeffff61ff7c3a76e04bde211be25860f">DbTable</a>
+</li>
+<li>getTrend()
+: <a class="el" href="class_zambretti.html#ac46339c15cde0687b2008e4df0ecb4f9">Zambretti</a>
+</li>
+<li>getZnumber()
+: <a class="el" href="class_zambretti.html#aac68758fdd41eb35c8ccd832e7b82e66">Zambretti</a>
+</li>
+<li>getZtable()
+: <a class="el" href="class_app_model.html#a1e221ad7947cc08e85078416afc5a593">AppModel</a>
 </li>
 </ul>
 
 
 <h3><a id="index_h"></a>- h -</h3><ul>
-<li>hadError()
-: <a class="el" href="class_app_model.html#ac5fe590924b727724d9c686bb2552ed8">AppModel</a>
+<li>handleZambrettiData()
+: <a class="el" href="class_app_model.html#a99a784aac19e82ccc6c0dd0509b4ea04">AppModel</a>
 </li>
-<li>hasSource
-: <a class="el" href="class_app_model.html#a2d25ce9151aea6a45cae797756a84445">AppModel</a>
-</li>
-<li>hasValidCity
-: <a class="el" href="class_app_model.html#a98845ef5ffa3d9db0ee22aa3534b8608">AppModel</a>
+<li>handleZambrettiNum()
+: <a class="el" href="class_app_model.html#a75d2b6e818885a77f1b1dd56fc3c9cd3">AppModel</a>
 </li>
 <li>hasValidWeather
 : <a class="el" href="class_app_model.html#a493654987603c091935810e34e6b5c05">AppModel</a>
 </li>
 <li>humidity
-: <a class="el" href="class_weather_data.html#acf762ef73e6056b6cc8716e1aa1c7220">WeatherData</a>
+: <a class="el" href="structbme280__data.html#a0c38debcdec5946cccb553a970f9fa88">bme280_data</a>
+, <a class="el" href="structbme280__uncomp__data.html#a31e311e6fc9a49e8159a81017a7393a1">bme280_uncomp_data</a>
+, <a class="el" href="structdata.html#a48291e0075fe9ab86708780888227e65">data</a>
+, <a class="el" href="class_weather_data.html#a0a83b2ee5398eaba062e3c6fe9264a3d">WeatherData</a>
+</li>
+<li>humiditytab
+: <a class="el" href="structdatatab.html#a60cf168a28c9c467fcc24674084de1b0">datatab</a>
 </li>
 </ul>
 
 
-<h3><a id="index_l"></a>- l -</h3><ul>
-<li>latitude
-: <a class="el" href="class_app_model_private.html#a452f47a16e99adf64227449878d289a8">AppModelPrivate</a>
+<h3><a id="index_i"></a>- i -</h3><ul>
+<li>intf
+: <a class="el" href="structbme280__dev.html#a937b25397d1455117b64b1380368d30c">bme280_dev</a>
 </li>
-<li>longitude
-: <a class="el" href="class_app_model_private.html#a369e6197bd552c528a947c6e3ad3000e">AppModelPrivate</a>
+<li>isOpen()
+: <a class="el" href="class_db_manager.html#ac04baba8f5d5197f8bcd9230393501de">DbManager</a>
 </li>
 </ul>
 
 
 <h3><a id="index_m"></a>- m -</h3><ul>
-<li>minMsBeforeNewRequest
-: <a class="el" href="class_app_model_private.html#a94421ad102edc6fdac2187201fcc3511">AppModelPrivate</a>
+<li>manageMetricsAverage()
+: <a class="el" href="class_app_model.html#a91f558862aad6b2509f03e49b549270e">AppModel</a>
+</li>
+<li>measurement
+: <a class="el" href="class_app_model.html#a91ca3de4d7513b5406dbb34995244a0b">AppModel</a>
+</li>
+<li>measurements
+: <a class="el" href="class_app_model.html#aedc9eb083a5b230134be32865a6a5152">AppModel</a>
+</li>
+<li>measurementsUpdated()
+: <a class="el" href="class_app_model.html#a1d9a24aeaab75b815f6500e9521dc091">AppModel</a>
+</li>
+<li>measurevalue()
+: <a class="el" href="class_app_model.html#a51e3556fa389b11c251a0a94f0a5655c">AppModel</a>
+, <a class="el" href="class_metrics_average.html#ad7c1ebb802eb2b710fc823f82e4ecf7e">MetricsAverage</a>
+</li>
+<li>metricExists()
+: <a class="el" href="class_db_manager.html#a2a88468ac169883b9f77cfcf3ec853c9">DbManager</a>
+</li>
+<li>MetricsAverage()
+: <a class="el" href="class_metrics_average.html#ae62764cf04f8b12618021c9c8dda927d">MetricsAverage</a>
 </li>
 </ul>
 
 
 <h3><a id="index_n"></a>- n -</h3><ul>
-<li>nam
-: <a class="el" href="class_app_model_private.html#a1f605297f1e16880a2dd0ccbc7b8119f">AppModelPrivate</a>
-</li>
-<li>nErrors
-: <a class="el" href="class_app_model_private.html#aca2424002aea4928103c0af419b0152f">AppModelPrivate</a>
-</li>
 <li>now
 : <a class="el" href="class_app_model_private.html#adacce6c96a2a7b0b825586a63a15bcac">AppModelPrivate</a>
 </li>
-<li>ns
-: <a class="el" href="class_app_model_private.html#a85e7bb4817c205ee9abb8fc03af9e7ef">AppModelPrivate</a>
+</ul>
+
+
+<h3><a id="index_o"></a>- o -</h3><ul>
+<li>openConnection()
+: <a class="el" href="class_db_manager.html#a0d30e17db55d9a545b648b58d38409b6">DbManager</a>
+</li>
+<li>osr_h
+: <a class="el" href="structbme280__settings.html#ab09e8c0b2ff1ee7e7eb35540ad95acf5">bme280_settings</a>
+</li>
+<li>osr_p
+: <a class="el" href="structbme280__settings.html#a6359b35d9547f53dea01d893313c7dc3">bme280_settings</a>
+</li>
+<li>osr_t
+: <a class="el" href="structbme280__settings.html#a49bf8f73813386b4dc37a9676230c263">bme280_settings</a>
 </li>
 </ul>
 
 
 <h3><a id="index_p"></a>- p -</h3><ul>
 <li>pressure
-: <a class="el" href="class_weather_data.html#a2529c61089c163abf0e2dd80a51c47cb">WeatherData</a>
+: <a class="el" href="structbme280__data.html#a45f80ad1a10a6704bb6f8dec70976c72">bme280_data</a>
+, <a class="el" href="structbme280__uncomp__data.html#afa4d1b43f8412d393dcc5fd41f4203ce">bme280_uncomp_data</a>
+, <a class="el" href="structdata.html#a6382da4e622ddd126cdc26169531e69f">data</a>
+, <a class="el" href="class_weather_data.html#a2529c61089c163abf0e2dd80a51c47cb">WeatherData</a>
+</li>
+<li>pressuretab
+: <a class="el" href="structdatatab.html#ab8d11176f31a5fb8851108aa8547470c">datatab</a>
+</li>
+<li>printAllMetrics()
+: <a class="el" href="class_db_manager.html#a403b78f34127ab02882b55e345c39e8b">DbManager</a>
+</li>
+<li>printMeasurement()
+: <a class="el" href="class_app_model.html#a2bb0474a4f5f73ca23f9f72c97912192">AppModel</a>
+</li>
+<li>printMeasurements()
+: <a class="el" href="class_app_model.html#ac60073d6c96f7471f7227be130033399">AppModel</a>
 </li>
 </ul>
 
 
 <h3><a id="index_r"></a>- r -</h3><ul>
-<li>ready
-: <a class="el" href="class_app_model.html#a2af4f584bf701bff4546e889c16316d7">AppModel</a>
+<li>read
+: <a class="el" href="structbme280__dev.html#a9a0ad5b467e2acc04a854878fe71bf7f">bme280_dev</a>
+</li>
+<li>ready()
+: <a class="el" href="class_app_model.html#a3917fdc3dd8c97715991d9fd1a23abcc">AppModel</a>
 , <a class="el" href="class_app_model_private.html#ab0434f387adadf9ed65183496fe80f77">AppModelPrivate</a>
 </li>
 <li>readyChanged()
@@ -188,33 +360,66 @@ $(function() {
 <li>refreshWeather()
 : <a class="el" href="class_app_model.html#a37e1da9d028779f7f0fc908e4c04fa76">AppModel</a>
 </li>
+<li>removeAllMetrics()
+: <a class="el" href="class_db_manager.html#a64af0d562c9800c63fd98392d0e00cd8">DbManager</a>
+</li>
+<li>removeDb()
+: <a class="el" href="class_db_manager.html#a152a22868c32afd49431495b0ed97d28">DbManager</a>
+</li>
+<li>removeMetric()
+: <a class="el" href="class_db_manager.html#ad6ef7d9cc1952d1ae9ad263df5715e71">DbManager</a>
+</li>
 <li>requestNewWeatherTimer
 : <a class="el" href="class_app_model_private.html#ad073c8bcf6739fd658009860e12aa72c">AppModelPrivate</a>
+</li>
+<li>rounded()
+: <a class="el" href="class_metrics_average.html#a225a5cef622b47b5388fec11c7c50df3">MetricsAverage</a>
 </li>
 </ul>
 
 
 <h3><a id="index_s"></a>- s -</h3><ul>
-<li>setCity()
-: <a class="el" href="class_app_model.html#ad0135d4a1551b6484ac28c434f861af5">AppModel</a>
+<li>sendQuery()
+: <a class="el" href="class_db_manager.html#a9dc0b40635f274bfda0470ac6b8fdf8e">DbManager</a>
 </li>
-<li>setDayOfWeek()
-: <a class="el" href="class_weather_data.html#ab47f3e7cde6cf4d93dfb1750ac014f00">WeatherData</a>
+<li>sendQueryAndRecieve()
+: <a class="el" href="class_db_manager.html#ac31abceb0dd13bd030fc293f5f88797a">DbManager</a>
+</li>
+<li>setCurrentPressure()
+: <a class="el" href="class_zambretti.html#a9c0ea9c2f5d6b18f716b91c71088f208">Zambretti</a>
+</li>
+<li>setDev()
+: <a class="el" href="class_metrics_average.html#a73810dc84f599b5e2fc3b7b4c34f326c">MetricsAverage</a>
 </li>
 <li>setHumidity()
-: <a class="el" href="class_weather_data.html#aad895695b5f0651c58657973f2140509">WeatherData</a>
+: <a class="el" href="class_db_table.html#a355eec4c57189589d85c5319b18a1b38">DbTable</a>
+, <a class="el" href="class_weather_data.html#aad895695b5f0651c58657973f2140509">WeatherData</a>
+</li>
+<li>setMeasurement()
+: <a class="el" href="class_app_model.html#af8e28b32ab4d33c6f10bcab5d9c5b25c">AppModel</a>
+</li>
+<li>setMeasurements()
+: <a class="el" href="class_app_model.html#ad78b2a410448a33eb9913cebfa64d32d">AppModel</a>
+</li>
+<li>setPastPressure()
+: <a class="el" href="class_zambretti.html#aaf38d93e2550c2c6f081f9d8f346e2fb">Zambretti</a>
 </li>
 <li>setPressure()
-: <a class="el" href="class_weather_data.html#ad5b453016656864e2bc3a09fc75919a0">WeatherData</a>
+: <a class="el" href="class_db_table.html#a14639cd693e8f6e1d48c0d263535a355">DbTable</a>
+, <a class="el" href="class_weather_data.html#ad5b453016656864e2bc3a09fc75919a0">WeatherData</a>
 </li>
 <li>setTemperature()
-: <a class="el" href="class_weather_data.html#afee514cbb8713059cf8d0602b33cadf5">WeatherData</a>
+: <a class="el" href="class_db_table.html#acafd1019a86794179809e6a7b11d3c9f">DbTable</a>
+, <a class="el" href="class_weather_data.html#afee514cbb8713059cf8d0602b33cadf5">WeatherData</a>
 </li>
-<li>setUseGps()
-: <a class="el" href="class_app_model.html#a81c3ffb3370837086366c9f70bb3d5eb">AppModel</a>
+<li>setTime()
+: <a class="el" href="class_db_table.html#a671e83deaebb40c81ada2bb7a92002b0">DbTable</a>
 </li>
-<li>setUseSensor()
-: <a class="el" href="class_app_model.html#ad1369130f74b4aabd0ac0d6b1b030014">AppModel</a>
+<li>settings
+: <a class="el" href="structbme280__dev.html#acd3efe8b8ac1e08f9cb21e8abec27042">bme280_dev</a>
+</li>
+<li>setTrend()
+: <a class="el" href="class_zambretti.html#a9237fb46dd347d7b0c5ecec1b9c4becc">Zambretti</a>
 </li>
 <li>setWeatherDescription()
 : <a class="el" href="class_weather_data.html#a68686722f2e0bbf5cb28f0fdc96e280d">WeatherData</a>
@@ -222,36 +427,33 @@ $(function() {
 <li>setWeatherIcon()
 : <a class="el" href="class_weather_data.html#a2a8093aaf20e1fb3c63c429a4ae0a977">WeatherData</a>
 </li>
-<li>src
-: <a class="el" href="class_app_model_private.html#a6f5f4021a335ff82b19cc9c5ed4d19a7">AppModelPrivate</a>
+<li>setWeatherTrend()
+: <a class="el" href="class_weather_data.html#afeefe6463c52698e2fc4c010d8d35dc2">WeatherData</a>
+</li>
+<li>setZambrettiQJsonDocument()
+: <a class="el" href="class_app_model.html#a18bdf8b2328b6d64e2315b5e8027f07e">AppModel</a>
+</li>
+<li>setZtable()
+: <a class="el" href="class_app_model.html#ad4f010e1e4244d90cd648c6806dcda4e">AppModel</a>
+</li>
+<li>standby_time
+: <a class="el" href="structbme280__settings.html#a9c881ed1a45bfd9092260383f13c9fbc">bme280_settings</a>
 </li>
 </ul>
 
 
 <h3><a id="index_t"></a>- t -</h3><ul>
+<li>t_fine
+: <a class="el" href="structbme280__calib__data.html#a035b8d8756456820ec82f26a2cf62ffa">bme280_calib_data</a>
+</li>
 <li>temperature
-: <a class="el" href="class_weather_data.html#a2ee510e51cb81a6a479cd0af5f291e2c">WeatherData</a>
+: <a class="el" href="structbme280__data.html#a16a033ae72f60312e8528dde5a686154">bme280_data</a>
+, <a class="el" href="structbme280__uncomp__data.html#a0ae24e11ffef8390b948b53ba4dbb652">bme280_uncomp_data</a>
+, <a class="el" href="structdata.html#a92d573d048b933148a65e445b20df3b9">data</a>
+, <a class="el" href="class_weather_data.html#a2ee510e51cb81a6a479cd0af5f291e2c">WeatherData</a>
 </li>
-<li>throttle
-: <a class="el" href="class_app_model_private.html#af7465b76b5114594317cfe0528911ccf">AppModelPrivate</a>
-</li>
-</ul>
-
-
-<h3><a id="index_u"></a>- u -</h3><ul>
-<li>useGps
-: <a class="el" href="class_app_model.html#aac827e2dce65eb299d4eec5ff4ab2155">AppModel</a>
-, <a class="el" href="class_app_model_private.html#a7cb7a05c8aa13c53f2089c9d1859fa9c">AppModelPrivate</a>
-</li>
-<li>useGpsChanged()
-: <a class="el" href="class_app_model.html#af0007ee4da862433868baa5fdb31a3fe">AppModel</a>
-</li>
-<li>useSensor()
-: <a class="el" href="class_app_model.html#a5b83f8c93976273d6e9f1664e62efe63">AppModel</a>
-, <a class="el" href="class_app_model_private.html#a374b10db8a3d40b56cf11bca2a2e3406">AppModelPrivate</a>
-</li>
-<li>useSensorChanged()
-: <a class="el" href="class_app_model.html#a947db57e8c272bdb2420f3f273cd2e6a">AppModel</a>
+<li>temperaturetab
+: <a class="el" href="structdatatab.html#aff78d9a5fd529111ab738f41bb6120c5">datatab</a>
 </li>
 </ul>
 
@@ -264,7 +466,7 @@ $(function() {
 : <a class="el" href="class_app_model.html#a83e61455ed5672333b0db45f3f86417c">AppModel</a>
 </li>
 <li>WeatherData()
-: <a class="el" href="class_weather_data.html#aae42655299392d3f90feec9911a2dd60">WeatherData</a>
+: <a class="el" href="class_weather_data.html#a836ebdd7583f1ff908f36583dd9184a3">WeatherData</a>
 </li>
 <li>weatherDescription
 : <a class="el" href="class_weather_data.html#a8b470bc177e317a6a6a6b51758724a1a">WeatherData</a>
@@ -272,12 +474,40 @@ $(function() {
 <li>weatherIcon
 : <a class="el" href="class_weather_data.html#aca04e1877e2d5bc6da0f1e9910553741">WeatherData</a>
 </li>
+<li>weatherTrend
+: <a class="el" href="class_weather_data.html#a32541f768ce8d987063863610821580f">WeatherData</a>
+</li>
+<li>write
+: <a class="el" href="structbme280__dev.html#a7d2437824573644b51b8514ca0ec294c">bme280_dev</a>
+</li>
+</ul>
+
+
+<h3><a id="index_z"></a>- z -</h3><ul>
+<li>Zambretti()
+: <a class="el" href="class_zambretti.html#aa4948ec2096aefdbae2cebcdf8b80ee3">Zambretti</a>
+</li>
+<li>ztable
+: <a class="el" href="class_app_model.html#a09d51e8d2cff7a4a34bd791d0674d338">AppModel</a>
+</li>
 </ul>
 
 
 <h3><a id="index_0x7e"></a>- ~ -</h3><ul>
 <li>~AppModel()
 : <a class="el" href="class_app_model.html#a67ab3004ccbe2822a8a0abb9fa96ace3">AppModel</a>
+</li>
+<li>~DbManager()
+: <a class="el" href="class_db_manager.html#ac5cdf8e5e932d1681ab807d8f256374c">DbManager</a>
+</li>
+<li>~DbTable()
+: <a class="el" href="class_db_table.html#a3b61984342738abc45b6074e970eeb55">DbTable</a>
+</li>
+<li>~MetricsAverage()
+: <a class="el" href="class_metrics_average.html#a9c2595a58728d51bd2bb85ba3258966c">MetricsAverage</a>
+</li>
+<li>~Zambretti()
+: <a class="el" href="class_zambretti.html#a3066f3c5d93f8d08c34fc3a838e6b7f7">Zambretti</a>
 </li>
 </ul>
 </div><!-- contents -->

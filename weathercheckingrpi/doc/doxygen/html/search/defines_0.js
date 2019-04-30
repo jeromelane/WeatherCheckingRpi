@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['zero_5fkelvin',['ZERO_KELVIN',['../appmodel_8cpp.html#a6845ca0b7bf6295d883ba9ad80c2338c',1,'appmodel.cpp']]]
+  ['channel',['channel',['../sensor_8c.html#ab3f5e0244ce96783f08622c42900b0d9',1,'sensor.c']]]
 ];

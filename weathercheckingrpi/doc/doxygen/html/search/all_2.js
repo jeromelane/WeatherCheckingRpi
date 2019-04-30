@@ -1,6 +1,11 @@
 var searchData=
 [
-  ['city',['city',['../class_app_model_private.html#a9a1ea4d9c7b777128bb9180c0cb460a2',1,'AppModelPrivate::city()'],['../class_app_model.html#aa6915cabdaaf04805e00b5a2f75311e8',1,'AppModel::city()'],['../class_app_model.html#a093066c81b5fe2c1361df8fd19a21f51',1,'AppModel::city() const']]],
-  ['citychanged',['cityChanged',['../class_app_model.html#aeb28c7a57316aaf6295a943a65f60569',1,'AppModel']]],
-  ['coord',['coord',['../class_app_model_private.html#a6ce8f938ce4197f9a2d1a5fdf90687d7',1,'AppModelPrivate']]]
+  ['calib_5fdata',['calib_data',['../structbme280__dev.html#a8a57e57db020663dc3a8f3438cd6b399',1,'bme280_dev']]],
+  ['channel',['channel',['../sensor_8c.html#ab3f5e0244ce96783f08622c42900b0d9',1,'sensor.c']]],
+  ['chip_5fid',['chip_id',['../structbme280__dev.html#a6147bb3590bc7d1b02c41454d13c81c0',1,'bme280_dev']]],
+  ['closeconnection',['closeConnection',['../class_db_manager.html#acbf62228942a303d4b914475803319f4',1,'DbManager']]],
+  ['createdb',['createDb',['../class_db_manager.html#a6730317c113a14f24fee2fe144feadcc',1,'DbManager']]],
+  ['createtable',['createTable',['../class_db_manager.html#ac8c34581c717a41e7585a6dabceec002',1,'DbManager']]],
+  ['currenttime',['currenttime',['../structdata.html#ab041cff3ed545724b9157b87eaac1a08',1,'data']]],
+  ['currenttimetab',['currenttimetab',['../structdatatab.html#ac19f083c0dcb6a011d92b76ca7f486e6',1,'datatab']]]
 ];

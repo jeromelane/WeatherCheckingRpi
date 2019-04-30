@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['temperature',['temperature',['../class_weather_data.html#a5a193e8410e3a146de59bab224cd88f0',1,'WeatherData']]]
+  ['openconnection',['openConnection',['../class_db_manager.html#a0d30e17db55d9a545b648b58d38409b6',1,'DbManager']]]
 ];

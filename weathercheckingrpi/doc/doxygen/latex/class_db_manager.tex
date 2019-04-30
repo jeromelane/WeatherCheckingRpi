@@ -1,0 +1,165 @@
+\hypertarget{class_db_manager}{}\section{Db\+Manager Class Reference}
+\label{class_db_manager}\index{Db\+Manager@{Db\+Manager}}
+
+
+{\ttfamily \#include $<$dbmanager.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_db_manager_a0d16cf5bba931362e6c581eb1b5ba66a}{Db\+Manager} ()
+\item 
+\hyperlink{class_db_manager_a6427aaa42f5f4da4e86c52c2fd258729}{Db\+Manager} (const Q\+String path, const Q\+String name)
+\item 
+\hyperlink{class_db_manager_ac5cdf8e5e932d1681ab807d8f256374c}{$\sim$\+Db\+Manager} ()
+\item 
+bool \hyperlink{class_db_manager_ac04baba8f5d5197f8bcd9230393501de}{is\+Open} () const
+\item 
+bool \hyperlink{class_db_manager_a9dc0b40635f274bfda0470ac6b8fdf8e}{send\+Query} (Q\+String query) const
+\item 
+void \hyperlink{class_db_manager_ac31abceb0dd13bd030fc293f5f88797a}{send\+Query\+And\+Recieve} (Q\+String query)
+\item 
+bool \hyperlink{class_db_manager_a6730317c113a14f24fee2fe144feadcc}{create\+Db} (Q\+String path, Q\+String name)
+\item 
+bool \hyperlink{class_db_manager_a152a22868c32afd49431495b0ed97d28}{remove\+Db} (Q\+String path, Q\+String name)
+\item 
+bool \hyperlink{class_db_manager_ac8c34581c717a41e7585a6dabceec002}{create\+Table} ()
+\item 
+void \hyperlink{class_db_manager_a0d30e17db55d9a545b648b58d38409b6}{open\+Connection} (Q\+String path, Q\+String name)
+\item 
+void \hyperlink{class_db_manager_acbf62228942a303d4b914475803319f4}{close\+Connection} ()
+\item 
+bool \hyperlink{class_db_manager_ac428e3219240fa0432d9b2a037d1d00c}{add\+Metrics} (Q\+String temperature, Q\+String pressure, Q\+String humidity, Q\+String time)
+\item 
+bool \hyperlink{class_db_manager_a43a28838e80ae08ee2379a9d2f971e21}{add\+Zamb\+Forecast} (Q\+String forecast, Q\+String zambretti\+Num)
+\item 
+bool \hyperlink{class_db_manager_aec06961d5c5f828bddca53d57b1783c6}{add\+Metric} (Q\+String metric\+Value, Q\+String metric\+Name)
+\item 
+void \hyperlink{class_db_manager_a403b78f34127ab02882b55e345c39e8b}{print\+All\+Metrics} () const
+\item 
+bool \hyperlink{class_db_manager_a2a88468ac169883b9f77cfcf3ec853c9}{metric\+Exists} (Q\+String metric\+Name, const Q\+String \&value) const
+\item 
+bool \hyperlink{class_db_manager_a64af0d562c9800c63fd98392d0e00cd8}{remove\+All\+Metrics} ()
+\item 
+bool \hyperlink{class_db_manager_ad6ef7d9cc1952d1ae9ad263df5715e71}{remove\+Metric} (const Q\+String \&metric\+Name, Q\+String value)
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_db_manager_a0d16cf5bba931362e6c581eb1b5ba66a}\label{class_db_manager_a0d16cf5bba931362e6c581eb1b5ba66a}} 
+\index{Db\+Manager@{Db\+Manager}!Db\+Manager@{Db\+Manager}}
+\index{Db\+Manager@{Db\+Manager}!Db\+Manager@{Db\+Manager}}
+\subsubsection{\texorpdfstring{Db\+Manager()}{DbManager()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Db\+Manager\+::\+Db\+Manager (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_db_manager_a6427aaa42f5f4da4e86c52c2fd258729}\label{class_db_manager_a6427aaa42f5f4da4e86c52c2fd258729}} 
+\index{Db\+Manager@{Db\+Manager}!Db\+Manager@{Db\+Manager}}
+\index{Db\+Manager@{Db\+Manager}!Db\+Manager@{Db\+Manager}}
+\subsubsection{\texorpdfstring{Db\+Manager()}{DbManager()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Db\+Manager\+::\+Db\+Manager (\begin{DoxyParamCaption}\item[{const Q\+String}]{path,  }\item[{const Q\+String}]{name }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_db_manager_ac5cdf8e5e932d1681ab807d8f256374c}\label{class_db_manager_ac5cdf8e5e932d1681ab807d8f256374c}} 
+\index{Db\+Manager@{Db\+Manager}!````~Db\+Manager@{$\sim$\+Db\+Manager}}
+\index{````~Db\+Manager@{$\sim$\+Db\+Manager}!Db\+Manager@{Db\+Manager}}
+\subsubsection{\texorpdfstring{$\sim$\+Db\+Manager()}{~DbManager()}}
+{\footnotesize\ttfamily Db\+Manager\+::$\sim$\+Db\+Manager (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_db_manager_aec06961d5c5f828bddca53d57b1783c6}\label{class_db_manager_aec06961d5c5f828bddca53d57b1783c6}} 
+\index{Db\+Manager@{Db\+Manager}!add\+Metric@{add\+Metric}}
+\index{add\+Metric@{add\+Metric}!Db\+Manager@{Db\+Manager}}
+\subsubsection{\texorpdfstring{add\+Metric()}{addMetric()}}
+{\footnotesize\ttfamily bool Db\+Manager\+::add\+Metric (\begin{DoxyParamCaption}\item[{Q\+String}]{metric\+Value,  }\item[{Q\+String}]{metric\+Name }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_db_manager_ac428e3219240fa0432d9b2a037d1d00c}\label{class_db_manager_ac428e3219240fa0432d9b2a037d1d00c}} 
+\index{Db\+Manager@{Db\+Manager}!add\+Metrics@{add\+Metrics}}
+\index{add\+Metrics@{add\+Metrics}!Db\+Manager@{Db\+Manager}}
+\subsubsection{\texorpdfstring{add\+Metrics()}{addMetrics()}}
+{\footnotesize\ttfamily bool Db\+Manager\+::add\+Metrics (\begin{DoxyParamCaption}\item[{Q\+String}]{temperature,  }\item[{Q\+String}]{pressure,  }\item[{Q\+String}]{humidity,  }\item[{Q\+String}]{time }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_db_manager_a43a28838e80ae08ee2379a9d2f971e21}\label{class_db_manager_a43a28838e80ae08ee2379a9d2f971e21}} 
+\index{Db\+Manager@{Db\+Manager}!add\+Zamb\+Forecast@{add\+Zamb\+Forecast}}
+\index{add\+Zamb\+Forecast@{add\+Zamb\+Forecast}!Db\+Manager@{Db\+Manager}}
+\subsubsection{\texorpdfstring{add\+Zamb\+Forecast()}{addZambForecast()}}
+{\footnotesize\ttfamily bool Db\+Manager\+::add\+Zamb\+Forecast (\begin{DoxyParamCaption}\item[{Q\+String}]{forecast,  }\item[{Q\+String}]{zambretti\+Num }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_db_manager_acbf62228942a303d4b914475803319f4}\label{class_db_manager_acbf62228942a303d4b914475803319f4}} 
+\index{Db\+Manager@{Db\+Manager}!close\+Connection@{close\+Connection}}
+\index{close\+Connection@{close\+Connection}!Db\+Manager@{Db\+Manager}}
+\subsubsection{\texorpdfstring{close\+Connection()}{closeConnection()}}
+{\footnotesize\ttfamily void Db\+Manager\+::close\+Connection (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_db_manager_a6730317c113a14f24fee2fe144feadcc}\label{class_db_manager_a6730317c113a14f24fee2fe144feadcc}} 
+\index{Db\+Manager@{Db\+Manager}!create\+Db@{create\+Db}}
+\index{create\+Db@{create\+Db}!Db\+Manager@{Db\+Manager}}
+\subsubsection{\texorpdfstring{create\+Db()}{createDb()}}
+{\footnotesize\ttfamily bool Db\+Manager\+::create\+Db (\begin{DoxyParamCaption}\item[{Q\+String}]{path,  }\item[{Q\+String}]{name }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_db_manager_ac8c34581c717a41e7585a6dabceec002}\label{class_db_manager_ac8c34581c717a41e7585a6dabceec002}} 
+\index{Db\+Manager@{Db\+Manager}!create\+Table@{create\+Table}}
+\index{create\+Table@{create\+Table}!Db\+Manager@{Db\+Manager}}
+\subsubsection{\texorpdfstring{create\+Table()}{createTable()}}
+{\footnotesize\ttfamily bool Db\+Manager\+::create\+Table (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_db_manager_ac04baba8f5d5197f8bcd9230393501de}\label{class_db_manager_ac04baba8f5d5197f8bcd9230393501de}} 
+\index{Db\+Manager@{Db\+Manager}!is\+Open@{is\+Open}}
+\index{is\+Open@{is\+Open}!Db\+Manager@{Db\+Manager}}
+\subsubsection{\texorpdfstring{is\+Open()}{isOpen()}}
+{\footnotesize\ttfamily bool Db\+Manager\+::is\+Open (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_db_manager_a2a88468ac169883b9f77cfcf3ec853c9}\label{class_db_manager_a2a88468ac169883b9f77cfcf3ec853c9}} 
+\index{Db\+Manager@{Db\+Manager}!metric\+Exists@{metric\+Exists}}
+\index{metric\+Exists@{metric\+Exists}!Db\+Manager@{Db\+Manager}}
+\subsubsection{\texorpdfstring{metric\+Exists()}{metricExists()}}
+{\footnotesize\ttfamily bool Db\+Manager\+::metric\+Exists (\begin{DoxyParamCaption}\item[{Q\+String}]{metric\+Name,  }\item[{const Q\+String \&}]{value }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_db_manager_a0d30e17db55d9a545b648b58d38409b6}\label{class_db_manager_a0d30e17db55d9a545b648b58d38409b6}} 
+\index{Db\+Manager@{Db\+Manager}!open\+Connection@{open\+Connection}}
+\index{open\+Connection@{open\+Connection}!Db\+Manager@{Db\+Manager}}
+\subsubsection{\texorpdfstring{open\+Connection()}{openConnection()}}
+{\footnotesize\ttfamily void Db\+Manager\+::open\+Connection (\begin{DoxyParamCaption}\item[{Q\+String}]{path,  }\item[{Q\+String}]{name }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_db_manager_a403b78f34127ab02882b55e345c39e8b}\label{class_db_manager_a403b78f34127ab02882b55e345c39e8b}} 
+\index{Db\+Manager@{Db\+Manager}!print\+All\+Metrics@{print\+All\+Metrics}}
+\index{print\+All\+Metrics@{print\+All\+Metrics}!Db\+Manager@{Db\+Manager}}
+\subsubsection{\texorpdfstring{print\+All\+Metrics()}{printAllMetrics()}}
+{\footnotesize\ttfamily void Db\+Manager\+::print\+All\+Metrics (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_db_manager_a64af0d562c9800c63fd98392d0e00cd8}\label{class_db_manager_a64af0d562c9800c63fd98392d0e00cd8}} 
+\index{Db\+Manager@{Db\+Manager}!remove\+All\+Metrics@{remove\+All\+Metrics}}
+\index{remove\+All\+Metrics@{remove\+All\+Metrics}!Db\+Manager@{Db\+Manager}}
+\subsubsection{\texorpdfstring{remove\+All\+Metrics()}{removeAllMetrics()}}
+{\footnotesize\ttfamily bool Db\+Manager\+::remove\+All\+Metrics (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_db_manager_a152a22868c32afd49431495b0ed97d28}\label{class_db_manager_a152a22868c32afd49431495b0ed97d28}} 
+\index{Db\+Manager@{Db\+Manager}!remove\+Db@{remove\+Db}}
+\index{remove\+Db@{remove\+Db}!Db\+Manager@{Db\+Manager}}
+\subsubsection{\texorpdfstring{remove\+Db()}{removeDb()}}
+{\footnotesize\ttfamily bool Db\+Manager\+::remove\+Db (\begin{DoxyParamCaption}\item[{Q\+String}]{path,  }\item[{Q\+String}]{name }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_db_manager_ad6ef7d9cc1952d1ae9ad263df5715e71}\label{class_db_manager_ad6ef7d9cc1952d1ae9ad263df5715e71}} 
+\index{Db\+Manager@{Db\+Manager}!remove\+Metric@{remove\+Metric}}
+\index{remove\+Metric@{remove\+Metric}!Db\+Manager@{Db\+Manager}}
+\subsubsection{\texorpdfstring{remove\+Metric()}{removeMetric()}}
+{\footnotesize\ttfamily bool Db\+Manager\+::remove\+Metric (\begin{DoxyParamCaption}\item[{const Q\+String \&}]{metric\+Name,  }\item[{Q\+String}]{value }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_db_manager_a9dc0b40635f274bfda0470ac6b8fdf8e}\label{class_db_manager_a9dc0b40635f274bfda0470ac6b8fdf8e}} 
+\index{Db\+Manager@{Db\+Manager}!send\+Query@{send\+Query}}
+\index{send\+Query@{send\+Query}!Db\+Manager@{Db\+Manager}}
+\subsubsection{\texorpdfstring{send\+Query()}{sendQuery()}}
+{\footnotesize\ttfamily bool Db\+Manager\+::send\+Query (\begin{DoxyParamCaption}\item[{Q\+String}]{query }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_db_manager_ac31abceb0dd13bd030fc293f5f88797a}\label{class_db_manager_ac31abceb0dd13bd030fc293f5f88797a}} 
+\index{Db\+Manager@{Db\+Manager}!send\+Query\+And\+Recieve@{send\+Query\+And\+Recieve}}
+\index{send\+Query\+And\+Recieve@{send\+Query\+And\+Recieve}!Db\+Manager@{Db\+Manager}}
+\subsubsection{\texorpdfstring{send\+Query\+And\+Recieve()}{sendQueryAndRecieve()}}
+{\footnotesize\ttfamily void Db\+Manager\+::send\+Query\+And\+Recieve (\begin{DoxyParamCaption}\item[{Q\+String}]{query }\end{DoxyParamCaption})}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+dbmanager/\hyperlink{dbmanager_8h}{dbmanager.\+h}\item 
+dbmanager/\hyperlink{dbmanager_8cpp}{dbmanager.\+cpp}\end{DoxyCompactItemize}

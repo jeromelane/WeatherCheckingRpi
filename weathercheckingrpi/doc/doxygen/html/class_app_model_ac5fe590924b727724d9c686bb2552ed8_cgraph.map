@@ -1,4 +1,0 @@
-<map id="AppModel::hadError" name="AppModel::hadError">
-<area shape="rect" id="node2" href="$class_app_model.html#a093066c81b5fe2c1361df8fd19a21f51" title="AppModel::city" alt="" coords="225,5,334,32"/>
-<area shape="rect" id="node3" href="$class_app_model.html#a37e1da9d028779f7f0fc908e4c04fa76" title="AppModel::refreshWeather Access http://api.openweathermap.org/data/2.5/weather site to get a specific..." alt="" coords="191,56,368,83"/>
-</map>

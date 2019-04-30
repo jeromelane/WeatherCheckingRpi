@@ -1,7 +1,8 @@
 var searchData=
 [
-  ['usegps',['useGps',['../class_app_model.html#a0e6e7506ba084133a6927d8c633ad699',1,'AppModel']]],
-  ['usegpschanged',['useGpsChanged',['../class_app_model.html#af0007ee4da862433868baa5fdb31a3fe',1,'AppModel']]],
-  ['usesensor',['useSensor',['../class_app_model.html#a5b83f8c93976273d6e9f1664e62efe63',1,'AppModel']]],
-  ['usesensorchanged',['useSensorChanged',['../class_app_model.html#a947db57e8c272bdb2420f3f273cd2e6a',1,'AppModel']]]
+  ['pressure',['pressure',['../class_weather_data.html#af726e713890bd6d310fe4a718dd69c77',1,'WeatherData']]],
+  ['print_5fsensor_5fdata',['print_sensor_data',['../sensor_8c.html#ac1e8e819dc312cb84abad861e72ea7c4',1,'sensor.c']]],
+  ['printallmetrics',['printAllMetrics',['../class_db_manager.html#a403b78f34127ab02882b55e345c39e8b',1,'DbManager']]],
+  ['printmeasurement',['printMeasurement',['../class_app_model.html#a2bb0474a4f5f73ca23f9f72c97912192',1,'AppModel']]],
+  ['printmeasurements',['printMeasurements',['../class_app_model.html#ac60073d6c96f7471f7227be130033399',1,'AppModel']]]
 ];

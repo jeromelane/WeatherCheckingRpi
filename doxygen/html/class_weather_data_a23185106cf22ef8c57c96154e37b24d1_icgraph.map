@@ -1,0 +1,12 @@
+<map id="WeatherData::dataChanged" name="WeatherData::dataChanged">
+<area shape="rect" id="node2" href="$class_weather_data.html#a2a8093aaf20e1fb3c63c429a4ae0a977" title="WeatherData::setWeatherIcon" alt="" coords="258,5,457,32"/>
+<area shape="rect" id="node4" href="$class_weather_data.html#a68686722f2e0bbf5cb28f0fdc96e280d" title="WeatherData::setWeatherDescription" alt="" coords="237,56,477,83"/>
+<area shape="rect" id="node5" href="$class_weather_data.html#afeefe6463c52698e2fc4c010d8d35dc2" title="WeatherData::setWeatherTrend" alt="" coords="254,107,461,133"/>
+<area shape="rect" id="node7" href="$class_weather_data.html#afee514cbb8713059cf8d0602b33cadf5" title="WeatherData::setTemperature" alt="" coords="258,157,457,184"/>
+<area shape="rect" id="node10" href="$class_weather_data.html#ad5b453016656864e2bc3a09fc75919a0" title="WeatherData::setPressure" alt="" coords="269,208,446,235"/>
+<area shape="rect" id="node11" href="$class_weather_data.html#aad895695b5f0651c58657973f2140509" title="WeatherData::setHumidity" alt="" coords="269,259,446,285"/>
+<area shape="rect" id="node3" href="$class_app_model.html#a75d2b6e818885a77f1b1dd56fc3c9cd3" title="AppModel::handleZambrettiNum" alt="" coords="525,31,735,57"/>
+<area shape="rect" id="node6" href="$class_app_model.html#a99a784aac19e82ccc6c0dd0509b4ea04" title="AppModel::handleZambrettiData" alt="" coords="525,107,735,133"/>
+<area shape="rect" id="node8" href="$class_app_model.html#a37e1da9d028779f7f0fc908e4c04fa76" title="AppModel::refreshWeather Access http://api.openweathermap.org/data/2.5/weather site to get a specific..." alt="" coords="541,157,719,184"/>
+<area shape="rect" id="node9" href="$class_app_model.html#a14293f7293e1bcbfdb5499789f9e134b" title="[0] " alt="" coords="783,157,929,184"/>
+</map>

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['delayedcityrequesttimer',['delayedCityRequestTimer',['../class_app_model_private.html#aa42651b04c201eaa24ef5c86a67f4b42',1,'AppModelPrivate']]]
+  ['g_5fdev',['g_dev',['../_metrics_average_8cpp.html#a84ba6c409cfe098d180b2292fd23a843',1,'MetricsAverage.cpp']]]
 ];

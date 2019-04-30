@@ -1,13 +1,13 @@
 /*!
  *\mainpage Brief Description
- *\author Jerome Lane, Katia Gasperi
- * \date 15 April 2019
- *\version 0.1
+ *\author Jérôme Lane, Katia Gasperi
+ * \date 30 April 2019
+ *\version 1.1
  *\section intro_sec Introduction
  *
  * <p>Project where humidity, pressure and temperature are mesured with a Raspberry Pi 3 and BME280 environmental sensor.\n
  * Provide a graphical interface displaying these metrics.\n
- * The interface provides a weather icon corresponding to the current weather.</p>
+ * The interface provides a weather icon corresponding to the current weather trend.</p>
  *
  * \section requirements_sec Requirements
  * \subsection Hardware

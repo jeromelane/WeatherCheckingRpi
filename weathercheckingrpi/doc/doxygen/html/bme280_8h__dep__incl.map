@@ -1,0 +1,11 @@
+<map id="sensor/bme280.h" name="sensor/bme280.h">
+<area shape="rect" id="node2" href="$sensor_8h.html" title="sensor/sensor.h" alt="" coords="367,80,481,107"/>
+<area shape="rect" id="node8" href="$_metrics_average_8cpp.html" title="sensor/MetricsAverage.cpp" alt="" coords="5,229,187,256"/>
+<area shape="rect" id="node9" href="$sensor_8c.html" title="sensor/sensor.c" alt="" coords="512,155,627,181"/>
+<area shape="rect" id="node10" href="$bme280_8c.html" title="Sensor driver for BME280 sensor. " alt="" coords="556,80,679,107"/>
+<area shape="rect" id="node3" href="$_metrics_average_8h.html" title="sensor/MetricsAverage.h" alt="" coords="219,155,386,181"/>
+<area shape="rect" id="node4" href="$appmodel_8h.html" title="appmodel.h" alt="" coords="462,229,551,256"/>
+<area shape="rect" id="node5" href="$appmodel_8cpp.html" title="appmodel.cpp" alt="" coords="357,304,459,331"/>
+<area shape="rect" id="node7" href="$main2_8cpp.html" title="sensor/main2.cpp" alt="" coords="261,229,387,256"/>
+<area shape="rect" id="node6" href="$main_8cpp.html" title="main.cpp" alt="" coords="484,304,559,331"/>
+</map>

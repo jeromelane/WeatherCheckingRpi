@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['pressure',['pressure',['../class_weather_data.html#a2529c61089c163abf0e2dd80a51c47cb',1,'WeatherData::pressure()'],['../class_weather_data.html#af726e713890bd6d310fe4a718dd69c77',1,'WeatherData::pressure() const']]]
+  ['now',['now',['../class_app_model_private.html#adacce6c96a2a7b0b825586a63a15bcac',1,'AppModelPrivate']]],
+  ['null',['NULL',['../group___b_m_e280.html#ga070d2ce7b6bb7e5c05602aa8c308d0c4',1,'bme280_defs.h']]]
 ];

@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['ready',['ready',['../class_app_model.html#a3917fdc3dd8c97715991d9fd1a23abcc',1,'AppModel']]],
-  ['readychanged',['readyChanged',['../class_app_model.html#a574c2bd6f5c92ac9268107f8399989cb',1,'AppModel']]],
-  ['refreshweather',['refreshWeather',['../class_app_model.html#a37e1da9d028779f7f0fc908e4c04fa76',1,'AppModel']]]
+  ['initsensor',['initSensor',['../sensor_8c.html#a0e934b3f8361dee99aff98fdfa3b55b3',1,'initSensor(struct bme280_dev *dev):&#160;sensor.c'],['../sensor_8h.html#a0e934b3f8361dee99aff98fdfa3b55b3',1,'initSensor(struct bme280_dev *dev):&#160;sensor.c']]],
+  ['isopen',['isOpen',['../class_db_manager.html#ac04baba8f5d5197f8bcd9230393501de',1,'DbManager']]]
 ];

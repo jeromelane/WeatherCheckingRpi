@@ -1,0 +1,99 @@
+\hypertarget{structbme280__dev}{}\section{bme280\+\_\+dev Struct Reference}
+\label{structbme280__dev}\index{bme280\+\_\+dev@{bme280\+\_\+dev}}
+
+
+bme280 device structure  
+
+
+
+
+{\ttfamily \#include $<$bme280\+\_\+defs.\+h$>$}
+
+
+
+Collaboration diagram for bme280\+\_\+dev\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=343pt]{structbme280__dev__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \hyperlink{structbme280__dev_a6147bb3590bc7d1b02c41454d13c81c0}{chip\+\_\+id}
+\item 
+uint8\+\_\+t \hyperlink{structbme280__dev_a1f75cc7ecf84476a440ded0cd8c2fba7}{dev\+\_\+id}
+\item 
+enum \hyperlink{group___b_m_e280_ga142fcd9cb1e99b793488e9b3b1e6766e}{bme280\+\_\+intf} \hyperlink{structbme280__dev_a937b25397d1455117b64b1380368d30c}{intf}
+\item 
+\hyperlink{group___b_m_e280_ga7c23fe68ccf92adb3f03882b40739e7b}{bme280\+\_\+com\+\_\+fptr\+\_\+t} \hyperlink{structbme280__dev_a9a0ad5b467e2acc04a854878fe71bf7f}{read}
+\item 
+\hyperlink{group___b_m_e280_ga7c23fe68ccf92adb3f03882b40739e7b}{bme280\+\_\+com\+\_\+fptr\+\_\+t} \hyperlink{structbme280__dev_a7d2437824573644b51b8514ca0ec294c}{write}
+\item 
+\hyperlink{group___b_m_e280_gab2783d9a00e56ddc3e0e8d37b3462e34}{bme280\+\_\+delay\+\_\+fptr\+\_\+t} \hyperlink{structbme280__dev_a8f8957a3f4438239bd79b075691f0fd1}{delay\+\_\+ms}
+\item 
+struct \hyperlink{structbme280__calib__data}{bme280\+\_\+calib\+\_\+data} \hyperlink{structbme280__dev_a8a57e57db020663dc3a8f3438cd6b399}{calib\+\_\+data}
+\item 
+struct \hyperlink{structbme280__settings}{bme280\+\_\+settings} \hyperlink{structbme280__dev_acd3efe8b8ac1e08f9cb21e8abec27042}{settings}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+bme280 device structure 
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{structbme280__dev_a8a57e57db020663dc3a8f3438cd6b399}\label{structbme280__dev_a8a57e57db020663dc3a8f3438cd6b399}} 
+\index{bme280\+\_\+dev@{bme280\+\_\+dev}!calib\+\_\+data@{calib\+\_\+data}}
+\index{calib\+\_\+data@{calib\+\_\+data}!bme280\+\_\+dev@{bme280\+\_\+dev}}
+\subsubsection{\texorpdfstring{calib\+\_\+data}{calib\_data}}
+{\footnotesize\ttfamily struct \hyperlink{structbme280__calib__data}{bme280\+\_\+calib\+\_\+data} bme280\+\_\+dev\+::calib\+\_\+data}
+
+Trim data \mbox{\Hypertarget{structbme280__dev_a6147bb3590bc7d1b02c41454d13c81c0}\label{structbme280__dev_a6147bb3590bc7d1b02c41454d13c81c0}} 
+\index{bme280\+\_\+dev@{bme280\+\_\+dev}!chip\+\_\+id@{chip\+\_\+id}}
+\index{chip\+\_\+id@{chip\+\_\+id}!bme280\+\_\+dev@{bme280\+\_\+dev}}
+\subsubsection{\texorpdfstring{chip\+\_\+id}{chip\_id}}
+{\footnotesize\ttfamily uint8\+\_\+t bme280\+\_\+dev\+::chip\+\_\+id}
+
+Chip Id \mbox{\Hypertarget{structbme280__dev_a8f8957a3f4438239bd79b075691f0fd1}\label{structbme280__dev_a8f8957a3f4438239bd79b075691f0fd1}} 
+\index{bme280\+\_\+dev@{bme280\+\_\+dev}!delay\+\_\+ms@{delay\+\_\+ms}}
+\index{delay\+\_\+ms@{delay\+\_\+ms}!bme280\+\_\+dev@{bme280\+\_\+dev}}
+\subsubsection{\texorpdfstring{delay\+\_\+ms}{delay\_ms}}
+{\footnotesize\ttfamily \hyperlink{group___b_m_e280_gab2783d9a00e56ddc3e0e8d37b3462e34}{bme280\+\_\+delay\+\_\+fptr\+\_\+t} bme280\+\_\+dev\+::delay\+\_\+ms}
+
+Delay function pointer \mbox{\Hypertarget{structbme280__dev_a1f75cc7ecf84476a440ded0cd8c2fba7}\label{structbme280__dev_a1f75cc7ecf84476a440ded0cd8c2fba7}} 
+\index{bme280\+\_\+dev@{bme280\+\_\+dev}!dev\+\_\+id@{dev\+\_\+id}}
+\index{dev\+\_\+id@{dev\+\_\+id}!bme280\+\_\+dev@{bme280\+\_\+dev}}
+\subsubsection{\texorpdfstring{dev\+\_\+id}{dev\_id}}
+{\footnotesize\ttfamily uint8\+\_\+t bme280\+\_\+dev\+::dev\+\_\+id}
+
+Device Id \mbox{\Hypertarget{structbme280__dev_a937b25397d1455117b64b1380368d30c}\label{structbme280__dev_a937b25397d1455117b64b1380368d30c}} 
+\index{bme280\+\_\+dev@{bme280\+\_\+dev}!intf@{intf}}
+\index{intf@{intf}!bme280\+\_\+dev@{bme280\+\_\+dev}}
+\subsubsection{\texorpdfstring{intf}{intf}}
+{\footnotesize\ttfamily enum \hyperlink{group___b_m_e280_ga142fcd9cb1e99b793488e9b3b1e6766e}{bme280\+\_\+intf} bme280\+\_\+dev\+::intf}
+
+S\+P\+I/\+I2C interface \mbox{\Hypertarget{structbme280__dev_a9a0ad5b467e2acc04a854878fe71bf7f}\label{structbme280__dev_a9a0ad5b467e2acc04a854878fe71bf7f}} 
+\index{bme280\+\_\+dev@{bme280\+\_\+dev}!read@{read}}
+\index{read@{read}!bme280\+\_\+dev@{bme280\+\_\+dev}}
+\subsubsection{\texorpdfstring{read}{read}}
+{\footnotesize\ttfamily \hyperlink{group___b_m_e280_ga7c23fe68ccf92adb3f03882b40739e7b}{bme280\+\_\+com\+\_\+fptr\+\_\+t} bme280\+\_\+dev\+::read}
+
+Read function pointer \mbox{\Hypertarget{structbme280__dev_acd3efe8b8ac1e08f9cb21e8abec27042}\label{structbme280__dev_acd3efe8b8ac1e08f9cb21e8abec27042}} 
+\index{bme280\+\_\+dev@{bme280\+\_\+dev}!settings@{settings}}
+\index{settings@{settings}!bme280\+\_\+dev@{bme280\+\_\+dev}}
+\subsubsection{\texorpdfstring{settings}{settings}}
+{\footnotesize\ttfamily struct \hyperlink{structbme280__settings}{bme280\+\_\+settings} bme280\+\_\+dev\+::settings}
+
+Sensor settings \mbox{\Hypertarget{structbme280__dev_a7d2437824573644b51b8514ca0ec294c}\label{structbme280__dev_a7d2437824573644b51b8514ca0ec294c}} 
+\index{bme280\+\_\+dev@{bme280\+\_\+dev}!write@{write}}
+\index{write@{write}!bme280\+\_\+dev@{bme280\+\_\+dev}}
+\subsubsection{\texorpdfstring{write}{write}}
+{\footnotesize\ttfamily \hyperlink{group___b_m_e280_ga7c23fe68ccf92adb3f03882b40739e7b}{bme280\+\_\+com\+\_\+fptr\+\_\+t} bme280\+\_\+dev\+::write}
+
+Write function pointer 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+sensor/\hyperlink{bme280__defs_8h}{bme280\+\_\+defs.\+h}\end{DoxyCompactItemize}

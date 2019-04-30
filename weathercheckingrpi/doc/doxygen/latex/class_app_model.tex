@@ -2,113 +2,115 @@
 \label{class_app_model}\index{App\+Model@{App\+Model}}
 
 
-\mbox{[}2\mbox{]}  
-
-
-
-
 {\ttfamily \#include $<$appmodel.\+h$>$}
 
 
 
-Inheritance diagram for App\+Model\+:\nopagebreak
+Inheritance diagram for App\+Model\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[width=140pt]{class_app_model__inherit__graph}
 \end{center}
 \end{figure}
+
+
+Collaboration diagram for App\+Model\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=237pt]{class_app_model__coll__graph}
+\end{center}
+\end{figure}
 \subsection*{Public Slots}
 \begin{DoxyCompactItemize}
 \item 
 Q\+\_\+\+I\+N\+V\+O\+K\+A\+B\+LE void \hyperlink{class_app_model_a37e1da9d028779f7f0fc908e4c04fa76}{refresh\+Weather} ()
-\begin{DoxyCompactList}\small\item\em \hyperlink{class_app_model_a37e1da9d028779f7f0fc908e4c04fa76}{App\+Model\+::refresh\+Weather} Access \href{http://api.openweathermap.org/data/2.5/weather}{\tt http\+://api.\+openweathermap.\+org/data/2.\+5/weather} site to get a specific city data Deals with connection errors. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_app_model_a37e1da9d028779f7f0fc908e4c04fa76}{App\+Model\+::refresh\+Weather} Access \href{http://api.openweathermap.org/data/2.5/weather}{\tt http\+://api.\+openweathermap.\+org/data/2.\+5/weather} site to get a specific city data Deals with connection errors. \end{DoxyCompactList}\item 
+void \hyperlink{class_app_model_a51e3556fa389b11c251a0a94f0a5655c}{measurevalue} ()
+\end{DoxyCompactItemize}
 \subsection*{Signals}
 \begin{DoxyCompactItemize}
 \item 
 void \hyperlink{class_app_model_a574c2bd6f5c92ac9268107f8399989cb}{ready\+Changed} ()
-\begin{DoxyCompactList}\small\item\em \mbox{[}3\mbox{]} \end{DoxyCompactList}\item 
-void \hyperlink{class_app_model_af0007ee4da862433868baa5fdb31a3fe}{use\+Gps\+Changed} ()
-\item 
-void \hyperlink{class_app_model_a947db57e8c272bdb2420f3f273cd2e6a}{use\+Sensor\+Changed} ()
-\item 
-void \hyperlink{class_app_model_aeb28c7a57316aaf6295a943a65f60569}{city\+Changed} ()
 \item 
 void \hyperlink{class_app_model_a83e61455ed5672333b0db45f3f86417c}{weather\+Changed} ()
+\item 
+void \hyperlink{class_app_model_a1d9a24aeaab75b815f6500e9521dc091}{measurements\+Updated} ()
 \end{DoxyCompactItemize}
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hyperlink{class_app_model_affb3ea459bceb0650cdc810f3f5a2256}{App\+Model} (Q\+Object $\ast$parent=0)
+\hyperlink{class_app_model_a14293f7293e1bcbfdb5499789f9e134b}{App\+Model} (Q\+Object $\ast$parent=nullptr)
 \begin{DoxyCompactList}\small\item\em \mbox{[}0\mbox{]} \end{DoxyCompactList}\item 
 \hyperlink{class_app_model_a67ab3004ccbe2822a8a0abb9fa96ace3}{$\sim$\+App\+Model} ()
-\begin{DoxyCompactList}\small\item\em \mbox{[}1\mbox{]} \end{DoxyCompactList}\item 
-bool \hyperlink{class_app_model_a3917fdc3dd8c97715991d9fd1a23abcc}{ready} () const
-\item 
-bool \hyperlink{class_app_model_a8ad68e982b0a307d9986ff538baedbd2}{has\+Source} () const
-\item 
-bool \hyperlink{class_app_model_a0e6e7506ba084133a6927d8c633ad699}{use\+Gps} () const
-\item 
-bool \hyperlink{class_app_model_a5b83f8c93976273d6e9f1664e62efe63}{use\+Sensor} () const
-\item 
-bool \hyperlink{class_app_model_aedeadab67d9bc5f5dfead369f66c3912}{has\+Valid\+City} () const
 \item 
 bool \hyperlink{class_app_model_a6ec5b34a1839a7141979709418174ad1}{has\+Valid\+Weather} () const
 \item 
-void \hyperlink{class_app_model_a81c3ffb3370837086366c9f70bb3d5eb}{set\+Use\+Gps} (bool value)
-\item 
-void \hyperlink{class_app_model_ac5fe590924b727724d9c686bb2552ed8}{had\+Error} (bool try\+Again)
-\item 
-void \hyperlink{class_app_model_ad1369130f74b4aabd0ac0d6b1b030014}{set\+Use\+Sensor} (bool value)
-\item 
-Q\+String \hyperlink{class_app_model_a093066c81b5fe2c1361df8fd19a21f51}{city} () const
-\item 
-void \hyperlink{class_app_model_ad0135d4a1551b6484ac28c434f861af5}{set\+City} (const Q\+String \&value)
+bool \hyperlink{class_app_model_a3917fdc3dd8c97715991d9fd1a23abcc}{ready} () const
 \item 
 \hyperlink{class_weather_data}{Weather\+Data} $\ast$ \hyperlink{class_app_model_a70a5bec8e359e4edbd16611efa96cf32}{weather} () const
 \item 
-Q\+Qml\+List\+Property$<$ \hyperlink{class_weather_data}{Weather\+Data} $>$ \hyperlink{class_app_model_aa9209b2390924841a009ab0d22b9a1b3}{forecast} () const
+void \hyperlink{class_app_model_a99a784aac19e82ccc6c0dd0509b4ea04}{handle\+Zambretti\+Data} ()
+\item 
+void \hyperlink{class_app_model_a75d2b6e818885a77f1b1dd56fc3c9cd3}{handle\+Zambretti\+Num} (int)
+\item 
+void \hyperlink{class_app_model_a91f558862aad6b2509f03e49b549270e}{manage\+Metrics\+Average} (\hyperlink{class_zambretti}{Zambretti} $\ast$Zamb)
+\item 
+Q\+Json\+Document \hyperlink{class_app_model_a2e738230cd01012b529adadc3f7c4eae}{build\+Zambretti\+Q\+Json\+Document} (Q\+String zpathtable)
+\item 
+void \hyperlink{class_app_model_a2bb0474a4f5f73ca23f9f72c97912192}{print\+Measurement} (struct \hyperlink{structdata}{data} \hyperlink{structdata}{data}) const
+\item 
+void \hyperlink{class_app_model_ac60073d6c96f7471f7227be130033399}{print\+Measurements} () const
+\item 
+void \hyperlink{class_app_model_a18bdf8b2328b6d64e2315b5e8027f07e}{set\+Zambretti\+Q\+Json\+Document} ()
+\item 
+Q\+Json\+Document \hyperlink{class_app_model_a1e221ad7947cc08e85078416afc5a593}{get\+Ztable} () const
+\item 
+void \hyperlink{class_app_model_ad4f010e1e4244d90cd648c6806dcda4e}{set\+Ztable} (const Q\+Json\+Document \&value)
+\item 
+\hyperlink{class_metrics_average}{Metrics\+Average} \hyperlink{class_app_model_ac9dff9ffdd21a1749d2461c3d2587f6a}{get\+Measurement} () const
+\item 
+void \hyperlink{class_app_model_af8e28b32ab4d33c6f10bcab5d9c5b25c}{set\+Measurement} (const \hyperlink{class_metrics_average}{Metrics\+Average} \&value)
+\item 
+vector$<$ struct \hyperlink{structdata}{data} $>$ \hyperlink{class_app_model_aeb65a362d2a2875ed038dc1ae359a337}{get\+Measurements} () const
+\item 
+void \hyperlink{class_app_model_ad78b2a410448a33eb9913cebfa64d32d}{set\+Measurements} (const vector$<$ struct \hyperlink{structdata}{data} $>$ \&value)
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Q\+Json\+Document \hyperlink{class_app_model_a09d51e8d2cff7a4a34bd791d0674d338}{ztable}
+\item 
+\hyperlink{class_metrics_average}{Metrics\+Average} \hyperlink{class_app_model_a91ca3de4d7513b5406dbb34995244a0b}{measurement}
+\item 
+vector$<$ struct \hyperlink{structdata}{data} $>$ \hyperlink{class_app_model_aedc9eb083a5b230134be32865a6a5152}{measurements}
 \end{DoxyCompactItemize}
 \subsection*{Properties}
 \begin{DoxyCompactItemize}
 \item 
 bool \hyperlink{class_app_model_a2af4f584bf701bff4546e889c16316d7}{ready}
 \item 
-bool \hyperlink{class_app_model_a2d25ce9151aea6a45cae797756a84445}{has\+Source}
-\item 
-bool \hyperlink{class_app_model_a98845ef5ffa3d9db0ee22aa3534b8608}{has\+Valid\+City}
-\item 
-bool \hyperlink{class_app_model_a493654987603c091935810e34e6b5c05}{has\+Valid\+Weather}
-\item 
-bool \hyperlink{class_app_model_aac827e2dce65eb299d4eec5ff4ab2155}{use\+Gps}
-\item 
-bool \hyperlink{class_app_model_ada296063fe2916580f532b639a546851}{use\+Sensor}
-\item 
-Q\+String \hyperlink{class_app_model_aa6915cabdaaf04805e00b5a2f75311e8}{city}
-\item 
 \hyperlink{class_weather_data}{Weather\+Data} \hyperlink{class_app_model_a72dfc16433c4ca50da689205e9db9298}{weather}
 \item 
-Q\+Qml\+List\+Property$<$ \hyperlink{class_weather_data}{Weather\+Data} $>$ \hyperlink{class_app_model_a3e45f56df91b1ad6d27c02c4ab1ad3c3}{forecast}
+bool \hyperlink{class_app_model_a493654987603c091935810e34e6b5c05}{has\+Valid\+Weather}
 \end{DoxyCompactItemize}
 
 
-\subsection{Detailed Description}
-\mbox{[}2\mbox{]} 
-
 \subsection{Constructor \& Destructor Documentation}
-\mbox{\Hypertarget{class_app_model_affb3ea459bceb0650cdc810f3f5a2256}\label{class_app_model_affb3ea459bceb0650cdc810f3f5a2256}} 
+\mbox{\Hypertarget{class_app_model_a14293f7293e1bcbfdb5499789f9e134b}\label{class_app_model_a14293f7293e1bcbfdb5499789f9e134b}} 
 \index{App\+Model@{App\+Model}!App\+Model@{App\+Model}}
 \index{App\+Model@{App\+Model}!App\+Model@{App\+Model}}
 \subsubsection{\texorpdfstring{App\+Model()}{AppModel()}}
-{\footnotesize\ttfamily App\+Model\+::\+App\+Model (\begin{DoxyParamCaption}\item[{Q\+Object $\ast$}]{parent = {\ttfamily 0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+{\footnotesize\ttfamily App\+Model\+::\+App\+Model (\begin{DoxyParamCaption}\item[{Q\+Object $\ast$}]{parent = {\ttfamily nullptr} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
 
 
 
 \mbox{[}0\mbox{]} 
 
-\mbox{[}0\mbox{]}
-
-\mbox{[}1\mbox{]} \mbox{\Hypertarget{class_app_model_a67ab3004ccbe2822a8a0abb9fa96ace3}\label{class_app_model_a67ab3004ccbe2822a8a0abb9fa96ace3}} 
+\mbox{\Hypertarget{class_app_model_a67ab3004ccbe2822a8a0abb9fa96ace3}\label{class_app_model_a67ab3004ccbe2822a8a0abb9fa96ace3}} 
 \index{App\+Model@{App\+Model}!````~App\+Model@{$\sim$\+App\+Model}}
 \index{````~App\+Model@{$\sim$\+App\+Model}!App\+Model@{App\+Model}}
 \subsubsection{\texorpdfstring{$\sim$\+App\+Model()}{~AppModel()}}
@@ -116,84 +118,78 @@ Q\+Qml\+List\+Property$<$ \hyperlink{class_weather_data}{Weather\+Data} $>$ \hyp
 
 
 
-\mbox{[}1\mbox{]} 
-
-Here is the call graph for this function\+:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{class_app_model_a67ab3004ccbe2822a8a0abb9fa96ace3_cgraph}
-\end{center}
-\end{figure}
-
-
 \subsection{Member Function Documentation}
-\mbox{\Hypertarget{class_app_model_a093066c81b5fe2c1361df8fd19a21f51}\label{class_app_model_a093066c81b5fe2c1361df8fd19a21f51}} 
-\index{App\+Model@{App\+Model}!city@{city}}
-\index{city@{city}!App\+Model@{App\+Model}}
-\subsubsection{\texorpdfstring{city()}{city()}}
-{\footnotesize\ttfamily Q\+String App\+Model\+::city (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+\mbox{\Hypertarget{class_app_model_a2e738230cd01012b529adadc3f7c4eae}\label{class_app_model_a2e738230cd01012b529adadc3f7c4eae}} 
+\index{App\+Model@{App\+Model}!build\+Zambretti\+Q\+Json\+Document@{build\+Zambretti\+Q\+Json\+Document}}
+\index{build\+Zambretti\+Q\+Json\+Document@{build\+Zambretti\+Q\+Json\+Document}!App\+Model@{App\+Model}}
+\subsubsection{\texorpdfstring{build\+Zambretti\+Q\+Json\+Document()}{buildZambrettiQJsonDocument()}}
+{\footnotesize\ttfamily Q\+Json\+Document App\+Model\+::build\+Zambretti\+Q\+Json\+Document (\begin{DoxyParamCaption}\item[{Q\+String}]{zpathtable }\end{DoxyParamCaption})}
 
-Here is the caller graph for this function\+:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=326pt]{class_app_model_a093066c81b5fe2c1361df8fd19a21f51_icgraph}
-\end{center}
-\end{figure}
-\mbox{\Hypertarget{class_app_model_aeb28c7a57316aaf6295a943a65f60569}\label{class_app_model_aeb28c7a57316aaf6295a943a65f60569}} 
-\index{App\+Model@{App\+Model}!city\+Changed@{city\+Changed}}
-\index{city\+Changed@{city\+Changed}!App\+Model@{App\+Model}}
-\subsubsection{\texorpdfstring{city\+Changed}{cityChanged}}
-{\footnotesize\ttfamily void App\+Model\+::city\+Changed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+\mbox{\Hypertarget{class_app_model_ac9dff9ffdd21a1749d2461c3d2587f6a}\label{class_app_model_ac9dff9ffdd21a1749d2461c3d2587f6a}} 
+\index{App\+Model@{App\+Model}!get\+Measurement@{get\+Measurement}}
+\index{get\+Measurement@{get\+Measurement}!App\+Model@{App\+Model}}
+\subsubsection{\texorpdfstring{get\+Measurement()}{getMeasurement()}}
+{\footnotesize\ttfamily \hyperlink{class_metrics_average}{Metrics\+Average} App\+Model\+::get\+Measurement (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
-Here is the caller graph for this function\+:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{class_app_model_aeb28c7a57316aaf6295a943a65f60569_icgraph}
-\end{center}
-\end{figure}
-\mbox{\Hypertarget{class_app_model_aa9209b2390924841a009ab0d22b9a1b3}\label{class_app_model_aa9209b2390924841a009ab0d22b9a1b3}} 
-\index{App\+Model@{App\+Model}!forecast@{forecast}}
-\index{forecast@{forecast}!App\+Model@{App\+Model}}
-\subsubsection{\texorpdfstring{forecast()}{forecast()}}
-{\footnotesize\ttfamily Q\+Qml\+List\+Property$<$\hyperlink{class_weather_data}{Weather\+Data}$>$ App\+Model\+::forecast (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+\mbox{\Hypertarget{class_app_model_aeb65a362d2a2875ed038dc1ae359a337}\label{class_app_model_aeb65a362d2a2875ed038dc1ae359a337}} 
+\index{App\+Model@{App\+Model}!get\+Measurements@{get\+Measurements}}
+\index{get\+Measurements@{get\+Measurements}!App\+Model@{App\+Model}}
+\subsubsection{\texorpdfstring{get\+Measurements()}{getMeasurements()}}
+{\footnotesize\ttfamily vector$<$ struct \hyperlink{structdata}{data} $>$ App\+Model\+::get\+Measurements (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
-\mbox{\Hypertarget{class_app_model_ac5fe590924b727724d9c686bb2552ed8}\label{class_app_model_ac5fe590924b727724d9c686bb2552ed8}} 
-\index{App\+Model@{App\+Model}!had\+Error@{had\+Error}}
-\index{had\+Error@{had\+Error}!App\+Model@{App\+Model}}
-\subsubsection{\texorpdfstring{had\+Error()}{hadError()}}
-{\footnotesize\ttfamily void App\+Model\+::had\+Error (\begin{DoxyParamCaption}\item[{bool}]{try\+Again }\end{DoxyParamCaption})}
+\mbox{\Hypertarget{class_app_model_a1e221ad7947cc08e85078416afc5a593}\label{class_app_model_a1e221ad7947cc08e85078416afc5a593}} 
+\index{App\+Model@{App\+Model}!get\+Ztable@{get\+Ztable}}
+\index{get\+Ztable@{get\+Ztable}!App\+Model@{App\+Model}}
+\subsubsection{\texorpdfstring{get\+Ztable()}{getZtable()}}
+{\footnotesize\ttfamily Q\+Json\+Document App\+Model\+::get\+Ztable (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
-Manage time to wait before sending new request to get weather information before Here is the call graph for this function\+:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{class_app_model_ac5fe590924b727724d9c686bb2552ed8_cgraph}
-\end{center}
-\end{figure}
-\mbox{\Hypertarget{class_app_model_a8ad68e982b0a307d9986ff538baedbd2}\label{class_app_model_a8ad68e982b0a307d9986ff538baedbd2}} 
-\index{App\+Model@{App\+Model}!has\+Source@{has\+Source}}
-\index{has\+Source@{has\+Source}!App\+Model@{App\+Model}}
-\subsubsection{\texorpdfstring{has\+Source()}{hasSource()}}
-{\footnotesize\ttfamily bool App\+Model\+::has\+Source (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+\mbox{\Hypertarget{class_app_model_a99a784aac19e82ccc6c0dd0509b4ea04}\label{class_app_model_a99a784aac19e82ccc6c0dd0509b4ea04}} 
+\index{App\+Model@{App\+Model}!handle\+Zambretti\+Data@{handle\+Zambretti\+Data}}
+\index{handle\+Zambretti\+Data@{handle\+Zambretti\+Data}!App\+Model@{App\+Model}}
+\subsubsection{\texorpdfstring{handle\+Zambretti\+Data()}{handleZambrettiData()}}
+{\footnotesize\ttfamily void App\+Model\+::handle\+Zambretti\+Data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-\mbox{\Hypertarget{class_app_model_aedeadab67d9bc5f5dfead369f66c3912}\label{class_app_model_aedeadab67d9bc5f5dfead369f66c3912}} 
-\index{App\+Model@{App\+Model}!has\+Valid\+City@{has\+Valid\+City}}
-\index{has\+Valid\+City@{has\+Valid\+City}!App\+Model@{App\+Model}}
-\subsubsection{\texorpdfstring{has\+Valid\+City()}{hasValidCity()}}
-{\footnotesize\ttfamily bool App\+Model\+::has\+Valid\+City (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+\mbox{\Hypertarget{class_app_model_a75d2b6e818885a77f1b1dd56fc3c9cd3}\label{class_app_model_a75d2b6e818885a77f1b1dd56fc3c9cd3}} 
+\index{App\+Model@{App\+Model}!handle\+Zambretti\+Num@{handle\+Zambretti\+Num}}
+\index{handle\+Zambretti\+Num@{handle\+Zambretti\+Num}!App\+Model@{App\+Model}}
+\subsubsection{\texorpdfstring{handle\+Zambretti\+Num()}{handleZambrettiNum()}}
+{\footnotesize\ttfamily void App\+Model\+::handle\+Zambretti\+Num (\begin{DoxyParamCaption}\item[{int}]{ }\end{DoxyParamCaption})}
 
 \mbox{\Hypertarget{class_app_model_a6ec5b34a1839a7141979709418174ad1}\label{class_app_model_a6ec5b34a1839a7141979709418174ad1}} 
 \index{App\+Model@{App\+Model}!has\+Valid\+Weather@{has\+Valid\+Weather}}
 \index{has\+Valid\+Weather@{has\+Valid\+Weather}!App\+Model@{App\+Model}}
 \subsubsection{\texorpdfstring{has\+Valid\+Weather()}{hasValidWeather()}}
 {\footnotesize\ttfamily bool App\+Model\+::has\+Valid\+Weather (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_app_model_a91f558862aad6b2509f03e49b549270e}\label{class_app_model_a91f558862aad6b2509f03e49b549270e}} 
+\index{App\+Model@{App\+Model}!manage\+Metrics\+Average@{manage\+Metrics\+Average}}
+\index{manage\+Metrics\+Average@{manage\+Metrics\+Average}!App\+Model@{App\+Model}}
+\subsubsection{\texorpdfstring{manage\+Metrics\+Average()}{manageMetricsAverage()}}
+{\footnotesize\ttfamily void App\+Model\+::manage\+Metrics\+Average (\begin{DoxyParamCaption}\item[{\hyperlink{class_zambretti}{Zambretti} $\ast$}]{Zamb }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_app_model_a1d9a24aeaab75b815f6500e9521dc091}\label{class_app_model_a1d9a24aeaab75b815f6500e9521dc091}} 
+\index{App\+Model@{App\+Model}!measurements\+Updated@{measurements\+Updated}}
+\index{measurements\+Updated@{measurements\+Updated}!App\+Model@{App\+Model}}
+\subsubsection{\texorpdfstring{measurements\+Updated}{measurementsUpdated}}
+{\footnotesize\ttfamily void App\+Model\+::measurements\+Updated (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+\mbox{\Hypertarget{class_app_model_a51e3556fa389b11c251a0a94f0a5655c}\label{class_app_model_a51e3556fa389b11c251a0a94f0a5655c}} 
+\index{App\+Model@{App\+Model}!measurevalue@{measurevalue}}
+\index{measurevalue@{measurevalue}!App\+Model@{App\+Model}}
+\subsubsection{\texorpdfstring{measurevalue}{measurevalue}}
+{\footnotesize\ttfamily void App\+Model\+::measurevalue (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+call \hyperlink{class_metrics_average}{Metrics\+Average} mesurevalue method add metrics data to \hyperlink{class_app_model}{App\+Model} measurements vector \mbox{\Hypertarget{class_app_model_a2bb0474a4f5f73ca23f9f72c97912192}\label{class_app_model_a2bb0474a4f5f73ca23f9f72c97912192}} 
+\index{App\+Model@{App\+Model}!print\+Measurement@{print\+Measurement}}
+\index{print\+Measurement@{print\+Measurement}!App\+Model@{App\+Model}}
+\subsubsection{\texorpdfstring{print\+Measurement()}{printMeasurement()}}
+{\footnotesize\ttfamily void App\+Model\+::print\+Measurement (\begin{DoxyParamCaption}\item[{struct \hyperlink{structdata}{data} \hyperlink{structdata}{data}}]{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_app_model_ac60073d6c96f7471f7227be130033399}\label{class_app_model_ac60073d6c96f7471f7227be130033399}} 
+\index{App\+Model@{App\+Model}!print\+Measurements@{print\+Measurements}}
+\index{print\+Measurements@{print\+Measurements}!App\+Model@{App\+Model}}
+\subsubsection{\texorpdfstring{print\+Measurements()}{printMeasurements()}}
+{\footnotesize\ttfamily void App\+Model\+::print\+Measurements (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
 \mbox{\Hypertarget{class_app_model_a3917fdc3dd8c97715991d9fd1a23abcc}\label{class_app_model_a3917fdc3dd8c97715991d9fd1a23abcc}} 
 \index{App\+Model@{App\+Model}!ready@{ready}}
@@ -207,10 +203,6 @@ Manage time to wait before sending new request to get weather information before
 \subsubsection{\texorpdfstring{ready\+Changed}{readyChanged}}
 {\footnotesize\ttfamily void App\+Model\+::ready\+Changed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
 
-
-
-\mbox{[}3\mbox{]} 
-
 \mbox{\Hypertarget{class_app_model_a37e1da9d028779f7f0fc908e4c04fa76}\label{class_app_model_a37e1da9d028779f7f0fc908e4c04fa76}} 
 \index{App\+Model@{App\+Model}!refresh\+Weather@{refresh\+Weather}}
 \index{refresh\+Weather@{refresh\+Weather}!App\+Model@{App\+Model}}
@@ -221,104 +213,30 @@ Manage time to wait before sending new request to get weather information before
 
 \hyperlink{class_app_model_a37e1da9d028779f7f0fc908e4c04fa76}{App\+Model\+::refresh\+Weather} Access \href{http://api.openweathermap.org/data/2.5/weather}{\tt http\+://api.\+openweathermap.\+org/data/2.\+5/weather} site to get a specific city data Deals with connection errors. 
 
-Here is the caller graph for this function\+:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{class_app_model_a37e1da9d028779f7f0fc908e4c04fa76_icgraph}
-\end{center}
-\end{figure}
-\mbox{\Hypertarget{class_app_model_ad0135d4a1551b6484ac28c434f861af5}\label{class_app_model_ad0135d4a1551b6484ac28c434f861af5}} 
-\index{App\+Model@{App\+Model}!set\+City@{set\+City}}
-\index{set\+City@{set\+City}!App\+Model@{App\+Model}}
-\subsubsection{\texorpdfstring{set\+City()}{setCity()}}
-{\footnotesize\ttfamily void App\+Model\+::set\+City (\begin{DoxyParamCaption}\item[{const Q\+String \&}]{value }\end{DoxyParamCaption})}
+\mbox{\Hypertarget{class_app_model_af8e28b32ab4d33c6f10bcab5d9c5b25c}\label{class_app_model_af8e28b32ab4d33c6f10bcab5d9c5b25c}} 
+\index{App\+Model@{App\+Model}!set\+Measurement@{set\+Measurement}}
+\index{set\+Measurement@{set\+Measurement}!App\+Model@{App\+Model}}
+\subsubsection{\texorpdfstring{set\+Measurement()}{setMeasurement()}}
+{\footnotesize\ttfamily void App\+Model\+::set\+Measurement (\begin{DoxyParamCaption}\item[{const \hyperlink{class_metrics_average}{Metrics\+Average} \&}]{value }\end{DoxyParamCaption})}
 
-Here is the call graph for this function\+:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=347pt]{class_app_model_ad0135d4a1551b6484ac28c434f861af5_cgraph}
-\end{center}
-\end{figure}
-\mbox{\Hypertarget{class_app_model_a81c3ffb3370837086366c9f70bb3d5eb}\label{class_app_model_a81c3ffb3370837086366c9f70bb3d5eb}} 
-\index{App\+Model@{App\+Model}!set\+Use\+Gps@{set\+Use\+Gps}}
-\index{set\+Use\+Gps@{set\+Use\+Gps}!App\+Model@{App\+Model}}
-\subsubsection{\texorpdfstring{set\+Use\+Gps()}{setUseGps()}}
-{\footnotesize\ttfamily void App\+Model\+::set\+Use\+Gps (\begin{DoxyParamCaption}\item[{bool}]{value }\end{DoxyParamCaption})}
+\mbox{\Hypertarget{class_app_model_ad78b2a410448a33eb9913cebfa64d32d}\label{class_app_model_ad78b2a410448a33eb9913cebfa64d32d}} 
+\index{App\+Model@{App\+Model}!set\+Measurements@{set\+Measurements}}
+\index{set\+Measurements@{set\+Measurements}!App\+Model@{App\+Model}}
+\subsubsection{\texorpdfstring{set\+Measurements()}{setMeasurements()}}
+{\footnotesize\ttfamily void App\+Model\+::set\+Measurements (\begin{DoxyParamCaption}\item[{const vector$<$ struct \hyperlink{structdata}{data} $>$ \&}]{value }\end{DoxyParamCaption})}
 
-Here is the call graph for this function\+:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=345pt]{class_app_model_a81c3ffb3370837086366c9f70bb3d5eb_cgraph}
-\end{center}
-\end{figure}
-\mbox{\Hypertarget{class_app_model_ad1369130f74b4aabd0ac0d6b1b030014}\label{class_app_model_ad1369130f74b4aabd0ac0d6b1b030014}} 
-\index{App\+Model@{App\+Model}!set\+Use\+Sensor@{set\+Use\+Sensor}}
-\index{set\+Use\+Sensor@{set\+Use\+Sensor}!App\+Model@{App\+Model}}
-\subsubsection{\texorpdfstring{set\+Use\+Sensor()}{setUseSensor()}}
-{\footnotesize\ttfamily void App\+Model\+::set\+Use\+Sensor (\begin{DoxyParamCaption}\item[{bool}]{value }\end{DoxyParamCaption})}
+\mbox{\Hypertarget{class_app_model_a18bdf8b2328b6d64e2315b5e8027f07e}\label{class_app_model_a18bdf8b2328b6d64e2315b5e8027f07e}} 
+\index{App\+Model@{App\+Model}!set\+Zambretti\+Q\+Json\+Document@{set\+Zambretti\+Q\+Json\+Document}}
+\index{set\+Zambretti\+Q\+Json\+Document@{set\+Zambretti\+Q\+Json\+Document}!App\+Model@{App\+Model}}
+\subsubsection{\texorpdfstring{set\+Zambretti\+Q\+Json\+Document()}{setZambrettiQJsonDocument()}}
+{\footnotesize\ttfamily void App\+Model\+::set\+Zambretti\+Q\+Json\+Document (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-Here is the call graph for this function\+:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=326pt]{class_app_model_ad1369130f74b4aabd0ac0d6b1b030014_cgraph}
-\end{center}
-\end{figure}
-\mbox{\Hypertarget{class_app_model_a0e6e7506ba084133a6927d8c633ad699}\label{class_app_model_a0e6e7506ba084133a6927d8c633ad699}} 
-\index{App\+Model@{App\+Model}!use\+Gps@{use\+Gps}}
-\index{use\+Gps@{use\+Gps}!App\+Model@{App\+Model}}
-\subsubsection{\texorpdfstring{use\+Gps()}{useGps()}}
-{\footnotesize\ttfamily bool App\+Model\+::use\+Gps (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+\mbox{\Hypertarget{class_app_model_ad4f010e1e4244d90cd648c6806dcda4e}\label{class_app_model_ad4f010e1e4244d90cd648c6806dcda4e}} 
+\index{App\+Model@{App\+Model}!set\+Ztable@{set\+Ztable}}
+\index{set\+Ztable@{set\+Ztable}!App\+Model@{App\+Model}}
+\subsubsection{\texorpdfstring{set\+Ztable()}{setZtable()}}
+{\footnotesize\ttfamily void App\+Model\+::set\+Ztable (\begin{DoxyParamCaption}\item[{const Q\+Json\+Document \&}]{value }\end{DoxyParamCaption})}
 
-\mbox{\Hypertarget{class_app_model_af0007ee4da862433868baa5fdb31a3fe}\label{class_app_model_af0007ee4da862433868baa5fdb31a3fe}} 
-\index{App\+Model@{App\+Model}!use\+Gps\+Changed@{use\+Gps\+Changed}}
-\index{use\+Gps\+Changed@{use\+Gps\+Changed}!App\+Model@{App\+Model}}
-\subsubsection{\texorpdfstring{use\+Gps\+Changed}{useGpsChanged}}
-{\footnotesize\ttfamily void App\+Model\+::use\+Gps\+Changed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
-
-Here is the caller graph for this function\+:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{class_app_model_af0007ee4da862433868baa5fdb31a3fe_icgraph}
-\end{center}
-\end{figure}
-\mbox{\Hypertarget{class_app_model_a5b83f8c93976273d6e9f1664e62efe63}\label{class_app_model_a5b83f8c93976273d6e9f1664e62efe63}} 
-\index{App\+Model@{App\+Model}!use\+Sensor@{use\+Sensor}}
-\index{use\+Sensor@{use\+Sensor}!App\+Model@{App\+Model}}
-\subsubsection{\texorpdfstring{use\+Sensor()}{useSensor()}}
-{\footnotesize\ttfamily bool App\+Model\+::use\+Sensor (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
-
-Here is the caller graph for this function\+:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=345pt]{class_app_model_a5b83f8c93976273d6e9f1664e62efe63_icgraph}
-\end{center}
-\end{figure}
-\mbox{\Hypertarget{class_app_model_a947db57e8c272bdb2420f3f273cd2e6a}\label{class_app_model_a947db57e8c272bdb2420f3f273cd2e6a}} 
-\index{App\+Model@{App\+Model}!use\+Sensor\+Changed@{use\+Sensor\+Changed}}
-\index{use\+Sensor\+Changed@{use\+Sensor\+Changed}!App\+Model@{App\+Model}}
-\subsubsection{\texorpdfstring{use\+Sensor\+Changed}{useSensorChanged}}
-{\footnotesize\ttfamily void App\+Model\+::use\+Sensor\+Changed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
-
-Here is the caller graph for this function\+:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{class_app_model_a947db57e8c272bdb2420f3f273cd2e6a_icgraph}
-\end{center}
-\end{figure}
 \mbox{\Hypertarget{class_app_model_a70a5bec8e359e4edbd16611efa96cf32}\label{class_app_model_a70a5bec8e359e4edbd16611efa96cf32}} 
 \index{App\+Model@{App\+Model}!weather@{weather}}
 \index{weather@{weather}!App\+Model@{App\+Model}}
@@ -331,41 +249,30 @@ Here is the caller graph for this function\+:
 \subsubsection{\texorpdfstring{weather\+Changed}{weatherChanged}}
 {\footnotesize\ttfamily void App\+Model\+::weather\+Changed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
 
-Here is the caller graph for this function\+:
-\nopagebreak
-\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[width=350pt]{class_app_model_a83e61455ed5672333b0db45f3f86417c_icgraph}
-\end{center}
-\end{figure}
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{class_app_model_a91ca3de4d7513b5406dbb34995244a0b}\label{class_app_model_a91ca3de4d7513b5406dbb34995244a0b}} 
+\index{App\+Model@{App\+Model}!measurement@{measurement}}
+\index{measurement@{measurement}!App\+Model@{App\+Model}}
+\subsubsection{\texorpdfstring{measurement}{measurement}}
+{\footnotesize\ttfamily \hyperlink{class_metrics_average}{Metrics\+Average} App\+Model\+::measurement}
+
+\mbox{\Hypertarget{class_app_model_aedc9eb083a5b230134be32865a6a5152}\label{class_app_model_aedc9eb083a5b230134be32865a6a5152}} 
+\index{App\+Model@{App\+Model}!measurements@{measurements}}
+\index{measurements@{measurements}!App\+Model@{App\+Model}}
+\subsubsection{\texorpdfstring{measurements}{measurements}}
+{\footnotesize\ttfamily vector$<$struct \hyperlink{structdata}{data}$>$ App\+Model\+::measurements}
+
+\mbox{\Hypertarget{class_app_model_a09d51e8d2cff7a4a34bd791d0674d338}\label{class_app_model_a09d51e8d2cff7a4a34bd791d0674d338}} 
+\index{App\+Model@{App\+Model}!ztable@{ztable}}
+\index{ztable@{ztable}!App\+Model@{App\+Model}}
+\subsubsection{\texorpdfstring{ztable}{ztable}}
+{\footnotesize\ttfamily Q\+Json\+Document App\+Model\+::ztable}
+
 
 
 \subsection{Property Documentation}
-\mbox{\Hypertarget{class_app_model_aa6915cabdaaf04805e00b5a2f75311e8}\label{class_app_model_aa6915cabdaaf04805e00b5a2f75311e8}} 
-\index{App\+Model@{App\+Model}!city@{city}}
-\index{city@{city}!App\+Model@{App\+Model}}
-\subsubsection{\texorpdfstring{city}{city}}
-{\footnotesize\ttfamily Q\+String App\+Model\+::city\hspace{0.3cm}{\ttfamily [read]}, {\ttfamily [write]}}
-
-\mbox{\Hypertarget{class_app_model_a3e45f56df91b1ad6d27c02c4ab1ad3c3}\label{class_app_model_a3e45f56df91b1ad6d27c02c4ab1ad3c3}} 
-\index{App\+Model@{App\+Model}!forecast@{forecast}}
-\index{forecast@{forecast}!App\+Model@{App\+Model}}
-\subsubsection{\texorpdfstring{forecast}{forecast}}
-{\footnotesize\ttfamily Q\+Qml\+List\+Property$<$ \hyperlink{class_weather_data}{Weather\+Data} $>$ App\+Model\+::forecast\hspace{0.3cm}{\ttfamily [read]}}
-
-\mbox{\Hypertarget{class_app_model_a2d25ce9151aea6a45cae797756a84445}\label{class_app_model_a2d25ce9151aea6a45cae797756a84445}} 
-\index{App\+Model@{App\+Model}!has\+Source@{has\+Source}}
-\index{has\+Source@{has\+Source}!App\+Model@{App\+Model}}
-\subsubsection{\texorpdfstring{has\+Source}{hasSource}}
-{\footnotesize\ttfamily bool App\+Model\+::has\+Source\hspace{0.3cm}{\ttfamily [read]}}
-
-\mbox{\Hypertarget{class_app_model_a98845ef5ffa3d9db0ee22aa3534b8608}\label{class_app_model_a98845ef5ffa3d9db0ee22aa3534b8608}} 
-\index{App\+Model@{App\+Model}!has\+Valid\+City@{has\+Valid\+City}}
-\index{has\+Valid\+City@{has\+Valid\+City}!App\+Model@{App\+Model}}
-\subsubsection{\texorpdfstring{has\+Valid\+City}{hasValidCity}}
-{\footnotesize\ttfamily bool App\+Model\+::has\+Valid\+City\hspace{0.3cm}{\ttfamily [read]}}
-
 \mbox{\Hypertarget{class_app_model_a493654987603c091935810e34e6b5c05}\label{class_app_model_a493654987603c091935810e34e6b5c05}} 
 \index{App\+Model@{App\+Model}!has\+Valid\+Weather@{has\+Valid\+Weather}}
 \index{has\+Valid\+Weather@{has\+Valid\+Weather}!App\+Model@{App\+Model}}
@@ -378,18 +285,6 @@ Here is the caller graph for this function\+:
 \subsubsection{\texorpdfstring{ready}{ready}}
 {\footnotesize\ttfamily bool App\+Model\+::ready\hspace{0.3cm}{\ttfamily [read]}}
 
-\mbox{\Hypertarget{class_app_model_aac827e2dce65eb299d4eec5ff4ab2155}\label{class_app_model_aac827e2dce65eb299d4eec5ff4ab2155}} 
-\index{App\+Model@{App\+Model}!use\+Gps@{use\+Gps}}
-\index{use\+Gps@{use\+Gps}!App\+Model@{App\+Model}}
-\subsubsection{\texorpdfstring{use\+Gps}{useGps}}
-{\footnotesize\ttfamily bool App\+Model\+::use\+Gps\hspace{0.3cm}{\ttfamily [read]}, {\ttfamily [write]}}
-
-\mbox{\Hypertarget{class_app_model_ada296063fe2916580f532b639a546851}\label{class_app_model_ada296063fe2916580f532b639a546851}} 
-\index{App\+Model@{App\+Model}!use\+Sensor@{use\+Sensor}}
-\index{use\+Sensor@{use\+Sensor}!App\+Model@{App\+Model}}
-\subsubsection{\texorpdfstring{use\+Sensor}{useSensor}}
-{\footnotesize\ttfamily bool App\+Model\+::use\+Sensor\hspace{0.3cm}{\ttfamily [read]}, {\ttfamily [write]}}
-
 \mbox{\Hypertarget{class_app_model_a72dfc16433c4ca50da689205e9db9298}\label{class_app_model_a72dfc16433c4ca50da689205e9db9298}} 
 \index{App\+Model@{App\+Model}!weather@{weather}}
 \index{weather@{weather}!App\+Model@{App\+Model}}
@@ -400,5 +295,5 @@ Here is the caller graph for this function\+:
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-/home/jerome/projects/\+Weather\+Checking\+Rpi/weathercheckingrpi/\hyperlink{appmodel_8h}{appmodel.\+h}\item 
-/home/jerome/projects/\+Weather\+Checking\+Rpi/weathercheckingrpi/\hyperlink{appmodel_8cpp}{appmodel.\+cpp}\end{DoxyCompactItemize}
+\hyperlink{appmodel_8h}{appmodel.\+h}\item 
+\hyperlink{appmodel_8cpp}{appmodel.\+cpp}\end{DoxyCompactItemize}

@@ -1,0 +1,65 @@
+\hypertarget{bme280_8c}{}\section{sensor/bme280.c File Reference}
+\label{bme280_8c}\index{sensor/bme280.\+c@{sensor/bme280.\+c}}
+
+
+Sensor driver for B\+M\+E280 sensor.  
+
+
+{\ttfamily \#include \char`\"{}bme280.\+h\char`\"{}}\newline
+Include dependency graph for bme280.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=200pt]{bme280_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Internal macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{bme280_8c_a17c5a85c1a9613150ab6a7f798baa427}{O\+V\+E\+R\+S\+A\+M\+P\+L\+I\+N\+G\+\_\+\+S\+E\+T\+T\+I\+N\+GS}~\hyperlink{group___b_m_e280_gacd2aa09844a8a245cf7fdbb808e215e5}{U\+I\+N\+T8\+\_\+C}(0x07)
+\item 
+\#define \hyperlink{bme280_8c_a124daa6c7034cbf83e4380265fc5c3f6}{F\+I\+L\+T\+E\+R\+\_\+\+S\+T\+A\+N\+D\+B\+Y\+\_\+\+S\+E\+T\+T\+I\+N\+GS}~\hyperlink{group___b_m_e280_gacd2aa09844a8a245cf7fdbb808e215e5}{U\+I\+N\+T8\+\_\+C}(0x18)
+\item 
+int8\+\_\+t \hyperlink{group___b_m_e280_gaf0b7d7a19bb48ec9eb3651b79f0c3e85}{bme280\+\_\+init} (struct \hyperlink{structbme280__dev}{bme280\+\_\+dev} $\ast$dev)
+\begin{DoxyCompactList}\small\item\em This A\+PI is the entry point. It reads the chip-\/id and calibration data from the sensor. \end{DoxyCompactList}\item 
+int8\+\_\+t \hyperlink{group___b_m_e280_ga992c5a438b414fe4724764738b88d9d7}{bme280\+\_\+get\+\_\+regs} (uint8\+\_\+t reg\+\_\+addr, uint8\+\_\+t $\ast$reg\+\_\+data, uint16\+\_\+t len, const struct \hyperlink{structbme280__dev}{bme280\+\_\+dev} $\ast$dev)
+\begin{DoxyCompactList}\small\item\em This A\+PI reads the data from the given register address of the sensor. \end{DoxyCompactList}\item 
+int8\+\_\+t \hyperlink{group___b_m_e280_ga002175df0ebe7893fcf0a54dfe806ba1}{bme280\+\_\+set\+\_\+regs} (uint8\+\_\+t $\ast$reg\+\_\+addr, const uint8\+\_\+t $\ast$reg\+\_\+data, uint8\+\_\+t len, const struct \hyperlink{structbme280__dev}{bme280\+\_\+dev} $\ast$dev)
+\begin{DoxyCompactList}\small\item\em This A\+PI writes the given data to the register address of the sensor. \end{DoxyCompactList}\item 
+int8\+\_\+t \hyperlink{group___b_m_e280_ga5d436d907394fde22471347599948205}{bme280\+\_\+set\+\_\+sensor\+\_\+settings} (uint8\+\_\+t desired\+\_\+settings, const struct \hyperlink{structbme280__dev}{bme280\+\_\+dev} $\ast$dev)
+\begin{DoxyCompactList}\small\item\em This A\+PI sets the oversampling, filter and standby duration (normal mode) settings in the sensor. \end{DoxyCompactList}\item 
+int8\+\_\+t \hyperlink{group___b_m_e280_gaf3bef90d33942197a98715ea8657211f}{bme280\+\_\+get\+\_\+sensor\+\_\+settings} (struct \hyperlink{structbme280__dev}{bme280\+\_\+dev} $\ast$dev)
+\begin{DoxyCompactList}\small\item\em This A\+PI gets the oversampling, filter and standby duration (normal mode) settings from the sensor. \end{DoxyCompactList}\item 
+int8\+\_\+t \hyperlink{group___b_m_e280_ga17a0eaeb97e43233af3e6aac8bd426d4}{bme280\+\_\+set\+\_\+sensor\+\_\+mode} (uint8\+\_\+t sensor\+\_\+mode, const struct \hyperlink{structbme280__dev}{bme280\+\_\+dev} $\ast$dev)
+\begin{DoxyCompactList}\small\item\em This A\+PI sets the power mode of the sensor. \end{DoxyCompactList}\item 
+int8\+\_\+t \hyperlink{group___b_m_e280_ga4e9e8d290d842abb3262591ff9f64bc4}{bme280\+\_\+get\+\_\+sensor\+\_\+mode} (uint8\+\_\+t $\ast$sensor\+\_\+mode, const struct \hyperlink{structbme280__dev}{bme280\+\_\+dev} $\ast$dev)
+\begin{DoxyCompactList}\small\item\em This A\+PI gets the power mode of the sensor. \end{DoxyCompactList}\item 
+int8\+\_\+t \hyperlink{group___b_m_e280_ga90dd2358e7050455585842a0fd468f97}{bme280\+\_\+soft\+\_\+reset} (const struct \hyperlink{structbme280__dev}{bme280\+\_\+dev} $\ast$dev)
+\begin{DoxyCompactList}\small\item\em This A\+PI performs the soft reset of the sensor. \end{DoxyCompactList}\item 
+int8\+\_\+t \hyperlink{group___b_m_e280_ga6671fea2c1e01f40029a653b9ab4410d}{bme280\+\_\+get\+\_\+sensor\+\_\+data} (uint8\+\_\+t sensor\+\_\+comp, struct \hyperlink{structbme280__data}{bme280\+\_\+data} $\ast$comp\+\_\+data, struct \hyperlink{structbme280__dev}{bme280\+\_\+dev} $\ast$dev)
+\begin{DoxyCompactList}\small\item\em This A\+PI reads the pressure, temperature and humidity data from the sensor, compensates the data and store it in the \hyperlink{structbme280__data}{bme280\+\_\+data} structure instance passed by the user. \end{DoxyCompactList}\item 
+void \hyperlink{group___b_m_e280_ga84be45ccf7a3a82138ff2170123462c3}{bme280\+\_\+parse\+\_\+sensor\+\_\+data} (const uint8\+\_\+t $\ast$reg\+\_\+data, struct \hyperlink{structbme280__uncomp__data}{bme280\+\_\+uncomp\+\_\+data} $\ast$uncomp\+\_\+data)
+\begin{DoxyCompactList}\small\item\em This A\+PI is used to parse the pressure, temperature and humidity data and store it in the \hyperlink{structbme280__uncomp__data}{bme280\+\_\+uncomp\+\_\+data} structure instance. \end{DoxyCompactList}\item 
+int8\+\_\+t \hyperlink{group___b_m_e280_ga9f2c3c8c683b434ca10447515f85c0de}{bme280\+\_\+compensate\+\_\+data} (uint8\+\_\+t sensor\+\_\+comp, const struct \hyperlink{structbme280__uncomp__data}{bme280\+\_\+uncomp\+\_\+data} $\ast$uncomp\+\_\+data, struct \hyperlink{structbme280__data}{bme280\+\_\+data} $\ast$comp\+\_\+data, struct \hyperlink{structbme280__calib__data}{bme280\+\_\+calib\+\_\+data} $\ast$calib\+\_\+data)
+\begin{DoxyCompactList}\small\item\em This A\+PI is used to compensate the pressure and/or temperature and/or humidity data according to the component selected by the user. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Sensor driver for B\+M\+E280 sensor. 
+
+
+
+\subsection{Macro Definition Documentation}
+\mbox{\Hypertarget{bme280_8c_a124daa6c7034cbf83e4380265fc5c3f6}\label{bme280_8c_a124daa6c7034cbf83e4380265fc5c3f6}} 
+\index{bme280.\+c@{bme280.\+c}!F\+I\+L\+T\+E\+R\+\_\+\+S\+T\+A\+N\+D\+B\+Y\+\_\+\+S\+E\+T\+T\+I\+N\+GS@{F\+I\+L\+T\+E\+R\+\_\+\+S\+T\+A\+N\+D\+B\+Y\+\_\+\+S\+E\+T\+T\+I\+N\+GS}}
+\index{F\+I\+L\+T\+E\+R\+\_\+\+S\+T\+A\+N\+D\+B\+Y\+\_\+\+S\+E\+T\+T\+I\+N\+GS@{F\+I\+L\+T\+E\+R\+\_\+\+S\+T\+A\+N\+D\+B\+Y\+\_\+\+S\+E\+T\+T\+I\+N\+GS}!bme280.\+c@{bme280.\+c}}
+\subsubsection{\texorpdfstring{F\+I\+L\+T\+E\+R\+\_\+\+S\+T\+A\+N\+D\+B\+Y\+\_\+\+S\+E\+T\+T\+I\+N\+GS}{FILTER\_STANDBY\_SETTINGS}}
+{\footnotesize\ttfamily \#define F\+I\+L\+T\+E\+R\+\_\+\+S\+T\+A\+N\+D\+B\+Y\+\_\+\+S\+E\+T\+T\+I\+N\+GS~\hyperlink{group___b_m_e280_gacd2aa09844a8a245cf7fdbb808e215e5}{U\+I\+N\+T8\+\_\+C}(0x18)}
+
+\mbox{\Hypertarget{bme280_8c_a17c5a85c1a9613150ab6a7f798baa427}\label{bme280_8c_a17c5a85c1a9613150ab6a7f798baa427}} 
+\index{bme280.\+c@{bme280.\+c}!O\+V\+E\+R\+S\+A\+M\+P\+L\+I\+N\+G\+\_\+\+S\+E\+T\+T\+I\+N\+GS@{O\+V\+E\+R\+S\+A\+M\+P\+L\+I\+N\+G\+\_\+\+S\+E\+T\+T\+I\+N\+GS}}
+\index{O\+V\+E\+R\+S\+A\+M\+P\+L\+I\+N\+G\+\_\+\+S\+E\+T\+T\+I\+N\+GS@{O\+V\+E\+R\+S\+A\+M\+P\+L\+I\+N\+G\+\_\+\+S\+E\+T\+T\+I\+N\+GS}!bme280.\+c@{bme280.\+c}}
+\subsubsection{\texorpdfstring{O\+V\+E\+R\+S\+A\+M\+P\+L\+I\+N\+G\+\_\+\+S\+E\+T\+T\+I\+N\+GS}{OVERSAMPLING\_SETTINGS}}
+{\footnotesize\ttfamily \#define O\+V\+E\+R\+S\+A\+M\+P\+L\+I\+N\+G\+\_\+\+S\+E\+T\+T\+I\+N\+GS~\hyperlink{group___b_m_e280_gacd2aa09844a8a245cf7fdbb808e215e5}{U\+I\+N\+T8\+\_\+C}(0x07)}
+

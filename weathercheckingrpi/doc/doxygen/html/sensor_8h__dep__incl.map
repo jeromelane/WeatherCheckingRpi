@@ -1,0 +1,9 @@
+<map id="sensor/sensor.h" name="sensor/sensor.h">
+<area shape="rect" id="node2" href="$_metrics_average_8h.html" title="sensor/MetricsAverage.h" alt="" coords="157,80,323,107"/>
+<area shape="rect" id="node3" href="$appmodel_8h.html" title="appmodel.h" alt="" coords="13,155,102,181"/>
+<area shape="rect" id="node4" href="$appmodel_8cpp.html" title="appmodel.cpp" alt="" coords="105,229,207,256"/>
+<area shape="rect" id="node7" href="$_metrics_average_8cpp.html" title="sensor/MetricsAverage.cpp" alt="" coords="327,155,508,181"/>
+<area shape="rect" id="node8" href="$sensor_8c.html" title="sensor/sensor.c" alt="" coords="583,80,697,107"/>
+<area shape="rect" id="node6" href="$main2_8cpp.html" title="sensor/main2.cpp" alt="" coords="177,155,303,181"/>
+<area shape="rect" id="node5" href="$main_8cpp.html" title="main.cpp" alt="" coords="5,229,80,256"/>
+</map>

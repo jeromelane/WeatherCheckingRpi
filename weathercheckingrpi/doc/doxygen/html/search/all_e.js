@@ -1,8 +1,7 @@
 var searchData=
 [
-  ['weather',['weather',['../class_app_model.html#a72dfc16433c4ca50da689205e9db9298',1,'AppModel::weather()'],['../class_app_model.html#a70a5bec8e359e4edbd16611efa96cf32',1,'AppModel::weather() const']]],
-  ['weatherchanged',['weatherChanged',['../class_app_model.html#a83e61455ed5672333b0db45f3f86417c',1,'AppModel']]],
-  ['weatherdata',['WeatherData',['../class_weather_data.html',1,'WeatherData'],['../class_weather_data.html#aae42655299392d3f90feec9911a2dd60',1,'WeatherData::WeatherData(QObject *parent=0)'],['../class_weather_data.html#a48baeaa6b2a77d2a5e008159188416e8',1,'WeatherData::WeatherData(const WeatherData &amp;other)']]],
-  ['weatherdescription',['weatherDescription',['../class_weather_data.html#a8b470bc177e317a6a6a6b51758724a1a',1,'WeatherData::weatherDescription()'],['../class_weather_data.html#a63a3528697c8681bd32d4d170ec91f76',1,'WeatherData::weatherDescription() const']]],
-  ['weathericon',['weatherIcon',['../class_weather_data.html#aca04e1877e2d5bc6da0f1e9910553741',1,'WeatherData::weatherIcon()'],['../class_weather_data.html#a5baf2d9cc08741d7af4a07d61df95ee4',1,'WeatherData::weatherIcon() const']]]
+  ['t_5ffine',['t_fine',['../structbme280__calib__data.html#a035b8d8756456820ec82f26a2cf62ffa',1,'bme280_calib_data']]],
+  ['temperature',['temperature',['../class_weather_data.html#a2ee510e51cb81a6a479cd0af5f291e2c',1,'WeatherData::temperature()'],['../structbme280__data.html#a16a033ae72f60312e8528dde5a686154',1,'bme280_data::temperature()'],['../structbme280__uncomp__data.html#a0ae24e11ffef8390b948b53ba4dbb652',1,'bme280_uncomp_data::temperature()'],['../structdata.html#a92d573d048b933148a65e445b20df3b9',1,'data::temperature()'],['../class_weather_data.html#a5a193e8410e3a146de59bab224cd88f0',1,'WeatherData::temperature()']]],
+  ['temperaturetab',['temperaturetab',['../structdatatab.html#aff78d9a5fd529111ab738f41bb6120c5',1,'datatab']]],
+  ['true',['TRUE',['../group___b_m_e280.html#gaa8cecfc5c5c054d2875c03e77b7be15d',1,'bme280_defs.h']]]
 ];

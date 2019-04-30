@@ -1,5 +1,15 @@
 \hypertarget{class_app_model_private}{}\section{App\+Model\+Private Class Reference}
 \label{class_app_model_private}\index{App\+Model\+Private@{App\+Model\+Private}}
+
+
+Collaboration diagram for App\+Model\+Private\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=171pt]{class_app_model_private__coll__graph}
+\end{center}
+\end{figure}
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -8,48 +18,11 @@
 \subsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-Q\+Geo\+Position\+Info\+Source $\ast$ \hyperlink{class_app_model_private_a6f5f4021a335ff82b19cc9c5ed4d19a7}{src}
-\item 
-Q\+Geo\+Coordinate \hyperlink{class_app_model_private_a6ce8f938ce4197f9a2d1a5fdf90687d7}{coord}
-\item 
-Q\+String \hyperlink{class_app_model_private_a369e6197bd552c528a947c6e3ad3000e}{longitude}
-\item 
-Q\+String \hyperlink{class_app_model_private_a452f47a16e99adf64227449878d289a8}{latitude}
-\item 
-Q\+String \hyperlink{class_app_model_private_a9a1ea4d9c7b777128bb9180c0cb460a2}{city}
-\item 
-Q\+Network\+Access\+Manager $\ast$ \hyperlink{class_app_model_private_a1f605297f1e16880a2dd0ccbc7b8119f}{nam}
-\item 
-Q\+Network\+Session $\ast$ \hyperlink{class_app_model_private_a85e7bb4817c205ee9abb8fc03af9e7ef}{ns}
-\item 
 \hyperlink{class_weather_data}{Weather\+Data} \hyperlink{class_app_model_private_adacce6c96a2a7b0b825586a63a15bcac}{now}
-\item 
-Q\+List$<$ \hyperlink{class_weather_data}{Weather\+Data} $\ast$ $>$ \hyperlink{class_app_model_private_a4a0ab8ebb3742361ce643075cdb1baac}{forecast}
-\item 
-Q\+Qml\+List\+Property$<$ \hyperlink{class_weather_data}{Weather\+Data} $>$ $\ast$ \hyperlink{class_app_model_private_a2de18f475201900df044dffb35c64347}{fc\+Prop}
 \item 
 bool \hyperlink{class_app_model_private_ab0434f387adadf9ed65183496fe80f77}{ready}
 \item 
-bool \hyperlink{class_app_model_private_a7cb7a05c8aa13c53f2089c9d1859fa9c}{use\+Gps}
-\item 
-bool \hyperlink{class_app_model_private_a374b10db8a3d40b56cf11bca2a2e3406}{use\+Sensor}
-\item 
-Q\+Elapsed\+Timer \hyperlink{class_app_model_private_af7465b76b5114594317cfe0528911ccf}{throttle}
-\item 
-int \hyperlink{class_app_model_private_aca2424002aea4928103c0af419b0152f}{n\+Errors}
-\item 
-int \hyperlink{class_app_model_private_a94421ad102edc6fdac2187201fcc3511}{min\+Ms\+Before\+New\+Request}
-\item 
-Q\+Timer \hyperlink{class_app_model_private_aa42651b04c201eaa24ef5c86a67f4b42}{delayed\+City\+Request\+Timer}
-\item 
 Q\+Timer \hyperlink{class_app_model_private_ad073c8bcf6739fd658009860e12aa72c}{request\+New\+Weather\+Timer}
-\item 
-Q\+String \hyperlink{class_app_model_private_a5441fbeeb55ca91647be56e38105d690}{app\+\_\+ident}
-\end{DoxyCompactItemize}
-\subsection*{Static Public Attributes}
-\begin{DoxyCompactItemize}
-\item 
-static const int \hyperlink{class_app_model_private_a5552b8c0c8e1f50ea6fe10801272e526}{base\+Ms\+Before\+New\+Request} = 5 $\ast$ 1000
 \end{DoxyCompactItemize}
 
 
@@ -63,89 +36,11 @@ static const int \hyperlink{class_app_model_private_a5552b8c0c8e1f50ea6fe1080127
 
 
 \subsection{Member Data Documentation}
-\mbox{\Hypertarget{class_app_model_private_a5441fbeeb55ca91647be56e38105d690}\label{class_app_model_private_a5441fbeeb55ca91647be56e38105d690}} 
-\index{App\+Model\+Private@{App\+Model\+Private}!app\+\_\+ident@{app\+\_\+ident}}
-\index{app\+\_\+ident@{app\+\_\+ident}!App\+Model\+Private@{App\+Model\+Private}}
-\subsubsection{\texorpdfstring{app\+\_\+ident}{app\_ident}}
-{\footnotesize\ttfamily Q\+String App\+Model\+Private\+::app\+\_\+ident}
-
-\mbox{\Hypertarget{class_app_model_private_a5552b8c0c8e1f50ea6fe10801272e526}\label{class_app_model_private_a5552b8c0c8e1f50ea6fe10801272e526}} 
-\index{App\+Model\+Private@{App\+Model\+Private}!base\+Ms\+Before\+New\+Request@{base\+Ms\+Before\+New\+Request}}
-\index{base\+Ms\+Before\+New\+Request@{base\+Ms\+Before\+New\+Request}!App\+Model\+Private@{App\+Model\+Private}}
-\subsubsection{\texorpdfstring{base\+Ms\+Before\+New\+Request}{baseMsBeforeNewRequest}}
-{\footnotesize\ttfamily const int App\+Model\+Private\+::base\+Ms\+Before\+New\+Request = 5 $\ast$ 1000\hspace{0.3cm}{\ttfamily [static]}}
-
-\mbox{\Hypertarget{class_app_model_private_a9a1ea4d9c7b777128bb9180c0cb460a2}\label{class_app_model_private_a9a1ea4d9c7b777128bb9180c0cb460a2}} 
-\index{App\+Model\+Private@{App\+Model\+Private}!city@{city}}
-\index{city@{city}!App\+Model\+Private@{App\+Model\+Private}}
-\subsubsection{\texorpdfstring{city}{city}}
-{\footnotesize\ttfamily Q\+String App\+Model\+Private\+::city}
-
-\mbox{\Hypertarget{class_app_model_private_a6ce8f938ce4197f9a2d1a5fdf90687d7}\label{class_app_model_private_a6ce8f938ce4197f9a2d1a5fdf90687d7}} 
-\index{App\+Model\+Private@{App\+Model\+Private}!coord@{coord}}
-\index{coord@{coord}!App\+Model\+Private@{App\+Model\+Private}}
-\subsubsection{\texorpdfstring{coord}{coord}}
-{\footnotesize\ttfamily Q\+Geo\+Coordinate App\+Model\+Private\+::coord}
-
-\mbox{\Hypertarget{class_app_model_private_aa42651b04c201eaa24ef5c86a67f4b42}\label{class_app_model_private_aa42651b04c201eaa24ef5c86a67f4b42}} 
-\index{App\+Model\+Private@{App\+Model\+Private}!delayed\+City\+Request\+Timer@{delayed\+City\+Request\+Timer}}
-\index{delayed\+City\+Request\+Timer@{delayed\+City\+Request\+Timer}!App\+Model\+Private@{App\+Model\+Private}}
-\subsubsection{\texorpdfstring{delayed\+City\+Request\+Timer}{delayedCityRequestTimer}}
-{\footnotesize\ttfamily Q\+Timer App\+Model\+Private\+::delayed\+City\+Request\+Timer}
-
-\mbox{\Hypertarget{class_app_model_private_a2de18f475201900df044dffb35c64347}\label{class_app_model_private_a2de18f475201900df044dffb35c64347}} 
-\index{App\+Model\+Private@{App\+Model\+Private}!fc\+Prop@{fc\+Prop}}
-\index{fc\+Prop@{fc\+Prop}!App\+Model\+Private@{App\+Model\+Private}}
-\subsubsection{\texorpdfstring{fc\+Prop}{fcProp}}
-{\footnotesize\ttfamily Q\+Qml\+List\+Property$<$\hyperlink{class_weather_data}{Weather\+Data}$>$$\ast$ App\+Model\+Private\+::fc\+Prop}
-
-\mbox{\Hypertarget{class_app_model_private_a4a0ab8ebb3742361ce643075cdb1baac}\label{class_app_model_private_a4a0ab8ebb3742361ce643075cdb1baac}} 
-\index{App\+Model\+Private@{App\+Model\+Private}!forecast@{forecast}}
-\index{forecast@{forecast}!App\+Model\+Private@{App\+Model\+Private}}
-\subsubsection{\texorpdfstring{forecast}{forecast}}
-{\footnotesize\ttfamily Q\+List$<$\hyperlink{class_weather_data}{Weather\+Data}$\ast$$>$ App\+Model\+Private\+::forecast}
-
-\mbox{\Hypertarget{class_app_model_private_a452f47a16e99adf64227449878d289a8}\label{class_app_model_private_a452f47a16e99adf64227449878d289a8}} 
-\index{App\+Model\+Private@{App\+Model\+Private}!latitude@{latitude}}
-\index{latitude@{latitude}!App\+Model\+Private@{App\+Model\+Private}}
-\subsubsection{\texorpdfstring{latitude}{latitude}}
-{\footnotesize\ttfamily Q\+String App\+Model\+Private\+::latitude}
-
-\mbox{\Hypertarget{class_app_model_private_a369e6197bd552c528a947c6e3ad3000e}\label{class_app_model_private_a369e6197bd552c528a947c6e3ad3000e}} 
-\index{App\+Model\+Private@{App\+Model\+Private}!longitude@{longitude}}
-\index{longitude@{longitude}!App\+Model\+Private@{App\+Model\+Private}}
-\subsubsection{\texorpdfstring{longitude}{longitude}}
-{\footnotesize\ttfamily Q\+String App\+Model\+Private\+::longitude}
-
-\mbox{\Hypertarget{class_app_model_private_a94421ad102edc6fdac2187201fcc3511}\label{class_app_model_private_a94421ad102edc6fdac2187201fcc3511}} 
-\index{App\+Model\+Private@{App\+Model\+Private}!min\+Ms\+Before\+New\+Request@{min\+Ms\+Before\+New\+Request}}
-\index{min\+Ms\+Before\+New\+Request@{min\+Ms\+Before\+New\+Request}!App\+Model\+Private@{App\+Model\+Private}}
-\subsubsection{\texorpdfstring{min\+Ms\+Before\+New\+Request}{minMsBeforeNewRequest}}
-{\footnotesize\ttfamily int App\+Model\+Private\+::min\+Ms\+Before\+New\+Request}
-
-\mbox{\Hypertarget{class_app_model_private_a1f605297f1e16880a2dd0ccbc7b8119f}\label{class_app_model_private_a1f605297f1e16880a2dd0ccbc7b8119f}} 
-\index{App\+Model\+Private@{App\+Model\+Private}!nam@{nam}}
-\index{nam@{nam}!App\+Model\+Private@{App\+Model\+Private}}
-\subsubsection{\texorpdfstring{nam}{nam}}
-{\footnotesize\ttfamily Q\+Network\+Access\+Manager$\ast$ App\+Model\+Private\+::nam}
-
-\mbox{\Hypertarget{class_app_model_private_aca2424002aea4928103c0af419b0152f}\label{class_app_model_private_aca2424002aea4928103c0af419b0152f}} 
-\index{App\+Model\+Private@{App\+Model\+Private}!n\+Errors@{n\+Errors}}
-\index{n\+Errors@{n\+Errors}!App\+Model\+Private@{App\+Model\+Private}}
-\subsubsection{\texorpdfstring{n\+Errors}{nErrors}}
-{\footnotesize\ttfamily int App\+Model\+Private\+::n\+Errors}
-
 \mbox{\Hypertarget{class_app_model_private_adacce6c96a2a7b0b825586a63a15bcac}\label{class_app_model_private_adacce6c96a2a7b0b825586a63a15bcac}} 
 \index{App\+Model\+Private@{App\+Model\+Private}!now@{now}}
 \index{now@{now}!App\+Model\+Private@{App\+Model\+Private}}
 \subsubsection{\texorpdfstring{now}{now}}
 {\footnotesize\ttfamily \hyperlink{class_weather_data}{Weather\+Data} App\+Model\+Private\+::now}
-
-\mbox{\Hypertarget{class_app_model_private_a85e7bb4817c205ee9abb8fc03af9e7ef}\label{class_app_model_private_a85e7bb4817c205ee9abb8fc03af9e7ef}} 
-\index{App\+Model\+Private@{App\+Model\+Private}!ns@{ns}}
-\index{ns@{ns}!App\+Model\+Private@{App\+Model\+Private}}
-\subsubsection{\texorpdfstring{ns}{ns}}
-{\footnotesize\ttfamily Q\+Network\+Session$\ast$ App\+Model\+Private\+::ns}
 
 \mbox{\Hypertarget{class_app_model_private_ab0434f387adadf9ed65183496fe80f77}\label{class_app_model_private_ab0434f387adadf9ed65183496fe80f77}} 
 \index{App\+Model\+Private@{App\+Model\+Private}!ready@{ready}}
@@ -159,32 +54,8 @@ static const int \hyperlink{class_app_model_private_a5552b8c0c8e1f50ea6fe1080127
 \subsubsection{\texorpdfstring{request\+New\+Weather\+Timer}{requestNewWeatherTimer}}
 {\footnotesize\ttfamily Q\+Timer App\+Model\+Private\+::request\+New\+Weather\+Timer}
 
-\mbox{\Hypertarget{class_app_model_private_a6f5f4021a335ff82b19cc9c5ed4d19a7}\label{class_app_model_private_a6f5f4021a335ff82b19cc9c5ed4d19a7}} 
-\index{App\+Model\+Private@{App\+Model\+Private}!src@{src}}
-\index{src@{src}!App\+Model\+Private@{App\+Model\+Private}}
-\subsubsection{\texorpdfstring{src}{src}}
-{\footnotesize\ttfamily Q\+Geo\+Position\+Info\+Source$\ast$ App\+Model\+Private\+::src}
-
-\mbox{\Hypertarget{class_app_model_private_af7465b76b5114594317cfe0528911ccf}\label{class_app_model_private_af7465b76b5114594317cfe0528911ccf}} 
-\index{App\+Model\+Private@{App\+Model\+Private}!throttle@{throttle}}
-\index{throttle@{throttle}!App\+Model\+Private@{App\+Model\+Private}}
-\subsubsection{\texorpdfstring{throttle}{throttle}}
-{\footnotesize\ttfamily Q\+Elapsed\+Timer App\+Model\+Private\+::throttle}
-
-\mbox{\Hypertarget{class_app_model_private_a7cb7a05c8aa13c53f2089c9d1859fa9c}\label{class_app_model_private_a7cb7a05c8aa13c53f2089c9d1859fa9c}} 
-\index{App\+Model\+Private@{App\+Model\+Private}!use\+Gps@{use\+Gps}}
-\index{use\+Gps@{use\+Gps}!App\+Model\+Private@{App\+Model\+Private}}
-\subsubsection{\texorpdfstring{use\+Gps}{useGps}}
-{\footnotesize\ttfamily bool App\+Model\+Private\+::use\+Gps}
-
-\mbox{\Hypertarget{class_app_model_private_a374b10db8a3d40b56cf11bca2a2e3406}\label{class_app_model_private_a374b10db8a3d40b56cf11bca2a2e3406}} 
-\index{App\+Model\+Private@{App\+Model\+Private}!use\+Sensor@{use\+Sensor}}
-\index{use\+Sensor@{use\+Sensor}!App\+Model\+Private@{App\+Model\+Private}}
-\subsubsection{\texorpdfstring{use\+Sensor}{useSensor}}
-{\footnotesize\ttfamily bool App\+Model\+Private\+::use\+Sensor}
-
 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-/home/jerome/projects/\+Weather\+Checking\+Rpi/weathercheckingrpi/\hyperlink{appmodel_8cpp}{appmodel.\+cpp}\end{DoxyCompactItemize}
+\hyperlink{appmodel_8cpp}{appmodel.\+cpp}\end{DoxyCompactItemize}

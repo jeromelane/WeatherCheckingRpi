@@ -1,8 +1,11 @@
 var searchData=
 [
-  ['weather',['weather',['../class_app_model.html#a70a5bec8e359e4edbd16611efa96cf32',1,'AppModel']]],
-  ['weatherchanged',['weatherChanged',['../class_app_model.html#a83e61455ed5672333b0db45f3f86417c',1,'AppModel']]],
-  ['weatherdata',['WeatherData',['../class_weather_data.html#aae42655299392d3f90feec9911a2dd60',1,'WeatherData::WeatherData(QObject *parent=0)'],['../class_weather_data.html#a48baeaa6b2a77d2a5e008159188416e8',1,'WeatherData::WeatherData(const WeatherData &amp;other)']]],
-  ['weatherdescription',['weatherDescription',['../class_weather_data.html#a63a3528697c8681bd32d4d170ec91f76',1,'WeatherData']]],
-  ['weathericon',['weatherIcon',['../class_weather_data.html#a5baf2d9cc08741d7af4a07d61df95ee4',1,'WeatherData']]]
+  ['ready',['ready',['../class_app_model.html#a3917fdc3dd8c97715991d9fd1a23abcc',1,'AppModel']]],
+  ['readychanged',['readyChanged',['../class_app_model.html#a574c2bd6f5c92ac9268107f8399989cb',1,'AppModel']]],
+  ['refreshsensor',['refreshSensor',['../sensor_8c.html#adfc1360298a56db6aa43338408f523ba',1,'refreshSensor(struct bme280_dev *dev):&#160;sensor.c'],['../sensor_8h.html#adfc1360298a56db6aa43338408f523ba',1,'refreshSensor(struct bme280_dev *dev):&#160;sensor.c']]],
+  ['refreshweather',['refreshWeather',['../class_app_model.html#a37e1da9d028779f7f0fc908e4c04fa76',1,'AppModel']]],
+  ['removeallmetrics',['removeAllMetrics',['../class_db_manager.html#a64af0d562c9800c63fd98392d0e00cd8',1,'DbManager']]],
+  ['removedb',['removeDb',['../class_db_manager.html#a152a22868c32afd49431495b0ed97d28',1,'DbManager']]],
+  ['removemetric',['removeMetric',['../class_db_manager.html#ad6ef7d9cc1952d1ae9ad263df5715e71',1,'DbManager']]],
+  ['rounded',['rounded',['../class_metrics_average.html#a225a5cef622b47b5388fec11c7c50df3',1,'MetricsAverage::rounded()'],['../_metrics_average_8h.html#a66e7e3e2a1c559ad0cf86f730b9a5549',1,'rounded(float x):&#160;Zambretti.cpp'],['../_zambretti_8cpp.html#a66e7e3e2a1c559ad0cf86f730b9a5549',1,'rounded(float x):&#160;Zambretti.cpp']]]
 ];

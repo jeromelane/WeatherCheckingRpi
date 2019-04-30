@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>WeatherCheckingRpi project: /home/jerome/projects/WeatherCheckingRpi/weathercheckingrpi/appmodel.cpp File Reference</title>
+<title>weathercheckingrpi: appmodel.cpp File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -20,9 +20,12 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="weather-sunny.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">WeatherCheckingRpi project
+   <div id="projectname">weathercheckingrpi
+   &#160;<span id="projectnumber">1.1</span>
    </div>
+   <div id="projectbrief">Graphical interface displaying weather metrics.</div>
   </td>
  </tr>
  </tbody>
@@ -56,10 +59,6 @@ $(function() {
 </iframe>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="dir_ae246a62d6dc661fb2581d9bac748acd.html">weathercheckingrpi</a></li>  </ul>
-</div>
 </div><!-- top -->
 <div class="header">
   <div class="summary">
@@ -70,26 +69,32 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="appmodel_8h_source.html">appmodel.h</a>&quot;</code><br />
-<code>#include &lt;qgeopositioninfosource.h&gt;</code><br />
-<code>#include &lt;qgeosatelliteinfosource.h&gt;</code><br />
-<code>#include &lt;qnmeapositioninfosource.h&gt;</code><br />
-<code>#include &lt;qgeopositioninfo.h&gt;</code><br />
-<code>#include &lt;qnetworkconfigmanager.h&gt;</code><br />
-<code>#include &lt;qnetworksession.h&gt;</code><br />
 <code>#include &lt;QJsonDocument&gt;</code><br />
 <code>#include &lt;QJsonObject&gt;</code><br />
 <code>#include &lt;QJsonArray&gt;</code><br />
 <code>#include &lt;QStringList&gt;</code><br />
 <code>#include &lt;QTimer&gt;</code><br />
+<code>#include &lt;QFile&gt;</code><br />
 <code>#include &lt;QUrlQuery&gt;</code><br />
 <code>#include &lt;QElapsedTimer&gt;</code><br />
 <code>#include &lt;QLoggingCategory&gt;</code><br />
+<code>#include &lt;QDir&gt;</code><br />
+<code>#include &lt;QCoreApplication&gt;</code><br />
+<code>#include &quot;<a class="el" href="_zambretti_8h_source.html">zambretti/Zambretti.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_metrics_average_8h_source.html">sensor/MetricsAverage.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="sensor_8h_source.html">sensor/sensor.h</a>&quot;</code><br />
+<code>#include &lt;iostream&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for appmodel.cpp:</div>
 <div class="dyncontent">
-<div class="center"><img src="appmodel_8cpp__incl.png" border="0" usemap="#_2home_2jerome_2projects_2_weather_checking_rpi_2weathercheckingrpi_2appmodel_8cpp" alt=""/></div>
-<map name="_2home_2jerome_2projects_2_weather_checking_rpi_2weathercheckingrpi_2appmodel_8cpp" id="_2home_2jerome_2projects_2_weather_checking_rpi_2weathercheckingrpi_2appmodel_8cpp">
-<area shape="rect" id="node2" href="appmodel_8h.html" title="appmodel.h" alt="" coords="329,109,419,136"/>
+<div class="center"><img src="appmodel_8cpp__incl.png" border="0" usemap="#appmodel_8cpp" alt=""/></div>
+<map name="appmodel_8cpp" id="appmodel_8cpp">
+<area shape="rect" id="node2" href="appmodel_8h.html" title="appmodel.h" alt="" coords="322,80,411,107"/>
+<area shape="rect" id="node6" href="_metrics_average_8h.html" title="sensor/MetricsAverage.h" alt="" coords="405,155,571,181"/>
+<area shape="rect" id="node11" href="sensor_8h.html" title="sensor.h" alt="" coords="212,229,284,256"/>
+<area shape="rect" id="node16" href="_zambretti_8h.html" title="zambretti/Zambretti.h" alt="" coords="596,155,743,181"/>
+<area shape="rect" id="node12" href="bme280_8h.html" title="Sensor driver for BME280 sensor. " alt="" coords="209,304,287,331"/>
+<area shape="rect" id="node13" href="bme280__defs_8h.html" title="Sensor driver for BME280 sensor. " alt="" coords="193,379,303,405"/>
 </map>
 </div>
 </div><table class="memberdecls">
