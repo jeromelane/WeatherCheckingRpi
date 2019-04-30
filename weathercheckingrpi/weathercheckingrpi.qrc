@@ -34,8 +34,6 @@
         <file>img/icons/weather-unknown.png</file>
         <file>img/icons/weather-windy-rain.png</file>
         <file>img/icons/weather-windy.png</file>
-        <file>zambretti/temp/Zambretti.cpp</file>
-        <file>zambretti/temp/Zambretti.h</file>
         <file>zambretti/main.cpp</file>
     </qresource>
 </RCC>

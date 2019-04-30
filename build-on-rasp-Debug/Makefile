@@ -380,13 +380,12 @@ qrc_weathercheckingrpi.cpp: ../weathercheckingrpi/weathercheckingrpi.qrc \
 		../weathercheckingrpi/zambretti/Zambretti.h \
 		../weathercheckingrpi/zambretti/main.cpp \
 		../weathercheckingrpi/zambretti/Zambretti.cpp \
-		../weathercheckingrpi/zambretti/temp/Zambretti.h \
-		../weathercheckingrpi/zambretti/temp/Zambretti.cpp \
 		../weathercheckingrpi/appmodel.h \
 		../weathercheckingrpi/sensor/MetricsAverage.h \
 		../weathercheckingrpi/sensor/sensor.h \
 		../weathercheckingrpi/sensor/bme280.h \
 		../weathercheckingrpi/sensor/bme280_defs.h \
+		../weathercheckingrpi/zambretti/Zambretti.h \
 		../weathercheckingrpi/appmodel.h \
 		../weathercheckingrpi/sensor/MetricsAverage.h \
 		../weathercheckingrpi/sensor/sensor.h \
@@ -397,6 +396,7 @@ qrc_weathercheckingrpi.cpp: ../weathercheckingrpi/weathercheckingrpi.qrc \
 		../weathercheckingrpi/sensor/sensor.h \
 		../weathercheckingrpi/sensor/bme280.h \
 		../weathercheckingrpi/sensor/bme280_defs.h \
+		../weathercheckingrpi/zambretti/Zambretti.h \
 		../weathercheckingrpi/dbmanager/dbmanager.h \
 		../weathercheckingrpi/zambretti/Zambretti.h \
 		../weathercheckingrpi/zambretti/Zambretti.h
@@ -409,6 +409,7 @@ moc_appmodel.cpp: ../weathercheckingrpi/sensor/MetricsAverage.h \
 		../weathercheckingrpi/sensor/sensor.h \
 		../weathercheckingrpi/sensor/bme280.h \
 		../weathercheckingrpi/sensor/bme280_defs.h \
+		../weathercheckingrpi/zambretti/Zambretti.h \
 		../weathercheckingrpi/appmodel.h \
 		/usr/lib/arm-linux-gnueabihf/qt5/bin/moc
 	/usr/lib/arm-linux-gnueabihf/qt5/bin/moc $(DEFINES) -I/usr/lib/arm-linux-gnueabihf/qt5/mkspecs/linux-g++ -I/home/pi/Bureau/Dev/WeatherCheckingRpi/weathercheckingrpi -I/usr/include/arm-linux-gnueabihf/qt5 -I/usr/include/arm-linux-gnueabihf/qt5/QtQuick -I/usr/include/arm-linux-gnueabihf/qt5/QtGui -I/usr/include/arm-linux-gnueabihf/qt5/QtQml -I/usr/include/arm-linux-gnueabihf/qt5/QtNetwork -I/usr/include/arm-linux-gnueabihf/qt5/QtCore -I. -I/usr/include/c++/6 -I/usr/include/arm-linux-gnueabihf/c++/6 -I/usr/include/c++/6/backward -I/usr/lib/gcc/arm-linux-gnueabihf/6/include -I/usr/local/include -I/usr/lib/gcc/arm-linux-gnueabihf/6/include-fixed -I/usr/include/arm-linux-gnueabihf -I/usr/include ../weathercheckingrpi/appmodel.h -o moc_appmodel.cpp
@@ -429,7 +430,8 @@ main.o: ../weathercheckingrpi/main.cpp ../weathercheckingrpi/appmodel.h \
 		../weathercheckingrpi/sensor/MetricsAverage.h \
 		../weathercheckingrpi/sensor/sensor.h \
 		../weathercheckingrpi/sensor/bme280.h \
-		../weathercheckingrpi/sensor/bme280_defs.h
+		../weathercheckingrpi/sensor/bme280_defs.h \
+		../weathercheckingrpi/zambretti/Zambretti.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../weathercheckingrpi/main.cpp
 
 appmodel.o: ../weathercheckingrpi/appmodel.cpp ../weathercheckingrpi/appmodel.h \

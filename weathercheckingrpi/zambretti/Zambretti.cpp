@@ -50,7 +50,7 @@ void Zambretti::findZnumber()
     float pPsealevel;
     cPsealevel= cP*CorrectionFactor;
     pPsealevel=pP*CorrectionFactor;
-    float trend = (pPsealevel-cPsealevel)*6; //trend /h over 10min
+    float trend = (cPsealevel-pPsealevel)*6; //trend /h over 10min
     cout<<"la tendance est: "<< trend <<"Pa/hour"<<endl;
     if (trend>0){if (trend<30) {this->m_trend=1;}else{this->m_trend=2;}}
     else{if (trend>-30){this->m_trend=1;}else{this->m_trend=0;}};

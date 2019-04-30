@@ -15,7 +15,7 @@
 #include <QLoggingCategory>
 
 // add necessary includes here
-QT_FORWARD_DECLARE_CLASS(AppModelPrivate);
+//QT_FORWARD_DECLARE_CLASS(AppModelPrivate);
 
 class wcrpi : public QObject
 {
@@ -30,7 +30,6 @@ private slots:
     void cleanupTestCase();
     void test_case1();
     void test_case2();
-    void test_case3();
 
 };
 
@@ -64,17 +63,17 @@ void wcrpi::test_case1()
     }catch (char const* e) {
         cerr << e << endl;
     }
-    qDebug() << "Json doc: " << app->buildZambrettiQJsonDocument(zpathtable);
+    //qDebug() << "Json doc: " << app->buildZambrettiQJsonDocument(zpathtable);
     app->setZtable(app->buildZambrettiQJsonDocument(zpathtable));
-    QString strJson(app->ztable.toJson(QJsonDocument::Compact));
-    qDebug() << "str Json: " << strJson;
+    //QString strJson(app->ztable.toJson(QJsonDocument::Compact));
+    //qDebug() << "str Json: " << strJson;
     app->handleZambrettiNum(13);
     QVERIFY(app->weather()->weatherDescription() == "Fairly Fine , Showers likely");
 }
 
 void wcrpi::test_case2()
 {
-    QSKIP("skip measurement managment test");
+    //QSKIP("skip measurement managment test");
     AppModel *app;
     try{
         app = new AppModel();
@@ -103,27 +102,6 @@ void wcrpi::test_case2()
 
 }
 
-void wcrpi::test_case3()
-{
-    AppModel *app;
-    try{
-        app = new AppModel();
-    }catch (char const* e) {
-        cerr << e << endl;
-    }
-
-    struct bme280_dev dev;
-    MetricsAverage measurement(&dev);
-    app->measurement = measurement;
-    app->measurements = vector<struct data>();
-    for(int i =0; i < 2; i++) {
-        qDebug() << "measuring value " << i << endl;
-        app->refreshWeather();
-    }
-
-    struct data test = refreshSensor(measurement.getDev());
-    cout << "time:  " << test.currenttime << endl;
-}
 
 QTEST_MAIN(wcrpi)
 
