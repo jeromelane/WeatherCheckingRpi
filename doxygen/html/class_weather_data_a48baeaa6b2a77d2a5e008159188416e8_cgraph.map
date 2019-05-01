@@ -1,8 +1,0 @@
-<map id="WeatherData::WeatherData" name="WeatherData::WeatherData">
-<area shape="rect" id="node2" href="$class_weather_data.html#a5baf2d9cc08741d7af4a07d61df95ee4" title="WeatherData::weatherIcon" alt="" coords="257,5,436,32"/>
-<area shape="rect" id="node3" href="$class_weather_data.html#a63a3528697c8681bd32d4d170ec91f76" title="WeatherData::weatherDescription" alt="" coords="237,56,456,83"/>
-<area shape="rect" id="node4" href="$class_weather_data.html#a04b09d8065d64b62f1ad679b4493fc62" title="WeatherData::weatherTrend" alt="" coords="253,107,440,133"/>
-<area shape="rect" id="node5" href="$class_weather_data.html#a5a193e8410e3a146de59bab224cd88f0" title="WeatherData::temperature" alt="" coords="259,157,435,184"/>
-<area shape="rect" id="node6" href="$class_weather_data.html#af726e713890bd6d310fe4a718dd69c77" title="WeatherData::pressure" alt="" coords="268,208,425,235"/>
-<area shape="rect" id="node7" href="$class_weather_data.html#a0a83b2ee5398eaba062e3c6fe9264a3d" title="WeatherData::humidity" alt="" coords="269,259,425,285"/>
-</map>

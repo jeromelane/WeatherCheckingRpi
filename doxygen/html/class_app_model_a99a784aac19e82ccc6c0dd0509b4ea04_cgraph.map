@@ -1,7 +1,0 @@
-<map id="AppModel::handleZambrettiData" name="AppModel::handleZambrettiData">
-<area shape="rect" id="node2" href="$class_app_model.html#a91f558862aad6b2509f03e49b549270e" title="AppModel::manageMetricsAverage" alt="" coords="263,31,488,57"/>
-<area shape="rect" id="node6" href="$class_weather_data.html#afeefe6463c52698e2fc4c010d8d35dc2" title="WeatherData::setWeatherTrend" alt="" coords="272,81,479,108"/>
-<area shape="rect" id="node3" href="$class_app_model.html#aeb65a362d2a2875ed038dc1ae359a337" title="AppModel::getMeasurements" alt="" coords="783,5,975,32"/>
-<area shape="rect" id="node4" href="$class_app_model.html#ac60073d6c96f7471f7227be130033399" title="AppModel::printMeasurements" alt="" coords="536,56,735,83"/>
-<area shape="rect" id="node5" href="$class_app_model.html#a2bb0474a4f5f73ca23f9f72c97912192" title="AppModel::printMeasurement" alt="" coords="783,56,975,83"/>
-</map>

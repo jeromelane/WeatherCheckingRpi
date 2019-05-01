@@ -1,8 +1,0 @@
-<map id="AppModel::AppModel" name="AppModel::AppModel">
-<area shape="rect" id="node2" href="$class_app_model.html#a18bdf8b2328b6d64e2315b5e8027f07e" title="AppModel::setZambrettiQJson\lDocument" alt="" coords="200,63,399,104"/>
-<area shape="rect" id="node5" href="$class_app_model.html#a37e1da9d028779f7f0fc908e4c04fa76" title="AppModel::refreshWeather Access http://api.openweathermap.org/data/2.5/weather site to get a specific..." alt="" coords="211,129,388,155"/>
-<area shape="rect" id="node3" href="$class_app_model.html#a2e738230cd01012b529adadc3f7c4eae" title="AppModel::buildZambretti\lQJsonDocument" alt="" coords="461,5,631,47"/>
-<area shape="rect" id="node4" href="$class_app_model.html#a3917fdc3dd8c97715991d9fd1a23abcc" title="AppModel::ready" alt="" coords="486,71,606,98"/>
-<area shape="rect" id="node6" href="$class_app_model.html#a51e3556fa389b11c251a0a94f0a5655c" title="AppModel::measurevalue" alt="" coords="461,126,631,153"/>
-<area shape="rect" id="node7" href="$class_weather_data.html#afee514cbb8713059cf8d0602b33cadf5" title="WeatherData::setTemperature" alt="" coords="447,177,645,203"/>
-</map>
